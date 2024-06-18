@@ -1,0 +1,778 @@
+[
+  {
+    "id": 144,
+    "text": "Other",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#F44E3B",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 145,
+    "text": "poor",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#73D8FF",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 146,
+    "text": "middle class",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#73D8FF",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 147,
+    "text": "upper class",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#73D8FF",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 148,
+    "text": "heirs",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#73D8FF",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 149,
+    "text": "investors and stakeholders",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#73D8FF",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 150,
+    "text": "underprivileged",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#73D8FF",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 151,
+    "text": "qualified",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#73D8FF",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 152,
+    "text": "working active population",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#FDA1FF",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 153,
+    "text": "employees",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#FDA1FF",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 154,
+    "text": "precarious employees",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#FDA1FF",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 155,
+    "text": "people working in the public sector",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#FDA1FF",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 156,
+    "text": "employers",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#FDA1FF",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 157,
+    "text": "self-employed/freelancers",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#FDA1FF",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 158,
+    "text": "seniors",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#FDA1FF",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 159,
+    "text": "unemployed",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#FDA1FF",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 160,
+    "text": "housewife and househusband",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#FDA1FF",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 161,
+    "text": "people without public social protection",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#FDA1FF",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 162,
+    "text": "insured persons",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#FDA1FF",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 163,
+    "text": "enterprises",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#FCDC00",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 164,
+    "text": "small- and middle-size enterprises",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#FCDC00",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 165,
+    "text": "large enterprises",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#FCDC00",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 166,
+    "text": "specific sector",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#FCDC00",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 167,
+    "text": "men",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#A4DD00",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 168,
+    "text": "women",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#A4DD00",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 169,
+    "text": "minors",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#A4DD00",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 170,
+    "text": "youth",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#A4DD00",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 171,
+    "text": "middle-aged",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#A4DD00",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 172,
+    "text": "parents and families",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#A4DD00",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 173,
+    "text": "older age group",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#A4DD00",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 174,
+    "text": "elderly",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#A4DD00",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 175,
+    "text": "couples",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#A4DD00",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 176,
+    "text": "singles",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#A4DD00",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 177,
+    "text": "binationals",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#AEA1FF",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 178,
+    "text": "disabled",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#AEA1FF",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 179,
+    "text": "immigrants",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#AEA1FF",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 180,
+    "text": "ethnic Germans",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#AEA1FF",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 181,
+    "text": "language and ethnic minorities",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#AEA1FF",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 182,
+    "text": "visible minorities",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#AEA1FF",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 183,
+    "text": "religious groups",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#AEA1FF",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 184,
+    "text": "christians",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#AEA1FF",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 185,
+    "text": "religious minorities",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#AEA1FF",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 186,
+    "text": "jews",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#AEA1FF",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 187,
+    "text": "muslims",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#AEA1FF",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 188,
+    "text": "LGBTQI*",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#AEA1FF",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 189,
+    "text": "home owner",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#194D33",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 190,
+    "text": "land owner",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#194D33",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 191,
+    "text": "landlords",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#194D33",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 192,
+    "text": "tenants",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#194D33",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 193,
+    "text": "homeless",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#194D33",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 194,
+    "text": "farmers and fishermen",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#D33115",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 195,
+    "text": "health and care professionals",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#D33115",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 196,
+    "text": "doctors",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#D33115",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 197,
+    "text": "social professions",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#D33115",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 198,
+    "text": "teachers and educators",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#D33115",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 199,
+    "text": "scientists",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#D33115",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 200,
+    "text": "engineers",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#D33115",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 201,
+    "text": "journalists",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#D33115",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 202,
+    "text": "legal professionals",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#D33115",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 203,
+    "text": "security forces",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#D33115",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 204,
+    "text": "soldiers",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#D33115",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 205,
+    "text": "politicians and high-ranking officials",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#D33115",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 206,
+    "text": "prostitutes",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#D33115",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 207,
+    "text": "road carriers",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#D33115",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 208,
+    "text": "lobbyists",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#D33115",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 209,
+    "text": "leaders",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#D33115",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 210,
+    "text": "athletes",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#D33115",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 211,
+    "text": "authors and artists",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#D33115",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 212,
+    "text": "East Germans",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#0062B1",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 213,
+    "text": "West Germans",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#0062B1",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 214,
+    "text": "inhabitants of cities",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#0062B1",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 215,
+    "text": "inhabitants of rural or underserved areas",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#0062B1",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 216,
+    "text": "inhabitants of underprivileged areas",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#0062B1",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 217,
+    "text": "inhabitants of overseas",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#0062B1",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 218,
+    "text": "inhabitants of other areas",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#0062B1",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 219,
+    "text": "expatriates",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#0062B1",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 220,
+    "text": "consumers",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#653294",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 221,
+    "text": "air travellers",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#653294",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 222,
+    "text": "car drivers",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#653294",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 223,
+    "text": "cyclists",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#653294",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 224,
+    "text": "pedestrians",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#653294",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 225,
+    "text": "public transport passengers",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#653294",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 226,
+    "text": "commuters",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#653294",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 227,
+    "text": "drug addicts",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#653294",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 228,
+    "text": "smokers",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#653294",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 229,
+    "text": "whistle-blower and witnesses",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#653294",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 230,
+    "text": "offenders or criminals",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#653294",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 231,
+    "text": "tax evaders and white collar criminals",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#653294",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 232,
+    "text": "terrorists",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#653294",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 233,
+    "text": "extremists",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#653294",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 234,
+    "text": "volunteers",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#653294",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 235,
+    "text": "hunters",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#653294",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 236,
+    "text": "gun owners",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#653294",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 237,
+    "text": "patients",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#F44E3B",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 238,
+    "text": "tax payers",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#F44E3B",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 239,
+    "text": "victims of German history",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#F44E3B",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 240,
+    "text": "victims of crimes",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#F44E3B",
+    "textColor": "#ffffff"
+  }
+]
