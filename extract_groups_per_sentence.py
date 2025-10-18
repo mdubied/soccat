@@ -14,5 +14,5 @@ def transform_jsonl(input_file, output_file):
 
 # Example usage:
 input_file = 'specific_classification_doccano_german.jsonl'
-output_file = 'groups_per_sentence_G_lowest_level.jsonl'
+output_file = 'group_per_sentence/groups_per_sentence_G_lowest_level.jsonl'
 transform_jsonl(input_file, output_file)

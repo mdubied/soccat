@@ -38,7 +38,7 @@ mappings_to_highest_level = {
     "disabled": "Minorities and identities",
     "immigrants": "Minorities and identities",
     "ethnic Germans": "Minorities and identities",
-    "language or ethnic minorities": "Minorities and identities",
+    "language and ethnic minorities": "Minorities and identities",
     "visible minorities": "Minorities and identities",
     "religious groups": "Minorities and identities",
     "christians": "Minorities and identities",
@@ -99,7 +99,8 @@ mappings_to_highest_level = {
     "victims of German history": "Others",
     "victims of crimes": "Others",
     "others": "Others",
-    "Others": "Others"
+    "Others": "Others",
+    "Other": "Others"
 }
 
 
@@ -140,7 +141,7 @@ mappings_to_intermediary_level = {
     "disabled": "disabled",
     "immigrants": "immigrants",
     "ethnic Germans": "ethnic Germans",
-    "language or ethnic minorities": "language or ethnic minorities",
+    "language and ethnic minorities": "language and ethnic minorities",
     "visible minorities": "visible minorities",
     "religious groups": "religious groups",
     "christians": "religious groups",
@@ -201,7 +202,8 @@ mappings_to_intermediary_level = {
     "victims of German history": "victims of German history",
     "victims of crimes": "victims of crimes",
     "others": "others",
-    "Others": "Others"
+    "Others": "Others",
+    "Other": "Others"
 }
 
 
@@ -220,15 +222,15 @@ def transform_jsonl(input_file, output_file, mappings):
             outfile.write(json.dumps(transformed_data, ensure_ascii=False) + '\n')
 
 # Define files
-input_file = 'groups_per_sentence_G_lowest_level.jsonl'  
-output_file = 'groups_per_sentence_G_highest_level.jsonl'
+input_file = 'group_per_sentence/groups_per_sentence_FG_lowest_level.jsonl'  
+output_file = 'group_per_sentence/groups_per_sentence_FG_highest_level.jsonl'
 
 # Transform file
 transform_jsonl(input_file, output_file, mappings_to_highest_level)
 
 # Define files
-input_file = 'groups_per_sentence_G_lowest_level.jsonl'  
-output_file = 'groups_per_sentence_G_intermediary_level.jsonl'
+input_file = 'group_per_sentence/groups_per_sentence_FG_lowest_level.jsonl'  
+output_file = 'group_per_sentence/groups_per_sentence_FG_intermediary_level.jsonl'
 
 # Transform file
 transform_jsonl(input_file, output_file, mappings_to_intermediary_level)
