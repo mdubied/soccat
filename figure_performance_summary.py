@@ -15,17 +15,47 @@ from matplotlib.backends.backend_pdf import PdfPages
 # =======================
 # PARAMETERS (edit here)
 # =======================
-INPUT_FILE   = "data/model_performance/all_cat_box_plot.csv"
-# INPUT_FILE   = "data/model_performance/broad_cat_mean_ci.csv"
-OUTPUT_DIR   = "figures/performance_summary/all_cat_box_plot"
-# OUTPUT_DIR   = "figures/performance_summary/broad_cat_mean_ci"
-OUTPUT_BASE_NAME = "perf_all_cat_box_plot"
+SETUP_NAME = "all_cat_mean_ci"
+# SETUP_NAME   = "all_cat_box_plot"
+SETUP_NAME = "cat_per_broad_cat_box_plot"
+# SETUP_NAME   = "broad_cat_mean_ci"
+
+
+# Setup-specific paths
+if SETUP_NAME == "all_cat_mean_ci":
+    INPUT_FILE   = "data/model_performance/all_cat_mean_ci.csv"
+    OUTPUT_DIR   = "figures/performance_summary/all_cat_mean_ci"
+    OUTPUT_BASE_NAME = "perf_all_cat_mean_ci"
+    NAME_CAT = "hypothesis_label"
+    BOX_PLOT    = False
+elif SETUP_NAME == "all_cat_box_plot":
+    INPUT_FILE   = "data/model_performance/all_cat_box_plot.csv"
+    OUTPUT_DIR   = "figures/performance_summary/all_cat_box_plot"
+    OUTPUT_BASE_NAME = "perf_all_cat_box_plot"
+    NAME_CAT = "hypothesis_label"
+    BOX_PLOT    = True
+elif SETUP_NAME == "cat_per_broad_cat_box_plot":
+    BROAD_CAT = "social_rules_wo_volunteers"
+    INPUT_FILE   = f"data/model_performance/{BROAD_CAT}_per_fold.csv"
+    OUTPUT_DIR   = f"figures/performance_summary/cat_per_broad_cat_box_plot"
+    OUTPUT_BASE_NAME = f"{BROAD_CAT}_box_plot"
+    NAME_CAT = "hypothesis_label"
+    BOX_PLOT    = True
+elif SETUP_NAME == "broad_cat_mean_ci":
+    INPUT_FILE   = "data/model_performance/broad_cat_mean_ci.csv"
+    OUTPUT_DIR   = "figures/performance_summary/broad_cat_mean_ci"
+    OUTPUT_BASE_NAME = "perf_broad_cat_mean_ci"
+    NAME_CAT = "model"
+    BOX_PLOT    = False
+else:
+    raise ValueError(f"Unknown SETUP_NAME: {SETUP_NAME}")
+
+# Performance metrics to plot
 METRICS      = ["accuracy", "precision_binary", "recall_binary", "f1_binary"]
 # METRICS      = ["accuracy", "precision_micro", "recall_micro", "f1_micro"]
 # METRICS      = ["accuracy", "precision_binary", "recall_binary", "f1_macro"] 
-NAME_CAT = "hypothesis_label"
-# NAME_CAT = "model"
-BOX_PLOT    = True        # True -> box plots; False -> mean + 95% CI error bars
+
+# Figure parameters        # True -> box plots; False -> mean + 95% CI error bars
 N_RUNS       = 5            # for 95% CI
 FIG_WIDTH_CM = 26.0         # total figure width
 MAX_H_CM     = 12.0         # max height per page "block"
@@ -136,8 +166,11 @@ def plot_page(axs, page_df, wrapped_labels, box_plot=False, label_col="hypothesi
 
         # --- common styling ---
         ax.set_xlim(0, 1)
-        ax.set_xticks([0.25, 0.5, 0.75])
+        ax.set_xticks([0, 0.5, 1])
+        ax.set_xticklabels(["0", "0.5", "1"])
+        ax.set_xticks([0.25, 0.75], minor=True)
         ax.grid(axis="x", linestyle="--", alpha=0.4)
+        ax.grid(axis="x", which="minor", linestyle="--", alpha=0.4)
         ax.set_title(metric.capitalize())
 
         if i == 0:
