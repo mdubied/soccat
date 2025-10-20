@@ -15,12 +15,14 @@ from matplotlib.backends.backend_pdf import PdfPages
 # =======================
 # PARAMETERS (edit here)
 # =======================
-INPUT_FILE   = "data/performance_all_sublabel_means_with_stats.csv"
-OUTPUT_DIR   = "figures/performance_summary"
-METRICS      = ["accuracy", "precision", "recall", "f1"]
+INPUT_FILE   = "data/model_performance/all_cat_mean_ci.csv"
+OUTPUT_DIR   = "figures/performance_summary/all_cat_mean_ci"
+METRICS      = ["accuracy", "precision_binary", "recall_binary", "f1_binary"]
+# METRICS      = ["accuracy", "precision_micro", "recall_micro", "f1_micro"]
+# METRICS      = ["accuracy", "precision_binary", "recall_binary", "f1_macro"]
 N_RUNS       = 5            # for 95% CI
 FIG_WIDTH_CM = 26.0         # total figure width
-MAX_H_CM     = 16.0         # max height per page "block"
+MAX_H_CM     = 12.0         # max height per page "block"
 ROW_H_IN     = 0.35         # height per row (inches)
 WRAP_CHARS   = 40           # initial wrap width (characters)
 DEBUG        = False        # True -> print diagnostics
@@ -63,6 +65,7 @@ def plot_page(axs, page_df, wrapped_labels):
             elinewidth=1, capsize=2, markersize=4,
         )
         ax.set_xlim(0, 1)
+        ax.set_xticks([0.25, 0.5, 0.75])
         ax.grid(axis="x", linestyle="--", alpha=0.4)
         ax.set_title(metric.capitalize())
         # no bottom x-axis label; title above is enough
@@ -114,7 +117,7 @@ df = compute_ci95(df, N_RUNS)
 
 # ---- Global sort by F1 mean (descending), NaNs last, stable ----
 # Create a sort key to handle NaNs consistently, then stable mergesort
-f1_key = df["f1_mean"].replace([np.inf, -np.inf], np.nan)
+f1_key = df[f"{METRICS[3]}_mean"].replace([np.inf, -np.inf], np.nan)
 df["_f1_sort_key"] = f1_key
 df = (
     df.sort_values("_f1_sort_key", ascending=False, kind="mergesort")
