@@ -15,11 +15,16 @@ from matplotlib.backends.backend_pdf import PdfPages
 # =======================
 # PARAMETERS (edit here)
 # =======================
-INPUT_FILE   = "data/model_performance/all_cat_mean_ci.csv"
+# INPUT_FILE   = "data/model_performance/all_cat_mean_ci.csv"
+INPUT_FILE   = "data/model_performance/broad_cat_mean_ci.csv"
 OUTPUT_DIR   = "figures/performance_summary/all_cat_mean_ci"
+OUTPUT_DIR   = "figures/performance_summary/broad_cat_mean_ci"
+OUTPUT_BASE_NAME = "perf_broad_cat_mean_ci"
 METRICS      = ["accuracy", "precision_binary", "recall_binary", "f1_binary"]
 # METRICS      = ["accuracy", "precision_micro", "recall_micro", "f1_micro"]
 # METRICS      = ["accuracy", "precision_binary", "recall_binary", "f1_macro"]
+# NAME_CAT = NAME_CAT  
+NAME_CAT = "model"
 N_RUNS       = 5            # for 95% CI
 FIG_WIDTH_CM = 26.0         # total figure width
 MAX_H_CM     = 12.0         # max height per page "block"
@@ -105,12 +110,12 @@ def longest_label_info(labels):
 # =======================
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 df = pd.read_csv(INPUT_FILE)
-if "hypothesis_label" not in df.columns:
+if NAME_CAT not in df.columns:
     cand = next((c for c in df.columns if "label" in c.lower()), None)
     if cand:
-        df = df.rename(columns={cand: "hypothesis_label"})
+        df = df.rename(columns={cand: NAME_CAT})
     else:
-        raise ValueError("Expected 'hypothesis_label' in the input CSV.")
+        raise ValueError(f"Expected '{NAME_CAT}' in the input CSV.")
 
 # Compute CI
 df = compute_ci95(df, N_RUNS)
@@ -131,11 +136,11 @@ if DEBUG:
     print(f"[INFO] Total rows={len(df)}, rows/page≈{rows_per_page}, pages={len(pages)}")
 
 # Combined multipage PDF
-combined_pdf_path = os.path.join(OUTPUT_DIR, "performance_all_metrics.pdf")
+combined_pdf_path = os.path.join(OUTPUT_DIR, f"{OUTPUT_BASE_NAME}.pdf")
 with PdfPages(combined_pdf_path) as combined_pdf:
     for i, page_df in enumerate(pages, start=1):
         wrap_w = WRAP_CHARS
-        wrapped = wrap_labels(page_df["hypothesis_label"], wrap_w)
+        wrapped = wrap_labels(page_df[NAME_CAT], wrap_w)
         fig_h_in = min(max_h_in, max(3.0, len(page_df) * ROW_H_IN))
 
         # iterative: wrap → measure → adjust; up to 3 passes
@@ -163,12 +168,12 @@ with PdfPages(combined_pdf_path) as combined_pdf:
             if re_left_frac > left_frac + 0.02 and attempt < 3:
                 plt.close(fig)
                 wrap_w = max(20, int(wrap_w * 0.85))  # wrap more aggressively
-                wrapped = wrap_labels(page_df["hypothesis_label"], wrap_w)
+                wrapped = wrap_labels(page_df[NAME_CAT], wrap_w)
                 continue
 
             # Save per-page PDF & PNG
-            page_pdf = os.path.join(OUTPUT_DIR, f"performance_all_metrics_page{i:02d}.pdf")
-            page_png = os.path.join(OUTPUT_DIR, f"performance_all_metrics_page{i:02d}.png")
+            page_pdf = os.path.join(OUTPUT_DIR, f"{OUTPUT_BASE_NAME}_page{i:02d}.pdf")
+            page_png = os.path.join(OUTPUT_DIR, f"{OUTPUT_BASE_NAME}_page{i:02d}.png")
             fig.savefig(page_pdf)           # separate PDF (this page)
             fig.savefig(page_png, dpi=300)  # PNG
             # Also add to combined multipage PDF
