@@ -4,18 +4,17 @@
 # - Best entries appear at the TOP of each page (invert y-axis).
 # - Long labels wrapped and measured to allocate left margin (no clipping).
 # - No bottom x-axis labels; no overarching left ylabel.
-# - Outputs: combined multipage PDF + separate per-page PDFs + PNGs.
 
 import os, math, textwrap
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-from matplotlib.backends.backend_pdf import PdfPages
+import matplotlib.gridspec as gridspec
 
-# =======================
+# ============================================================
 # PARAMETERS (edit here)
-# =======================
-SETUP_NAME = "all_cat_mean_ci"
+# ============================================================
+# SETUP_NAME = "all_cat_mean_ci"
 # SETUP_NAME   = "all_cat_box_plot"
 SETUP_NAME = "cat_per_broad_cat_box_plot"
 # SETUP_NAME   = "broad_cat_mean_ci"
@@ -35,7 +34,7 @@ elif SETUP_NAME == "all_cat_box_plot":
     NAME_CAT = "hypothesis_label"
     BOX_PLOT    = True
 elif SETUP_NAME == "cat_per_broad_cat_box_plot":
-    BROAD_CAT = "social_rules_wo_volunteers"
+    BROAD_CAT = "business_activity"
     INPUT_FILE   = f"data/model_performance/{BROAD_CAT}_per_fold.csv"
     OUTPUT_DIR   = f"figures/performance_summary/cat_per_broad_cat_box_plot"
     OUTPUT_BASE_NAME = f"{BROAD_CAT}_box_plot"
@@ -54,23 +53,55 @@ else:
 METRICS      = ["accuracy", "precision_binary", "recall_binary", "f1_binary"]
 # METRICS      = ["accuracy", "precision_micro", "recall_micro", "f1_micro"]
 # METRICS      = ["accuracy", "precision_binary", "recall_binary", "f1_macro"] 
+METRIC_TITLE_MAP = {
+    "accuracy": "Accuracy",
+    "precision_binary": "Precision",
+    "recall_binary": "Recall",
+    "f1_binary": "F1 Score",
+}
 
-# Figure parameters        # True -> box plots; False -> mean + 95% CI error bars
-N_RUNS       = 5            # for 95% CI
-FIG_WIDTH_CM = 26.0         # total figure width
-MAX_H_CM     = 12.0         # max height per page "block"
-ROW_H_IN     = 0.35         # height per row (inches)
-WRAP_CHARS   = 40           # initial wrap width (characters)
-DEBUG        = False        # True -> print diagnostics
+# Optional renaming of entries for display
+RENAME_DICT = {
+    "entrepreneurs in [specific] sector": "entrepreneurs in specific sector",
+}
 
-# Fonts 12/10
+
+# Figure parameters
+N_RUNS          = 5      # for 95% CI
+FIG_WIDTH_CM    = 14.0   # total figure width
+WRAP_CHARS      = 28     # initial wrap width (characters)
+LBL_WIDTH_FRAC  = 0.25   # Fixed fraction of figure width for labels (instead of measuring)
+ROW_HEIGHT_CM   = 0.6    # Vertical height per row (cm)
+TOP_MARGIN_CM   = 0.5    # Reserved vertical space for titles + x-axis annotation (cm)
+BOTTOM_MARGIN_CM= 0.5    # Reserved vertical space for x-axis annotation (cm)
+
+# Convert cm to inches, assign to variables
+cm = 1/2.54
+fig_w_in = FIG_WIDTH_CM * cm
+ROW_HEIGHT_IN = ROW_HEIGHT_CM * cm
+TOP_MARGIN_IN = TOP_MARGIN_CM * cm
+BOTTOM_MARGIN_IN = BOTTOM_MARGIN_CM * cm
+wrap_w = WRAP_CHARS
+
 plt.rcParams.update({
-    "font.size": 10,
-    "axes.labelsize": 12,
-    "axes.titlesize": 12,
-    "xtick.labelsize": 10,
-    "ytick.labelsize": 10,
+    "text.usetex": True,
+    "font.family": "sans-serif",
+    "font.sans-serif": ["Latin Modern Sans"],  # or "cmss"
+    "font.size": 8,
+    "axes.labelsize": 8,
+    "axes.titlesize": 8,
+    "xtick.labelsize": 8,
+    "ytick.labelsize": 8,
+    "text.latex.preamble": r"""
+        \usepackage[T1]{fontenc}
+        \usepackage{lmodern}
+        \renewcommand{\familydefault}{\sfdefault}
+    """,
 })
+
+# ============================================================
+# HELPER FUNCTIONS
+# ============================================================
 
 def wrap_labels(labels, width_chars=40):
     return ["\n".join(textwrap.wrap(str(lbl), width_chars)) for lbl in labels]
@@ -82,41 +113,7 @@ def compute_ci95(df, n_runs):
         df[f"{m}_ci"] = 1.96 * df[f"{m}_std"] / np.sqrt(n_runs)
     return df
 
-def paginate(df, fig_width_cm, max_h_cm, row_h_in, box_plot=False, label_col=None):
-    """
-    Returns: (pages, fig_w_in, max_h_in, rows_per_page)
-    - If box_plot=False: pages is a list of DataFrames (row-sliced as before).
-    - If box_plot=True:  pages is a list of tuples (page_df_subset, raw_labels_for_page),
-      where each page contains all rows for a subset of UNIQUE labels, preserving order.
-    """
-    cm = 1/2.54
-    fig_w_in = fig_width_cm * cm
-    max_h_in = max_h_cm * cm
-    rows_per_page = max(1, int(math.floor(max_h_in / row_h_in)))
-
-    if not box_plot:
-        pages = [df.iloc[s:s+rows_per_page].copy()
-                 for s in range(0, len(df), rows_per_page)]
-        return pages, fig_w_in, max_h_in, rows_per_page
-
-    # box_plot=True:
-    if label_col is None or label_col not in df.columns:
-        raise ValueError("paginate(...): set box_plot=True and provide label_col present in df.")
-    unique_labels = df[label_col].drop_duplicates().tolist()
-
-    pages = []
-    for s in range(0, len(unique_labels), rows_per_page):
-        page_labels = unique_labels[s:s+rows_per_page]
-        subset = df[df[label_col].isin(page_labels)].copy()
-        # keep the label order stable as in page_labels
-        subset[label_col] = pd.Categorical(subset[label_col], categories=page_labels, ordered=True)
-        subset = subset.sort_values(label_col, kind="mergesort")
-        pages.append((subset, page_labels))
-    return pages, fig_w_in, max_h_in, rows_per_page
-
-
-def plot_page(axs, page_df, wrapped_labels, box_plot=False, label_col="hypothesis_label", raw_labels=None):
-    import numpy as np
+def plot_data(axs, page_df, wrapped_labels, box_plot=False, label_col="hypothesis_label", raw_labels=None):
 
     for i, metric in enumerate(METRICS):
         ax = axs[i]
@@ -133,11 +130,6 @@ def plot_page(axs, page_df, wrapped_labels, box_plot=False, label_col="hypothesi
             y_for_ticks = y
             shown_wrapped = wrapped_labels
         else:
-            if raw_labels is None:
-                raise ValueError("plot_page(...): pass raw_labels (unique labels for this page) when box_plot=True.")
-            if label_col not in page_df.columns:
-                raise KeyError(f"'{label_col}' not in page_df columns.")
-
             # Build one box per unique label (aggregate folds)
             data = []
             for lbl in raw_labels:
@@ -151,7 +143,7 @@ def plot_page(axs, page_df, wrapped_labels, box_plot=False, label_col="hypothesi
                 data,
                 vert=False,
                 positions=y,
-                widths=0.6,
+                widths=0.8,
                 patch_artist=True,
                 boxprops=dict(facecolor="lightgray", color="black"),
                 medianprops=dict(color="black", linewidth=1.2),
@@ -171,7 +163,7 @@ def plot_page(axs, page_df, wrapped_labels, box_plot=False, label_col="hypothesi
         ax.set_xticks([0.25, 0.75], minor=True)
         ax.grid(axis="x", linestyle="--", alpha=0.4)
         ax.grid(axis="x", which="minor", linestyle="--", alpha=0.4)
-        ax.set_title(metric.capitalize())
+        ax.set_title(METRIC_TITLE_MAP.get(metric, metric.capitalize()))
 
         if i == 0:
             ax.set_yticks(y_for_ticks)
@@ -180,53 +172,28 @@ def plot_page(axs, page_df, wrapped_labels, box_plot=False, label_col="hypothesi
         else:
             ax.tick_params(axis="y", which="both", labelleft=False)
 
-def measure_left_label_width_in(fig, ax_with_labels):
-    """Measure widest yticklabel in inches after draw."""
-    fig.canvas.draw()
-    texts = ax_with_labels.get_yticklabels()
-    if not texts:
-        return 0.8
-    renderer = fig.canvas.get_renderer()
-    max_px = max((t.get_window_extent(renderer=renderer).width for t in texts), default=0)
-    return max_px / fig.dpi  # inches
-
-def longest_label_info(labels):
-    max_len = 0
-    max_label = ""
-    for l in labels:
-        L = len(l.replace("\n", ""))
-        if L > max_len:
-            max_len = L
-            max_label = l
-    longest_line_len = max((len(line) for line in max_label.split("\n")), default=0)
-    return max_label, max_len, longest_line_len
-
-# =======================
+# ============================================================
 # MAIN
-# =======================
+# ============================================================
+
+# Load data
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 df = pd.read_csv(INPUT_FILE)
-if NAME_CAT not in df.columns:
-    cand = next((c for c in df.columns if "label" in c.lower()), None)
-    if cand:
-        df = df.rename(columns={cand: NAME_CAT})
-    else:
-        raise ValueError(f"Expected '{NAME_CAT}' in the input CSV.")
+assert NAME_CAT in df.columns, f"Missing '{NAME_CAT}' column in CSV."
+df[NAME_CAT] = df[NAME_CAT].replace(RENAME_DICT)
 
 # Compute CI
 if BOX_PLOT==False:
     df = compute_ci95(df, N_RUNS)
 
-# ---- Global sort (descending), NaNs last, stable ----
+# Global sorting according to F1 mean score
 if not BOX_PLOT:
-    # same as before: row-level (already aggregated) sort
     f1_key = df[f"{METRICS[3]}_mean"].replace([np.inf, -np.inf], np.nan)
     df["_sort_key"] = f1_key
     df = (df.sort_values("_sort_key", ascending=False, kind="mergesort")
             .drop(columns=["_sort_key"])
             .reset_index(drop=True))
 else:
-    # BOX PLOT: sort by per-label mean (across folds), then apply that order to all rows
     sort_metric = METRICS[3]  # e.g., "f1_binary"
     tmp = df[[NAME_CAT, sort_metric]].copy()
     tmp[sort_metric] = tmp[sort_metric].replace([np.inf, -np.inf], np.nan)
@@ -240,62 +207,55 @@ else:
                                   categories=labels_order, ordered=True)
     df = df.sort_values(NAME_CAT, kind="mergesort").reset_index(drop=True)
 
+# Prepare data labeling
+unique_labels = df[NAME_CAT].drop_duplicates().tolist()
+n_rows = len(unique_labels)
+data_to_plot = (df.sort_values(NAME_CAT, kind="mergesort"), unique_labels)
 
-# Paginate AFTER global sort
-pages, fig_w_in, max_h_in, rows_per_page = paginate(
-    df, FIG_WIDTH_CM, MAX_H_CM, ROW_H_IN, box_plot=BOX_PLOT, label_col=NAME_CAT
+
+if BOX_PLOT:
+    df_plot, raw_labels = data_to_plot
+    wrapped = wrap_labels(raw_labels, wrap_w)
+    wrapped = [
+        "\n".join(
+            (lines[0][0].upper() + lines[0][1:]) if idx == 0 and lines[0] else line
+            for idx, line in enumerate(lines)
+        )
+        for lines in [lbl.split("\n") for lbl in wrapped]
+    ]
+
+else:
+    df_plot = data_to_plot
+    wrapped = wrap_labels(df_plot[NAME_CAT], wrap_w)
+    wrapped = [
+        "\n".join(
+            (lines[0][0].upper() + lines[0][1:]) if idx == 0 and lines[0] else line
+            for idx, line in enumerate(lines)
+        )
+        for lines in [lbl.split("\n") for lbl in wrapped]
+    ]
+
+    
+# Plot figure
+fig_h_in = TOP_MARGIN_IN + BOTTOM_MARGIN_IN + n_rows * ROW_HEIGHT_IN
+gs = gridspec.GridSpec(
+    nrows=1, ncols=4,
+    left=LBL_WIDTH_FRAC, right=0.98,
+    bottom=BOTTOM_MARGIN_IN / fig_h_in,
+    top=1 - (TOP_MARGIN_IN / fig_h_in),
+    wspace=0.15            # horizontal spacing between panels
 )
 
-combined_pdf_path = os.path.join(OUTPUT_DIR, f"{OUTPUT_BASE_NAME}.pdf")
-with PdfPages(combined_pdf_path) as combined_pdf:
-    for i, page in enumerate(pages, start=1):
-        if BOX_PLOT:
-            page_df, raw_labels = page
-            wrap_w = WRAP_CHARS
-            wrapped = wrap_labels(raw_labels, wrap_w)
-            n_rows = len(raw_labels)
-        else:
-            page_df = page
-            wrap_w = WRAP_CHARS
-            wrapped = wrap_labels(page_df[NAME_CAT], wrap_w)
-            n_rows = len(page_df)
+fig = plt.figure(figsize=(fig_w_in, fig_h_in))
+axs = [fig.add_subplot(gs[0, i]) for i in range(4)]
 
-        fig_h_in = min(max_h_in, max(3.0, n_rows * ROW_H_IN))
+if BOX_PLOT:
+    plot_data(axs, df_plot, wrapped, box_plot=True, label_col=NAME_CAT, raw_labels=raw_labels)
+else:
+    plot_data(axs, df_plot, wrapped, box_plot=False)
 
-        # up to 3 passes to relax left margin if needed
-        for attempt in range(1, 4):
-            fig, axs = plt.subplots(1, 4, figsize=(fig_w_in, fig_h_in), sharey=True)
-            if BOX_PLOT:
-                plot_page(axs, page_df, wrapped, box_plot=True, label_col=NAME_CAT, raw_labels=raw_labels)
-            else:
-                plot_page(axs, page_df, wrapped, box_plot=False)
+# Save figure
+output_path = os.path.join(OUTPUT_DIR, f"{OUTPUT_BASE_NAME}.pdf")
+fig.savefig(output_path)
 
-            fig.tight_layout()
-
-            label_w_in = measure_left_label_width_in(fig, axs[0])
-            needed_left_in = label_w_in + 0.25
-            left_frac = min(0.75, max(0.10, needed_left_in / fig_w_in))
-            fig.subplots_adjust(left=left_frac, right=0.98, top=0.90, bottom=0.10)
-            fig.canvas.draw()
-
-            re_label_w_in = measure_left_label_width_in(fig, axs[0])
-            re_left_frac = (re_label_w_in + 0.25) / fig_w_in
-            if re_left_frac > left_frac + 0.02 and attempt < 3:
-                plt.close(fig)
-                wrap_w = max(20, int(wrap_w * 0.85))
-                if BOX_PLOT:
-                    wrapped = wrap_labels(raw_labels, wrap_w)
-                else:
-                    wrapped = wrap_labels(page_df[NAME_CAT], wrap_w)
-                continue
-
-            page_pdf = os.path.join(OUTPUT_DIR, f"{OUTPUT_BASE_NAME}_page{i:02d}.pdf")
-            page_png = os.path.join(OUTPUT_DIR, f"{OUTPUT_BASE_NAME}_page{i:02d}.png")
-            fig.savefig(page_pdf)
-            fig.savefig(page_png, dpi=300)
-            combined_pdf.savefig(fig)
-            plt.close(fig)
-            break
-
-print(f"✅ Combined PDF: {combined_pdf_path}")
-print(f"✅ Separate per-page PDFs/PNGs in: {OUTPUT_DIR}")
+print(f"✅ Saved file as: {output_path}")
