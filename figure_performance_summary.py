@@ -7,6 +7,7 @@
 #
 # Usage (example):
 # python figure_performance_summary.py --broad_cat age_family
+# TODO: remove legacy options if no longer needed. + CI calculation if not used
 
 import os, math, textwrap
 import numpy as np
@@ -30,45 +31,52 @@ args = parser.parse_args()
 # ============================================================
 # PARAMETERS (edit here)
 # ============================================================
+# currently used:
+# SETUP_NAME = "cat_per_broad_cat_box_plot"
+SETUP_NAME   = "broad_cat_box_plot"
+# legacy options (no gurantee they still work):
 # SETUP_NAME = "all_cat_mean_ci"
 # SETUP_NAME   = "all_cat_box_plot"
-SETUP_NAME = "cat_per_broad_cat_box_plot"
 # SETUP_NAME   = "broad_cat_mean_ci"
 
 
 # Setup-specific paths
-if SETUP_NAME == "all_cat_mean_ci":
+if SETUP_NAME == "all_cat_mean_ci": # legacy
     INPUT_FILE   = "data/model_performance/all_cat_mean_ci.csv"
     OUTPUT_DIR   = "figures/performance_summary/all_cat_mean_ci"
     OUTPUT_BASE_NAME = "perf_all_cat_mean_ci"
     NAME_CAT = "hypothesis_label"
     BOX_PLOT    = False
-elif SETUP_NAME == "all_cat_box_plot":
+elif SETUP_NAME == "all_cat_box_plot":  #legacy
     INPUT_FILE   = "data/model_performance/all_cat_box_plot.csv"
     OUTPUT_DIR   = "figures/performance_summary/all_cat_box_plot"
     OUTPUT_BASE_NAME = "perf_all_cat_box_plot"
     NAME_CAT = "hypothesis_label"
     BOX_PLOT    = True
-elif SETUP_NAME == "cat_per_broad_cat_box_plot":
+elif SETUP_NAME == "broad_cat_mean_ci": #legacy
+    INPUT_FILE   = "data/model_performance/broad_cat_mean_ci.csv"
+    OUTPUT_DIR   = "figures/performance_summary/broad_cat_mean_ci"
+    OUTPUT_BASE_NAME = "perf_broad_cat_mean_ci"
+    NAME_CAT = "model"
+    BOX_PLOT    = False
+elif SETUP_NAME == "cat_per_broad_cat_box_plot":    # current
     BROAD_CAT = args.broad_cat
     INPUT_FILE   = f"data/model_performance/{BROAD_CAT}_per_fold.csv"
     OUTPUT_DIR   = f"figures/performance_summary/cat_per_broad_cat_box_plot"
     OUTPUT_BASE_NAME = f"{BROAD_CAT}_box_plot"
     NAME_CAT = "hypothesis_label"
     BOX_PLOT    = True
-elif SETUP_NAME == "broad_cat_mean_ci":
-    INPUT_FILE   = "data/model_performance/broad_cat_mean_ci.csv"
-    OUTPUT_DIR   = "figures/performance_summary/broad_cat_mean_ci"
-    OUTPUT_BASE_NAME = "perf_broad_cat_mean_ci"
-    NAME_CAT = "model"
-    BOX_PLOT    = False
+elif SETUP_NAME == "broad_cat_box_plot":    # current
+    INPUT_DIR   = "data/model_performance"
+    OUTPUT_DIR   = "figures/performance_summary/broad_cat_box_plot"
+    OUTPUT_BASE_NAME = "perf_broad_cat_box_plot"
+    NAME_CAT = "hypothesis_label"
+    BOX_PLOT    = True
 else:
     raise ValueError(f"Unknown SETUP_NAME: {SETUP_NAME}")
 
 # Performance metrics to plot
 METRICS      = ["accuracy", "precision_binary", "recall_binary", "f1_binary"]
-# METRICS      = ["accuracy", "precision_micro", "recall_micro", "f1_micro"]
-# METRICS      = ["accuracy", "precision_binary", "recall_binary", "f1_macro"] 
 METRIC_TITLE_MAP = {
     "accuracy": "Accuracy",
     "precision_binary": "Precision",
@@ -76,13 +84,37 @@ METRIC_TITLE_MAP = {
     "f1_binary": "F1 Score",
 }
 
+# Broad category listing
+BROAD_CAT_LIST = [
+    "age_family",
+    "business_activity",
+    "identity",
+    "labor_market_w_entrepreneurs",
+    "profession",
+    "real_estate",
+    "social_deviance",
+    "social_rules_wo_volunteers",
+    "socio_economic"
+]
+
 # Optional renaming of entries for display
 RENAME_DICT = {
+    # specific categories
     "entrepreneurs in [specific] sector": "entrepreneurs in specific sector",
     "lgbtqqia+": "LGBTQIA+",
     "people with an immigration background, including immigrants": "people with immigration background",
     "offenders, criminals, prisoners and/or accused people": "offenders, criminals, prisoners, accused people",
-    "terrorists, rebels, revolutionaries and/or movements of armed resistance": "terrorists, revolutionaries, rebels, armed resistance"
+    "terrorists, rebels, revolutionaries and/or movements of armed resistance": "terrorists, revolutionaries, rebels, armed resistance",
+    # broad categories
+    "age_family": "age and family status",
+    "business_activity": "business activity",
+    "identity": "identity",
+    "labor_market_w_entrepreneurs": "labor market",
+    "profession": "profession",
+    "real_estate": "real estate",
+    "social_deviance": "social deviance",
+    "social_rules_wo_volunteers": "social rules",
+    "socio_economic": "socio-economic status"
 }
 
 
@@ -133,6 +165,54 @@ def compute_ci95(df, n_runs):
             raise ValueError(f"Missing columns for '{m}': need {m}_mean and {m}_std")
         df[f"{m}_ci"] = 1.96 * df[f"{m}_std"] / np.sqrt(n_runs)
     return df
+
+def compute_broad_cat_boxplot(df, subcat_col, broad_col):
+    """
+    Returns a clean dataframe that contains ONLY:
+        hypothesis_label (= broad category code),
+        fold,
+        metrics (weighted),
+        n_pos_entail  (sum across subcategories)
+
+    Ready for plotting code.
+    """
+
+    assert broad_col in df.columns, f"'{broad_col}' not found in df"
+    assert subcat_col in df.columns, f"'{subcat_col}' not found in df"
+    assert "fold" in df.columns,     "Missing 'fold' column in df"
+    assert "n_pos_entail" in df.columns, "Missing 'n_pos_entail' column"
+
+    # use your global METRICS
+    metric_cols = METRICS
+
+    # -------------------------------------------
+    # 1) Weighted aggregation per fold & category
+    # -------------------------------------------
+    def agg_fold(group):
+        out = {}
+        for m in metric_cols:
+            out[m] = np.average(group[m], weights=group["n_pos_entail"])
+        out["n_pos_entail"] = group["n_pos_entail"].sum()
+        return pd.Series(out)
+
+    df_agg = (
+        df.groupby([broad_col, "fold"], observed=False)
+        .apply(agg_fold, include_groups=False)
+        .reset_index()
+    )
+
+
+    # -------------------------------------------
+    # 2) Drop subcategory labels completely
+    # -------------------------------------------
+    # Rename broad_cat → hypothesis_label
+    df_broad = df_agg.rename(columns={broad_col: "hypothesis_label"})
+
+    # Ensure no subcategories remain — this dataframe is ONLY broad categories
+    # (just a safety check for debugging)
+    assert df_broad["hypothesis_label"].nunique() == df[broad_col].nunique()
+
+    return df_broad
 
 def plot_data(axs, ax_N, df, wrapped_labels, box_plot=False, label_col="hypothesis_label", raw_labels=None):
 
@@ -225,7 +305,30 @@ def plot_data(axs, ax_N, df, wrapped_labels, box_plot=False, label_col="hypothes
 
 # Load data
 os.makedirs(OUTPUT_DIR, exist_ok=True)
-df = pd.read_csv(INPUT_FILE)
+if SETUP_NAME == "broad_cat_box_plot":
+    dfs = []  # collect all subcategory data
+
+    for bc in BROAD_CAT_LIST:
+        input_file = f"{INPUT_DIR}/{bc}_per_fold.csv"
+        assert os.path.exists(input_file), f"File missing: {input_file}"
+
+        df_temp = pd.read_csv(input_file)
+        df_temp["broad_cat"] = bc  # tag the source
+        dfs.append(df_temp)
+
+    # Merge all subcategory data (long format)
+    df_raw = pd.concat(dfs, ignore_index=True)
+
+    # Compute broad category aggregation — RETURNS ONLY broad categories
+    df = compute_broad_cat_boxplot(
+        df_raw,
+        subcat_col="hypothesis_label",
+        broad_col="broad_cat"
+    )
+
+else:
+    df = pd.read_csv(INPUT_FILE)
+    
 assert NAME_CAT in df.columns, f"Missing '{NAME_CAT}' column in CSV."
 df[NAME_CAT] = df[NAME_CAT].replace(RENAME_DICT)
 
@@ -253,6 +356,7 @@ else:
     df[NAME_CAT] = pd.Categorical(df[NAME_CAT],
                                   categories=labels_order, ordered=True)
     df = df.sort_values(NAME_CAT, kind="mergesort").reset_index(drop=True)
+    df["n_pos_entail"] = df["n_pos_entail"].astype(int)
 
 # Prepare data labeling
 unique_labels = df[NAME_CAT].drop_duplicates().tolist()
@@ -272,7 +376,7 @@ if BOX_PLOT:
     ]
 
 else:
-    df_plot = data_to_plot
+    df_plot, _ = data_to_plot
     wrapped = wrap_labels(df_plot[NAME_CAT], wrap_w)
     wrapped = [
         "\n".join(
