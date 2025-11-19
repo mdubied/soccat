@@ -4,12 +4,28 @@
 # - Best entries appear at the TOP of each page (invert y-axis).
 # - Long labels wrapped and measured to allocate left margin (no clipping).
 # - No bottom x-axis labels; no overarching left ylabel.
+#
+# Usage (example):
+# python figure_performance_summary.py --broad_cat age_family
 
 import os, math, textwrap
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
+import argparse
+
+# ===========================================================
+# PARSE COMMAND-LINE ARGUMENTS
+# ============================================================
+parser = argparse.ArgumentParser()
+parser.add_argument(
+    "--broad_cat",
+    type=str,
+    default="identity",    # fallback if no argument is passed
+    help="Broad category name (e.g., 'age_family')"
+)
+args = parser.parse_args()
 
 # ============================================================
 # PARAMETERS (edit here)
@@ -34,7 +50,7 @@ elif SETUP_NAME == "all_cat_box_plot":
     NAME_CAT = "hypothesis_label"
     BOX_PLOT    = True
 elif SETUP_NAME == "cat_per_broad_cat_box_plot":
-    BROAD_CAT = "business_activity"
+    BROAD_CAT = args.broad_cat
     INPUT_FILE   = f"data/model_performance/{BROAD_CAT}_per_fold.csv"
     OUTPUT_DIR   = f"figures/performance_summary/cat_per_broad_cat_box_plot"
     OUTPUT_BASE_NAME = f"{BROAD_CAT}_box_plot"
@@ -63,14 +79,19 @@ METRIC_TITLE_MAP = {
 # Optional renaming of entries for display
 RENAME_DICT = {
     "entrepreneurs in [specific] sector": "entrepreneurs in specific sector",
+    "lgbtqqia+": "LGBTQIA+",
+    "people with an immigration background, including immigrants": "people with immigration background",
+    "offenders, criminals, prisoners and/or accused people": "offenders, criminals, prisoners, accused people",
+    "terrorists, rebels, revolutionaries and/or movements of armed resistance": "terrorists, revolutionaries, rebels, armed resistance"
 }
+
 
 
 # Figure parameters
 N_RUNS          = 5      # for 95% CI
 FIG_WIDTH_CM    = 14.0   # total figure width
 WRAP_CHARS      = 28     # initial wrap width (characters)
-LBL_WIDTH_FRAC  = 0.25   # Fixed fraction of figure width for labels (instead of measuring)
+LBL_WIDTH_FRAC  = 0.29   # Fixed fraction of figure width for labels (instead of measuring)
 ROW_HEIGHT_CM   = 0.6    # Vertical height per row (cm)
 TOP_MARGIN_CM   = 0.5    # Reserved vertical space for titles + x-axis annotation (cm)
 BOTTOM_MARGIN_CM= 0.5    # Reserved vertical space for x-axis annotation (cm)
@@ -113,17 +134,17 @@ def compute_ci95(df, n_runs):
         df[f"{m}_ci"] = 1.96 * df[f"{m}_std"] / np.sqrt(n_runs)
     return df
 
-def plot_data(axs, page_df, wrapped_labels, box_plot=False, label_col="hypothesis_label", raw_labels=None):
+def plot_data(axs, ax_N, df, wrapped_labels, box_plot=False, label_col="hypothesis_label", raw_labels=None):
 
     for i, metric in enumerate(METRICS):
         ax = axs[i]
 
         if not box_plot:
             # Aggregated input: one row per label with *_mean and *_ci
-            y = np.arange(len(page_df))
+            y = np.arange(len(df))
             ax.errorbar(
-                page_df[f"{metric}_mean"], y,
-                xerr=page_df[f"{metric}_ci"],
+                df[f"{metric}_mean"], y,
+                xerr=df[f"{metric}_ci"],
                 fmt="o", color="black", ecolor="gray",
                 elinewidth=1, capsize=2, markersize=4,
             )
@@ -133,12 +154,12 @@ def plot_data(axs, page_df, wrapped_labels, box_plot=False, label_col="hypothesi
             # Build one box per unique label (aggregate folds)
             data = []
             for lbl in raw_labels:
-                vals = page_df.loc[page_df[label_col] == lbl, metric].to_numpy()
+                vals = df.loc[df[label_col] == lbl, metric].to_numpy()
                 if vals.size == 0:
                     vals = np.array([np.nan])
                 data.append(vals)
 
-            y = np.arange(len(raw_labels))
+            y = np.arange(len(raw_labels))[::-1]
             ax.boxplot(
                 data,
                 vert=False,
@@ -168,9 +189,35 @@ def plot_data(axs, page_df, wrapped_labels, box_plot=False, label_col="hypothesi
         if i == 0:
             ax.set_yticks(y_for_ticks)
             ax.set_yticklabels(shown_wrapped)
-            ax.invert_yaxis()
         else:
             ax.tick_params(axis="y", which="both", labelleft=False)
+            ax.tick_params(axis="y", length=0)  # hide tick marks completely
+
+        # Plot N values if available
+        if "n_pos_entail" in df.columns:
+            if box_plot:
+                N_vals = (
+                    df.groupby(label_col, observed=False)["n_pos_entail"]
+                    .first()            # or .iloc[0], same effect
+                    .reindex(raw_labels)
+                )
+            else:
+                N_vals = df["n_pos_entail"]
+            y = np.arange(len(N_vals))[::-1]  # match row order
+
+            # Display text on empty axis
+            ax_N.set_title("N")
+            for yi, val in zip(y, N_vals):
+                ax_N.text(0.5, yi, str(val), ha="center", va="center", fontsize=8)
+
+            ax_N.set_ylim(min(y)-0.5, max(y)+0.5)
+            ax_N.set_xlim(0, 1)
+            ax_N.set_xticks([])
+            ax_N.set_yticks([])
+            ax_N.spines['top'].set_visible(False)
+            ax_N.spines['bottom'].set_visible(False)
+            ax_N.spines['left'].set_visible(False)
+            ax_N.spines['right'].set_visible(False)
 
 # ============================================================
 # MAIN
@@ -239,20 +286,22 @@ else:
 # Plot figure
 fig_h_in = TOP_MARGIN_IN + BOTTOM_MARGIN_IN + n_rows * ROW_HEIGHT_IN
 gs = gridspec.GridSpec(
-    nrows=1, ncols=4,
+    nrows=1, ncols=5,            
     left=LBL_WIDTH_FRAC, right=0.98,
     bottom=BOTTOM_MARGIN_IN / fig_h_in,
     top=1 - (TOP_MARGIN_IN / fig_h_in),
-    wspace=0.15            # horizontal spacing between panels
+    wspace=0.15,
+    width_ratios=[1, 1, 1, 1, 0.2]  
 )
 
 fig = plt.figure(figsize=(fig_w_in, fig_h_in))
 axs = [fig.add_subplot(gs[0, i]) for i in range(4)]
+ax_N = fig.add_subplot(gs[0, 4]) 
 
 if BOX_PLOT:
-    plot_data(axs, df_plot, wrapped, box_plot=True, label_col=NAME_CAT, raw_labels=raw_labels)
+    plot_data(axs, ax_N, df_plot, wrapped, box_plot=True, label_col=NAME_CAT, raw_labels=raw_labels)
 else:
-    plot_data(axs, df_plot, wrapped, box_plot=False)
+    plot_data(axs, ax_N, df_plot, wrapped, box_plot=False)
 
 # Save figure
 output_path = os.path.join(OUTPUT_DIR, f"{OUTPUT_BASE_NAME}.pdf")
