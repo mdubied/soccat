@@ -66,12 +66,14 @@ elif SETUP_NAME == "cat_per_broad_cat_box_plot":    # current
     OUTPUT_BASE_NAME = f"{BROAD_CAT}_box_plot"
     NAME_CAT = "hypothesis_label"
     BOX_PLOT    = True
+    LBL_WIDTH_FRAC  = 0.29   # Fixed fraction of figure width for labels (instead of measuring)
 elif SETUP_NAME == "broad_cat_box_plot":    # current
     INPUT_DIR   = "data/model_performance"
     OUTPUT_DIR   = "figures/performance_summary/broad_cat_box_plot"
     OUTPUT_BASE_NAME = "perf_broad_cat_box_plot"
     NAME_CAT = "hypothesis_label"
     BOX_PLOT    = True
+    LBL_WIDTH_FRAC  = 0.23   # Fixed fraction of figure width for labels (instead of measuring)
 else:
     raise ValueError(f"Unknown SETUP_NAME: {SETUP_NAME}")
 
@@ -123,7 +125,6 @@ RENAME_DICT = {
 N_RUNS          = 5      # for 95% CI
 FIG_WIDTH_CM    = 14.0   # total figure width
 WRAP_CHARS      = 28     # initial wrap width (characters)
-LBL_WIDTH_FRAC  = 0.29   # Fixed fraction of figure width for labels (instead of measuring)
 ROW_HEIGHT_CM   = 0.6    # Vertical height per row (cm)
 TOP_MARGIN_CM   = 0.5    # Reserved vertical space for titles + x-axis annotation (cm)
 BOTTOM_MARGIN_CM= 0.5    # Reserved vertical space for x-axis annotation (cm)
