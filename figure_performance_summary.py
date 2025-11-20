@@ -114,7 +114,7 @@ RENAME_DICT = {
     "profession": "profession",
     "real_estate": "real estate",
     "social_deviance": "social deviance",
-    "social_rules_wo_volunteers": "social rules",
+    "social_rules_wo_volunteers": "social roles",
     "socio_economic": "socio-economic status"
 }
 
