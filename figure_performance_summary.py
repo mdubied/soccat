@@ -89,7 +89,6 @@ METRIC_TITLE_MAP = {
 # Broad category listing
 BROAD_CAT_LIST = [
     "age_family",
-    "business_activity",
     "identity",
     "labor_market_w_entrepreneurs",
     "profession",
@@ -111,7 +110,7 @@ RENAME_DICT = {
     "age_family": "age and family status",
     "business_activity": "business activity",
     "identity": "identity",
-    "labor_market_w_entrepreneurs": "labor market",
+    "labor_market_w_entrepreneurs": "labor market position",
     "profession": "profession",
     "real_estate": "real estate",
     "social_deviance": "social deviance",
