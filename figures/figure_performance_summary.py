@@ -1,15 +1,24 @@
-# File: figure_performance_summary.py
-# One figure with 4 panels (accuracy, precision, recall, f1), paginated vertically.
-# - Sorted globally by decreasing F1 mean (best first), then paginated.
-# - Best entries appear at the TOP of each page (invert y-axis).
-# - Long labels wrapped and measured to allocate left margin (no clipping).
-# - No bottom x-axis labels; no overarching left ylabel.
-#
-# Usage (example):
-# python figure_performance_summary.py --broad_cat age_family
-# TODO: remove legacy options if no longer needed. + CI calculation if not used
+"""
+figure_performance_summary.py
 
-import os, math, textwrap
+Description:
+Create the boxplot figures for summary performance. Figures 4, 5, A1-A8 of the paper.
+
+One figure with 4 panels (accuracy, precision, recall, f1), paginated vertically.
+ - Sorted globally by decreasing F1 mean (best first), then paginated.
+ - Best entries appear at the TOP of each page (invert y-axis).
+ - Long labels wrapped and measured to allocate left margin (no clipping).
+ - No bottom x-axis labels; no overarching left ylabel.
+
+Outputs:
+- PDF boxplot files in "performance_summary/" folder.
+
+Usage (from this directory):
+python figure_performance_summary.py --broad_class age_family
+
+(or other broad class name to get all categories within this broad class, or no argument for all broad classes)
+"""
+import os, textwrap
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -21,7 +30,7 @@ import argparse
 # ============================================================
 parser = argparse.ArgumentParser()
 parser.add_argument(
-    "--broad_cat",
+    "--broad_class",
     type=str,
     default="identity",    # fallback if no argument is passed
     help="Broad category name (e.g., 'age_family')"
@@ -32,48 +41,24 @@ args = parser.parse_args()
 # PARAMETERS (edit here)
 # ============================================================
 # currently used:
-# SETUP_NAME = "cat_per_broad_cat_box_plot"
-SETUP_NAME   = "broad_cat_box_plot"
-# legacy options (no gurantee they still work):
-# SETUP_NAME = "all_cat_mean_ci"
-# SETUP_NAME   = "all_cat_box_plot"
-# SETUP_NAME   = "broad_cat_mean_ci"
+# SETUP_NAME = "cat_per_broad_class_box_plot"
+SETUP_NAME   = "broad_class_box_plot"
 
 
 # Setup-specific paths
-if SETUP_NAME == "all_cat_mean_ci": # legacy
-    INPUT_FILE   = "data/model_performance/all_cat_mean_ci.csv"
-    OUTPUT_DIR   = "figures/performance_summary/all_cat_mean_ci"
-    OUTPUT_BASE_NAME = "perf_all_cat_mean_ci"
+if SETUP_NAME == "cat_per_broad_class_box_plot":    # current
+    BROAD_CLASS = args.broad_class
+    INPUT_FILE   = f"../data/model_performance/{BROAD_CLASS}_per_fold.csv"
+    OUTPUT_DIR   = f"performance_summary/cat_per_broad_class_box_plot"
+    OUTPUT_BASE_NAME = f"{BROAD_CLASS}_box_plot"
     NAME_CAT = "hypothesis_label"
-    BOX_PLOT    = False
-elif SETUP_NAME == "all_cat_box_plot":  #legacy
-    INPUT_FILE   = "data/model_performance/all_cat_box_plot.csv"
-    OUTPUT_DIR   = "figures/performance_summary/all_cat_box_plot"
-    OUTPUT_BASE_NAME = "perf_all_cat_box_plot"
-    NAME_CAT = "hypothesis_label"
-    BOX_PLOT    = True
-elif SETUP_NAME == "broad_cat_mean_ci": #legacy
-    INPUT_FILE   = "data/model_performance/broad_cat_mean_ci.csv"
-    OUTPUT_DIR   = "figures/performance_summary/broad_cat_mean_ci"
-    OUTPUT_BASE_NAME = "perf_broad_cat_mean_ci"
-    NAME_CAT = "model"
-    BOX_PLOT    = False
-elif SETUP_NAME == "cat_per_broad_cat_box_plot":    # current
-    BROAD_CAT = args.broad_cat
-    INPUT_FILE   = f"data/model_performance/{BROAD_CAT}_per_fold.csv"
-    OUTPUT_DIR   = f"figures/performance_summary/cat_per_broad_cat_box_plot"
-    OUTPUT_BASE_NAME = f"{BROAD_CAT}_box_plot"
-    NAME_CAT = "hypothesis_label"
-    BOX_PLOT    = True
     LBL_WIDTH_FRAC  = 0.29   # Fixed fraction of figure width for labels (instead of measuring)
-elif SETUP_NAME == "broad_cat_box_plot":    # current
-    INPUT_DIR   = "data/model_performance"
-    OUTPUT_DIR   = "figures/performance_summary/broad_cat_box_plot"
-    OUTPUT_BASE_NAME = "perf_broad_cat_box_plot"
+elif SETUP_NAME == "broad_class_box_plot":    # current
+    INPUT_DIR   = "../data/model_performance"
+    OUTPUT_DIR   = "performance_summary/broad_class_box_plot"
+    OUTPUT_BASE_NAME = "perf_broad_class_box_plot"
     NAME_CAT = "hypothesis_label"
-    BOX_PLOT    = True
-    LBL_WIDTH_FRAC  = 0.23   # Fixed fraction of figure width for labels (instead of measuring)
+    LBL_WIDTH_FRAC  = 0.24   # Fixed fraction of figure width for labels (instead of measuring)
 else:
     raise ValueError(f"Unknown SETUP_NAME: {SETUP_NAME}")
 
@@ -87,14 +72,14 @@ METRIC_TITLE_MAP = {
 }
 
 # Broad category listing
-BROAD_CAT_LIST = [
+BROAD_CLASS_LIST = [
     "age_family",
     "identity",
     "labor_market_w_entrepreneurs",
     "profession",
     "real_estate",
     "social_deviance",
-    "social_rules_wo_volunteers",
+    "social_roles",
     "socio_economic"
 ]
 
@@ -106,16 +91,33 @@ RENAME_DICT = {
     "people with an immigration background, including immigrants": "people with immigration background",
     "offenders, criminals, prisoners and/or accused people": "offenders, criminals, prisoners, accused people",
     "terrorists, rebels, revolutionaries and/or movements of armed resistance": "terrorists, revolutionaries, rebels, armed resistance",
-    # broad categories
-    "age_family": "age and family status",
-    "business_activity": "business activity",
-    "identity": "identity",
-    "labor_market_w_entrepreneurs": "labor market position",
-    "profession": "profession",
-    "real_estate": "real estate",
-    "social_deviance": "social deviance",
-    "social_rules_wo_volunteers": "social roles",
-    "socio_economic": "socio-economic status"
+    # broad classes
+    "socio_economic": "Socio-economic position",
+    "labor_market_w_entrepreneurs": "Labor market position",
+    "age_family": "Age and family status",
+    "identity": "Identities and minority/ majority status",
+    "profession": "Profession",
+    "social_roles": "Social roles and behavior",
+    "social_deviance": "Social deviance",
+    "real_estate": "Real estate ownership",
+}
+
+# Score annotations (best fold by F1)
+SHOW_BEST_FOLD_SCORES = True
+BEST_FOLD_METRIC = "f1_binary"     # fold selector
+SCORE_X_DEFAULT = 0.26             # default x position (data coords in [0,1])
+SCORE_FMT_MAP = {                  # per-metric formatting if desired
+    "accuracy": "{:.2f}",
+    "precision_binary": "{:.2f}",
+    "recall_binary": "{:.2f}",
+    "f1_binary": "{:.2f}",
+}
+
+# Optional per-(metric,row) x-position overrides.
+# Key: (metric_name, label_string_after_renaming), Value: x-position in [0,1]
+SCORE_X_OVERRIDE = {
+    # ("precision_binary", "Age and family status"): 0.35,
+    # ("f1_binary", "Socio-economic position"): 0.15,
 }
 
 
@@ -166,7 +168,7 @@ def compute_ci95(df, n_runs):
         df[f"{m}_ci"] = 1.96 * df[f"{m}_std"] / np.sqrt(n_runs)
     return df
 
-def compute_broad_cat_boxplot(df, subcat_col, broad_col):
+def compute_broad_class_boxplot(df, subcat_col, broad_col):
     """
     Returns a clean dataframe that contains ONLY:
         hypothesis_label (= broad category code),
@@ -205,7 +207,7 @@ def compute_broad_cat_boxplot(df, subcat_col, broad_col):
     # -------------------------------------------
     # 2) Drop subcategory labels completely
     # -------------------------------------------
-    # Rename broad_cat → hypothesis_label
+    # Rename broad_class → hypothesis_label
     df_broad = df_agg.rename(columns={broad_col: "hypothesis_label"})
 
     # Ensure no subcategories remain — this dataframe is ONLY broad categories
@@ -214,48 +216,65 @@ def compute_broad_cat_boxplot(df, subcat_col, broad_col):
 
     return df_broad
 
-def plot_data(axs, ax_N, df, wrapped_labels, box_plot=False, label_col="hypothesis_label", raw_labels=None):
+def plot_data(axs, ax_N, df, wrapped_labels, label_col="hypothesis_label", raw_labels=None):
 
     for i, metric in enumerate(METRICS):
         ax = axs[i]
 
-        if not box_plot:
-            # Aggregated input: one row per label with *_mean and *_ci
-            y = np.arange(len(df))
-            ax.errorbar(
-                df[f"{metric}_mean"], y,
-                xerr=df[f"{metric}_ci"],
-                fmt="o", color="black", ecolor="gray",
-                elinewidth=1, capsize=2, markersize=4,
-            )
-            y_for_ticks = y
-            shown_wrapped = wrapped_labels
-        else:
-            # Build one box per unique label (aggregate folds)
-            data = []
-            for lbl in raw_labels:
-                vals = df.loc[df[label_col] == lbl, metric].to_numpy()
-                if vals.size == 0:
-                    vals = np.array([np.nan])
-                data.append(vals)
+        # Build one box per unique label (aggregate folds)
+        data = []
+        for lbl in raw_labels:
+            vals = df.loc[df[label_col] == lbl, metric].to_numpy()
+            if vals.size == 0:
+                vals = np.array([np.nan])
+            data.append(vals)
 
-            y = np.arange(len(raw_labels))[::-1]
-            ax.boxplot(
-                data,
-                vert=False,
-                positions=y,
-                widths=0.8,
-                patch_artist=True,
-                boxprops=dict(facecolor="lightgray", color="black"),
-                medianprops=dict(color="black", linewidth=1.2),
-                whiskerprops=dict(color="black"),
-                capprops=dict(color="black"),
-                flierprops=dict(marker="o", markersize=3, color="gray", alpha=0.5),
-            )
-            ax.set_yticks(y)
-            ax.set_yticklabels(wrapped_labels)
-            y_for_ticks = y
-            shown_wrapped = wrapped_labels
+        y = np.arange(len(raw_labels))[::-1]
+        ax.boxplot(
+            data,
+            vert=False,
+            positions=y,
+            widths=0.8,
+            patch_artist=True,
+            boxprops=dict(facecolor="lightgray", color="black"),
+            medianprops=dict(color="black", linewidth=1.2),
+            whiskerprops=dict(color="black"),
+            capprops=dict(color="black"),
+            flierprops=dict(marker="o", markersize=3, color="gray", alpha=0.5),
+        )
+        ax.set_yticks(y)
+        ax.set_yticklabels(wrapped_labels)
+        y_for_ticks = y
+        shown_wrapped = wrapped_labels
+
+        # Annotate "best fold" scores (fold with highest F1 for a label)
+        if SHOW_BEST_FOLD_SCORES:
+            for yi, lbl in zip(y, raw_labels):
+                sub = df.loc[df[label_col] == lbl, ["fold"] + METRICS].copy()
+                if sub.empty:
+                    continue
+
+                # pick the fold with maximum F1 (BEST_FOLD_METRIC)
+                sub = sub.replace([np.inf, -np.inf], np.nan).dropna(subset=[BEST_FOLD_METRIC])
+                if sub.empty:
+                    continue
+                best_idx = sub[BEST_FOLD_METRIC].idxmax()
+                best_row = sub.loc[best_idx]
+
+                val = best_row.get(metric, np.nan)
+                if pd.isna(val):
+                    continue
+
+                # x-position: default or overridden per (metric, label)
+                x_pos = SCORE_X_OVERRIDE.get((metric, str(lbl)), SCORE_X_DEFAULT)
+
+                fmt = SCORE_FMT_MAP.get(metric, "{:.2f}")
+                s = fmt.format(float(val))
+                s = rf"\textsf{{\textit{{{s}}}}}"   # sans-serif + italic
+                ax.text(x_pos, yi, s, ha="left", va="center", fontsize=7)
+
+
+
 
         # --- common styling ---
         ax.set_xlim(0, 1)
@@ -275,14 +294,12 @@ def plot_data(axs, ax_N, df, wrapped_labels, box_plot=False, label_col="hypothes
 
         # Plot N values if available
         if "n_pos_entail" in df.columns:
-            if box_plot:
-                N_vals = (
-                    df.groupby(label_col, observed=False)["n_pos_entail"]
-                    .first()            # or .iloc[0], same effect
-                    .reindex(raw_labels)
-                )
-            else:
-                N_vals = df["n_pos_entail"]
+
+            N_vals = (
+                df.groupby(label_col, observed=False)["n_pos_entail"]
+                .first()            # or .iloc[0], same effect
+                .reindex(raw_labels)
+            )     
             y = np.arange(len(N_vals))[::-1]  # match row order
 
             # Display text on empty axis
@@ -305,25 +322,25 @@ def plot_data(axs, ax_N, df, wrapped_labels, box_plot=False, label_col="hypothes
 
 # Load data
 os.makedirs(OUTPUT_DIR, exist_ok=True)
-if SETUP_NAME == "broad_cat_box_plot":
+if SETUP_NAME == "broad_class_box_plot":
     dfs = []  # collect all subcategory data
 
-    for bc in BROAD_CAT_LIST:
+    for bc in BROAD_CLASS_LIST:
         input_file = f"{INPUT_DIR}/{bc}_per_fold.csv"
         assert os.path.exists(input_file), f"File missing: {input_file}"
 
         df_temp = pd.read_csv(input_file)
-        df_temp["broad_cat"] = bc  # tag the source
+        df_temp["broad_class"] = bc  # tag the source
         dfs.append(df_temp)
 
     # Merge all subcategory data (long format)
     df_raw = pd.concat(dfs, ignore_index=True)
 
     # Compute broad category aggregation — RETURNS ONLY broad categories
-    df = compute_broad_cat_boxplot(
+    df = compute_broad_class_boxplot(
         df_raw,
         subcat_col="hypothesis_label",
-        broad_col="broad_cat"
+        broad_col="broad_class"
     )
 
 else:
@@ -332,31 +349,20 @@ else:
 assert NAME_CAT in df.columns, f"Missing '{NAME_CAT}' column in CSV."
 df[NAME_CAT] = df[NAME_CAT].replace(RENAME_DICT)
 
-# Compute CI
-if BOX_PLOT==False:
-    df = compute_ci95(df, N_RUNS)
-
 # Global sorting according to F1 mean score
-if not BOX_PLOT:
-    f1_key = df[f"{METRICS[3]}_mean"].replace([np.inf, -np.inf], np.nan)
-    df["_sort_key"] = f1_key
-    df = (df.sort_values("_sort_key", ascending=False, kind="mergesort")
-            .drop(columns=["_sort_key"])
-            .reset_index(drop=True))
-else:
-    sort_metric = METRICS[3]  # e.g., "f1_binary"
-    tmp = df[[NAME_CAT, sort_metric]].copy()
-    tmp[sort_metric] = tmp[sort_metric].replace([np.inf, -np.inf], np.nan)
+sort_metric = METRICS[3]  # e.g., "f1_binary"
+tmp = df[[NAME_CAT, sort_metric]].copy()
+tmp[sort_metric] = tmp[sort_metric].replace([np.inf, -np.inf], np.nan)
 
-    label_means = tmp.groupby(NAME_CAT, sort=False)[sort_metric].mean()
-    labels_order = (label_means.sort_values(ascending=False, kind="mergesort")
-                              .index.tolist())
+label_means = tmp.groupby(NAME_CAT, sort=False)[sort_metric].mean()
+labels_order = (label_means.sort_values(ascending=False, kind="mergesort")
+                            .index.tolist())
 
-    # apply this label order to the whole df so folds stay grouped & sorted
-    df[NAME_CAT] = pd.Categorical(df[NAME_CAT],
-                                  categories=labels_order, ordered=True)
-    df = df.sort_values(NAME_CAT, kind="mergesort").reset_index(drop=True)
-    df["n_pos_entail"] = df["n_pos_entail"].astype(int)
+# apply this label order to the whole df so folds stay grouped & sorted
+df[NAME_CAT] = pd.Categorical(df[NAME_CAT],
+                                categories=labels_order, ordered=True)
+df = df.sort_values(NAME_CAT, kind="mergesort").reset_index(drop=True)
+df["n_pos_entail"] = df["n_pos_entail"].astype(int)
 
 # Prepare data labeling
 unique_labels = df[NAME_CAT].drop_duplicates().tolist()
@@ -364,27 +370,16 @@ n_rows = len(unique_labels)
 data_to_plot = (df.sort_values(NAME_CAT, kind="mergesort"), unique_labels)
 
 
-if BOX_PLOT:
-    df_plot, raw_labels = data_to_plot
-    wrapped = wrap_labels(raw_labels, wrap_w)
-    wrapped = [
-        "\n".join(
-            (lines[0][0].upper() + lines[0][1:]) if idx == 0 and lines[0] else line
-            for idx, line in enumerate(lines)
-        )
-        for lines in [lbl.split("\n") for lbl in wrapped]
-    ]
 
-else:
-    df_plot, _ = data_to_plot
-    wrapped = wrap_labels(df_plot[NAME_CAT], wrap_w)
-    wrapped = [
-        "\n".join(
-            (lines[0][0].upper() + lines[0][1:]) if idx == 0 and lines[0] else line
-            for idx, line in enumerate(lines)
-        )
-        for lines in [lbl.split("\n") for lbl in wrapped]
-    ]
+df_plot, raw_labels = data_to_plot
+wrapped = wrap_labels(raw_labels, wrap_w)
+wrapped = [
+    "\n".join(
+        (lines[0][0].upper() + lines[0][1:]) if idx == 0 and lines[0] else line
+        for idx, line in enumerate(lines)
+    )
+    for lines in [lbl.split("\n") for lbl in wrapped]
+]
 
     
 # Plot figure
@@ -402,10 +397,9 @@ fig = plt.figure(figsize=(fig_w_in, fig_h_in))
 axs = [fig.add_subplot(gs[0, i]) for i in range(4)]
 ax_N = fig.add_subplot(gs[0, 4]) 
 
-if BOX_PLOT:
-    plot_data(axs, ax_N, df_plot, wrapped, box_plot=True, label_col=NAME_CAT, raw_labels=raw_labels)
-else:
-    plot_data(axs, ax_N, df_plot, wrapped, box_plot=False)
+
+plot_data(axs, ax_N, df_plot, wrapped, label_col=NAME_CAT, raw_labels=raw_labels)
+
 
 # Save figure
 output_path = os.path.join(OUTPUT_DIR, f"{OUTPUT_BASE_NAME}.pdf")

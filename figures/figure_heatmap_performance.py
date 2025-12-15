@@ -2,7 +2,7 @@
 figure_heatmap_performance.py
 
 Description:
-Create the heatmap figures for disaggregated performance, Figures A9-A12.
+Create the heatmap figures for disaggregated performance, Figures A9-A12 of the paper.
 
 Outputs:
 - PDF heatmap files in "disaggregated_performance/" folder.
