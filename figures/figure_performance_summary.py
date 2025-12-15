@@ -32,7 +32,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument(
     "--broad_class",
     type=str,
-    default="identity",    # fallback if no argument is passed
+    default=None,    
     help="Broad category name (e.g., 'age_family')"
 )
 args = parser.parse_args()
@@ -40,10 +40,10 @@ args = parser.parse_args()
 # ============================================================
 # PARAMETERS (edit here)
 # ============================================================
-# currently used:
-# SETUP_NAME = "cat_per_broad_class_box_plot"
-SETUP_NAME   = "broad_class_box_plot"
-
+if args.broad_class is None:
+    SETUP_NAME = "broad_class_box_plot"
+else:
+    SETUP_NAME = "cat_per_broad_class_box_plot"
 
 # Setup-specific paths
 if SETUP_NAME == "cat_per_broad_class_box_plot":    # current
@@ -105,7 +105,7 @@ RENAME_DICT = {
 # Score annotations (best fold by F1)
 SHOW_BEST_FOLD_SCORES = True
 BEST_FOLD_METRIC = "f1_binary"     # fold selector
-SCORE_X_DEFAULT = 0.26             # default x position (data coords in [0,1])
+SCORE_X_DEFAULT = 0.06            # default x position (data coords in [0,1])
 SCORE_FMT_MAP = {                  # per-metric formatting if desired
     "accuracy": "{:.2f}",
     "precision_binary": "{:.2f}",
@@ -113,12 +113,41 @@ SCORE_FMT_MAP = {                  # per-metric formatting if desired
     "f1_binary": "{:.2f}",
 }
 
-# Optional per-(metric,row) x-position overrides.
+# Optional per-(metric,row) x-position and background color of text  overrides .
 # Key: (metric_name, label_string_after_renaming), Value: x-position in [0,1]
-SCORE_X_OVERRIDE = {
-    # ("precision_binary", "Age and family status"): 0.35,
-    # ("f1_binary", "Socio-economic position"): 0.15,
-}
+TEXT_BBOX_COLOR_DEFAULT = "white"
+
+if args.broad_class == "identity":
+    SCORE_X_OVERRIDE = {
+        ("recall_binary", "muslims"):0.35,
+    }
+    TEXT_BBOX_COLOR_OVERRIDE = {
+        ("precision_binary", "Ethnic and racial minorities"):"lightgray",
+        ("precision_binary", "multiple (or other specific) religious or minority groups"):"lightgray",  
+        ("recall_binary", "Ethnic and racial minorities"):"lightgray",
+        ("recall_binary", "multiple (or other specific) religious or minority groups"):"lightgray",  
+        ("f1_binary", "Ethnic and racial minorities"):"lightgray",
+        ("f1_binary", "multiple (or other specific) religious or minority groups"):"lightgray",  
+    }
+elif args.broad_class == "age_family":
+    SCORE_X_OVERRIDE = {
+        ("recall_binary", "elderly"):0.02,
+        ("recall_binary", "middle-aged and pre-retirement age groups"):0.58,
+    }
+    TEXT_BBOX_COLOR_OVERRIDE = {
+        ("precision_binary", "middle-aged and pre-retirement age groups"):"lightgray",  
+        ("f1_binary", "middle-aged and pre-retirement age groups"):"lightgray",  
+    }
+elif args.broad_class == None:
+    SCORE_X_OVERRIDE = {
+        ("recall_binary", "Real estate ownership"):0.16,
+        ("f1_binary", "Real estate ownership"):0.16,
+    }
+    TEXT_BBOX_COLOR_OVERRIDE = {}
+else:
+    SCORE_X_OVERRIDE = {}
+    TEXT_BBOX_COLOR_OVERRIDE = {}
+
 
 
 
@@ -216,7 +245,7 @@ def compute_broad_class_boxplot(df, subcat_col, broad_col):
 
     return df_broad
 
-def plot_data(axs, ax_N, df, wrapped_labels, label_col="hypothesis_label", raw_labels=None):
+def plot_data(axs, ax_N, df, wrapped_labels, label_col="hypothesis_label", raw_labels=None, fixed_fold=None):
 
     for i, metric in enumerate(METRICS):
         ax = axs[i]
@@ -254,24 +283,42 @@ def plot_data(axs, ax_N, df, wrapped_labels, label_col="hypothesis_label", raw_l
                 if sub.empty:
                     continue
 
-                # pick the fold with maximum F1 (BEST_FOLD_METRIC)
-                sub = sub.replace([np.inf, -np.inf], np.nan).dropna(subset=[BEST_FOLD_METRIC])
-                if sub.empty:
-                    continue
-                best_idx = sub[BEST_FOLD_METRIC].idxmax()
-                best_row = sub.loc[best_idx]
+                sub = sub.replace([np.inf, -np.inf], np.nan)
+
+                if fixed_fold is not None:
+                    # use the SAME fold for every label
+                    sub_fold = sub.loc[sub["fold"] == fixed_fold]
+                    if sub_fold.empty:
+                        continue
+                    best_row = sub_fold.iloc[0]
+                else:
+                    # default behavior: best fold per label (max F1)
+                    sub = sub.dropna(subset=[BEST_FOLD_METRIC])
+                    if sub.empty:
+                        continue
+                    best_idx = sub[BEST_FOLD_METRIC].idxmax()
+                    best_row = sub.loc[best_idx]
 
                 val = best_row.get(metric, np.nan)
                 if pd.isna(val):
                     continue
 
-                # x-position: default or overridden per (metric, label)
                 x_pos = SCORE_X_OVERRIDE.get((metric, str(lbl)), SCORE_X_DEFAULT)
-
                 fmt = SCORE_FMT_MAP.get(metric, "{:.2f}")
                 s = fmt.format(float(val))
-                s = rf"\textsf{{\textit{{{s}}}}}"   # sans-serif + italic
-                ax.text(x_pos, yi, s, ha="left", va="center", fontsize=7)
+                s = rf"\textsf{{\textit{{{s}}}}}"
+                bg_color = TEXT_BBOX_COLOR_OVERRIDE.get(
+                    (metric, str(lbl)),
+                    TEXT_BBOX_COLOR_DEFAULT
+                )
+                ax.text(x_pos, yi, s, 
+                        ha="left", va="center", 
+                        fontsize=7,
+                        bbox=dict(
+                        facecolor=bg_color,
+                        edgecolor="none",
+                        pad=0.6)
+                )
 
 
 
@@ -349,6 +396,19 @@ else:
 assert NAME_CAT in df.columns, f"Missing '{NAME_CAT}' column in CSV."
 df[NAME_CAT] = df[NAME_CAT].replace(RENAME_DICT)
 
+# Choose ONE fold for all rows (only for cat_per_broad_class_box_plot)
+FIXED_FOLD_FOR_ANNOT = None
+if SETUP_NAME == "cat_per_broad_class_box_plot":
+    # Broad-class best fold: weighted mean F1 across categories in that fold
+    fold_scores = (
+        df.groupby("fold", observed=False)
+        .apply(
+            lambda g: np.average(g[BEST_FOLD_METRIC], weights=g["n_pos_entail"]),
+            include_groups=False
+        )
+    )
+    FIXED_FOLD_FOR_ANNOT = int(fold_scores.idxmax())
+
 # Global sorting according to F1 mean score
 sort_metric = METRICS[3]  # e.g., "f1_binary"
 tmp = df[[NAME_CAT, sort_metric]].copy()
@@ -398,7 +458,7 @@ axs = [fig.add_subplot(gs[0, i]) for i in range(4)]
 ax_N = fig.add_subplot(gs[0, 4]) 
 
 
-plot_data(axs, ax_N, df_plot, wrapped, label_col=NAME_CAT, raw_labels=raw_labels)
+plot_data(axs, ax_N, df_plot, wrapped, label_col=NAME_CAT, raw_labels=raw_labels, fixed_fold=FIXED_FOLD_FOR_ANNOT)
 
 
 # Save figure
