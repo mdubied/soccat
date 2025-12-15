@@ -1,3 +1,15 @@
+"""
+figure_heatmap_performance.py
+
+Description:
+Create the heatmap figures for disaggregated performance, Figures A9-A12.
+
+Outputs:
+- PDF heatmap files in "disaggregated_performance/" folder.
+
+Usage (from this directory):
+python figure_heatmap_performance.py
+"""
 import os
 import glob
 import pandas as pd
@@ -289,7 +301,7 @@ def generate_all_heatmaps(
     broad_categories,
     levels,
     metrics,
-    base_dir="data/disaggregated_performance",
+    base_dir="../data/disaggregated_performance",
     map_broad=None,
     map_level=None,
     columns_are="broad",
@@ -338,7 +350,7 @@ def generate_all_heatmaps(
         )
 
         level_tag = "_".join(levels) if isinstance(levels, list) else levels
-        out_path = f"figures/disaggregated_performance/{level_tag}_{metric}.pdf"
+        out_path = f"disaggregated_performance/{level_tag}_{metric}.pdf"
 
         plot_heatmap(
             df_matrix,
@@ -359,26 +371,28 @@ def generate_all_heatmaps(
 # MAIN EXECUTION (unchanged)
 # ============================================================
 
-broad_categories = ["age_family_status", 
-                    "business_activity", 
-                    "labor_market_position_entrepreneurs", 
-                    "profession", "real_estate_ownership", 
-                    "social_deviance", 
+broad_categories = ["socio_economic_position",
+                    "labor_market_position_entrepreneurs",
+                    "age_family_status", 
+                    "identities_minority_majority_status",
+                    "profession", 
                     "social_roles_behavior", 
-                    "socio_economic_position"]
+                    "social_deviance", 
+                    "real_estate_ownership"
+                    ]
 
 levels = ["outlet", "country", "decade"]
 metrics = ["accuracy", "precision_binary", "recall_binary", "f1_binary"]
 
 map_broad = {
-    "age_family_status": "Age and Family Status",
-    "business_activity": "Business Activity",
-    "labor_market_position_entrepreneurs": "Labor Market Position \n and Entrepreneurs",
+    "socio_economic_position": "Socio-economic position",
+    "labor_market_position_entrepreneurs": "Labor market position",
+    "age_family_status": "Age and family status",
+    "identities_minority_majority_status": "Identities and minority/majority status",
     "profession": "Profession",
-    "real_estate_ownership": "Real Estate Ownership",
-    "social_deviance": "Social Deviance",
-    "social_roles_behavior": "Social Roles and Behavior",
-    "socio_economic_position": "Socio-Economic Position"
+    "social_roles_behavior": "Social roles and behavior",
+    "social_deviance": "Social deviance",
+    "real_estate_ownership": "Real estate ownership",
 }
 
 map_level = {
