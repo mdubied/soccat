@@ -5,7 +5,7 @@ Description:
 Create the heatmap figures for disaggregated performance, Figures A9-A12 of the paper.
 
 Outputs:
-- PDF heatmap files in "disaggregated_performance/" folder.
+- PDF heatmap files in "step_2/heatmaps" folder.
 
 Usage (from this directory):
 python step_2_heatmap.py
@@ -299,7 +299,7 @@ def generate_all_heatmaps(
     broad_categories,
     levels,
     metrics,
-    base_dir="../data/disaggregated_performance",
+    base_dir="../data/step_2/disaggregated_performance",
     map_broad=None,
     map_level=None,
     columns_are="broad",
@@ -348,7 +348,7 @@ def generate_all_heatmaps(
         )
 
         level_tag = "_".join(levels) if isinstance(levels, list) else levels
-        out_path = f"disaggregated_performance/{level_tag}_{metric}.pdf"
+        out_path = f"step_2/heatmaps/{level_tag}_{metric}.pdf"
 
         plot_heatmap(
             df_matrix,
