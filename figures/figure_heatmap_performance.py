@@ -229,7 +229,6 @@ def build_matrix(results, metric, rows, cols, map_rows=None, map_cols=None):
 
 def plot_heatmap(
     df,
-    metric,
     figure_cm=(20, 12),
     rotation_x=45,
     rotation_y=0,
@@ -237,7 +236,8 @@ def plot_heatmap(
     uniform_range=(0.25, 1.0),
     show_colorbar=True,
     save_path=None,
-    separator_after_rows=None
+    separator_after_rows=None,
+    anchor_xticklabels="right"
 ):
     configure_fonts()
 
@@ -254,7 +254,7 @@ def plot_heatmap(
     ax.set_xticklabels(
         df.columns,
         rotation=rotation_x,
-        ha="right",
+        ha=anchor_xticklabels,
         rotation_mode="anchor"
     )
 
@@ -354,7 +354,6 @@ def generate_all_heatmaps(
 
         plot_heatmap(
             df_matrix,
-            metric=metric,
             figure_cm=figure_cm,
             rotation_x=rotation_x,
             rotation_y=rotation_y,
@@ -368,67 +367,71 @@ def generate_all_heatmaps(
         print(f"[saved] {out_path}")
 
 # ============================================================
-# MAIN EXECUTION (unchanged)
+# MAIN EXECUTION
 # ============================================================
+def main():
 
-broad_categories = ["socio_economic_position",
-                    "labor_market_position_entrepreneurs",
-                    "age_family_status", 
-                    "identities_minority_majority_status",
-                    "profession", 
-                    "social_roles_behavior", 
-                    "social_deviance", 
-                    "real_estate_ownership"
-                    ]
+    broad_categories = ["socio_economic_position",
+                        "labor_market_position_entrepreneurs",
+                        "age_family_status", 
+                        "identities_minority_majority_status",
+                        "profession", 
+                        "social_roles_behavior", 
+                        "social_deviance", 
+                        "real_estate_ownership"
+                        ]
 
-levels = ["outlet", "country", "decade"]
-metrics = ["accuracy", "precision_binary", "recall_binary", "f1_binary"]
+    levels = ["outlet", "country", "decade"]
+    metrics = ["accuracy", "precision_binary", "recall_binary", "f1_binary"]
 
-map_broad = {
-    "socio_economic_position": "Socio-economic position",
-    "labor_market_position_entrepreneurs": "Labor market position",
-    "age_family_status": "Age and family status",
-    "identities_minority_majority_status": "Identities and minority/majority status",
-    "profession": "Profession",
-    "social_roles_behavior": "Social roles and behavior",
-    "social_deviance": "Social deviance",
-    "real_estate_ownership": "Real estate ownership",
-}
+    map_broad = {
+        "socio_economic_position": "Socio-economic position",
+        "labor_market_position_entrepreneurs": "Labor market position",
+        "age_family_status": "Age and family status",
+        "identities_minority_majority_status": "Identities and minority/majority status",
+        "profession": "Profession",
+        "social_roles_behavior": "Social roles and behavior",
+        "social_deviance": "Social deviance",
+        "real_estate_ownership": "Real estate ownership",
+    }
 
-map_level = {
-    "Figaro": "Le Figaro",
-    "Monde": "Le Monde",
-    "MondeDiplo": "Le Monde\n diplomatique",
-    "Parisien": "Le Parisien",
-    "Liberation": "Libération",
-    "Mediapart": "Mediapart",
-    "Bild": "Bild",
-    "Spiegel": "Der Spiegel",
-    "Welt": "Die Welt",
-    "Zeit": "Die Zeit",
-    "FAZ": "Frankfurter\n Allgemeine",
-    "SZ": "Süddeutsche\n Zeitung",
-    "France": "France",
-    "Germany": "Germany",
-    "1990.0": "1990s",
-    "2000.0": "2000s",
-    "2010.0": "2010s",
-    "2020.0": "2020s",
-    
-    
-}
+    map_level = {
+        "Figaro": "Le Figaro",
+        "Monde": "Le Monde",
+        "MondeDiplo": "Le Monde\n diplomatique",
+        "Parisien": "Le Parisien",
+        "Liberation": "Libération",
+        "Mediapart": "Mediapart",
+        "Bild": "Bild",
+        "Spiegel": "Der Spiegel",
+        "Welt": "Die Welt",
+        "Zeit": "Die Zeit",
+        "FAZ": "Frankfurter\n Allgemeine",
+        "SZ": "Süddeutsche\n Zeitung",
+        "France": "France",
+        "Germany": "Germany",
+        "1990.0": "1990s",
+        "2000.0": "2000s",
+        "2010.0": "2010s",
+        "2020.0": "2020s",
+        
+        
+    }
 
-generate_all_heatmaps(
-    broad_categories=broad_categories,
-    levels=levels,
-    metrics=metrics,
-    map_broad=map_broad,
-    map_level=map_level,
-    columns_are="broad",
-    figure_cm=(14, 18),
-    rotation_x=40,
-    uniform_range=(0.1, 1.0),
-    show_colorbar=False,
-    decimals=2,
-    separator_after_rows=["Süddeutsche\n Zeitung", "Germany"]
-)
+    generate_all_heatmaps(
+        broad_categories=broad_categories,
+        levels=levels,
+        metrics=metrics,
+        map_broad=map_broad,
+        map_level=map_level,
+        columns_are="broad",
+        figure_cm=(14, 18),
+        rotation_x=40,
+        uniform_range=(0.1, 1.0),
+        show_colorbar=False,
+        decimals=2,
+        separator_after_rows=["Süddeutsche\n Zeitung", "Germany"]
+    )
+
+if __name__ == "__main__":
+    main()
