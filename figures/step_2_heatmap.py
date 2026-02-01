@@ -1,5 +1,5 @@
 """
-figure_heatmap_performance.py
+step_2_heatmap.py
 
 Description:
 Create the heatmap figures for disaggregated performance, Figures A9-A12 of the paper.
@@ -8,7 +8,7 @@ Outputs:
 - PDF heatmap files in "disaggregated_performance/" folder.
 
 Usage (from this directory):
-python figure_heatmap_performance.py
+python step_2_heatmap.py
 """
 import os
 import glob

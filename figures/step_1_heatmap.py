@@ -1,5 +1,5 @@
 """
-figure_heatmap_performance_step_1.py
+step_1_heatmap.py
 
 Description:
 Create the heatmap figures for disaggregated performance of the step 1 model.
@@ -8,10 +8,10 @@ Outputs:
 - PDF heatmap file in "step_1/step_1_outlet_country_decade_performance.pdf".
 
 Usage (from this directory):
-python figure_heatmap_performance_step_1.py
+python step_1_heatmap.py
 """
 import pandas as pd
-from figure_heatmap_performance import plot_heatmap
+from step_2_heatmap import plot_heatmap
 
 # ============================================================
 # DATA REARRANGEMENT FUNCTION

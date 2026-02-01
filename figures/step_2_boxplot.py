@@ -1,5 +1,5 @@
 """
-figure_performance_summary.py
+step_2_boxplot.py
 
 Description:
 Create the boxplot figures for summary performance. Figures 4, 5, A1-A8 of the paper.
@@ -14,7 +14,7 @@ Outputs:
 - PDF boxplot files in "performance_summary/" folder.
 
 Usage (from this directory):
-python figure_performance_summary.py --broad_class age_family
+python step_2_boxplot.py --broad_class age_family
 
 (or other broad class name to get all categories within this broad class, or no argument for all broad classes)
 """
