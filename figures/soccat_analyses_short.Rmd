@@ -1,0 +1,438 @@
+---
+title: "soccat_analyses"
+output: html_document
+date: "2026-04-09"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+```
+
+#Packages 
+```{r}
+library(tidyverse)
+library(patchwork)   
+library(ggrepel)    
+library(scales)      
+library(cowplot)
+library(readxl)
+```
+
+# Folder for figures
+```{r}
+
+dir.create("fig", showWarnings = FALSE)
+
+```
+
+
+# Open data
+
+```{r}
+
+# Filtering out 2024 and 2025 for which we have only data for bild and (2024) Monde diplo
+
+soccat_broad <- readr::read_delim(
+  "category_summary_outlet_year_final.csv",
+  delim = ";",
+  na = c("", "NA"),
+  show_col_types = FALSE
+) %>%
+  select(-matches("^202[45]_(N|pct)$"))
+
+glimpse(soccat_broad)
+
+soccat_categories <- readr::read_delim(
+  "label_summary_outlet_year_final.csv",
+  delim = ";",
+  na = c("", "NA"),
+  show_col_types = FALSE
+) %>%
+  select(-matches("^202[45]_(N|pct)$"))
+
+glimpse(soccat_categories)
+
+
+```
+
+
+# Reshape to long format
+
+```{r}
+
+soccat_broad_long <- soccat_broad %>%
+  pivot_longer(
+    cols = matches("^(19|20)\\d{2}_(N|pct)$") & !matches("^202[45]_(N|pct)$"),
+    names_to = c("year", ".value"),
+    names_pattern = "(\\d{4})_(N|pct)"
+  ) %>%
+  mutate(
+    year = as.integer(year),
+    category = str_replace_all(category, "_", " ")
+  )
+
+soccat_categories_long <- soccat_categories %>%
+  pivot_longer(
+    cols = matches("^(19|20)\\d{2}_(N|pct)$") & !matches("^202[45]_(N|pct)$"),
+    names_to = c("year", ".value"),
+    names_pattern = "(\\d{4})_(N|pct)"
+  ) %>%
+  mutate(
+    year = as.integer(year),
+    label = str_replace_all(label, "_", " ")
+  )
+
+
+```
+
+
+# Labels for countries and ideological orientation
+
+```{r}
+
+soccat_broad_long <- soccat_broad_long %>%
+  mutate(
+    country_group = case_when(
+      outlet %in% c("figaro", "lemonde", "liberation", "mediapart", "mondediplo") ~ "French",
+      outlet %in% c("bild", "faz", "spiegel", "sz", "welt", "zeit") ~ "German",
+      TRUE ~ NA_character_
+    ),
+    ideology_group = case_when(
+      outlet %in% c("liberation", "mediapart", "mondediplo", "sz") ~ "Left-wing",
+      outlet %in% c("lemonde", "spiegel", "zeit") ~ "Centrist",
+      outlet %in% c("figaro", "faz", "welt") ~ "Conservative",
+      outlet %in% c("bild") ~ "Populist right-wing",
+      TRUE ~ NA_character_
+    )
+  )
+
+soccat_categories_long <- soccat_categories_long %>%
+  mutate(
+    country_group = case_when(
+      outlet %in% c("figaro", "lemonde", "liberation", "mediapart", "mondediplo") ~ "French",
+      outlet %in% c("bild", "faz", "spiegel", "sz", "welt", "zeit") ~ "German",
+      TRUE ~ NA_character_
+    ),
+    ideology_group = case_when(
+      outlet %in% c("liberation", "mediapart", "mondediplo", "sz") ~ "Left-wing",
+      outlet %in% c("lemonde", "spiegel", "zeit") ~ "Centrist",
+      outlet %in% c("figaro", "faz", "welt") ~ "Conservative",
+      outlet %in% c("bild") ~ "Populist right-wing",
+      TRUE ~ NA_character_
+    )
+  )
+```
+
+
+# Distribution broad classes
+
+```{r}
+category_country_summary <- soccat_broad_long %>%
+  filter(!is.na(pct), !is.na(country_group), year <= 2023) %>%
+  group_by(category, country_group) %>%
+  summarise(
+    median_pct = median(pct, na.rm = TRUE),
+    q25 = quantile(pct, 0.25, na.rm = TRUE),
+    q75 = quantile(pct, 0.75, na.rm = TRUE),
+    mean_pct = mean(pct, na.rm = TRUE),
+    iqr_pct = IQR(pct, na.rm = TRUE),
+    n_obs = n(),
+    .groups = "drop"
+  )
+
+# ordre commun des catégories
+category_order <- category_country_summary %>%
+  group_by(category) %>%
+  summarise(overall_median = mean(median_pct), .groups = "drop") %>%
+  arrange(overall_median) %>%
+  pull(category)
+
+category_country_summary <- category_country_summary %>%
+  mutate(
+    category = factor(category, levels = category_order),
+    country_group = factor(country_group, levels = c("French", "German"))
+  )
+
+p_category_country_compare <- ggplot(
+  category_country_summary,
+  aes(x = median_pct, y = category, color = country_group)
+) +
+  geom_linerange(
+    aes(xmin = q25, xmax = q75),
+    position = position_dodge(width = 0.5),
+    linewidth = 1.1,
+    alpha = 0.7
+  ) +
+  geom_point(
+    position = position_dodge(width = 0.5),
+    size = 2.5
+  ) +
+  scale_x_continuous(
+    labels = scales::label_number(suffix = "%"),
+    expand = expansion(mult = c(0.01, 0.05))
+  ) +
+  scale_color_manual(
+    values = c("French" = "#F8766D", "German" = "#00BFC4")
+  ) +
+  labs(
+    x = "Median share of sentences",
+    y = NULL,
+    color = NULL,
+    title = "Salience of broad categories in French and German outlets",
+    subtitle = "Median and interquartile range"
+  ) +
+  theme_minimal(base_size = 12) +
+  theme(
+    panel.grid.minor = element_blank(),
+    panel.grid.major.y = element_blank(),
+    axis.text = element_text(color = "grey20"),
+    legend.position = "top",
+    plot.title = element_text(face = "bold"),
+    plot.subtitle = element_text(color = "grey35")
+  )
+
+p_category_country_compare
+
+ggsave(
+  filename = "fig/broad_categories_france_germany_median_iqr.png",
+  plot = p_category_country_compare,
+  width = 10,
+  height = 6.5,
+  dpi = 300
+)
+```
+
+
+
+# Distribution social categories
+
+```{r}
+
+#ordre vertical des labels est basé sur la moyenne des médianes France/Allemagne
+
+top20_common_labels <- soccat_categories_long %>%
+  filter(!is.na(pct), !is.na(country_group), year <= 2023) %>%
+  group_by(label) %>%
+  summarise(
+    median_pct_all = median(pct, na.rm = TRUE),
+    .groups = "drop"
+  ) %>%
+  arrange(desc(median_pct_all)) %>%
+  slice_head(n = 20) %>%
+  pull(label)
+
+country_summary <- soccat_categories_long %>%
+  filter(
+    !is.na(pct),
+    !is.na(country_group),
+    year <= 2023,
+    label %in% top20_common_labels
+  ) %>%
+  group_by(country_group, label) %>%
+  summarise(
+    median_pct = median(pct, na.rm = TRUE),
+    q25 = quantile(pct, 0.25, na.rm = TRUE),
+    q75 = quantile(pct, 0.75, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+label_order <- country_summary %>%
+  group_by(label) %>%
+  summarise(
+    overall_median = mean(median_pct),
+    .groups = "drop"
+  ) %>%
+  arrange(overall_median) %>%
+  pull(label)
+
+country_summary <- country_summary %>%
+  mutate(
+    label = factor(label, levels = label_order),
+    country_group = factor(country_group, levels = c("French", "German"))
+  )
+
+p_country_compare <- ggplot(
+  country_summary,
+  aes(x = median_pct, y = label, color = country_group)
+) +
+  geom_linerange(
+    aes(xmin = q25, xmax = q75),
+    position = position_dodge(width = 0.5),
+    linewidth = 1.1,
+    alpha = 0.7
+  ) +
+  geom_point(
+    position = position_dodge(width = 0.5),
+    size = 2.5
+  ) +
+  scale_x_continuous(
+    labels = scales::label_number(suffix = "%"),
+    expand = expansion(mult = c(0.01, 0.05))
+  ) +
+  scale_color_manual(
+    values = c("French" = "#F8766D", "German" = "#00BFC4")
+  ) +
+  labs(
+    x = "Median share of sentences",
+    y = NULL,
+    color = NULL,
+    title = "Salience of social labels in French and German outlets",
+    subtitle = "Median and interquartile range, top 20 labels"
+  ) +
+  theme_minimal(base_size = 12) +
+  theme(
+    panel.grid.minor = element_blank(),
+    panel.grid.major.y = element_blank(),
+    axis.text = element_text(color = "grey20"),
+    legend.position = "top",
+    plot.title = element_text(face = "bold"),
+    plot.subtitle = element_text(color = "grey35")
+  )
+
+p_country_compare
+
+ggsave(
+  filename = "fig/compare_country_medians_iqr_top20.png",
+  plot = p_country_compare,
+  width = 11,
+  height = 8,
+  dpi = 300
+)
+
+
+```
+
+
+## Focus on single groups
+
+```{r}
+
+# Labels of interest
+labels_focus <- c(
+  "people with an immigration background including immigrants",
+  "muslims",
+  "patients",
+  "health and care professionals"
+)
+
+# Optional check
+setdiff(labels_focus, unique(soccat_categories_long$label))
+
+# Average yearly salience by country group
+label_country_avg_focus <- soccat_categories_long %>%
+  filter(
+    !is.na(pct),
+    year <= 2023,
+    !is.na(country_group),
+    label %in% labels_focus
+  ) %>%
+  group_by(label, country_group, year) %>%
+  summarise(
+    mean_pct = mean(pct, na.rm = TRUE),
+    .groups = "drop"
+  ) %>%
+  mutate(
+    country_group = factor(country_group, levels = c("French", "German")),
+    label = factor(label, levels = labels_focus)
+  )
+
+# Events to annotate
+annotation_base <- tibble::tribble(
+  ~label, ~year, ~event,
+  "patients", 2020, "covid outbreak",
+  "health and care professionals", 2020, "covid outbreak",
+  "people with an immigration background including immigrants", 2015, "refugee crisis",
+  "people with an immigration background including immigrants", 2010, "Sarrazin debate in Germany",
+  "muslims", 2015, "refugee crisis",
+  "muslims", 2004, "veil ban in France",
+  "muslims", 2010, "Sarrazin debate in Germany"
+)
+
+# Attach each event to the higher line in the corresponding facet-year
+annotation_df <- annotation_base %>%
+  left_join(
+    label_country_avg_focus %>%
+      group_by(label, year) %>%
+      slice_max(order_by = mean_pct, n = 1, with_ties = FALSE) %>%
+      ungroup(),
+    by = c("label", "year")
+  ) %>%
+  mutate(
+    label = factor(label, levels = labels_focus),
+    country_group = factor(country_group, levels = c("French", "German"))
+  )
+
+# Plot
+p_focus_country_trends <- ggplot(
+  label_country_avg_focus,
+  aes(x = year, y = mean_pct, color = country_group, group = country_group)
+) +
+  geom_line(linewidth = 1.1) +
+  geom_vline(
+    data = annotation_df,
+    aes(xintercept = year),
+    inherit.aes = FALSE,
+    linetype = "dashed",
+    linewidth = 0.4,
+    color = "grey55"
+  ) +
+  ggrepel::geom_label_repel(
+    data = annotation_df,
+    aes(x = year, y = mean_pct, label = event),
+    inherit.aes = FALSE,
+    seed = 123,
+    size = 3.1,
+    label.size = 0.2,
+    fill = "white",
+    color = "grey20",
+    segment.color = "grey45",
+    min.segment.length = 0,
+    nudge_x = 0.8,
+    direction = "y",
+    hjust = 0,
+    box.padding = 0.2,
+    point.padding = 0.15,
+    show.legend = FALSE
+  ) +
+  facet_wrap(~ label, scales = "free_y", ncol = 2) +
+  scale_x_continuous(
+    breaks = seq(1995, 2023, by = 5),
+    limits = c(1995, 2025),
+    expand = expansion(mult = c(0.01, 0.06))
+  ) +
+  scale_y_continuous(
+    labels = scales::label_number(accuracy = 0.01, suffix = "%"),
+    expand = expansion(mult = c(0, 0.12))
+  ) +
+  scale_color_manual(
+    values = c("French" = "#F8766D", "German" = "#00BFC4")
+  ) +
+  labs(
+    x = NULL,
+    y = "Average share of sentences",
+    color = NULL,
+    title = "Long-term salience trends in French and German newspapers"
+  ) +
+  theme_minimal(base_size = 12) +
+  theme(
+    panel.grid.minor = element_blank(),
+    panel.grid.major.x = element_blank(),
+    panel.grid.major.y = element_line(color = "grey85", linewidth = 0.3),
+    strip.text = element_text(face = "bold", size = 11),
+    axis.text = element_text(color = "grey20"),
+    legend.position = "bottom",
+    plot.title = element_text(face = "bold")
+  )
+
+p_focus_country_trends
+
+
+ggsave(
+  filename = "fig/single_groups_labelled_france_germany.png",
+  plot = p_focus_country_trends,
+  width = 8,
+  height = 6,
+  dpi = 300
+)
+
+```
