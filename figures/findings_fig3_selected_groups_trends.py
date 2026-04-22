@@ -42,6 +42,8 @@ LABELS_FOCUS = [
     "Health and care professionals",
 ]
 
+PANEL_LABELS = ["A", "B", "C", "D"]
+
 # (label, year, event_text, side, y_override, y_offset)
 #   side       : "left" | "right" | "top"
 #   y_override : None  → y of highest line at that year (auto)
@@ -181,7 +183,8 @@ def plot_trends(trend_df, outlet_df, show_outlet_lines=SHOW_OUTLET_LINES,
         ax.spines[["top", "right"]].set_visible(False)
 
         title_str = TITLE_DISPLAY.get(label, label)
-        ax.set_title("\\textbf{" + title_str + "}", loc="left", fontsize=9, pad=4)
+        panel = PANEL_LABELS[i]
+        ax.set_title("\\textbf{" + panel + ".} " + title_str, loc="left", fontsize=9, pad=4)
 
         ax.legend(frameon=False, fontsize=8, loc="upper left", handlelength=1.5)
 
