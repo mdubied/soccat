@@ -62,10 +62,10 @@ def build_summary(long_df):
     )
 
     display = {
-        "People with an immigration background including immigrants":
-            r"\shortstack[l]{People with an immigration\\background incl. immigrants}",
-        "Offenders criminals prisoners and or accused people":
-            r"\shortstack[l]{Offenders, criminals, prisoners\\and/or accused people}",
+        "Politicians and high ranking officials":             "Politicians",
+        "People with an immigration background including immigrants": "Immigrants",
+        "Offenders criminals prisoners and or accused people":        "Criminals",
+        "Capital owners investors and shareholders":                  "Capital owners",
     }
     summary["label"] = summary["label"].replace(display)
     order = [display.get(l, l) for l in order]
