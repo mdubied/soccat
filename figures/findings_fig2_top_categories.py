@@ -20,7 +20,7 @@ import pandas as pd
 import utils as su
 
 
-DATA_PATH = "../data/annotated_corpus/label_summary_outlet_year_final.csv"
+DATA_PATH = "../data/annotated_corpus/label_summary_outlet_year_final_v2.csv"
 SAVE_PATH = "findings/fig2_top20_medians_iqr.pdf"
 FIGURE_CM = (15, 14)
 
@@ -78,7 +78,7 @@ def build_summary(long_df):
 
 
 def main():
-    long_df = su.load_and_reshape(DATA_PATH, value_col="label", exclude_outlets=["figaro"])
+    long_df = su.load_and_reshape(DATA_PATH, value_col="label")
     summary  = build_summary(long_df)
 
     su.plot_dot_iqr(

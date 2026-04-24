@@ -25,7 +25,7 @@ from matplotlib.ticker import FuncFormatter
 import utils as su
 
 
-DATA_PATH = "../data/annotated_corpus/label_summary_outlet_year_final.csv"
+DATA_PATH = "../data/annotated_corpus/label_summary_outlet_year_final_v2.csv"
 SAVE_PATH = "findings/fig3_selected_groups.pdf"
 FIGURE_CM = (14, 14)
 SHOW_OUTLET_LINES = True
@@ -197,7 +197,7 @@ def plot_trends(trend_df, outlet_df, show_outlet_lines=SHOW_OUTLET_LINES,
 
 
 def main():
-    long_df  = su.load_and_reshape(DATA_PATH, value_col="label", exclude_outlets=["figaro"])
+    long_df  = su.load_and_reshape(DATA_PATH, value_col="label")
     trend_df, outlet_df = build_trend_df(long_df)
     plot_trends(trend_df, outlet_df)
 
