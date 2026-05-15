@@ -6,7 +6,7 @@ Read manual annotation file and compute the top-N most frequent "specific_group_
 separately for France and Germany, then export a side-by-side LaTeX table.
 
 Input:
-- data/manual_annotations/annotations_09_10_2025.csv
+- data/manual_annotations/annotations_ground_truth.csv
 
 Output:
 - tables/manual_annotation_top_XX.tex   (XX = top_n argument)
@@ -24,7 +24,7 @@ import pandas as pd
 import argparse
 import os
 
-DEFAULT_INPUT_PATH = "../data/manual_annotations/annotations_09_10_2025.csv"
+DEFAULT_INPUT_PATH = "../data/manual_annotations/annotations_ground_truth.csv"
 DEFAULT_OUT_DIR = "../tables"
 DISCARD_CATEGORIES = [
     "others",
