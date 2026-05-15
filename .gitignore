@@ -5,6 +5,8 @@ venv/
 # Ignore Python cache files
 *__pycache__/
 
+# Ignore R-history files
+.Rhistory
 
 
 
