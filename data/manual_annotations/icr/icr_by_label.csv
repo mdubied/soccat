@@ -1,0 +1,57 @@
+Label,Category,α MASI,α binary,N (sentences with label)
+car drivers,Social roles and behavior,-0.02381,-0.02381,22
+doctors,Profession,-0.032,-0.032,65
+tenants,Real estate ownership,-0.033333,-0.033333,16
+homeless,Real estate ownership,-0.038462,-0.038462,14
+authors and artists,Profession,-0.051351,-0.051351,195
+teachers and educators,Profession,-0.052174,-0.052174,61
+politicians and high-ranking officials,Profession,-0.052467,-0.052467,1515
+women,Identities and minority/majority status,-0.064263,-0.064263,340
+middle class,Socio-economic position,-0.064516,-0.064516,17
+patients,Social roles and behavior,-0.066986,-0.066986,112
+athletes,Profession,-0.067089,-0.067089,422
+"people with an immigration background, including immigrants",Identities and minority/majority status,-0.067829,-0.067829,276
+journalists,Profession,-0.071429,-0.071429,53
+disabled people,Identities and minority/majority status,-0.075758,-0.075758,36
+soldiers,Profession,-0.076159,-0.076159,163
+youth,Age and family status,-0.080409,-0.080409,370
+farmers and fishermen,Profession,-0.080537,-0.080537,81
+scientists and professors,Profession,-0.081522,-0.081522,100
+employers,Labor market position,-0.087591,-0.087591,75
+minors,Age and family status,-0.08815,-0.08815,377
+men,Identities and minority/majority status,-0.089219,-0.089219,147
+legal professionals,Profession,-0.09009,-0.09009,61
+"capital owners, investors and shareholders",Socio-economic position,-0.090652,-0.090652,193
+wage and salary earners,Labor market position,-0.095181,-0.095181,455
+drug addicts,Social deviance,-0.095238,-0.095238,12
+jews,Identities and minority/majority status,-0.098765,-0.098765,45
+singles,Age and family status,-0.1,-0.1,6
+lgbtqia+,Identities and minority/majority status,-0.103175,-0.103175,70
+parents and families,Age and family status,-0.10567,-0.10567,215
+others,Others,-0.111229,-0.111229,2623
+entrepreneurs,Labor market position,-0.111935,-0.111935,825
+consumers and clients,Social roles and behavior,-0.112613,-0.112613,371
+real-estate owners,Real estate ownership,-0.119403,-0.119403,38
+unemployed,Labor market position,-0.121212,-0.121212,56
+security forces,Profession,-0.133056,-0.133056,273
+cisgender and heterosexuals,Identities and minority/majority status,-0.133333,-0.133333,9
+extremists,Social deviance,-0.140127,-0.140127,90
+"terrorists, rebels, revolutionaries and/or movements of armed resistance",Social deviance,-0.144,-0.144,215
+christians,Identities and minority/majority status,-0.144737,-0.144737,44
+"offenders, criminals, prisoners and/or accused people",Social deviance,-0.150376,-0.150376,230
+skilled or qualified,Socio-economic position,-0.151899,-0.151899,46
+health and care professionals,Profession,-0.171875,-0.171875,38
+other professions,Profession,-0.18608,-0.18608,418
+muslims,Identities and minority/majority status,-0.210526,-0.210526,58
+lower class,Socio-economic position,-0.214286,-0.214286,77
+couples,Age and family status,-0.222222,-0.222222,6
+ethnic and racial minorities,Identities and minority/majority status,-0.258929,-0.258929,71
+multiple (or other) religious or minority groups,Identities and minority/majority status,-0.280488,-0.280488,53
+upper class,Socio-economic position,-0.296296,-0.296296,53
+CEOs and corporate leaders,Labor market position,-0.309392,-0.309392,119
+civil servants,Labor market position,-0.315789,-0.315789,63
+unskilled or unqualified,Socio-economic position,-0.321429,-0.321429,19
+self-employed and freelancers,Labor market position,-0.363636,-0.363636,8
+elderly,Age and family status,-0.383838,-0.383838,69
+middle-aged and pre-retirement age groups,Age and family status,-0.5625,-0.5625,13
+retirees,Labor market position,-0.952381,-0.952381,21
