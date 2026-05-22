@@ -48,13 +48,13 @@ else:
 # Setup-specific paths
 if SETUP_NAME == "cat_per_broad_class_box_plot":   
     BROAD_CLASS = args.broad_class
-    INPUT_FILE   = f"../data/step_2/model_performance/{BROAD_CLASS}_per_fold.csv"
+    INPUT_FILE   = f"../data/model_performance/step_2/model_performance/{BROAD_CLASS}_per_fold.csv"
     OUTPUT_DIR   = f"step_2/boxplots/cat_per_broad_class_box_plot"
     OUTPUT_BASE_NAME = f"{BROAD_CLASS}_box_plot"
     NAME_CAT = "hypothesis_label"
     LBL_WIDTH_FRAC  = 0.29   # Fixed fraction of figure width for labels (instead of measuring)
 elif SETUP_NAME == "broad_class_box_plot":    
-    INPUT_DIR   = "../data/step_2/model_performance"
+    INPUT_DIR   = "../data/model_performance/step_2/model_performance"
     OUTPUT_DIR   = "step_2/boxplots/broad_class_box_plot"
     OUTPUT_BASE_NAME = "perf_broad_class_box_plot"
     NAME_CAT = "hypothesis_label"

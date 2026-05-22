@@ -299,7 +299,7 @@ def generate_all_heatmaps(
     broad_categories,
     levels,
     metrics,
-    base_dir="../data/step_2/disaggregated_performance",
+    base_dir="../data/model_performance/step_2/disaggregated_performance",
     map_broad=None,
     map_level=None,
     columns_are="broad",

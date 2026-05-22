@@ -87,7 +87,7 @@ def main():
     }
 
     # Read data
-    df = pd.read_csv("../data/step_1/performance_all_levels.csv")
+    df = pd.read_csv("../data/model_performance/step_1/performance_all_levels.csv")
 
     # Extract result matrix from dataframe
     df_matrix = extract_result_matrix(
