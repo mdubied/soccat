@@ -12,8 +12,8 @@ Output:
 - tables/manual_annotation_top_XX.tex   (XX = top_n argument)
 
 Usage (from this directory):
-python table_manual_annotation_top_groups.py --top_n 10
-python table_manual_annotation_top_groups.py --top_n 20
+python manual_annotation_top_groups.py --top_n 10
+python manual_annotation_top_groups.py --top_n 20
 
 """
 
@@ -24,12 +24,82 @@ import pandas as pd
 import argparse
 import os
 
-DEFAULT_INPUT_PATH = "../data/manual_annotations/annotations_ground_truth.csv"
+DEFAULT_INPUT_PATH = "../data/manual_annotations/step_2/annotations_ground_truth.csv"
 DEFAULT_OUT_DIR = "../tables"
 DISCARD_CATEGORIES = [
     "others",
+    "other",
     "other profession",
+    "other professions",
+    "target abroad",
 ]
+
+# Maps raw specific_group_new values to canonical labels (aligned with ICR notebooks).
+NORMALISE = {
+    "poor": "lower class", "underprivileged": "lower class",
+    "unskilled and/or underprivileged": "unskilled or unqualified",
+    "qualified": "skilled or qualified", "qualified and graduates": "skilled or qualified",
+    "investors and stakeholders": "capital owners, investors and shareholders",
+    "employees": "wage and salary earners", "precarious employees": "wage and salary earners",
+    "working active population": "wage and salary earners",
+    "housewife and househusband": "housewives and househusbands",
+    "self-employed/freelancers": "self-employed and freelancers",
+    "leaders": "CEOs and corporate leaders",
+    "ceos and corporate leaders": "CEOs and corporate leaders",
+    "enterprises": "entrepreneurs", "large enterprises": "entrepreneurs",
+    "small- and middle-size enterprises": "entrepreneurs",
+    "specific sector": "entrepreneurs",
+    "entrepreneurs (smes)": "entrepreneurs",
+    "entrepreneurs (large enterprises)": "CEOs and corporate leaders",
+    "entrepreneurs in [specific] sector": "entrepreneurs",
+    "minors, including children and pupils": "minors",
+    "youth, including students and apprentices": "youth",
+    "middle-aged": "middle-aged and pre-retirement age groups",
+    "older age group": "elderly", "seniors": "elderly",
+    "immigrants": "people with an immigration background, including immigrants",
+    "visible and ethnic minorities": "ethnic and racial minorities",
+    "ethnic minorities": "ethnic and racial minorities",
+    "minorities": "ethnic and racial minorities",
+    "east germans": "ethnic and racial minorities",
+    "west germans": "ethnic and racial minorities",
+    "ethnic germans": "ethnic and racial minorities",
+    "expatriates": "ethnic and racial minorities",
+    "white": "ethnic and racial minorities",
+    "white people": "ethnic and racial minorities",
+    "visible minorities": "ethnic and racial minorities",
+    "language and ethnic minorities": "ethnic and racial minorities",
+    "lgbtqi*": "LGBTQIA+", "lgbtqqia+": "LGBTQIA+", "lgbtqia+": "LGBTQIA+",
+    "cis & heterosexuals": "cisgender and heterosexuals",
+    "religious groups": "multiple (or other) religious or minority groups",
+    "religious minorities": "multiple (or other) religious or minority groups",
+    "territorial language minorities": "multiple (or other) religious or minority groups",
+    "multiple (or other specific) religious or minority groups":
+        "multiple (or other) religious or minority groups",
+    "disabled": "disabled people",
+    "scientists": "scientists and professors",
+    "prostitutes": "sex workers",
+    "social professions": "other professions",
+    "engineers": "other professions",
+    "lobbyists": "other professions",
+    "hunters": "other professions",
+    "people working in the public sector": "civil servants",
+    "commuters": "consumers and clients",
+    "cyclists": "car drivers", "pedestrians": "car drivers",
+    "road carriers": "consumers and clients",
+    "air travellers": "consumers and clients",
+    "users of certain transportation modes": "consumers and clients",
+    "public transport passengers": "consumers and clients",
+    "insured persons": "patients",
+    "consumers": "consumers and clients",
+    "tax evaders and white collar criminals":
+        "offenders, criminals, prisoners and/or accused people",
+    "offenders or criminals": "offenders, criminals, prisoners and/or accused people",
+    "terrorists":
+        "terrorists, rebels, revolutionaries and/or movements of armed resistance",
+    "home owner": "real-estate owners", "land owner": "real-estate owners",
+    "landlords": "real-estate owners", "real-estate owner": "real-estate owners",
+    "real estate owners": "real-estate owners",
+}
 
 # ============================================================
 # PARSING / COUNTING
@@ -97,6 +167,7 @@ def count_categories_by_country(
             c_clean = str(c).strip()
             if c_clean == "":
                 continue
+            c_clean = NORMALISE.get(c_clean.lower(), c_clean)
             if c_clean in discard_set:
                 continue
 
