@@ -1,0 +1,13 @@
+Outlet,Country,Krippendorff α,# Sentences,# Annotators
+Le Figaro,France,0.9141,300,2
+Le Monde,France,0.9444,300,2
+Le Monde diplomatique,France,0.8944,1200,2
+Le Parisien,France,0.6541,300,2
+Médiapart,France,0.7442,1200,2
+Libération,France,0.7568,1206,4
+Bild,Germany,0.6757,300,5
+Frankfurter Allgemeine,Germany,0.7035,300,2
+Spiegel,Germany,0.682,300,2
+Süddeutsche Zeitung,Germany,0.7431,300,2
+Die Welt,Germany,0.628,300,2
+Die Zeit,Germany,0.7546,300,5
