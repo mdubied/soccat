@@ -32,7 +32,7 @@ SHOW_OUTLET_LINES = True
 
 TITLE_DISPLAY = {
     "People with an immigration background including immigrants":
-        r"\shortstack[l]{People with an immigration\\background incl. immigrants}",
+        r"Immigrants",
 }
 
 LABELS_FOCUS = [
