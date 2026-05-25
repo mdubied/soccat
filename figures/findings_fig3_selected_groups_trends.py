@@ -9,10 +9,10 @@ Description:
   Replicates the "Focus on single groups" chunk of soccat_analyses_short.Rmd.
 
 Outputs:
-  figures/findings/fig3_selected_groups.pdf
+  figures/application_to_newspaper_corpus/fig3_selected_groups.pdf
 
 Data:
-  data/annotated_corpus/label_summary_outlet_year_final.csv
+  data/annotated_corpus/specific_categories_aggregate_results.csv
 
 Usage (from the figures/ directory):
   python findings_fig3_selected_groups_trends.py
@@ -25,8 +25,8 @@ from matplotlib.ticker import FuncFormatter
 import utils as su
 
 
-DATA_PATH = "../data/annotated_corpus/label_summary_outlet_year_final_v2.csv"
-SAVE_PATH = "findings/fig3_selected_groups.pdf"
+DATA_PATH = "../data/annotated_corpus/specific_categories_aggregate_results.csv"
+SAVE_PATH = "application_to_newspaper_corpus/fig3_selected_groups.pdf"
 FIGURE_CM = (14, 14)
 SHOW_OUTLET_LINES = True
 

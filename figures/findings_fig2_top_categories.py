@@ -8,10 +8,10 @@ Description:
   Replicates the "Distribution social categories" chunk of soccat_analyses_short.Rmd.
 
 Outputs:
-  figures/findings/fig2_top20_medians_iqr.pdf
+  figures/application_to_newspaper_corpus/fig2_top20_medians_iqr.pdf
 
 Data:
-  data/annotated_corpus/label_summary_outlet_year_final.csv
+  data/annotated_corpus/specific_categories_aggregate_results.csv
 
 Usage (from the figures/ directory):
   python findings_fig2_top_categories.py
@@ -20,8 +20,8 @@ import pandas as pd
 import utils as su
 
 
-DATA_PATH = "../data/annotated_corpus/label_summary_outlet_year_final_v2.csv"
-SAVE_PATH = "findings/fig2_top20_medians_iqr.pdf"
+DATA_PATH = "../data/annotated_corpus/specific_categories_aggregate_results.csv"
+SAVE_PATH = "application_to_newspaper_corpus/fig2_top20_medians_iqr.pdf"
 FIGURE_CM = (15, 14)
 
 

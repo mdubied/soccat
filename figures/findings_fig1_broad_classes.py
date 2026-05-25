@@ -1,5 +1,5 @@
 """
-findings_fig1_broad_categories.py
+findings_fig1_broad_classes.py
 
 Description:
   Horizontal dot plot comparing the median salience of broad social categories
@@ -8,20 +8,20 @@ Description:
   Replicates the "Distribution broad classes" chunk of soccat_analyses_short.Rmd.
 
 Outputs:
-  figures/findings/broad_categories_france_germany_median_iqr.pdf
+  figures/application_to_newspaper_corpus/broad_categories_france_germany_median_iqr.pdf
 
 Data:
-  data/annotated_corpus/category_summary_outlet_year_final.csv
+  data/annotated_corpus/broad_classes_aggregate_results.csv
 
 Usage (from the figures/ directory):
-  python findings_fig1_broad_categories.py
+  python findings_fig1_broad_classes.py
 """
 import pandas as pd
 import utils as su
 
 
-DATA_PATH  = "../data/annotated_corpus/category_summary_outlet_year_final_v2.csv"
-SAVE_PATH  = "findings/fig1_broad_categories_median_iqr.pdf"
+DATA_PATH  = "../data/annotated_corpus/broad_classes_aggregate_results.csv"
+SAVE_PATH  = "application_to_newspaper_corpus/fig1_broad_classes_median_iqr.pdf"
 FIGURE_CM  = (14, 6)
 
 
