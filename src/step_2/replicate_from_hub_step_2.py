@@ -10,21 +10,13 @@ reported in the paper without requiring retraining.
 Usage
 -----
 # Reproduce all categories:
-    python replicate_from_hub.py \\
-        --data_root data/ \\
-        --out       output/replication/
+    python replicate_from_hub_step_2.py --data_root ../../data/model_performance/step_2/ --out output/replication/
 
 # Single category:
-    python replicate_from_hub.py \\
-        --data_root data/ \\
-        --out       output/replication/ \\
-        --category  socio_economic_position
+    python replicate_from_hub_step_2.py --data_root ../../data/model_performance/step_2/ --out output/replication/ --category socio_economic_position
 
 # Use a custom categories manifest:
-    python replicate_from_hub.py \\
-        --manifest  categories.json \\
-        --data_root data/ \\
-        --out       output/replication/
+    python replicate_from_hub_step_2.py --manifest categories.json --data_root ../../data/model_performance/step_2/ --out output/replication/
 
 Data format
 -----------

@@ -7,17 +7,10 @@ mDeBERTa-v3 Fine-Tuning & Evaluation Pipeline
 Usage
 -----
 # Full training + evaluation:
-    python SOCCAT_mDeBERTa_replication.py \
-        --train_path ../../data/model_performance/step_1/train_with_all_outlets.json \
-        --test_path  ../../data/model_performance/step_1/test_with_all_outlets.json \
-        --output_dir output/
+    python SOCCAT_mDeBERTa_replication.py --train_path ../../data/model_performance/step_1/train_with_all_outlets.json --test_path ../../data/model_performance/step_1/test_with_all_outlets.json --output_dir output/
 
 # Inference only (load fine-tuned model from the Hub, skip training):
-    python SOCCAT_mDeBERTa_replication.py \
-        --test_path  ../../data/model_performance/step_1/test_with_all_outlets.json \
-        --output_dir output/ \
-        --inference_only \
-        --model_name selsar/social_group_detection
+    python SOCCAT_mDeBERTa_replication.py --test_path ../../data/model_performance/step_1/test_with_all_outlets.json --output_dir output/ --inference_only --model_name selsar/social_group_detection
 """
 
 import argparse

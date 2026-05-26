@@ -11,19 +11,14 @@ mention detection.
 Usage
 -----
 # Full CV training:
-    python CV_Socio_Economic_Position.py \\
-        --pairs  data/nli_dataset_full.csv \\
-        --out    output/socio_economic_position/
+    python step_2_cv_pipeline.py --pairs nli_pairs_by_category/nli_dataset_socio_economic_position.csv --out output/socio_economic_position/
 
 # With Hub upload after training:
-    python CV_Socio_Economic_Position.py \\
-        --pairs        data/nli_dataset_full.csv \\
-        --out          output/socio_economic_position/ \\
-        --push_to_hub  selsar/cv_socio_economic_position
+    python step_2_cv_pipeline.py --pairs nli_pairs_by_category/nli_dataset_socio_economic_position.csv --out output/socio_economic_position/ --push_to_hub selsar/cv_socio_economic_position
 
 # Key optional flags:
-    --kfolds 5            Number of CV folds (default: 5)
-    --epochs 3            Training epochs per fold (default: 3)
+    --kfolds 5              Number of CV folds (default: 5)
+    --epochs 3              Training epochs per fold (default: 3)
     --sel_metric f1_binary  Metric used to select best fold (default: f1_binary)
     --downsample_neg        Activate negative downsampling
     --no_plots              Skip saving visualisation figures
