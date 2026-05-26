@@ -344,9 +344,11 @@ def plot_data(axs, ax_N, df, wrapped_labels, label_col="hypothesis_label", raw_l
 
             N_vals = (
                 df.groupby(label_col, observed=False)["n_pos_entail"]
-                .first()            # or .iloc[0], same effect
+                .mean()
+                .round()
+                .astype(int)
                 .reindex(raw_labels)
-            )     
+            )
             y = np.arange(len(N_vals))[::-1]  # match row order
 
             # Display text on empty axis
@@ -432,6 +434,15 @@ data_to_plot = (df.sort_values(NAME_CAT, kind="mergesort"), unique_labels)
 
 
 df_plot, raw_labels = data_to_plot
+
+# Print F1 median per row
+print(f"\n{'Label':<60} {'F1 median':>10}")
+print("-" * 72)
+for lbl in raw_labels:
+    median = df_plot.loc[df_plot[NAME_CAT] == lbl, "f1_binary"].median()
+    print(f"{str(lbl):<60} {median:>10.4f}")
+print()
+
 wrapped = wrap_labels(raw_labels, wrap_w)
 wrapped = [
     "\n".join(
