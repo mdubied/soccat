@@ -2,9 +2,10 @@
 
 ## Description
 
-This repository accompanies the paper "**Measuring Discursive Constructions of Social Categories in the Press**" (2025) by S. Šarenkapa, I. Guinaudeau, E. Deiss-Helbig, M. Dubied, R. Heiberger, and T. Matthieß.
+This repository accompanies the paper "**Detecting Social Categories in Multilingual Newspaper
+Corpora**" (2026) by S. Šarenkapa, I. Guinaudeau, E. Deiss-Helbig, M. Dubied, R. Heiberger, and T. Matthieß.
 
-It provides the trained models as well as the codebase required to reproduce the results reported in the paper.
+It provides the codebase required to reproduce the results reported in the paper.
 
 ## How to run the code
 
@@ -12,7 +13,7 @@ To prepare your working environment, follow these steps (only required once):
 
 1. Install Python
 
-Make sure Python 3.9+ is installed:
+Make sure Python 3.10+ is installed (3.12 recommended):
 ```
 python --version
 ```
@@ -57,26 +58,43 @@ The repository is structured as follows:
 
 ```
 .
-├── data: contains data used to produce the figures and tables of the paper.
-│   ├── manual_annotations
-│   ├── step_1
-│   └── step_2
+├── data/                          data used to produce results
+│   ├── annotated_corpus/          aggregated corpus statistics by outlet and year
+│   ├── manual_annotations/        raw and pre-processed manual annotation files
+│   └── model_performance/         model evaluation outputs
 │
-├── figures: contains the figures of the paper.
-│   ├── step_1
-│   └── step_2
-│       ├── boxplots
-│       └── heatmaps
+├── figures/                       scripts and PDF outputs for all paper figures
+│   ├── findings_fig1_broad_classes.py      figure 2 — broad category distributions
+│   ├── findings_fig2_top_categories.py     figure 4 — top 20 categories
+│   ├── findings_fig3_selected_groups_trends.py  figure 5 — group trends over time
+│   ├── step_1_heatmap.py                   figure A1 — step 1 performance heatmap
+│   ├── step_2_heatmap.py                   figure A10-A13 — step 2 performance heatmaps
+│   ├── step_2_boxplot.py                   figure 3, A2-9 — step 2 performance boxplots
+│   ├── utils.py                            shared plotting utilities
+│   ├── findings/                           PDF outputs for findings figures
+│   ├── step_1/                             PDF output for step 1
+│   └── step_2/                             PDF outputs for step 2
 │
-├── step_1_heatmap.py: used to create figure XY in the paper
-├── step_2_boxplot.py: used to create figure XY in the paper
-├── step_2_heatmap.py: used to create figure XY in the paper
+├── src/                           model training and pipeline code
+│   ├── step_1/
+│   │   └── SOCCAT_mDeBERTa_replication.py/.ipynb   step 1 replication binary classifier (mDeBERTa)
+│   └── step_2/
+│       ├── replicate_from_hub_step_2.py/.ipynb     step 2 replication from Hugging Face Hub
+│       ├── step_2_cv_pipeline.py/.ipynb            step 2 cross-validation pipeline
+│       └── convert_annotations.py/.ipynb           converts annotations to NLI pairs
 │
-├── tables: contains the table of the paper.
-│   ├── manual_annotation_top_10.tex
-│   └── table_manual_annotation_top_groups.py: used to create figure XY in the paper
+├── tables/                        scripts and outputs for all paper tables
+│   ├── manual_annotation_top_groups.py     table A2 — top annotated groups per country
+│   ├── manual_annotation_top_10.tex        generated LaTeX output
+│   ├── icr_step1_krippendorff.ipynb        table 3 — inter-coder reliability, step 1
+│   ├── icr_step2_krippendorff.ipynb        table 3 — inter-coder reliability, step 2
+│   ├── icr_step1_by_outlet.csv             ICR step 1 results by outlet
+│   ├── icr_step1_by_annotator_pair.csv     ICR step 1 pairwise results
+│   └── icr_step2_by_outlet.csv             ICR step 2 results by outlet
 ```
 
 ## Citations
 
 If you use this codebase, cite us as follows:
+
+TODO: add exact citation
