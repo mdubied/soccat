@@ -22,8 +22,8 @@ python --version
 
 Either download the project, or use the terminal:
 ```
-git clone https://github.com/<your-organization>/<your-repository>.git
-cd <your-repository>
+git clone https://github.com/mdubied/social-categorization.git
+cd social-categorization
 ```
 
 3. Create a virtual environment
