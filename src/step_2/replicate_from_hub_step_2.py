@@ -45,7 +45,7 @@ from sklearn.metrics import (
     recall_score,
     roc_auc_score,
 )
-from transformers import AutoModelForSequenceClassification, AutoTokenizer, Trainer, TrainingArguments
+from transformers import AutoModelForSequenceClassification, AutoTokenizer, DataCollatorWithPadding, Trainer, TrainingArguments
 
 
 # ── Dataset ───────────────────────────────────────────────────────────────────
@@ -172,6 +172,7 @@ def replicate_category(cat: dict, data_root: str, out_root: str, batch_size: int
             per_device_eval_batch_size=batch_size,
             report_to=[],
         ),
+        data_collator=DataCollatorWithPadding(tokenizer=tokenizer),
     )
 
     pred        = trainer.predict(dataset)

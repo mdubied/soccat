@@ -1,0 +1,132 @@
+[
+  {
+    "name": "socio_economic_position",
+    "display_name": "Socio-Economic Position",
+    "data": "data/nli_dataset_socio_economic_position.csv",
+    "hub_repo": "selsar/cv_socio_economic_position",
+    "epochs": 3,
+    "labels": [
+      "lower class",
+      "middle class",
+      "upper class",
+      "capital owners, investors and shareholders",
+      "unskilled or unqualified",
+      "skilled or qualified"
+    ]
+  },
+  {
+    "name": "labor_market_position",
+    "display_name": "Labor Market Position",
+    "data": "data/nli_dataset_labor_market_position.csv",
+    "hub_repo": "selsar/cv_labor_market_position",
+    "epochs": 4,
+    "labels": [
+      "wage and salary earners",
+      "civil servants",
+      "CEOs and corporate leaders",
+      "employers",
+      "entrepreneurs",
+      "self-employed and freelancers",
+      "unemployed",
+      "retirees",
+      "housewives and househusbands"
+    ]
+  },
+  {
+    "name": "age_and_family_status",
+    "display_name": "Age and Family Status",
+    "data": "data/nli_dataset_age_and_family_status.csv",
+    "hub_repo": "selsar/cv_age_family_status",
+    "epochs": 3,
+    "labels": [
+      "parents and families",
+      "minors, including children and pupils",
+      "youth, including students and apprentices",
+      "middle-aged and pre-retirement age groups",
+      "elderly",
+      "couples",
+      "singles"
+    ]
+  },
+  {
+    "name": "identities",
+    "display_name": "Identities and Minority/Majority Status",
+    "data": "data/nli_dataset_identities.csv",
+    "hub_repo": "selsar/cv_identities",
+    "epochs": 4,
+    "labels": [
+      "men",
+      "women",
+      "cisgender and heterosexuals",
+      "LGBTQIA+",
+      "disabled people",
+      "people with an immigration background, including immigrants",
+      "Ethnic and racial minorities",
+      "Christians",
+      "Jews",
+      "Muslims",
+      "multiple (or other) religious or minority groups"
+    ]
+  },
+  {
+    "name": "profession",
+    "display_name": "Profession",
+    "data": "data/nli_dataset_profession.csv",
+    "hub_repo": "selsar/cv_profession",
+    "epochs": 4,
+    "labels": [
+      "athletes",
+      "authors and artists",
+      "doctors",
+      "farmers and fishermen",
+      "health and care professionals",
+      "journalists",
+      "legal professionals",
+      "politicians and high-ranking officials",
+      "sex workers",
+      "scientists and professors",
+      "security forces",
+      "soldiers",
+      "teachers and educators",
+      "other professions"
+    ]
+  },
+  {
+    "name": "social_roles_and_behavior",
+    "display_name": "Social Roles and Behavior",
+    "data": "data/nli_dataset_social_roles_and_behavior.csv",
+    "hub_repo": "selsar/cv_social_roles_and_behavior_wo_volunteers",
+    "epochs": 4,
+    "labels": [
+      "consumers and clients",
+      "car drivers",
+      "patients"
+    ],
+    "note": "Volunteers label excluded from final model."
+  },
+  {
+    "name": "social_deviance",
+    "display_name": "Social Deviance",
+    "data": "data/nli_dataset_social_deviance.csv",
+    "hub_repo": "selsar/cv_social_deviance",
+    "epochs": 4,
+    "labels": [
+      "extremists",
+      "terrorists, rebels, revolutionaries and/or movements of armed resistance",
+      "offenders, criminals, prisoners and/or accused people",
+      "drug addicts"
+    ]
+  },
+  {
+    "name": "real_estate_ownership",
+    "display_name": "Real Estate Ownership",
+    "data": "data/nli_dataset_real_estate_ownership.csv",
+    "hub_repo": "selsar/cv_real_estate_ownership",
+    "epochs": 4,
+    "labels": [
+      "real-estate owners",
+      "tenants",
+      "homeless"
+    ]
+  }
+]

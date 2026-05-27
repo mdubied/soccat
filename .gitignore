@@ -1,12 +1,22 @@
-# Ignore virtual environment directories
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
 .venv/
 venv/
 
-# Ignore Python cache files
-*__pycache__/
+# Jupyter
+.ipynb_checkpoints/
 
-# Ignore R-history files
-.Rhistory
+# Generated pipeline outputs
+output/
+nli_pairs_by_category/
+src/step_2/nli_pairs_by_category/
+src/step_2/output/
 
+# OS
+.DS_Store
 
-
+# IDE
+.vscode/
+.idea/

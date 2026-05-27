@@ -19,7 +19,7 @@ from pathlib import Path
 import pandas as pd
 
 # ── Paths ──────────────────────────────────────────────────────────────────────
-INPUT_FILE = Path(__file__).resolve().parents[2] / "data" / "manual_annotations" / "annotations_ground_truth.csv"
+INPUT_FILE = Path(__file__).resolve().parents[2] / "data" / "manual_annotations" / "step_2" / "annotations_ground_truth.csv"
 OUTPUT_DIR = "nli_pairs_by_category"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
