@@ -58,7 +58,7 @@ These steps prepare your working environment and only need to be run once.
 
 The jupyter notebook `demo/demo.ipynb` shows an example on how to use the SOCCAT pipeline on your own sentences.
 
-To reproduce results from the paper, each script contains inline documentation describing its purpose, expected inputs, and configurable parameters. Aside from the tables (`tables/`) and figures (`figures/`) contained in the paper, the code contains replication code for the SOCCAT pipeline itself in `src`. SOCCAT relies on two main steps:
+To reproduce results from the paper, each script contains inline documentation describing its purpose, expected inputs, and configurable parameters. Aside from the tables (`tables/`) and figures (`figures/`) contained in the paper, the code contains replication code for the SOCCAT pipeline itself in `src/`. SOCCAT relies on two main steps:
 
 **Step 1 — Mention detection.** Reproduce the evaluation reported in the paper without retraining:
 ```
