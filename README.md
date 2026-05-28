@@ -8,7 +8,7 @@ Corpora**" (2026) by S. Šarenkapa, I. Guinaudeau, E. Deiss-Helbig, M. Dubied, R
 It provides the codebase required to reproduce the results reported in the paper. The pipeline detects mentions of social groups in French and German newspaper sentences using transformer-based NLP models. It has two stages:
 
 1. **Step 1 — Mention detection.** A binary classifier (fine-tuned mDeBERTa) predicts whether a sentence mentions any social group.
-2. **Step 2 — Category classification.** For sentences flagged in step 1, eight per-category NLI classifiers predict which specific social groups are mentioned. The taxonomy covers 57 labels across 8 categories.
+2. **Step 2 — Category classification.** For sentences flagged in step 1, eight per-category NLI classifiers predict which specific social groups are mentioned. The taxonomy covers 57 categories (labels) across 8 broad classes.
 
 All fine-tuned models are publicly available at https://huggingface.co/selsar.
 
@@ -56,7 +56,9 @@ These steps prepare your working environment and only need to be run once.
 
 ## Running the code
 
-Each script contains inline documentation describing its purpose, expected inputs, and configurable parameters. Use `--help` on any script to see all available flags.
+The jupyter notebook `demo/demo.ipynb` shows an example on how to use the SOCCAT pipeline on your own sentences.
+
+To reproduce results from the paper, each script contains inline documentation describing its purpose, expected inputs, and configurable parameters. Aside from the tables (`tables/`) and figures (`figures/`) contained in the paper, the code contains replication code for the SOCCAT pipeline itself in `src`. SOCCAT relies on two main steps:
 
 **Step 1 — Mention detection.** Reproduce the evaluation reported in the paper without retraining:
 ```
@@ -76,7 +78,7 @@ python replicate_from_hub_step_2.py \
   --batch_size 8
 ```
 
-To run a single category instead of all eight, add `--category <name>` where `<name>` is one of the eight category names listed in `src/step_2/categories.json`.
+To run a single category instead of all eight, add `--category <name>` where `<name>` is one of the eight category names listed in `src/step_2/categories.json`. Use `--help` on any script to see all available flags.
 
 ## Repository structure
 
