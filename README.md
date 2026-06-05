@@ -152,7 +152,7 @@ codesign --force --sign - $(python3 -c "import pyexpat; print(pyexpat.__file__)"
 
 ## Citation
 
-If you use this codebase, please cite our paper. The [preprint]((https://osf.io/preprints/socarxiv/bmqxt_v1) can be cited as:
+If you use this codebase, please cite our paper. The [preprint](https://osf.io/preprints/socarxiv/bmqxt_v1) can be cited as:
 
 ```bibtex
 @misc{sarenkapa_detecting_2026,
