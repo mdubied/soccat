@@ -1,11 +1,10 @@
-# Measuring Discursive Constructions of Social Categories in the Press
+# SOCCAT: Detecting Social Categories in Multilingual Newspaper Corpora
 
 ## Description
 
-This repository accompanies the paper "**Detecting Social Categories in Multilingual Newspaper
-Corpora**" (2026) by S. Šarenkapa, I. Guinaudeau, E. Deiss-Helbig, M. Dubied, R. Heiberger, and T. Matthieß.
+This repository accompanies the paper "**Detecting Social Categories in Multilingual Newspaper Corpora**" (2026) by S. Šarenkapa, I. Guinaudeau, E. Deiss-Helbig, M. Dubied, R. Heiberger, and T. Matthieß. [Preprint on OSF/SocArXiv](https://osf.io/preprints/socarxiv/bmqxt_v1)
 
-It provides the codebase required to reproduce the results reported in the paper. The pipeline detects mentions of social groups in French and German newspaper sentences using transformer-based NLP models. It has two stages:
+It provides the codebase required to reproduce the results reported in the paper. The pipeline detects mentions of social groups in French and German sentences using transformer-based NLP models. It has been trained and validated using representative French and German newspaper articles. It has two stages:
 
 1. **Step 1 — Mention detection.** A binary classifier (fine-tuned mDeBERTa) predicts whether a sentence mentions any social group.
 2. **Step 2 — Category classification.** For sentences flagged in step 1, eight per-category NLI classifiers predict which specific social groups are mentioned. The taxonomy covers 57 categories (labels) across 8 broad classes.
@@ -153,6 +152,17 @@ codesign --force --sign - $(python3 -c "import pyexpat; print(pyexpat.__file__)"
 
 ## Citation
 
-If you use this codebase, cite us as follows:
+If you use this codebase, please cite our paper. The [preprint]((https://osf.io/preprints/socarxiv/bmqxt_v1) can be cited as:
 
-TODO: add exact citation
+```bibtex
+@misc{sarenkapa_detecting_2026,
+	title = {Detecting {Social} {Categories} in {Multilingual} {Newspaper} {Corpora}},
+	url = {https://osf.io/preprints/socarxiv/bmqxt_v1/},
+	urldate = {2026-06-05},
+	publisher = {SocArXiv},
+	author = {Šarenkapa, Selma and Guinaudeau, Isabelle and Deiss-Helbig, Elisa and Dubied, Mathieu and Heiberger, Raphael and Matthieß, Theres},
+	month = jun,
+	year = {2026},
+	keywords = {multilingual text classification, natural language inference, social categories, text as data},
+}
+```
