@@ -1,20 +1,21 @@
 """
-Compute performance metrics and cost estimates across all LLM classification
-runs found for a given pipeline step, and write a single combined txt report.
+Compute performance metrics and cost estimates across all Step 1 LLM
+classification runs, and write a single combined txt report.
 
-Scans llm/classification/output/step_{1,2}/ for every {model}__{prompt} run
-directory produced by classify_step1.py / classify_step2.py, and reports on
-whichever ones it finds -- it is not an error for some model/prompt
-combinations to be missing (e.g. you haven't run --model claude-opus-5 yet).
-Kept separate from the classification scripts so the report can be
-regenerated (or runs compared) without spending any more Claude credits.
+Scans llm/classification/output/step_1/ for every {model}__{prompt} run
+directory produced by classify_step1.py, and reports on whichever ones it
+finds -- it is not an error for some model/prompt combinations to be
+missing (e.g. you haven't run --model claude-opus-5 yet). Kept separate
+from classify_step1.py so the report can be regenerated (or runs compared)
+without spending any more Claude credits.
+
+Step 1 is a single binary classification problem (accuracy/precision/
+recall/F1 vs. has_group).
 
 Usage:
-    python report.py --step 1
-    python report.py --step 2
+    python report_step1.py
 """
 
-import argparse
 import csv
 import json
 from datetime import datetime
@@ -25,14 +26,8 @@ from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_sc
 SCRIPT_DIR = Path(__file__).resolve().parent
 REPO_ROOT = SCRIPT_DIR.parent.parent
 
-BASELINE_PATHS = {
-    1: REPO_ROOT / "data" / "model_performance" / "step_1" / "performance_all_levels.csv",
-    2: REPO_ROOT / "data" / "model_performance" / "step_2" / "model_performance" / "broad_cat_mean_ci.csv",
-}
-
-
-def classification_output_root(step: int) -> Path:
-    return REPO_ROOT / "llm" / "classification" / "output" / f"step_{step}"
+OUTPUT_ROOT = REPO_ROOT / "llm" / "classification" / "output" / "step_1"
+BASELINE_PATH = REPO_ROOT / "data" / "model_performance" / "step_1" / "performance_all_levels.csv"
 
 
 def find_runs(root: Path) -> list:
@@ -53,40 +48,21 @@ def find_runs(root: Path) -> list:
     return runs
 
 
-def load_baseline_summary(step: int) -> str:
-    path = BASELINE_PATHS.get(step)
-    if path is None or not path.exists():
+def load_baseline_summary() -> str:
+    if not BASELINE_PATH.exists():
         return "  (not available)"
-
-    with path.open("r", encoding="utf-8-sig", newline="") as f:
-        rows = list(csv.DictReader(f))
-    if not rows:
-        return "  (empty baseline file)"
-
-    if step == 1:
-        for row in rows:
+    with BASELINE_PATH.open("r", encoding="utf-8-sig", newline="") as f:
+        for row in csv.DictReader(f):
             if row.get("group") == "ALL":
                 return (
                     f"  Accuracy={float(row['Accuracy']):.3f}  Precision={float(row['Precision']):.3f}  "
                     f"Recall={float(row['Recall']):.3f}  F1={float(row['F1']):.3f}  (N={row['N']})"
                 )
-        return "  (overall row not found)"
-
-    # Step 2: broad_cat_mean_ci.csv has one row per broad category (ALL_LABELS),
-    # no single overall row -- report an unweighted mean across categories.
-    accs = [float(r["accuracy_mean"]) for r in rows if r.get("accuracy_mean")]
-    f1s = [float(r["f1_macro_mean"]) for r in rows if r.get("f1_macro_mean")]
-    if not accs:
-        return "  (unrecognized baseline format)"
-    return (
-        f"  Accuracy={sum(accs) / len(accs):.3f}  F1(macro)={sum(f1s) / len(f1s):.3f}  "
-        f"(unweighted mean across {len(rows)} broad categories, mDeBERTa cross-validation)"
-    )
+    return "  (overall row not found)"
 
 
 def compute_metrics(rows: list) -> dict:
-    """rows: predictions dicts with "true"/"pred" columns. Excludes ERROR rows.
-    Works for binary (step 1) or multi-class (step 2) labels."""
+    """rows: predictions dicts with "true"/"pred" columns. Excludes ERROR rows."""
     y_true = [r["true"] for r in rows if r["pred"] != "ERROR"]
     y_pred = [r["pred"] for r in rows if r["pred"] != "ERROR"]
     if not y_true:
@@ -167,32 +143,27 @@ def build_summary_table(summary_rows: list) -> list:
 
 
 def main():
-    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--step", type=int, required=True, choices=[1, 2], help="Pipeline step to report on")
-    args = parser.parse_args()
-
-    output_root = classification_output_root(args.step)
-    runs = find_runs(output_root)
+    runs = find_runs(OUTPUT_ROOT)
 
     lines = []
-    lines.append(f"Step {args.step} LLM classification report -- all runs")
+    lines.append("Step 1 LLM classification report -- all runs")
     lines.append("=" * 60)
     lines.append(f"Generated:  {datetime.now().isoformat(timespec='seconds')}")
-    lines.append(f"Runs found: {len(runs)}  (in {output_root.relative_to(REPO_ROOT)})")
+    lines.append(f"Runs found: {len(runs)}  (in {OUTPUT_ROOT.relative_to(REPO_ROOT)})")
     lines.append("")
-    lines.append(f"mDeBERTa baseline for reference ({BASELINE_PATHS[args.step].relative_to(REPO_ROOT)}):")
-    lines.append(load_baseline_summary(args.step))
+    lines.append(f"mDeBERTa baseline for reference ({BASELINE_PATH.relative_to(REPO_ROOT)}):")
+    lines.append(load_baseline_summary())
     lines.append("")
 
     report_dir = SCRIPT_DIR / "output"
     report_dir.mkdir(parents=True, exist_ok=True)
-    report_path = report_dir / f"step_{args.step}_report.txt"
+    report_path = report_dir / "step_1_report.txt"
 
     if not runs:
-        lines.append(f"No completed runs found. Run classify_step{args.step}.py first.")
+        lines.append("No completed runs found. Run classify_step1.py first.")
         report_path.write_text("\n".join(lines), encoding="utf-8")
         print(f"Report: {report_path}")
-        print(f"No runs found under {output_root}")
+        print(f"No runs found under {OUTPUT_ROOT}")
         return
 
     summary_rows = []
