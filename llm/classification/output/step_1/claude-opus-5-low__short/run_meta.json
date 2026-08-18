@@ -1,0 +1,10 @@
+{
+  "model": "claude-opus-5",
+  "effort": "low",
+  "prompt": "short",
+  "prompt_path": "llm\\classification\\prompts\\step_1\\step_1_short.md",
+  "test_path": "data\\model_performance\\step_1\\test_with_all_outlets.json",
+  "seed": 42,
+  "batch_size": 20,
+  "n_available": 1260
+}

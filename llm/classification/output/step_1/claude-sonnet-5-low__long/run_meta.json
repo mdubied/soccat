@@ -1,0 +1,10 @@
+{
+  "model": "claude-sonnet-5",
+  "effort": "low",
+  "prompt": "long",
+  "prompt_path": "llm\\classification\\prompts\\step_1\\step_1_long.md",
+  "test_path": "data\\model_performance\\step_1\\test_with_all_outlets.json",
+  "seed": 42,
+  "batch_size": 20,
+  "n_available": 1260
+}

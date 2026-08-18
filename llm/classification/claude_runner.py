@@ -67,6 +67,7 @@ def call_claude(
     model: str,
     timeout: int,
     claude_path: str,
+    effort: str = None,
 ) -> ClaudeResponse:
     """Run one non-interactive claude -p call and return its structured output + usage.
 
@@ -76,6 +77,9 @@ def call_claude(
     mangles multi-line / quote-heavy arguments. --system-prompt fully replaces
     the default system prompt so Claude's coding-assistant identity doesn't
     interfere with plain classification.
+
+    effort maps to --effort (low/medium/high/xhigh/max), which controls
+    thinking depth. Left unset, the CLI uses its own default (xhigh).
     """
     cmd = [
         claude_path,
@@ -87,6 +91,8 @@ def call_claude(
         "--no-session-persistence",
         "--model", model,
     ]
+    if effort:
+        cmd += ["--effort", effort]
 
     proc = subprocess.run(
         cmd, input=user_message, capture_output=True, text=True, encoding="utf-8", timeout=timeout

@@ -61,6 +61,14 @@ def load_baseline_summary() -> str:
     return "  (overall row not found)"
 
 
+def format_duration(ms: float) -> str:
+    seconds = ms / 1000
+    if seconds < 60:
+        return f"{seconds:.1f}s"
+    minutes, secs = divmod(seconds, 60)
+    return f"{int(minutes)}m {secs:.0f}s"
+
+
 def compute_metrics(rows: list) -> dict:
     """rows: predictions dicts with "true"/"pred" columns. Excludes ERROR rows."""
     y_true = [r["true"] for r in rows if r["pred"] != "ERROR"]
@@ -116,6 +124,7 @@ def build_run_section(model: str, prompt: str, meta: dict, rows: list, usage: di
         lines.append("(no successfully classified rows)")
 
     cost = usage.get("cost_usd", 0.0)
+    duration_ms = usage.get("duration_ms", 0)
     lines.append(f"Claude CLI calls:     {usage.get('n_calls', 0)}")
     lines.append(f"Total cost (USD):     ${cost:.4f}")
     if n_sampled:
@@ -127,18 +136,37 @@ def build_run_section(model: str, prompt: str, meta: dict, rows: list, usage: di
                 f"Extrapolated cost for full test set (N={n_available}): "
                 f"${cost_per_sentence * n_available:.2f}"
             )
+        lines.append(f"Total time:           {format_duration(duration_ms)}")
+        rate_per_1000 = duration_ms / n_sampled * 1000
+        lines.append(f"Rate:                 {format_duration(rate_per_1000)} per 1,000 sentences")
+        if n_available:
+            lines.append(
+                f"Extrapolated time for full test set (N={n_available}): "
+                f"{format_duration(duration_ms / n_sampled * n_available)}"
+            )
     lines.append("")
-    return lines, metrics, cost, n_sampled
+    return lines, metrics, cost, n_sampled, duration_ms
 
 
 def build_summary_table(summary_rows: list) -> list:
-    header = f"{'Model':<22} {'Prompt':<8} {'N':>5} {'Accuracy':>9} {'F1(w)':>7} {'F1(macro)':>10} {'Cost($)':>9}"
+    """Ranked best-F1(weighted)-first; runs with no successfully classified rows sort last."""
+    ranked = sorted(summary_rows, key=lambda r: r[2]["f1_weighted"] if r[2] else -1, reverse=True)
+
+    header = (
+        f"{'Model':<22} {'Prompt':<8} {'N':>5} {'Accuracy':>9} {'F1(w)':>7} {'F1(macro)':>10} "
+        f"{'Cost($)':>9} {'Time':>8} {'Rate/1k':>9}"
+    )
     lines = [header, "-" * len(header)]
-    for model, prompt, metrics, cost, n_sampled in summary_rows:
+    for model, prompt, metrics, cost, n_sampled, duration_ms in ranked:
         acc = f"{metrics['accuracy']:.3f}" if metrics else "n/a"
         f1w = f"{metrics['f1_weighted']:.3f}" if metrics else "n/a"
         f1m = f"{metrics['f1_macro']:.3f}" if metrics else "n/a"
-        lines.append(f"{model:<22} {prompt:<8} {n_sampled:>5} {acc:>9} {f1w:>7} {f1m:>10} {cost:>9.4f}")
+        time_str = format_duration(duration_ms)
+        rate_str = format_duration(duration_ms / n_sampled * 1000) if n_sampled else "n/a"
+        lines.append(
+            f"{model:<22} {prompt:<8} {n_sampled:>5} {acc:>9} {f1w:>7} {f1m:>10} "
+            f"{cost:>9.4f} {time_str:>8} {rate_str:>9}"
+        )
     return lines
 
 
@@ -173,9 +201,9 @@ def main():
         usage = json.loads((run_dir / "usage_totals.json").read_text(encoding="utf-8"))
         meta = json.loads((run_dir / "run_meta.json").read_text(encoding="utf-8"))
 
-        section, metrics, cost, n_sampled = build_run_section(model, prompt, meta, rows, usage)
+        section, metrics, cost, n_sampled, duration_ms = build_run_section(model, prompt, meta, rows, usage)
         detail_lines.extend(section)
-        summary_rows.append((model, prompt, metrics, cost, n_sampled))
+        summary_rows.append((model, prompt, metrics, cost, n_sampled, duration_ms))
 
     lines.append("Summary (all runs)")
     lines.append("=" * 60)

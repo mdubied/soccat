@@ -20,14 +20,17 @@ llm/analysis/report_step1.py, so reports can be regenerated (or runs compared)
 without reclassifying anything.
 
 Usage:
-    # Smoke test on 50 random sentences (default) with the short prompt:
+    # Full validation set (1260 sentences, default) with the short prompt:
     python classify_step1.py --prompt short --model claude-sonnet-5
 
-    # Full validation set (1260 sentences):
-    python classify_step1.py --prompt short --model claude-sonnet-5 --all
+    # Smoke test on 50 random sentences:
+    python classify_step1.py --prompt short --model claude-sonnet-5 --limit 50
 
     # Larger sample, bigger batches:
     python classify_step1.py --prompt medium --model claude-sonnet-5 --limit 300 --batch-size 25
+
+    # Low-effort (less thinking) run -- output folder becomes claude-sonnet-5-low__short:
+    python classify_step1.py --prompt short --model claude-sonnet-5 --effort low --limit 50
 
     # Then, to see performance + cost across all runs:
     python ../analysis/report_step1.py
@@ -129,12 +132,18 @@ def build_batch_user_message(items: list) -> str:
     )
 
 
-def classify_batch(rows: list, system_prompt_file: str, model: str, timeout: int, claude_path: str, totals: UsageTotals) -> dict:
+def model_label(model: str, effort: str) -> str:
+    """Fold effort into the model portion of the output path, since low vs. high
+    thinking on the same model can produce meaningfully different predictions."""
+    return f"{model}-{effort}" if effort else model
+
+
+def classify_batch(rows: list, system_prompt_file: str, model: str, effort: str, timeout: int, claude_path: str, totals: UsageTotals) -> dict:
     """rows: list of row dicts (each with "id" and "text"). Returns {id: bool}."""
     items = [(r["id"], r["text"]) for r in rows]
     local_to_real = {str(i): real_id for i, (real_id, _) in enumerate(items)}
     message = build_batch_user_message(items)
-    response = call_claude(message, system_prompt_file, BATCH_SCHEMA, model, timeout, claude_path)
+    response = call_claude(message, system_prompt_file, BATCH_SCHEMA, model, timeout, claude_path, effort)
     totals.add(response)
 
     results = response.structured_output["results"]
@@ -150,6 +159,7 @@ def classify_batch(rows: list, system_prompt_file: str, model: str, timeout: int
 def write_run_meta(path: Path, args, prompt_path: Path, n_available: int) -> None:
     meta = {
         "model": args.model,
+        "effort": args.effort,
         "prompt": args.prompt,
         "prompt_path": str(prompt_path.relative_to(REPO_ROOT)),
         "test_path": str(args.test_path.relative_to(REPO_ROOT)),
@@ -164,9 +174,11 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--prompt", required=True, choices=["short", "medium", "long"], help="Prompt version")
     parser.add_argument("--model", required=True, help="Model, e.g. claude-sonnet-5, claude-haiku-4-5")
+    parser.add_argument("--effort", default=None, choices=["low", "medium", "high", "xhigh", "max"],
+                         help="Thinking/effort level (default: the claude CLI's own default). Recorded as part of the model name in the output path.")
     parser.add_argument("--test-path", type=Path, default=DEFAULT_TEST_PATH, help="JSONL test set")
-    parser.add_argument("--limit", type=int, default=50, help="Number of sentences to sample (default: 50)")
-    parser.add_argument("--all", action="store_true", help="Classify the full test set, ignoring --limit")
+    parser.add_argument("--limit", type=int, default=None, help="Number of sentences to sample (default: full test set)")
+    parser.add_argument("--all", action="store_true", help="Classify the full test set (default even without this flag; kept for parity with --limit)")
     parser.add_argument("--seed", type=int, default=42, help="Sampling seed (default: 42)")
     parser.add_argument("--batch-size", type=int, default=20, help="Sentences per claude invocation")
     parser.add_argument("--timeout", type=int, default=180, help="Per-call subprocess timeout in seconds")
@@ -183,7 +195,7 @@ def main():
     limit = None if args.all else args.limit
     sampled_rows = select_rows(all_rows, limit, args.seed)
 
-    run_dir = OUTPUT_ROOT / f"{args.model}__{args.prompt}"
+    run_dir = OUTPUT_ROOT / f"{model_label(args.model, args.effort)}__{args.prompt}"
     run_dir.mkdir(parents=True, exist_ok=True)
     predictions_path = run_dir / "predictions.csv"
     usage_path = run_dir / "usage_totals.json"
@@ -209,7 +221,7 @@ def main():
         print(f"Nothing to do: all {len(sampled_rows)} sampled rows already in {predictions_path}")
         return
 
-    print(f"Classifying {len(todo)} sentences (prompt={args.prompt}, model={args.model})")
+    print(f"Classifying {len(todo)} sentences (prompt={args.prompt}, model={model_label(args.model, args.effort)})")
 
     totals = UsageTotals.load(usage_path)
 
@@ -239,14 +251,14 @@ def main():
         batches = [todo[i : i + args.batch_size] for i in range(0, len(todo), args.batch_size)]
         for batch in tqdm(batches, desc="classifying", unit="batch"):
             try:
-                by_id = classify_batch(batch, system_prompt_file, args.model, args.timeout, claude_path, totals)
+                by_id = classify_batch(batch, system_prompt_file, args.model, args.effort, args.timeout, claude_path, totals)
                 for row in batch:
                     record(row, by_id[row["id"]])
             except Exception as e:
                 tqdm.write(f"batch of {len(batch)} FAILED ({e}) - retrying one sentence at a time")
                 for row in batch:
                     try:
-                        by_id = classify_batch([row], system_prompt_file, args.model, args.timeout, claude_path, totals)
+                        by_id = classify_batch([row], system_prompt_file, args.model, args.effort, args.timeout, claude_path, totals)
                         record(row, by_id[row["id"]])
                     except Exception as e2:
                         record_error(row, e2)
