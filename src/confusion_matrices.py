@@ -177,11 +177,12 @@ def plot_grid(results, titles, pos_name, neg_name, path):
 
 # ── IO ────────────────────────────────────────────────────────────────────────
 def read_table(path):
-    """Read a CSV/XLSX, auto-detecting the delimiter for CSVs."""
+    """Read a CSV/XLSX. engine="python" honours quoting robustly, so premise
+    text with embedded newlines / carriage returns doesn't mis-split rows."""
     ext = os.path.splitext(str(path))[1].lower()
     if ext in (".xlsx", ".xls"):
         return pd.read_excel(path, engine="openpyxl")
-    return pd.read_csv(path, sep=None, engine="python")
+    return pd.read_csv(path, engine="python")
 
 
 def save_cm_csv(res, pos_name, neg_name, path):
