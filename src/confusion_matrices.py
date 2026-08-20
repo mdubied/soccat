@@ -5,8 +5,7 @@ SOCCAT — Confusion Matrices for the Step 1 and Step 2 models
 ============================================================
 Computes 2x2 confusion matrices (counts + normalised) and the derived
 rates (precision, recall/TPR, specificity/TNR, FPR, FNR, F1, balanced
-accuracy, MCC) for both fine-tuned models, straight from the prediction
-files the two replication pipelines already save. No GPU / retraining.
+accuracy, MCC) for both fine-tuned models. 
 
   Step 1 : binary social-group-mention detector (selsar/social_group_detection)
            reads  step_1/output/test_predictions.csv  (cols: true, pred)
@@ -17,28 +16,6 @@ files the two replication pipelines already save. No GPU / retraining.
            (cols: nli_label, pred_label), manifest step_2/categories.json.
            labels 0 = entailment / group present (positive), 1 = not_entailment.
 
-Repo layout (this file lives in soccat/src/):
-    soccat/
-      src/
-        confusion_matrices.py   <- here
-        step_1/  SOCCAT_mDeBERTa_replication.py   -> output/test_predictions.csv
-        step_2/  replicate_from_hub_step_2.py     -> output/replication/{cat}/predictions.csv
-                 categories.json
-      tables/    <- confusion count/rate CSVs written to tables/confusion/
-      figures/   <- confusion heatmap PDFs written to figures/confusion/
-
-Usage
------
-# From soccat/src/ — zero arguments, uses the repo-relative defaults:
-    python confusion_matrices.py
-
-# Override anything as needed:
-    python confusion_matrices.py --step1_pred step_1/output/test_predictions.csv \
-        --step2_root step_2/output/replication/ --manifest step_2/categories.json
-
-# Single Step 2 category, or pooled CV folds instead of the hub replication:
-    python confusion_matrices.py --category socio_economic_position
-    python confusion_matrices.py --step2_cv_results step_2/output/cv_results/
 """
 
 import argparse
