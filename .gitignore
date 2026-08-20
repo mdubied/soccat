@@ -16,6 +16,7 @@ src/step_2/output/
 
 # LLM outputs
 !llm/classification/output/
+!llm/analysis/output/
 
 # OS
 .DS_Store

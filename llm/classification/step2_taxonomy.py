@@ -68,6 +68,7 @@ LABEL_MAP = {
     "civil servants": "civil servants",
     "ceos and corporate leaders": "CEOs and corporate leaders",
     "employers": "employers",
+    "entrepreneur": "entrepreneurs",
     "entrepreneurs": "entrepreneurs",
     "entrepreneurs (smes)": "entrepreneurs",
     "entrepreneurs in [specific] sector": "entrepreneurs",

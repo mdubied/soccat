@@ -1,0 +1,10 @@
+{
+  "model": "claude-sonnet-5",
+  "effort": "low",
+  "prompt": "short",
+  "prompt_path": "llm\\classification\\prompts\\step_2\\step_2_short.md",
+  "data_path": "data\\manual_annotations\\step_2\\annotations_ground_truth.csv",
+  "seed": 42,
+  "batch_size": 20,
+  "n_available": 9639
+}
