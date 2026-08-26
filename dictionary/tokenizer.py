@@ -7,15 +7,7 @@ Used identically by 02_build_dictionary.py (train) and
 03_evaluate_dictionary.py (test) -- they must tokenize the same way.
 
 Pipeline: lowercase unigrams -> stopword removal (stopwords-iso, pooled
-French+German). No stemming/lemmatization: tried as a robustness variant
-(nltk's Porter/Snowball stemmer, per-sentence via the `country` column --
-mirrors Monroe, Colaresi & Quinn 2008, footnote 2, whose own running
-example stems words) and reverted. It merged inflected-form duplicates as
-intended, but on the full alpha0 sweep it traded precision for recall and
-made per-label F1 worse, not better (e.g. high-alpha0 mode: 0.343 -> 0.276),
-while also making the output dictionaries much harder to read (stems like
-"commerc", "industri" instead of whole words) -- not worth it for a
-baseline meant to stay simple and legible.
+French+German). No stemming/lemmatization.
 """
 
 import json
