@@ -189,6 +189,18 @@ def build_summary_table(summary_rows: list) -> list:
     return lines
 
 
+def parse_model_thinking(model: str) -> tuple:
+    """"claude-sonnet-5-high" -> ("Sonnet-5", "High"). Split out as its own column
+    (rather than left in a single "Model" string) to match step 2's per-category
+    tables, which need Model/Thinking/Prompt as separate header lines."""
+    base = model[len("claude-"):] if model.startswith("claude-") else model
+    for suffix, thinking in (("-high", "High"), ("-low", "Low")):
+        if base.endswith(suffix):
+            name = base[: -len(suffix)]
+            return name[:1].upper() + name[1:], thinking
+    return base[:1].upper() + base[1:], "--"
+
+
 def build_latex_table(summary_rows: list, baseline: dict | None) -> list:
     """LaTeX tabular of the summary table: one row per (model, prompt) run,
     ranked best-F1(weighted)-first, with the SOCCAT mDeBERTa baseline pinned
@@ -197,14 +209,15 @@ def build_latex_table(summary_rows: list, baseline: dict | None) -> list:
     ranked = sorted(summary_rows, key=lambda r: r[2]["f1_weighted"] if r[2] else -1, reverse=True)
 
     lines = [
-        r"\begin{table}[t]",
+        r"\begin{table}[htb]",
         r"\centering",
-        r"\begin{tabular}{llrrrrrr}",
+        r"\begin{tabular}{lllrrrrrr}",
         r"\toprule",
-        r"Model & Prompt & Accuracy & Precision & Recall & F1 & Cost/1k (\$) & Rate/1k \\",
+        r"Model & Thinking & Prompt & Accuracy & Precision & Recall & F1 & Cost/1k (\$) & Rate/1k \\",
         r"\midrule",
     ]
     for model, prompt, metrics, cost, n_sampled, duration_ms in ranked:
+        model_name, thinking = parse_model_thinking(model)
         acc = f"{metrics['accuracy']:.2f}" if metrics else "--"
         prec = f"{metrics['precision_weighted']:.2f}" if metrics else "--"
         rec = f"{metrics['recall_weighted']:.2f}" if metrics else "--"
@@ -212,17 +225,18 @@ def build_latex_table(summary_rows: list, baseline: dict | None) -> list:
         cost_per_1k = cost / n_sampled * 1000 if n_sampled else 0.0
         rate_str = format_duration(duration_ms / n_sampled * 1000) if n_sampled else "--"
         lines.append(
-            f"{model} & {prompt} & {acc} & {prec} & {rec} & {f1w} & {cost_per_1k:.2f} & {rate_str} \\\\"
+            f"{model_name} & {thinking} & {prompt.capitalize()} & {acc} & {prec} & {rec} & {f1w} & "
+            f"{cost_per_1k:.2f} & {rate_str} \\\\"
         )
 
     lines.append(r"\midrule")
     if baseline is not None:
         lines.append(
-            f"SOCCAT (mDeBERTa) & -- & {baseline['accuracy']:.2f} & {baseline['precision']:.2f} & "
+            f"SOCCAT & -- & -- & {baseline['accuracy']:.2f} & {baseline['precision']:.2f} & "
             f"{baseline['recall']:.2f} & {baseline['f1_weighted']:.2f} & -- & -- \\\\"
         )
     else:
-        lines.append(r"SOCCAT (mDeBERTa) & -- & -- & -- & -- & -- & -- & -- \\")
+        lines.append(r"SOCCAT & -- & -- & -- & -- & -- & -- & -- & -- \\")
 
     lines.extend([
         r"\bottomrule",

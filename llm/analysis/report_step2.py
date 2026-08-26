@@ -148,17 +148,27 @@ def load_soccat_baseline() -> dict:
     return {"broad_f1": broad_f1, "broad_weight": broad_weight, "specific_f1": specific_f1}
 
 
-def format_soccat_summary(baseline: dict) -> str:
+def compute_soccat_overall_f1(baseline: dict) -> float | None:
+    """Weighted avg of each broad category's best-CV-fold F1, weighted by
+    positive-case count -- SOCCAT's single headline number, comparable to a run's
+    metrics["overall"]["f1"]. Note SOCCAT has no comparable overall accuracy/
+    precision/recall (load_soccat_baseline only carries F1 per broad category)."""
     broad_f1, broad_weight = baseline["broad_f1"], baseline["broad_weight"]
     if not broad_f1:
-        return "  (not available)"
+        return None
     total_w = sum(broad_weight.values())
     if not total_w:
+        return None
+    return sum(broad_f1[b] * broad_weight[b] for b in broad_f1) / total_w
+
+
+def format_soccat_summary(baseline: dict) -> str:
+    overall_f1 = compute_soccat_overall_f1(baseline)
+    if overall_f1 is None:
         return "  (not available)"
-    overall_f1 = sum(broad_f1[b] * broad_weight[b] for b in broad_f1) / total_w
     return (
-        f"  F1={overall_f1:.3f}  (weighted avg across {len(broad_f1)} broad categories' best CV fold, "
-        f"weighted by positive-case count)"
+        f"  F1={overall_f1:.3f}  (weighted avg across {len(baseline['broad_f1'])} broad categories' "
+        f"best CV fold, weighted by positive-case count)"
     )
 
 
@@ -486,6 +496,169 @@ def build_category_outperform_table(summary_rows: list, baseline: dict) -> list:
     return lines
 
 
+def escape_latex(text: str) -> str:
+    for ch, repl in (("&", r"\&"), ("%", r"\%"), ("_", r"\_"), ("#", r"\#"), ("$", r"\$")):
+        text = text.replace(ch, repl)
+    return text
+
+
+def parse_model_thinking(model: str) -> tuple:
+    """"claude-sonnet-5-high" -> ("Sonnet-5", "High"). Falls back to
+    (display_model(model), "--") if the trailing "-high"/"-low" isn't there."""
+    base = display_model(model)
+    for suffix, thinking in ((("-high"), "High"), (("-low"), "Low")):
+        if base.endswith(suffix):
+            name = base[: -len(suffix)]
+            return name[:1].upper() + name[1:], thinking
+    return base[:1].upper() + base[1:], "--"
+
+
+# The specific-label table (build_latex_category_tables) is too tall for one
+# page, so it's split across two files at this taxonomy boundary.
+BROAD_SPLIT = [
+    ["Socio-economic position", "Labor market position", "Age and family status",
+     "Identities and minority/majority status"],
+    ["Profession", "Social roles and behavior", "Social deviance",
+     "Real estate ownership", "Others"],
+]
+
+
+def build_latex_category_tables(summary_rows: list, baseline: dict) -> list:
+    """Two LaTeX tables (one per BROAD_SPLIT half): rows = every specific taxonomy
+    label grouped under its broad category, columns = SOCCAT then each LLM run's F1
+    (a 3-line column header: model / thinking effort / prompt length). A specific
+    label's row and any run F1 that beats SOCCAT's F1 for that label are bolded --
+    labels with no SOCCAT baseline (e.g. "Others") never qualify. Column order is
+    grouped High-effort-then-Low, short/medium/long within each, not F1-ranked --
+    this is a reference table, not a leaderboard.
+    Returns [part_1_lines, part_2_lines]."""
+
+    def run_sort_key(row):
+        model, prompt = row[0], row[1]
+        _, thinking = parse_model_thinking(model)
+        thinking_rank = {"High": 0, "Low": 1}.get(thinking, 2)
+        prompt_rank = {"short": 0, "medium": 1, "long": 2}.get(prompt, 3)
+        return (thinking_rank, prompt_rank)
+
+    ordered_runs = sorted(summary_rows, key=run_sort_key)
+    n_runs = len(ordered_runs)
+
+    parts = []
+    for part_idx, broads in enumerate(BROAD_SPLIT, start=1):
+        lines = [
+            r"\begin{table}[htb]",
+            r"\centering",
+            r"\scriptsize",
+            r"\begin{tabular}{>{\raggedright\arraybackslash}p{4.2cm}" + " r" * (1 + n_runs) + "}",
+            r"\toprule",
+        ]
+        row1 = ["Model", f"\\multicolumn{{{n_runs}}}{{c}}{{Sonnet-5}}", "SOCCAT"]
+        row2 = ["Thinking"] + [parse_model_thinking(model)[1] for model, prompt, *_ in ordered_runs] + [""]
+        row3 = ["Prompt"] + [prompt.capitalize() for model, prompt, *_ in ordered_runs] + [""]
+        lines.append(" & ".join(row1) + r" \\")
+        lines.append(f"\\cmidrule(lr){{2-{1 + n_runs}}}")
+        lines.append(" & ".join(row2) + r" \\")
+        lines.append(" & ".join(row3) + r" \\")
+        lines.append(r"\midrule")
+
+        for broad in broads:
+            for specific in TAXONOMY[broad]:
+                baseline_f1 = baseline["specific_f1"].get((broad, specific))
+                run_f1s = []
+                for model, prompt, metrics, cost, n_sampled, duration_ms in ordered_runs:
+                    stats = metrics["label_metrics"].get((broad, specific)) if metrics else None
+                    run_f1s.append(stats["f1"] if stats else None)
+
+                beats = baseline_f1 is not None and any(
+                    f1 is not None and f1 > baseline_f1 for f1 in run_f1s
+                )
+                label_text = escape_latex(specific[:1].upper() + specific[1:])
+                if beats:
+                    label_text = r"\textbf{" + label_text + "}"
+                baseline_str = f"{baseline_f1:.2f}" if baseline_f1 is not None else "--"
+
+                cells = [label_text]
+                for f1 in run_f1s:
+                    if f1 is None:
+                        cells.append("--")
+                    elif beats and f1 > baseline_f1:
+                        cells.append(r"\textbf{" + f"{f1:.2f}" + "}")
+                    else:
+                        cells.append(f"{f1:.2f}")
+                cells.append(baseline_str)
+                lines.append(" & ".join(cells) + r" \\")
+            lines.append(r"\addlinespace")
+        lines.pop()  # drop the last broad category's trailing \addlinespace before \bottomrule
+
+        lines += [
+            r"\bottomrule",
+            r"\end{tabular}",
+            r"\\",
+            r"\vspace{2pt}",
+            r"{\footnotesize \textit{Note:} Bold font is used when at least one LLM run beats SOCCAT, and it shows "
+            r"the beating F1 values.\par}",
+            f"\\caption{{Performance comparison with LLMs for Step 2, detailed F1 score by specific "
+            f"categories. Part {part_idx}/2.}}",
+            f"\\label{{tab:llm-step2-{part_idx}}}",
+            r"\end{table}",
+        ]
+        parts.append(lines)
+    return parts
+
+
+def build_latex_summary_table(summary_rows: list, baseline: dict) -> list:
+    """Same shape as report_step1's build_latex_table: one row per (model, prompt)
+    run plus a pinned SOCCAT row, Model/Thinking/Prompt as separate columns, 2
+    decimals, cost/rate normalised per 1k sentences. Uses metrics["overall"]
+    (each specific label scored as its own binary problem, weighted-averaged by
+    positive-case count) rather than metrics["detection"] -- this is the step 2
+    analogue of step 1's single binary-classification F1, and it's what SOCCAT's
+    own F1 (compute_soccat_overall_f1) is comparable to. SOCCAT has no comparable
+    accuracy/precision/recall, only F1."""
+    ranked = sorted(
+        summary_rows,
+        key=lambda r: r[2]["overall"]["f1"] if r[2] and r[2]["overall"] else -1,
+        reverse=True,
+    )
+
+    lines = [
+        r"\begin{table}[htb]",
+        r"\centering",
+        r"\begin{tabular}{lllrrrrrr}",
+        r"\toprule",
+        r"Model & Thinking & Prompt & Accuracy & Precision & Recall & F1 & Cost/1k (\$) & Rate/1k \\",
+        r"\midrule",
+    ]
+    for model, prompt, metrics, cost, n_sampled, duration_ms in ranked:
+        model_name, thinking = parse_model_thinking(model)
+        overall = metrics["overall"] if metrics else None
+        acc = f"{overall['accuracy']:.2f}" if overall else "--"
+        prec = f"{overall['precision']:.2f}" if overall else "--"
+        rec = f"{overall['recall']:.2f}" if overall else "--"
+        f1 = f"{overall['f1']:.2f}" if overall else "--"
+        cost_per_1k = cost / n_sampled * 1000 if n_sampled else 0.0
+        rate_str = format_duration(duration_ms / n_sampled * 1000) if n_sampled else "--"
+        lines.append(
+            f"{model_name} & {thinking} & {prompt.capitalize()} & {acc} & {prec} & {rec} & {f1} & "
+            f"{cost_per_1k:.2f} & {rate_str} \\\\"
+        )
+
+    lines.append(r"\midrule")
+    soccat_f1 = compute_soccat_overall_f1(baseline)
+    soccat_f1_str = f"{soccat_f1:.2f}" if soccat_f1 is not None else "--"
+    lines.append(f"SOCCAT & -- & -- & -- & -- & -- & {soccat_f1_str} & -- & -- \\\\")
+
+    lines.extend([
+        r"\bottomrule",
+        r"\end{tabular}",
+        r"\caption{Overall performance comparison with LLMs for Step 2. The scores for specific "
+        r"categories are weighted by positive-case count to obtain these average performances.}",
+        r"\label{tab:llm-step2-summary}",
+        r"\end{table}",
+    ])
+    return lines
+
+
 def main():
     runs = find_runs(OUTPUT_ROOT)
     baseline = load_soccat_baseline()
@@ -547,7 +720,22 @@ def main():
     lines.extend(detail_lines)
 
     report_path.write_text("\n".join(lines), encoding="utf-8")
+
+    summary_table_path = report_dir / "step_2_summary_table.tex"
+    summary_table_path.write_text(
+        "\n".join(build_latex_summary_table(summary_rows, baseline)) + "\n", encoding="utf-8"
+    )
+
+    table_parts = build_latex_category_tables(summary_rows, baseline)
+    table_paths = [summary_table_path]
+    for part_idx, part_lines in enumerate(table_parts, start=1):
+        table_path = report_dir / f"step_2_table_part{part_idx}.tex"
+        table_path.write_text("\n".join(part_lines) + "\n", encoding="utf-8")
+        table_paths.append(table_path)
+
     print(f"Report: {report_path}")
+    for table_path in table_paths:
+        print(f"LaTeX table: {table_path}")
     print(f"{len(runs)} run(s) included")
 
 

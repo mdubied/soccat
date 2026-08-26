@@ -1,6 +1,6 @@
 Step 2 LLM classification report -- all runs
 ============================================================
-Generated:  2026-08-20T16:28:05
+Generated:  2026-08-26T20:35:31
 Runs found: 6  (in llm\classification\output\step_2)
 
 SOCCAT baseline for reference (data\model_performance\step_2\model_performance/*_per_fold.csv):
