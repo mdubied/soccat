@@ -1,0 +1,19 @@
+\begin{table}[t]
+\centering
+\begin{tabular}{llrrrrrr}
+\toprule
+Model & Prompt & Accuracy & Precision & Recall & F1 & Cost/1k (\$) & Rate/1k \\
+\midrule
+claude-sonnet-5-high & medium & 0.91 & 0.91 & 0.91 & 0.91 & 1.85 & 13m 3s \\
+claude-sonnet-5-low & long & 0.90 & 0.91 & 0.90 & 0.91 & 1.49 & 6m 59s \\
+claude-sonnet-5-high & long & 0.90 & 0.91 & 0.90 & 0.90 & 2.15 & 15m 27s \\
+claude-sonnet-5-low & medium & 0.90 & 0.90 & 0.90 & 0.90 & 1.28 & 6m 39s \\
+claude-sonnet-5-low & short & 0.86 & 0.86 & 0.86 & 0.86 & 1.42 & 6m 17s \\
+claude-sonnet-5-high & short & 0.86 & 0.86 & 0.86 & 0.86 & 1.86 & 12m 41s \\
+\midrule
+SOCCAT (mDeBERTa) & -- & 0.90 & 0.90 & 0.90 & 0.90 & -- & -- \\
+\bottomrule
+\end{tabular}
+\caption{Step 1 classification performance across LLM runs and the SOCCAT mDeBERTa baseline.}
+\label{tab:llm-step1}
+\end{table}

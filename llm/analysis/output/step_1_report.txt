@@ -1,45 +1,24 @@
 Step 1 LLM classification report -- all runs
 ============================================================
-Generated:  2026-08-18T11:46:28
-Runs found: 7  (in llm\classification\output\step_1)
+Generated:  2026-08-26T18:11:21
+Runs found: 6  (in llm\classification\output\step_1)
 
 mDeBERTa baseline for reference (data\model_performance\step_1\performance_all_levels.csv):
   Accuracy=0.897  Precision=0.905  Recall=0.897  F1=0.899  (N=1260)
 
 Summary (all runs)
 ============================================================
-Model                  Prompt       N  Accuracy   F1(w)  F1(macro)   Cost($)     Time   Rate/1k
------------------------------------------------------------------------------------------------
-claude-sonnet-5-high   medium    1260     0.908   0.909      0.889    2.3316  16m 27s    13m 3s
-claude-sonnet-5-low    long      1260     0.904   0.905      0.883    1.8795   8m 48s    6m 59s
-claude-sonnet-5-high   long      1260     0.902   0.903      0.881    2.7033  19m 28s   15m 27s
-claude-sonnet-5-low    medium    1260     0.899   0.901      0.878    1.6145   8m 23s    6m 39s
-claude-opus-5-low      short     1260     0.870   0.869      0.836    1.4706   7m 55s    6m 17s
-claude-sonnet-5-low    short     1260     0.864   0.862      0.825    1.7867   7m 55s    6m 17s
-claude-sonnet-5-high   short     1260     0.863   0.860      0.822    2.3433  15m 59s   12m 41s
+Model                  Prompt       N  Accuracy  Prec(w)  Recall(w)   F1(w)  F1(macro)  Cost/1k($)     Time   Rate/1k
+---------------------------------------------------------------------------------------------------------------------
+claude-sonnet-5-high   medium    1260     0.908    0.912      0.908   0.909      0.889      1.8505  16m 27s    13m 3s
+claude-sonnet-5-low    long      1260     0.904    0.907      0.904   0.905      0.883      1.4917   8m 48s    6m 59s
+claude-sonnet-5-high   long      1260     0.902    0.907      0.902   0.903      0.881      2.1455  19m 28s   15m 27s
+claude-sonnet-5-low    medium    1260     0.899    0.903      0.899   0.901      0.878      1.2814   8m 23s    6m 39s
+claude-sonnet-5-low    short     1260     0.864    0.861      0.864   0.862      0.825      1.4180   7m 55s    6m 17s
+claude-sonnet-5-high   short     1260     0.863    0.859      0.863   0.860      0.822      1.8597  15m 59s   12m 41s
 
 Run details
 ============================================================
-Model: claude-opus-5-low   Prompt: short
-------------------------------------------------------------
-Prompt file:     llm\classification\prompts\step_1\step_1_short.md
-Sentences:       1260 sampled / 1260 available (seed=42)
-Batch size:      20
-Errors:          0
-Accuracy:             0.870
-Precision (weighted): 0.869
-Recall (weighted):    0.870
-F1 (weighted):        0.869
-F1 (macro):           0.836
-Confusion:            TP=262  FP=77  TN=834  FN=87
-Claude CLI calls:     63
-Total cost (USD):     $1.4706
-Cost per sentence:    $0.00117
-Extrapolated cost for full test set (N=1260): $1.47
-Total time:           7m 55s
-Rate:                 6m 17s per 1,000 sentences
-Extrapolated time for full test set (N=1260): 7m 55s
-
 Model: claude-sonnet-5-high   Prompt: long
 ------------------------------------------------------------
 Prompt file:     llm\classification\prompts\step_1\step_1_long.md
