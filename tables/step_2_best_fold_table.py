@@ -4,9 +4,9 @@ step_2_best_fold_table.py
 Description:
 Produces one LaTeX table with the final, citable numbers for every category
 of every broad class, evaluated on its "best fold" -- the same fold selected
-by step_2_boxplot.py (highest n_pos_entail-weighted macro F1 across the
-broad class's categories), i.e. the fold whose trained model is the one made
-publicly available.
+by figures/step_2_boxplot.py (highest n_pos_entail-weighted macro F1 across
+the broad class's categories), i.e. the fold whose trained model is the one
+made publicly available.
 
 Columns: N (n_pos_entail), Bin. Precision/Recall/F1, Macro F1.
 Each broad class gets a bold summary row (weighted average across its
@@ -15,11 +15,13 @@ by its categories sorted by decreasing macro F1.
 
 ROC-AUC/PR-AUC are intentionally not in this table: they're not standard in
 this literature and need the interpretation caveats discussed with the
-reviewer response, not the main paper. See step_2_roc_pr_curves.py for those
--- kept as a separate, reviewer-response-only script.
+reviewer response, not the main paper. See figures/step_2_roc_pr_curves.py
+for those -- kept as a separate, reviewer-response-only script.
 
 Outputs:
-- step_2/tables/best_fold_metrics.tex
+- step_2_best_fold_metrics_part1.tex, step_2_best_fold_metrics_part2.tex
+  (split in two, row-count-balanced, so each fits on one page)
+- step_2_best_fold_used.txt (which fold was selected per broad class, for reference)
 
 Usage (from this directory):
 python step_2_best_fold_table.py
@@ -33,8 +35,8 @@ import pandas as pd
 
 STEP_2_DATA_DIR = "../data/model_performance/step_2"
 LEGACY_MODEL_PERFORMANCE_DIR = f"{STEP_2_DATA_DIR}/model_performance"
-OUTPUT_DIR = "step_2/tables"
-OUTPUT_FILE = os.path.join(OUTPUT_DIR, "best_fold_metrics.tex")
+OUTPUT_FILE = "step_2_best_fold_metrics.tex"
+FOLD_LOG_FILE = "step_2_best_fold_used.txt"
 
 BEST_FOLD_METRIC = "f1_macro"
 
@@ -70,7 +72,7 @@ METRIC_COLS = ["precision_binary", "recall_binary", "f1_binary", "f1_macro"]
 
 
 def load_broad_class_df(broad_class):
-    """Same logic as step_2_boxplot.py's loader (duplicated to keep this script standalone)."""
+    """Same logic as figures/step_2_boxplot.py's loader (duplicated to keep this script standalone)."""
     folder = FOLDER_NAME_MAP.get(broad_class, broad_class)
     new_dir = f"{STEP_2_DATA_DIR}/{folder}"
     fold_files = sorted(
@@ -104,6 +106,11 @@ def latex_escape(s):
     return str(s).replace("_", r"\_").replace("&", r"\&").replace("%", r"\%")
 
 
+def capitalize_first(s):
+    s = str(s)
+    return s[0].upper() + s[1:] if s else s
+
+
 def fmt(x):
     return f"{x:.2f}" if pd.notna(x) else "--"
 
@@ -116,32 +123,20 @@ def broad_class_summary_row(df_best_fold):
     return row
 
 
-# ============================================================
-# MAIN
-# ============================================================
-os.makedirs(OUTPUT_DIR, exist_ok=True)
-
-lines = []
-lines.append(r"\begin{table}[t]")
-lines.append(r"\centering")
-lines.append(r"\small")
-lines.append(r"\begin{tabular}{l r r r r r}")
-lines.append(r"\toprule")
-lines.append(r"Category & N & Bin. Prec. & Bin. Rec. & Bin. F1 & Macro F1 \\")
-lines.append(r"\midrule")
-
-for bc in BROAD_CLASS_LIST:
+def broad_class_rows(bc, fold_used):
+    """Returns the list of table lines (summary row + category rows) for one broad class."""
     df = load_broad_class_df(bc)
     fold = best_fold_for(df)
+    fold_used[bc] = fold
     df_best = df[df["fold"] == fold].copy()
     df_best["hypothesis_label"] = df_best["hypothesis_label"].replace(RENAME_DICT)
 
     bc_title = RENAME_DICT.get(bc, bc)
     summary = broad_class_summary_row(df_best)
 
-    lines.append(r"\addlinespace")
-    lines.append(
-        rf"\textbf{{{latex_escape(bc_title)}}} (fold {fold}) & "
+    rows = [r"\addlinespace"]
+    rows.append(
+        rf"\textbf{{{latex_escape(bc_title)}}} & "
         rf"\textbf{{{summary['n_pos_entail']}}} & "
         rf"\textbf{{{fmt(summary['precision_binary'])}}} & "
         rf"\textbf{{{fmt(summary['recall_binary'])}}} & "
@@ -151,29 +146,77 @@ for bc in BROAD_CLASS_LIST:
 
     df_best = df_best.sort_values("f1_macro", ascending=False)
     for _, row in df_best.iterrows():
-        lines.append(
-            rf"\quad {latex_escape(row['hypothesis_label'])} & "
+        rows.append(
+            rf"\quad {latex_escape(capitalize_first(row['hypothesis_label']))} & "
             rf"{int(row['n_pos_entail'])} & "
             rf"{fmt(row['precision_binary'])} & "
             rf"{fmt(row['recall_binary'])} & "
             rf"{fmt(row['f1_binary'])} & "
             rf"{fmt(row['f1_macro'])} \\"
         )
+    return rows
 
-lines.append(r"\bottomrule")
-lines.append(r"\end{tabular}")
-lines.append(
-    r"\caption{Performance per category, evaluated on each broad class's best fold "
-    r"(highest $n_\text{pos}$-weighted macro F1 across its categories) -- the fold "
-    r"whose model is publicly released. Bold rows are the $n_\text{pos}$-weighted "
-    r"average across categories within a broad class.}"
+
+def build_table(rows, part_num):
+    lines = [r"\begin{table}[htb]", r"\centering", r"\scriptsize"]
+    lines.append(r"\begin{tabular}{l r r r r r}")
+    lines.append(r"\toprule")
+    lines.append(r"Category & N & Bin. Prec. & Bin. Rec. & Bin. F1 & Macro F1 \\")
+    lines.append(r"\midrule")
+    lines.extend(rows)
+    lines.append(r"\bottomrule")
+    lines.append(r"\end{tabular}")
+    lines.append(
+        r"\caption{Performance per category for each broad class' best fold. "
+        r"N indicates the number of positive cases for the category in the test set "
+        rf"(Part {part_num}/2).}}"
+    )
+    lines.append(rf"\label{{tab:step2_best_fold_metrics_{part_num}}}")
+    lines.append(r"\end{table}")
+    return lines
+
+
+# ============================================================
+# MAIN
+# ============================================================
+fold_used = {}
+rows_by_bc = {bc: broad_class_rows(bc, fold_used) for bc in BROAD_CLASS_LIST}
+
+# split broad classes across the two tables balancing by row count, not by
+# number of broad classes, since categories per broad class vary a lot
+# (e.g. profession has 14 categories, real_estate has 3). Pick the prefix
+# split point that minimizes the row-count imbalance between the two halves.
+row_counts = [len(rows_by_bc[bc]) for bc in BROAD_CLASS_LIST]
+total_rows = sum(row_counts)
+prefix_sums = np.cumsum(row_counts)
+split_idx = int(np.argmin(np.abs(2 * prefix_sums - total_rows))) + 1
+
+part1_bcs = BROAD_CLASS_LIST[:split_idx]
+part2_bcs = BROAD_CLASS_LIST[split_idx:]
+
+part1_rows = [line for bc in part1_bcs for line in rows_by_bc[bc]]
+part2_rows = [line for bc in part2_bcs for line in rows_by_bc[bc]]
+
+tex1 = "\n".join(build_table(part1_rows, 1))
+tex2 = "\n".join(build_table(part2_rows, 2))
+
+output_file_1 = OUTPUT_FILE.replace(".tex", "_part1.tex")
+output_file_2 = OUTPUT_FILE.replace(".tex", "_part2.tex")
+with open(output_file_1, "w", encoding="utf-8") as f:
+    f.write(tex1)
+with open(output_file_2, "w", encoding="utf-8") as f:
+    f.write(tex2)
+
+fold_log = "\n".join(
+    f"{RENAME_DICT.get(bc, bc)} ({bc}): fold {fold}"
+    for bc, fold in fold_used.items()
 )
-lines.append(r"\label{tab:step2_best_fold_metrics}")
-lines.append(r"\end{table}")
+with open(FOLD_LOG_FILE, "w", encoding="utf-8") as f:
+    f.write(fold_log + "\n")
 
-tex = "\n".join(lines)
-with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
-    f.write(tex)
-
-print(tex)
-print(f"\nSaved file as: {OUTPUT_FILE}")
+print(tex1)
+print()
+print(tex2)
+print(f"\nSaved file as: {output_file_1}")
+print(f"Saved file as: {output_file_2}")
+print(f"Saved file as: {FOLD_LOG_FILE}")
