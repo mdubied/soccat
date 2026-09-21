@@ -1,0 +1,5 @@
+moyennes
+classes
+couches
+moyenne
+classe

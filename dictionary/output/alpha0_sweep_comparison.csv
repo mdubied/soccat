@@ -1,0 +1,4 @@
+alpha0_mode,alpha0,alpha0_description,label_macro_f1,label_micro_precision,label_micro_recall,label_micro_f1,category_macro_f1
+low,66,medium / 10,0.283,0.239,0.471,0.318,0.394
+medium,664,median positive-corpus token count across the 57 labels (train.csv only),0.285,0.245,0.477,0.324,0.397
+high,96566,full train-corpus token count (n in eq. 23; the degenerate/maximal case),0.344,0.332,0.539,0.411,0.478

@@ -1,0 +1,9 @@
+alpha0-mode: low  (alpha0 = 66, medium / 10)
+Test set size: 1,928
+
+Per-specific-category (57)  macro F1 = 0.283
+Per-specific-category (57)  micro P/R/F1 = 0.239 / 0.471 / 0.318
+Per-broad-class (8)         macro F1 = 0.394
+
+Any-group detection (mirrors step 1's binary task, full test set):
+  precision=0.760  recall=0.748  f1=0.754  (support=1334/1928 sentences have >=1 label)

@@ -1,0 +1,41 @@
+\begin{table}[htb]
+\centering
+\scriptsize
+\begin{tabular}{l ccc ccc ccc ccc}
+\toprule
+ & \multicolumn{3}{c}{$\alpha_0$ = low (66)} & \multicolumn{3}{c}{$\alpha_0$ = medium (664)} & \multicolumn{3}{c}{$\alpha_0$ = high (96,566)} & \multicolumn{3}{c}{SOCCAT} \\
+\cmidrule(lr){2-4} \cmidrule(lr){5-7} \cmidrule(lr){8-10} \cmidrule(lr){11-13}
+Specific category & P & R & F1 & P & R & F1 & P & R & F1 & P & R & F1 \\
+\midrule
+Athletes & 0.41 & 0.36 & 0.39 & 0.41 & 0.36 & 0.39 & 0.67 & 0.39 & 0.49 & 0.98 & 0.74 & 0.84 \\
+Authors and artists & 0.43 & 0.42 & 0.43 & 0.43 & 0.42 & 0.43 & 0.67 & 0.42 & 0.52 & 0.87 & 0.75 & 0.81 \\
+Doctors & 0.33 & 0.43 & 0.38 & 0.33 & 0.43 & 0.38 & 0.33 & 0.43 & 0.38 & 1.00 & 0.86 & 0.92 \\
+Farmers and fishermen & 0.07 & 0.44 & 0.12 & 0.07 & 0.44 & 0.12 & 0.17 & 0.69 & 0.28 & 1.00 & 0.93 & 0.97 \\
+\shortstack[l]{Health and care\\professionals} & 0.03 & 0.17 & 0.05 & 0.03 & 0.17 & 0.05 & 0.03 & 0.17 & 0.05 & 0.67 & 0.57 & 0.62 \\
+Journalists & 0.20 & 0.50 & 0.29 & 0.20 & 0.50 & 0.29 & 0.20 & 0.50 & 0.29 & 1.00 & 1.00 & 1.00 \\
+Legal professionals & 0.11 & 0.42 & 0.18 & 0.11 & 0.42 & 0.18 & 0.11 & 0.42 & 0.18 & 0.88 & 0.70 & 0.78 \\
+\shortstack[l]{Politicians and\\high-ranking officials} & 0.68 & 0.44 & 0.54 & 0.72 & 0.47 & 0.57 & 0.87 & 0.60 & 0.71 & 0.97 & 0.95 & 0.96 \\
+Sex workers & 1.00 & 0.50 & 0.67 & 1.00 & 0.50 & 0.67 & 1.00 & 0.50 & 0.67 & 1.00 & 1.00 & 1.00 \\
+\shortstack[l]{Scientists and\\professors} & 0.09 & 0.50 & 0.15 & 0.10 & 0.50 & 0.17 & 0.13 & 0.50 & 0.20 & 0.93 & 0.82 & 0.88 \\
+Security forces & 0.46 & 0.66 & 0.54 & 0.46 & 0.66 & 0.54 & 0.56 & 0.66 & 0.60 & 0.87 & 0.83 & 0.85 \\
+Soldiers & 0.29 & 0.53 & 0.38 & 0.28 & 0.53 & 0.37 & 0.55 & 0.77 & 0.64 & 0.92 & 0.73 & 0.81 \\
+Teachers and educators & 0.05 & 0.64 & 0.10 & 0.05 & 0.64 & 0.10 & 0.05 & 0.64 & 0.10 & 1.00 & 0.75 & 0.86 \\
+Other professions & 0.36 & 0.26 & 0.30 & 0.36 & 0.26 & 0.30 & 0.81 & 0.27 & 0.40 & 0.80 & 0.65 & 0.72 \\
+\addlinespace
+Consumers and clients & 0.43 & 0.51 & 0.47 & 0.45 & 0.54 & 0.49 & 0.60 & 0.70 & 0.65 & 1.00 & 0.91 & 0.95 \\
+Car drivers & 0.60 & 0.75 & 0.67 & 0.60 & 0.75 & 0.67 & 0.60 & 0.75 & 0.67 & 1.00 & 0.75 & 0.86 \\
+Patients & 0.09 & 0.58 & 0.15 & 0.09 & 0.58 & 0.15 & 0.16 & 0.75 & 0.27 & 1.00 & 0.84 & 0.91 \\
+\addlinespace
+Extremists & 0.19 & 0.41 & 0.26 & 0.19 & 0.41 & 0.26 & 0.19 & 0.41 & 0.26 & 0.88 & 0.58 & 0.70 \\
+\shortstack[l]{Terrorists, rebels, revolutionaries\\and/or movements of armed resistance} & 0.36 & 0.50 & 0.42 & 0.36 & 0.50 & 0.42 & 0.65 & 0.53 & 0.58 & 1.00 & 0.80 & 0.89 \\
+\shortstack[l]{Offenders, criminals, prisoners\\and/or accused people} & 0.29 & 0.17 & 0.22 & 0.29 & 0.17 & 0.22 & 0.40 & 0.17 & 0.24 & 1.00 & 0.56 & 0.71 \\
+Drug addicts & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 1.00 & 1.00 & 1.00 \\
+\addlinespace
+Real-estate owners & 0.34 & 0.66 & 0.45 & 0.34 & 0.66 & 0.45 & 0.51 & 0.66 & 0.58 & 1.00 & 0.79 & 0.88 \\
+Tenants & 0.18 & 0.88 & 0.30 & 0.18 & 0.88 & 0.30 & 0.18 & 0.88 & 0.30 & 1.00 & 1.00 & 1.00 \\
+Homeless & 0.11 & 0.50 & 0.18 & 0.11 & 0.50 & 0.18 & 0.11 & 0.50 & 0.18 & 1.00 & 1.00 & 1.00 \\
+\bottomrule
+\end{tabular}
+\caption{Comparison with dictionary-based classifiers, for different values of $\alpha_0$, part 2/2.}
+\label{tab:dictionary_alpha0_sweep_part2}
+\end{table}

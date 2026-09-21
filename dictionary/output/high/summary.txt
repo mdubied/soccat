@@ -1,0 +1,9 @@
+alpha0-mode: high  (alpha0 = 96566, full train-corpus token count (n in eq. 23; the degenerate/maximal case))
+Test set size: 1,928
+
+Per-specific-category (57)  macro F1 = 0.344
+Per-specific-category (57)  micro P/R/F1 = 0.332 / 0.539 / 0.411
+Per-broad-class (8)         macro F1 = 0.478
+
+Any-group detection (mirrors step 1's binary task, full test set):
+  precision=0.795  recall=0.766  f1=0.780  (support=1334/1928 sentences have >=1 label)
