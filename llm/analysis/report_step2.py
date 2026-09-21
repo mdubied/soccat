@@ -26,6 +26,7 @@ Usage:
 
 import csv
 import json
+import re
 import sys
 from datetime import datetime
 from pathlib import Path
@@ -39,7 +40,30 @@ sys.path.insert(0, str(REPO_ROOT / "llm" / "classification"))
 from step2_taxonomy import LABEL_MAP, TAXONOMY  # noqa: E402
 
 OUTPUT_ROOT = REPO_ROOT / "llm" / "classification" / "output" / "step_2"
-PER_FOLD_DIR = REPO_ROOT / "data" / "model_performance" / "step_2" / "model_performance"
+STEP_2_DATA_DIR = REPO_ROOT / "data" / "model_performance" / "step_2"
+
+# broad-class file stem -> its own folder directly under STEP_2_DATA_DIR,
+# containing fold_*_per_label.csv (one file per fold, no "fold" column).
+# Matches figures/step_2_boxplot.py's FOLDER_NAME_MAP. All 8 broad classes
+# are migrated to this layout; the old model_performance/{stem}_per_fold.csv
+# files are stale (pre-retrain) and will eventually be removed.
+FOLDER_NAME_MAP = {
+    "age_family": "age_family_status",
+    "identity": "identities_minority_majority_status",
+    "labor_market_w_entrepreneurs": "labor_market_position",
+    "profession": "profession",
+    "real_estate": "real_estate_ownership",
+    "social_deviance": "social_deviance",
+    "social_roles": "social_roles_behavior",
+    "socio_economic": "socio_economic_position",
+}
+
+# fold-selection metric for "which fold's model is the deployed one" --
+# n_pos_entail-weighted macro F1, matching figures/step_2_boxplot.py and
+# tables/step_2_best_fold_table.py (chosen there for robustness to the
+# heavy class imbalance in the current test sets; see conversation history).
+# The score actually reported/compared against LLM runs stays f1_binary.
+BEST_FOLD_METRIC = "f1_macro"
 
 # {broad_display_name: filename stem for {stem}_per_fold.csv}. Matches
 # figures/step_2_boxplot.py's BROAD_CLASS_LIST (note "identity" is singular in the
@@ -89,21 +113,44 @@ def format_duration(ms: float) -> str:
     return f"{int(minutes)}m {secs:.0f}s"
 
 
+def _load_broad_class_rows(stem: str) -> list:
+    """Per-fold, per-label rows (each dict gets a "fold" key) for one broad
+    class, read from its own folder directly under STEP_2_DATA_DIR (one
+    fold_*_per_label.csv per fold, no "fold" column in the file itself).
+    Mirrors figures/step_2_boxplot.py's load_broad_class_df."""
+    folder = FOLDER_NAME_MAP.get(stem, stem)
+    fold_files = sorted(
+        (STEP_2_DATA_DIR / folder).glob("fold_*_per_label.csv"),
+        key=lambda p: int(re.search(r"fold_(\d+)_per_label", p.name).group(1)),
+    )
+    rows = []
+    for f in fold_files:
+        fold_num = re.search(r"fold_(\d+)_per_label", f.name).group(1)
+        with f.open("r", encoding="utf-8-sig", newline="") as fh:
+            for row in csv.DictReader(fh):
+                row["fold"] = fold_num
+                rows.append(row)
+    return rows
+
+
 def load_soccat_baseline() -> dict:
     """The actual SOCCAT pipeline's performance, for comparison. SOCCAT trains one
     NLI model per broad category (covering every specific label within it) via
     5-fold CV (src/step_2/step_2_cv_pipeline.py); the single best-performing fold
     becomes that category's deployed model, so its specific labels' reported scores
     all come from that one fold -- not a per-label best fold, and not a cross-fold
-    average. This mirrors exactly how figures/step_2_boxplot.py selects and
-    annotates one "best fold" per broad category (weighted by n_pos_entail, i.e.
-    positive-case count, matching --sel_metric f1_binary's own default).
+    average. This mirrors exactly how figures/step_2_boxplot.py and
+    tables/step_2_best_fold_table.py select and annotate one "best fold" per broad
+    category: n_pos_entail-weighted BEST_FOLD_METRIC (macro F1, for robustness to
+    the heavy class imbalance in the current test sets), while the score actually
+    reported/compared against LLM runs stays f1_binary.
 
-    Reads {broad}_per_fold.csv (raw per-fold, per-label data -- NOT the pre-averaged
-    *_mean_ci.csv files, which report the cross-fold mean rather than the deployed
-    best-fold score). hypothesis_label spellings in these files sometimes differ
-    from our taxonomy (older run, case/wording drift) -- normalise them through the
-    same LABEL_MAP used to build SOCCAT's own training pairs
+    Reads fold_*_per_label.csv via _load_broad_class_rows -- raw per-fold,
+    per-label data, NOT the pre-averaged *_mean_ci.csv files, which report the
+    cross-fold mean rather than the deployed best-fold score. hypothesis_label
+    spellings in these files
+    sometimes differ from our taxonomy (case/wording drift) -- normalise them
+    through the same LABEL_MAP used to build SOCCAT's own training pairs
     (src/step_2/convert_annotations.py), so labels match ours exactly.
 
     Returns {"broad_f1": {broad: f1}, "broad_weight": {broad: total n_pos at best fold},
@@ -112,11 +159,9 @@ def load_soccat_baseline() -> dict:
     broad_f1, broad_weight, specific_f1 = {}, {}, {}
 
     for broad, stem in BROAD_CLASS_FILE_STEM.items():
-        path = PER_FOLD_DIR / f"{stem}_per_fold.csv"
-        if not path.exists():
+        rows = _load_broad_class_rows(stem)
+        if not rows:
             continue
-        with path.open("r", encoding="utf-8-sig", newline="") as f:
-            rows = list(csv.DictReader(f))
 
         by_fold = {}
         for row in rows:
@@ -125,21 +170,22 @@ def load_soccat_baseline() -> dict:
                 continue  # label dropped from the final taxonomy (e.g. "enterprises")
             by_fold.setdefault(row["fold"], []).append((specific, row))
 
-        def weighted_f1(fold_rows):
+        def weighted(fold_rows, metric):
             total_w = sum(float(r["n_pos_entail"]) for _, r in fold_rows)
             if not total_w:
                 return 0.0, 0.0
-            weighted = sum(float(r["f1_binary"]) * float(r["n_pos_entail"]) for _, r in fold_rows) / total_w
-            return weighted, total_w
+            weighted_val = sum(float(r[metric]) * float(r["n_pos_entail"]) for _, r in fold_rows) / total_w
+            return weighted_val, total_w
 
-        best_fold, best_score, best_weight = None, -1.0, 0.0
+        best_fold, best_sel_score = None, -1.0
         for fold, fold_rows in by_fold.items():
-            score, weight = weighted_f1(fold_rows)
-            if score > best_score:
-                best_fold, best_score, best_weight = fold, score, weight
+            sel_score, _ = weighted(fold_rows, BEST_FOLD_METRIC)
+            if sel_score > best_sel_score:
+                best_fold, best_sel_score = fold, sel_score
 
         if best_fold is None:
             continue
+        best_score, best_weight = weighted(by_fold[best_fold], "f1_binary")
         broad_f1[broad] = best_score
         broad_weight[broad] = best_weight
         for specific, row in by_fold[best_fold]:
@@ -669,7 +715,11 @@ def main():
     lines.append(f"Generated:  {datetime.now().isoformat(timespec='seconds')}")
     lines.append(f"Runs found: {len(runs)}  (in {OUTPUT_ROOT.relative_to(REPO_ROOT)})")
     lines.append("")
-    lines.append(f"SOCCAT baseline for reference ({PER_FOLD_DIR.relative_to(REPO_ROOT)}/*_per_fold.csv):")
+    lines.append(
+        f"SOCCAT baseline for reference "
+        f"({STEP_2_DATA_DIR.relative_to(REPO_ROOT)}/*/fold_*_per_label.csv, "
+        f"best fold selected by n_pos-weighted macro F1):"
+    )
     lines.append(format_soccat_summary(baseline))
     lines.append("")
 

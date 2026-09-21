@@ -27,14 +27,12 @@ Usage (from this directory):
 python step_2_best_fold_table.py
 """
 import glob
-import os
 import re
 
 import numpy as np
 import pandas as pd
 
 STEP_2_DATA_DIR = "../data/model_performance/step_2"
-LEGACY_MODEL_PERFORMANCE_DIR = f"{STEP_2_DATA_DIR}/model_performance"
 OUTPUT_FILE = "step_2_best_fold_metrics.tex"
 FOLD_LOG_FILE = "step_2_best_fold_used.txt"
 
@@ -79,18 +77,15 @@ def load_broad_class_df(broad_class):
         glob.glob(f"{new_dir}/fold_*_per_label.csv"),
         key=lambda f: int(re.search(r"fold_(\d+)_per_label", f).group(1))
     )
-    if fold_files:
-        dfs = []
-        for f in fold_files:
-            fold_num = int(re.search(r"fold_(\d+)_per_label", f).group(1))
-            d = pd.read_csv(f)
-            d["fold"] = fold_num
-            dfs.append(d)
-        return pd.concat(dfs, ignore_index=True)
+    assert fold_files, f"No fold_*_per_label.csv found for broad class '{broad_class}' in {new_dir}"
 
-    legacy_file = f"{LEGACY_MODEL_PERFORMANCE_DIR}/{broad_class}_per_fold.csv"
-    assert os.path.exists(legacy_file), f"No data found for broad class '{broad_class}'"
-    return pd.read_csv(legacy_file)
+    dfs = []
+    for f in fold_files:
+        fold_num = int(re.search(r"fold_(\d+)_per_label", f).group(1))
+        d = pd.read_csv(f)
+        d["fold"] = fold_num
+        dfs.append(d)
+    return pd.concat(dfs, ignore_index=True)
 
 
 def best_fold_for(df):

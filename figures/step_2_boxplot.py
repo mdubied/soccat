@@ -47,16 +47,13 @@ else:
 
 # Setup-specific paths
 STEP_2_DATA_DIR = "../data/model_performance/step_2"
-LEGACY_MODEL_PERFORMANCE_DIR = f"{STEP_2_DATA_DIR}/model_performance"
 
-# Broad classes have been progressively migrated to their own folder directly
-# under STEP_2_DATA_DIR (containing per-fold, per-label CSVs), replacing the
-# old "<broad_class>_per_fold.csv" summary files under model_performance/.
-# Some broad classes were also renamed in the process.
+# Each broad class has its own folder directly under STEP_2_DATA_DIR
+# (containing per-fold, per-label CSVs); some were renamed in the process.
 FOLDER_NAME_MAP = {
     "age_family": "age_family_status",
     "identity": "identities_minority_majority_status",
-    "labor_market": "labor_market_position",
+    "labor_market_w_entrepreneurs": "labor_market_position",
     "profession": "profession",
     "real_estate": "real_estate_ownership",
     "social_deviance": "social_deviance",
@@ -252,13 +249,9 @@ def compute_y_positions(raw_labels, header_labels=frozenset(), extra_gap_rows=0.
 
 def load_broad_class_df(broad_class):
     """
-    Load per-fold, per-label performance data for a broad class.
-
-    Prefers the new layout, where each broad class has its own folder directly
-    under STEP_2_DATA_DIR with one "fold_X_per_label.csv" file per fold (no
-    "fold" column). Falls back to the legacy single-file layout
-    ("model_performance/<broad_class>_per_fold.csv", which already has a
-    "fold" column) for broad classes not yet migrated.
+    Load per-fold, per-label performance data for a broad class: its own
+    folder directly under STEP_2_DATA_DIR, with one "fold_X_per_label.csv"
+    file per fold (no "fold" column in the file itself, added here).
     """
     folder = FOLDER_NAME_MAP.get(broad_class, broad_class)
     new_dir = f"{STEP_2_DATA_DIR}/{folder}"
@@ -266,22 +259,15 @@ def load_broad_class_df(broad_class):
         glob.glob(f"{new_dir}/fold_*_per_label.csv"),
         key=lambda f: int(re.search(r"fold_(\d+)_per_label", f).group(1))
     )
+    assert fold_files, f"No fold_*_per_label.csv found for broad class '{broad_class}' in {new_dir}"
 
-    if fold_files:
-        dfs = []
-        for f in fold_files:
-            fold_num = int(re.search(r"fold_(\d+)_per_label", f).group(1))
-            d = pd.read_csv(f)
-            d["fold"] = fold_num
-            dfs.append(d)
-        return pd.concat(dfs, ignore_index=True)
-
-    legacy_file = f"{LEGACY_MODEL_PERFORMANCE_DIR}/{broad_class}_per_fold.csv"
-    assert os.path.exists(legacy_file), (
-        f"No data found for broad class '{broad_class}': "
-        f"no fold_*_per_label.csv in {new_dir} and no legacy file {legacy_file}"
-    )
-    return pd.read_csv(legacy_file)
+    dfs = []
+    for f in fold_files:
+        fold_num = int(re.search(r"fold_(\d+)_per_label", f).group(1))
+        d = pd.read_csv(f)
+        d["fold"] = fold_num
+        dfs.append(d)
+    return pd.concat(dfs, ignore_index=True)
 
 def compute_ci95(df, n_runs):
     for m in METRICS:
