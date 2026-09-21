@@ -1,0 +1,56 @@
+lab,test,train,total,test_share,fold
+Christians,7,28,35,0.2,0
+Ethnic and racial minorities,4,13,17,0.23529411764705882,0
+Jews,7,27,34,0.20588235294117646,0
+LGBTQIA+,16,63,79,0.20253164556962025,0
+Muslims,7,27,34,0.20588235294117646,0
+cisgender and heterosexuals,4,16,20,0.2,0
+disabled people,7,25,32,0.21875,0
+men,27,108,135,0.2,0
+multiple (or other) religious or minority groups,3,11,14,0.21428571428571427,0
+"people with an immigration background, including immigrants",44,176,220,0.2,0
+women,66,260,326,0.20245398773006135,0
+Christians,7,28,35,0.2,1
+Ethnic and racial minorities,4,13,17,0.23529411764705882,1
+Jews,7,27,34,0.20588235294117646,1
+LGBTQIA+,16,63,79,0.20253164556962025,1
+Muslims,7,27,34,0.20588235294117646,1
+cisgender and heterosexuals,4,16,20,0.2,1
+disabled people,7,25,32,0.21875,1
+men,27,108,135,0.2,1
+multiple (or other) religious or minority groups,3,11,14,0.21428571428571427,1
+"people with an immigration background, including immigrants",44,176,220,0.2,1
+women,65,261,326,0.19938650306748465,1
+Christians,7,28,35,0.2,2
+Ethnic and racial minorities,3,14,17,0.17647058823529413,2
+Jews,7,27,34,0.20588235294117646,2
+LGBTQIA+,16,63,79,0.20253164556962025,2
+Muslims,7,27,34,0.20588235294117646,2
+cisgender and heterosexuals,4,16,20,0.2,2
+disabled people,6,26,32,0.1875,2
+men,27,108,135,0.2,2
+multiple (or other) religious or minority groups,3,11,14,0.21428571428571427,2
+"people with an immigration background, including immigrants",44,176,220,0.2,2
+women,65,261,326,0.19938650306748465,2
+Christians,7,28,35,0.2,3
+Ethnic and racial minorities,3,14,17,0.17647058823529413,3
+Jews,7,27,34,0.20588235294117646,3
+LGBTQIA+,16,63,79,0.20253164556962025,3
+Muslims,7,27,34,0.20588235294117646,3
+cisgender and heterosexuals,4,16,20,0.2,3
+disabled people,6,26,32,0.1875,3
+men,27,108,135,0.2,3
+multiple (or other) religious or minority groups,3,11,14,0.21428571428571427,3
+"people with an immigration background, including immigrants",44,176,220,0.2,3
+women,65,261,326,0.19938650306748465,3
+Christians,7,28,35,0.2,4
+Ethnic and racial minorities,3,14,17,0.17647058823529413,4
+Jews,6,28,34,0.17647058823529413,4
+LGBTQIA+,15,64,79,0.189873417721519,4
+Muslims,6,28,34,0.17647058823529413,4
+cisgender and heterosexuals,4,16,20,0.2,4
+disabled people,6,26,32,0.1875,4
+men,27,108,135,0.2,4
+multiple (or other) religious or minority groups,2,12,14,0.14285714285714285,4
+"people with an immigration background, including immigrants",44,176,220,0.2,4
+women,65,261,326,0.19938650306748465,4

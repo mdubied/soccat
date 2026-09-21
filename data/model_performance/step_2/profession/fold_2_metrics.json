@@ -1,0 +1,16 @@
+{
+  "accuracy": 0.9900217348350129,
+  "precision_binary": 0.8487084870848709,
+  "recall_binary": 0.7931034482758621,
+  "f1_binary": 0.8199643493761141,
+  "precision_micro": 0.9900217348350129,
+  "recall_micro": 0.9900217348350129,
+  "f1_micro": 0.9900217348350129,
+  "f1_macro": 0.9074165088850799,
+  "cohen_kappa": 0.8148390712123424,
+  "prevalence": 0.028650464335111637,
+  "roc_auc": 0.9919327459947812,
+  "pr_auc": 0.8918158862091133,
+  "fold": 2,
+  "best_ckpt": "/content/drive/MyDrive/Media_Deservingness_Paper/cross_validation_v2/Profession/cv_models/fold_2/checkpoint-15195"
+}

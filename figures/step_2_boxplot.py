@@ -4,7 +4,7 @@ step_2_boxplot.py
 Description:
 Create the boxplot figures for summary performance. Figures 4, 5, A1-A8 of the paper.
 
-One figure with 4 panels (accuracy, precision, recall, f1), paginated vertically.
+One figure with 4 panels (binary precision, recall, F1, and macro F1), paginated vertically.
  - Sorted globally by decreasing F1 mean (best first), then paginated.
  - Best entries appear at the TOP of each page (invert y-axis).
  - Long labels wrapped and measured to allocate left margin (no clipping).
@@ -18,7 +18,7 @@ python step_2_boxplot.py --broad_class age_family
 
 (or other broad class name to get all categories within this broad class, or no argument for all broad classes)
 """
-import os, textwrap
+import os, re, glob, textwrap
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -46,15 +46,31 @@ else:
     SETUP_NAME = "cat_per_broad_class_box_plot"
 
 # Setup-specific paths
-if SETUP_NAME == "cat_per_broad_class_box_plot":   
+STEP_2_DATA_DIR = "../data/model_performance/step_2"
+LEGACY_MODEL_PERFORMANCE_DIR = f"{STEP_2_DATA_DIR}/model_performance"
+
+# Broad classes have been progressively migrated to their own folder directly
+# under STEP_2_DATA_DIR (containing per-fold, per-label CSVs), replacing the
+# old "<broad_class>_per_fold.csv" summary files under model_performance/.
+# Some broad classes were also renamed in the process.
+FOLDER_NAME_MAP = {
+    "age_family": "age_family_status",
+    "identity": "identities_minority_majority_status",
+    "labor_market": "labor_market_position",
+    "profession": "profession",
+    "real_estate": "real_estate_ownership",
+    "social_deviance": "social_deviance",
+    "social_roles": "social_roles_behavior",
+    "socio_economic": "socio_economic_position",
+}
+
+if SETUP_NAME == "cat_per_broad_class_box_plot":
     BROAD_CLASS = args.broad_class
-    INPUT_FILE   = f"../data/model_performance/step_2/model_performance/{BROAD_CLASS}_per_fold.csv"
     OUTPUT_DIR   = f"step_2/boxplots/cat_per_broad_class_box_plot"
     OUTPUT_BASE_NAME = f"{BROAD_CLASS}_box_plot"
     NAME_CAT = "hypothesis_label"
     LBL_WIDTH_FRAC  = 0.29   # Fixed fraction of figure width for labels (instead of measuring)
-elif SETUP_NAME == "broad_class_box_plot":    
-    INPUT_DIR   = "../data/model_performance/step_2/model_performance"
+elif SETUP_NAME == "broad_class_box_plot":
     OUTPUT_DIR   = "step_2/boxplots/broad_class_box_plot"
     OUTPUT_BASE_NAME = "perf_broad_class_box_plot"
     NAME_CAT = "hypothesis_label"
@@ -63,12 +79,12 @@ else:
     raise ValueError(f"Unknown SETUP_NAME: {SETUP_NAME}")
 
 # Performance metrics to plot
-METRICS      = ["accuracy", "precision_binary", "recall_binary", "f1_binary"]
+METRICS      = ["precision_binary", "recall_binary", "f1_binary", "f1_macro"]
 METRIC_TITLE_MAP = {
-    "accuracy": "Accuracy",
-    "precision_binary": "Precision",
-    "recall_binary": "Recall",
-    "f1_binary": "F1 Score",
+    "precision_binary": "Bin. Precision",
+    "recall_binary": "Bin. Recall",
+    "f1_binary": "Bin. F1",
+    "f1_macro": "Macro F1",
 }
 
 # Broad category listing
@@ -102,15 +118,18 @@ RENAME_DICT = {
     "real_estate": "Real estate ownership",
 }
 
-# Score annotations (best fold by F1)
+# Score annotations (best fold by macro F1 -- this fold's model is the one
+# made publicly available, so selection should be robust to class imbalance
+# rather than driven by the positive-class-only, small-sample-sensitive
+# f1_binary)
 SHOW_BEST_FOLD_SCORES = True
-BEST_FOLD_METRIC = "f1_binary"     # fold selector
+BEST_FOLD_METRIC = "f1_macro"     # fold selector
 SCORE_X_DEFAULT = 0.06            # default x position (data coords in [0,1])
 SCORE_FMT_MAP = {                  # per-metric formatting if desired
-    "accuracy": "{:.2f}",
     "precision_binary": "{:.2f}",
     "recall_binary": "{:.2f}",
     "f1_binary": "{:.2f}",
+    "f1_macro": "{:.2f}",
 }
 
 # Optional per-(metric,row) x-position and background color of text  overrides .
@@ -190,6 +209,39 @@ plt.rcParams.update({
 def wrap_labels(labels, width_chars=40):
     return ["\n".join(textwrap.wrap(str(lbl), width_chars)) for lbl in labels]
 
+def load_broad_class_df(broad_class):
+    """
+    Load per-fold, per-label performance data for a broad class.
+
+    Prefers the new layout, where each broad class has its own folder directly
+    under STEP_2_DATA_DIR with one "fold_X_per_label.csv" file per fold (no
+    "fold" column). Falls back to the legacy single-file layout
+    ("model_performance/<broad_class>_per_fold.csv", which already has a
+    "fold" column) for broad classes not yet migrated.
+    """
+    folder = FOLDER_NAME_MAP.get(broad_class, broad_class)
+    new_dir = f"{STEP_2_DATA_DIR}/{folder}"
+    fold_files = sorted(
+        glob.glob(f"{new_dir}/fold_*_per_label.csv"),
+        key=lambda f: int(re.search(r"fold_(\d+)_per_label", f).group(1))
+    )
+
+    if fold_files:
+        dfs = []
+        for f in fold_files:
+            fold_num = int(re.search(r"fold_(\d+)_per_label", f).group(1))
+            d = pd.read_csv(f)
+            d["fold"] = fold_num
+            dfs.append(d)
+        return pd.concat(dfs, ignore_index=True)
+
+    legacy_file = f"{LEGACY_MODEL_PERFORMANCE_DIR}/{broad_class}_per_fold.csv"
+    assert os.path.exists(legacy_file), (
+        f"No data found for broad class '{broad_class}': "
+        f"no fold_*_per_label.csv in {new_dir} and no legacy file {legacy_file}"
+    )
+    return pd.read_csv(legacy_file)
+
 def compute_ci95(df, n_runs):
     for m in METRICS:
         if f"{m}_std" not in df.columns or f"{m}_mean" not in df.columns:
@@ -245,6 +297,26 @@ def compute_broad_class_boxplot(df, subcat_col, broad_col):
 
     return df_broad
 
+def select_best_fold_row(sub, fixed_fold):
+    """
+    Pick the row of `sub` (must have a "fold" column and BEST_FOLD_METRIC)
+    to annotate/report: either the fixed fold shared across all labels, or
+    (if fixed_fold is None) the label's own best fold by BEST_FOLD_METRIC.
+    Returns None if no suitable row exists.
+    """
+    sub = sub.replace([np.inf, -np.inf], np.nan)
+    if fixed_fold is not None:
+        sub_fold = sub.loc[sub["fold"] == fixed_fold]
+        if sub_fold.empty:
+            return None
+        return sub_fold.iloc[0]
+
+    sub = sub.dropna(subset=[BEST_FOLD_METRIC])
+    if sub.empty:
+        return None
+    best_idx = sub[BEST_FOLD_METRIC].idxmax()
+    return sub.loc[best_idx]
+
 def plot_data(axs, ax_N, df, wrapped_labels, label_col="hypothesis_label", raw_labels=None, fixed_fold=None):
 
     for i, metric in enumerate(METRICS):
@@ -283,21 +355,9 @@ def plot_data(axs, ax_N, df, wrapped_labels, label_col="hypothesis_label", raw_l
                 if sub.empty:
                     continue
 
-                sub = sub.replace([np.inf, -np.inf], np.nan)
-
-                if fixed_fold is not None:
-                    # use the SAME fold for every label
-                    sub_fold = sub.loc[sub["fold"] == fixed_fold]
-                    if sub_fold.empty:
-                        continue
-                    best_row = sub_fold.iloc[0]
-                else:
-                    # default behavior: best fold per label (max F1)
-                    sub = sub.dropna(subset=[BEST_FOLD_METRIC])
-                    if sub.empty:
-                        continue
-                    best_idx = sub[BEST_FOLD_METRIC].idxmax()
-                    best_row = sub.loc[best_idx]
+                best_row = select_best_fold_row(sub, fixed_fold)
+                if best_row is None:
+                    continue
 
                 val = best_row.get(metric, np.nan)
                 if pd.isna(val):
@@ -375,10 +435,7 @@ if SETUP_NAME == "broad_class_box_plot":
     dfs = []  # collect all subcategory data
 
     for bc in BROAD_CLASS_LIST:
-        input_file = f"{INPUT_DIR}/{bc}_per_fold.csv"
-        assert os.path.exists(input_file), f"File missing: {input_file}"
-
-        df_temp = pd.read_csv(input_file)
+        df_temp = load_broad_class_df(bc)
         df_temp["broad_class"] = bc  # tag the source
         dfs.append(df_temp)
 
@@ -393,8 +450,8 @@ if SETUP_NAME == "broad_class_box_plot":
     )
 
 else:
-    df = pd.read_csv(INPUT_FILE)
-    
+    df = load_broad_class_df(BROAD_CLASS)
+
 assert NAME_CAT in df.columns, f"Missing '{NAME_CAT}' column in CSV."
 df[NAME_CAT] = df[NAME_CAT].replace(RENAME_DICT)
 
@@ -435,12 +492,17 @@ data_to_plot = (df.sort_values(NAME_CAT, kind="mergesort"), unique_labels)
 
 df_plot, raw_labels = data_to_plot
 
-# Print F1 median per row
-print(f"\n{'Label':<60} {'F1 median':>10}")
-print("-" * 72)
+# Print F1 median / mean / best-fold per row (binary and macro)
+print(f"\n{'Label':<60} {'Bin.F1 med':>10} {'Bin.F1 mean':>11} {'Bin.F1 best':>11} {'Macro F1 best':>14}")
+print("-" * 110)
 for lbl in raw_labels:
-    median = df_plot.loc[df_plot[NAME_CAT] == lbl, "f1_binary"].median()
-    print(f"{str(lbl):<60} {median:>10.4f}")
+    sub = df_plot.loc[df_plot[NAME_CAT] == lbl, ["fold"] + METRICS]
+    median = sub["f1_binary"].median()
+    mean = sub["f1_binary"].mean()
+    best_row = select_best_fold_row(sub, FIXED_FOLD_FOR_ANNOT)
+    best_bin = best_row["f1_binary"] if best_row is not None else np.nan
+    best_macro = best_row["f1_macro"] if best_row is not None else np.nan
+    print(f"{str(lbl):<60} {median:>10.4f} {mean:>11.4f} {best_bin:>11.4f} {best_macro:>14.4f}")
 print()
 
 wrapped = wrap_labels(raw_labels, wrap_w)
@@ -476,4 +538,4 @@ plot_data(axs, ax_N, df_plot, wrapped, label_col=NAME_CAT, raw_labels=raw_labels
 output_path = os.path.join(OUTPUT_DIR, f"{OUTPUT_BASE_NAME}.pdf")
 fig.savefig(output_path)
 
-print(f"✅ Saved file as: {output_path}")
+print(f"Saved file as: {output_path}")

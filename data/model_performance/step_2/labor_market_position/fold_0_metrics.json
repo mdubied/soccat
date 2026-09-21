@@ -1,0 +1,16 @@
+{
+  "accuracy": 0.9913998310681102,
+  "precision_binary": 0.8548387096774194,
+  "recall_binary": 0.7361111111111112,
+  "f1_binary": 0.7910447761194029,
+  "precision_micro": 0.9913998310681102,
+  "recall_micro": 0.9913998310681102,
+  "f1_micro": 0.9913998310681102,
+  "f1_macro": 0.893327170497961,
+  "cohen_kappa": 0.7866793029010688,
+  "prevalence": 0.0221147201105736,
+  "roc_auc": 0.993694651659905,
+  "pr_auc": 0.8763580094316954,
+  "fold": 0,
+  "best_ckpt": "/content/drive/MyDrive/Media_Deservingness_Paper/cross_validation_v2/Labor Market Position/cv_models/fold_0/checkpoint-6512"
+}

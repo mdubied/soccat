@@ -1,0 +1,16 @@
+{
+  "accuracy": 0.9942369755647764,
+  "precision_binary": 0.891566265060241,
+  "recall_binary": 0.8222222222222222,
+  "f1_binary": 0.8554913294797688,
+  "precision_micro": 0.9942369755647764,
+  "recall_micro": 0.9942369755647764,
+  "f1_micro": 0.9942369755647764,
+  "f1_macro": 0.9262755953526094,
+  "cohen_kappa": 0.8525561020972517,
+  "prevalence": 0.02074688796680498,
+  "roc_auc": 0.9854755178907721,
+  "pr_auc": 0.8780756194484889,
+  "fold": 1,
+  "best_ckpt": "/content/drive/MyDrive/Media_Deservingness_Paper/cross_validation_v2/Social Roles and Behavior/cv_models/fold_1/checkpoint-3258"
+}

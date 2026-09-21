@@ -1,0 +1,16 @@
+{
+  "accuracy": 0.9918797512093988,
+  "precision_binary": 0.6896551724137931,
+  "recall_binary": 0.5797101449275363,
+  "f1_binary": 0.6299212598425197,
+  "precision_micro": 0.9918797512093988,
+  "recall_micro": 0.9918797512093988,
+  "f1_micro": 0.9918797512093988,
+  "f1_macro": 0.8129080489098177,
+  "cohen_kappa": 0.6258472338365388,
+  "prevalence": 0.011921216309606082,
+  "roc_auc": 0.9757786782426238,
+  "pr_auc": 0.6196469546648282,
+  "fold": 2,
+  "best_ckpt": "/content/drive/MyDrive/Media_Deservingness_Paper/cross_validation_v2/Social Deviance/cv_models/fold_2/checkpoint-4341"
+}

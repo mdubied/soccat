@@ -1,0 +1,21 @@
+lab,test,train,total,test_share,fold
+drug addicts,5,18,23,0.21739130434782608,0
+extremists,13,49,62,0.20967741935483872,0
+"offenders, criminals, prisoners and/or accused people",37,146,183,0.20218579234972678,0
+"terrorists, rebels, revolutionaries and/or movements of armed resistance",15,59,74,0.20270270270270271,0
+drug addicts,5,18,23,0.21739130434782608,1
+extremists,13,49,62,0.20967741935483872,1
+"offenders, criminals, prisoners and/or accused people",37,146,183,0.20218579234972678,1
+"terrorists, rebels, revolutionaries and/or movements of armed resistance",15,59,74,0.20270270270270271,1
+drug addicts,5,18,23,0.21739130434782608,2
+extremists,12,50,62,0.1935483870967742,2
+"offenders, criminals, prisoners and/or accused people",37,146,183,0.20218579234972678,2
+"terrorists, rebels, revolutionaries and/or movements of armed resistance",15,59,74,0.20270270270270271,2
+drug addicts,4,19,23,0.17391304347826086,3
+extremists,12,50,62,0.1935483870967742,3
+"offenders, criminals, prisoners and/or accused people",36,147,183,0.19672131147540983,3
+"terrorists, rebels, revolutionaries and/or movements of armed resistance",15,59,74,0.20270270270270271,3
+drug addicts,4,19,23,0.17391304347826086,4
+extremists,12,50,62,0.1935483870967742,4
+"offenders, criminals, prisoners and/or accused people",36,147,183,0.19672131147540983,4
+"terrorists, rebels, revolutionaries and/or movements of armed resistance",14,60,74,0.1891891891891892,4

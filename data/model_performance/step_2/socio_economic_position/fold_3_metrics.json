@@ -1,0 +1,16 @@
+{
+  "accuracy": 0.9967749366505414,
+  "precision_binary": 0.8421052631578947,
+  "recall_binary": 0.7164179104477612,
+  "f1_binary": 0.7741935483870968,
+  "precision_micro": 0.9967749366505414,
+  "recall_micro": 0.9967749366505414,
+  "f1_micro": 0.9967749366505414,
+  "f1_macro": 0.8862847092283512,
+  "cohen_kappa": 0.7725800566922062,
+  "prevalence": 0.007717115871918913,
+  "roc_auc": 0.9932502317200994,
+  "pr_auc": 0.8112529732295924,
+  "fold": 3,
+  "best_ckpt": "/content/drive/MyDrive/Media_Deservingness_Paper/cross_validation_v2/Socio-Economic Position/cv_models/fold_3/checkpoint-6513"
+}

@@ -1,0 +1,16 @@
+{
+  "accuracy": 0.9920031592457301,
+  "precision_binary": 0.7669902912621359,
+  "recall_binary": 0.8272251308900523,
+  "f1_binary": 0.7959697732997482,
+  "precision_micro": 0.9920031592457301,
+  "recall_micro": 0.9920031592457301,
+  "f1_micro": 0.9920031592457301,
+  "f1_macro": 0.8959457144027566,
+  "cohen_kappa": 0.7918973671922103,
+  "prevalence": 0.018856747951426597,
+  "roc_auc": 0.9927877447504371,
+  "pr_auc": 0.8234284093080609,
+  "fold": 4,
+  "best_ckpt": "/content/drive/MyDrive/Media_Deservingness_Paper/cross_validation_v2/Age and Family Status/cv_models/fold_4/checkpoint-5064"
+}
