@@ -595,7 +595,7 @@ def build_latex_category_tables(summary_rows: list, baseline: dict) -> list:
             r"\begin{table}[htb]",
             r"\centering",
             r"\scriptsize",
-            r"\begin{tabular}{>{\raggedright\arraybackslash}p{4.2cm}" + " r" * (1 + n_runs) + "}",
+            r"\begin{tabular}{>{\raggedright\arraybackslash}p{4.2cm}" + " c" * (1 + n_runs) + "}",
             r"\toprule",
         ]
         row1 = ["Model", f"\\multicolumn{{{n_runs}}}{{c}}{{Sonnet-5}}", "SOCCAT"]

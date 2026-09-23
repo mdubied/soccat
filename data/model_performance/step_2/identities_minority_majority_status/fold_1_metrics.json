@@ -1,16 +1,16 @@
 {
-  "accuracy": 0.9761426418884982,
-  "precision_binary": 0.3303411131059246,
-  "recall_binary": 0.9633507853403142,
-  "f1_binary": 0.4919786096256685,
-  "precision_micro": 0.9761426418884982,
-  "recall_micro": 0.9761426418884982,
-  "f1_micro": 0.9761426418884982,
-  "f1_macro": 0.7398815511803282,
-  "cohen_kappa": 0.4827409098250889,
+  "accuracy": 0.9957935710698141,
+  "precision_binary": 0.8333333333333334,
+  "recall_binary": 0.8115183246073299,
+  "f1_binary": 0.8222811671087533,
+  "precision_micro": 0.9957935710698141,
+  "recall_micro": 0.9957935710698141,
+  "f1_micro": 0.9957935710698141,
+  "f1_macro": 0.9100763820231972,
+  "cohen_kappa": 0.8201531429079896,
   "prevalence": 0.011991461577096936,
-  "roc_auc": 0.9883058134579294,
-  "pr_auc": 0.563940859283704,
+  "roc_auc": 0.9901376254380331,
+  "pr_auc": 0.8353189782780217,
   "fold": 1,
-  "best_ckpt": "/content/drive/MyDrive/Media_Deservingness_Paper/cross_validation_v2/Identities/cv_models/fold_1/checkpoint-568"
+  "best_ckpt": "/content/drive/MyDrive/Media_Deservingness_Paper/cross_validation_v2/Identities/cv_models/fold_1/checkpoint-11934"
 }

@@ -15,22 +15,18 @@ Columns: precision/recall/F1, once per dictionary alpha0 mode (low/medium/
 high) plus once for SOCCAT, each group under its own merged (\\multicolumn)
 header.
 
-SOCCAT columns: read directly from the already-computed per-fold metrics
-in data/model_performance/step_2/model_performance/<x>_per_fold.csv
-(columns include hypothesis_label, fold, precision_binary, recall_binary,
-f1_binary) -- NOT recomputed here. Two things vary per broad category and
-are kept as explicit, separately-editable lookups below:
-  SOCCAT_PER_FOLD_FILE  -- which *_per_fold.csv file
-  SOCCAT_BEST_FOLD      -- which fold number counts as "best" for that
-                           category's published model (this will change as
-                           new folds get selected; update only this dict)
-  SOCCAT_LABEL_REMAP    -- these files use the pre-LABEL_MAP legacy label
-                           strings (e.g. "minors", "entrepreneur",
-                           "prostitutes") rather than the taxonomy's
-                           canonical names; mapped here to match the
-                           dictionary-baseline label names 1:1.
-If a broad category has no best-fold choice yet, its SOCCAT columns are
-left blank ("--") rather than guessed.
+SOCCAT columns: read directly from the already-computed per-fold, per-label
+metrics in data/model_performance/step_2/<folder>/fold_*_per_label.csv (one
+file per fold; columns include hypothesis_label, precision_binary,
+recall_binary, f1_binary, f1_macro, n_pos_entail) -- NOT recomputed here.
+The "best" fold (whose model is the one published) is picked automatically,
+same rule as figures/step_2_boxplot.py and tables/step_2_best_fold_table.py:
+the fold with the highest n_pos_entail-weighted macro F1 across that broad
+category's labels -- robust to the small positive-case counts that make
+per-label f1_binary noisy fold-to-fold. See FOLDER_NAME_MAP (which folder
+per broad category) and SOCCAT_LABEL_REMAP (only needed if a future data
+refresh reintroduces non-canonical label spellings; currently all entries
+are no-ops since the new files already use canonical taxonomy label names).
 
 Long label names are split onto two lines within their cell using
 \\shortstack (plain LaTeX, no extra package needed), balanced at the space
@@ -45,72 +41,52 @@ Compile with the `booktabs` package (\\toprule/\\midrule/\\bottomrule/\\cmidrule
 
 import json
 import math
+import re
 from pathlib import Path
 
+import numpy as np
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parent
 OUTPUT_DIR = ROOT / "output"
 CATEGORIES_FILE = ROOT.parent / "src" / "step_2" / "categories.json"
-PER_FOLD_DIR = ROOT.parent / "data" / "model_performance" / "step_2" / "model_performance"
+STEP_2_DATA_DIR = ROOT.parent / "data" / "model_performance" / "step_2"
 
 MODES = ["low", "medium", "high"]
 LABEL_LINE_WRAP_THRESHOLD = 24  # chars; labels longer than this get split onto 2 lines
 DECIMALS = 2
 
-SOCCAT_PER_FOLD_FILE = {
-    "socio_economic_position":   "socio_economic_per_fold.csv",
-    "labor_market_position":     "labor_market_w_entrepreneurs_per_fold.csv",
-    "age_and_family_status":     "age_family_per_fold.csv",
-    "identities":                "identity_per_fold.csv",
-    "profession":                "profession_per_fold.csv",
-    "social_roles_and_behavior": "social_roles_per_fold.csv",
-    "social_deviance":           "social_deviance_per_fold.csv",
-    "real_estate_ownership":     "real_estate_per_fold.csv",
+# broad category (categories.json "name") -> its own folder directly under
+# STEP_2_DATA_DIR, containing fold_*_per_label.csv (one file per fold).
+# Matches figures/step_2_boxplot.py's FOLDER_NAME_MAP.
+FOLDER_NAME_MAP = {
+    "socio_economic_position":   "socio_economic_position",
+    "labor_market_position":     "labor_market_position",
+    "age_and_family_status":     "age_family_status",
+    "identities":                "identities_minority_majority_status",
+    "profession":                "profession",
+    "social_roles_and_behavior": "social_roles_behavior",
+    "social_deviance":           "social_deviance",
+    "real_estate_ownership":     "real_estate_ownership",
 }
 
-# EDIT HERE when the "best" fold selection changes -- nothing else needs to.
-# Fold numbers read off the filenames in
-# data/annotated_validation_corpus/step_2/best_fold/*_best_foldN_human_vs_model.csv.
-# None = no best-fold choice established yet for that broad category.
-SOCCAT_BEST_FOLD = {
-    "socio_economic_position":   1,
-    "labor_market_position":     4,
-    "age_and_family_status":     0,
-    "identities":                4,
-    "profession":                2,
-    "social_roles_and_behavior": 1,
-    "social_deviance":           3,
-    "real_estate_ownership":     3,
-}
+# fold-selection metric -- n_pos_entail-weighted macro F1, matching
+# figures/step_2_boxplot.py and tables/step_2_best_fold_table.py (chosen
+# there for robustness to the small positive-case counts that make
+# per-label f1_binary noisy fold-to-fold).
+BEST_FOLD_METRIC = "f1_macro"
 
-# legacy hypothesis_label (as used in the *_per_fold.csv files) -> canonical
-# taxonomy label. Only entries that actually differ need listing; anything
-# else is assumed to already match.
+# legacy hypothesis_label (as used in the old *_per_fold.csv files) ->
+# canonical taxonomy label. All currently empty: the new fold_*_per_label.csv
+# files already use canonical label spellings throughout (verified against
+# src/step_2/categories.json), so no remapping is needed today -- kept as a
+# hook in case a future data refresh reintroduces spelling drift.
 SOCCAT_LABEL_REMAP = {
-    "age_and_family_status": {
-        "minors": "minors, including children and pupils",
-        "youth": "youth, including students and apprentices",
-    },
-    "identities": {
-        "christians": "Christians",
-        "jews": "Jews",
-        "muslims": "Muslims",
-        "lgbtqqia+": "LGBTQIA+",
-        "multiple (or other specific) religious or minority groups":
-            "multiple (or other) religious or minority groups",
-    },
-    "labor_market_position": {
-        "entrepreneur": "entrepreneurs",
-        "housewife and househusband": "housewives and househusbands",
-    },
-    "profession": {
-        "other profession": "other professions",
-        "prostitutes": "sex workers",
-    },
-    "real_estate_ownership": {
-        "real-estate owner": "real-estate owners",
-    },
+    "age_and_family_status": {},
+    "identities": {},
+    "labor_market_position": {},
+    "profession": {},
+    "real_estate_ownership": {},
     "social_deviance": {},
     "social_roles_and_behavior": {},
     "socio_economic_position": {},
@@ -149,13 +125,39 @@ def fmt(value) -> str:
     return f"{value:.{DECIMALS}f}"
 
 
+def load_broad_class_df(broad_category: str) -> pd.DataFrame:
+    """All 5 folds' per-label rows for one broad category (fold_*_per_label.csv),
+    concatenated with a "fold" column added (mirrors figures/step_2_boxplot.py's
+    load_broad_class_df)."""
+    folder = FOLDER_NAME_MAP[broad_category]
+    fold_files = sorted(
+        (STEP_2_DATA_DIR / folder).glob("fold_*_per_label.csv"),
+        key=lambda p: int(re.search(r"fold_(\d+)_per_label", p.name).group(1)),
+    )
+    assert fold_files, f"No fold_*_per_label.csv found for '{broad_category}' in {STEP_2_DATA_DIR / folder}"
+    dfs = []
+    for f in fold_files:
+        fold_num = int(re.search(r"fold_(\d+)_per_label", f.name).group(1))
+        d = pd.read_csv(f)
+        d["fold"] = fold_num
+        dfs.append(d)
+    return pd.concat(dfs, ignore_index=True)
+
+
+def best_fold_for(df: pd.DataFrame) -> int:
+    """Fold with the highest n_pos_entail-weighted BEST_FOLD_METRIC across categories."""
+    fold_scores = df.groupby("fold").apply(
+        lambda g: np.average(g[BEST_FOLD_METRIC], weights=g["n_pos_entail"]),
+        include_groups=False,
+    )
+    return int(fold_scores.idxmax())
+
+
 def load_soccat_metrics(broad_category: str) -> dict:
-    """Returns {canonical_label: {precision, recall, f1}}, or {} if no best fold chosen."""
-    fold = SOCCAT_BEST_FOLD[broad_category]
-    if fold is None:
-        return {}
-    path = PER_FOLD_DIR / SOCCAT_PER_FOLD_FILE[broad_category]
-    df = pd.read_csv(path)
+    """Returns {canonical_label: {precision, recall, f1}} for the automatically
+    selected best fold (highest n_pos_entail-weighted macro F1)."""
+    df = load_broad_class_df(broad_category)
+    fold = best_fold_for(df)
     df = df[df["fold"] == fold]
     remap = SOCCAT_LABEL_REMAP[broad_category]
     out = {}
@@ -232,10 +234,6 @@ def main():
     # at a category boundary, out of 57 labels across 8 broad categories.
     split_idx = 4
     parts = [categories[:split_idx], categories[split_idx:]]
-
-    missing_soccat = [cat["name"] for cat in categories if SOCCAT_BEST_FOLD[cat["name"]] is None]
-    if missing_soccat:
-        print(f"Note: no best-fold choice for {missing_soccat} -- SOCCAT columns left blank ('--')")
 
     for i, subset in enumerate(parts, start=1):
         table_tex = build_table(subset, dict_metrics, i, len(parts))
