@@ -1,0 +1,9 @@
+category,support,tp,fp,fn,tn,precision,recall,f1
+age_and_family_status,175,123,198,52,1555,0.383,0.703,0.496
+identities,209,127,265,82,1454,0.324,0.608,0.423
+labor_market_position,243,133,252,110,1433,0.345,0.547,0.424
+profession,655,366,306,289,967,0.545,0.559,0.552
+real_estate_ownership,37,18,63,19,1828,0.222,0.486,0.305
+social_deviance,107,38,79,69,1742,0.325,0.355,0.339
+social_roles_and_behavior,98,54,185,44,1645,0.226,0.551,0.32
+socio_economic_position,91,25,138,66,1699,0.153,0.275,0.197

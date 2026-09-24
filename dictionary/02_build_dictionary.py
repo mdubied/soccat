@@ -31,11 +31,25 @@ train.csv only, never from evaluation output):
     medium = median positive-corpus token count across the 57 labels
              (mirrors the paper's own calibration to "typical group volume")
     high   = full train-corpus token count (the degenerate/maximal case)
-Run all three at once with 04_run_alpha0_sweep.py.
 
-Output: dictionary/dictionaries/<mode>/<category>__<label>.txt, one word per
-line, plus summary.csv (word counts/top words) and alpha0.json (the resolved
-alpha0 value and how it was computed) in that same <mode> folder.
+z-threshold robustness sweep: a word only becomes a dictionary candidate if
+its z-score (eq. 22) exceeds --z-threshold. The default, 0.0, keeps any
+positively-associated word regardless of confidence; 1.96 matches the
+paper's own "familiar cutoff" for two-tailed significance at p<0.05 (Sec.
+3.4). We checked empirically that this choice is NOT negligible: it changes
+test-set F1 for 18/57 labels, including two (sex workers, car drivers) where
+it removes the only word(s) that were catching any true positives at all,
+collapsing F1 to 0. Both values are therefore run and reported side by side
+rather than picking one silently -- see 05_make_latex_table.py.
+
+Run the full (alpha0-mode x z-threshold) sweep at once with
+04_run_alpha0_sweep.py.
+
+Output: dictionary/dictionaries/<mode>_<zsuffix>/<category>__<label>.txt, one
+word per line, plus summary.csv (word counts/top words) and alpha0.json (the
+resolved alpha0 value, how it was computed, and the z-threshold used) in that
+same <mode>_<zsuffix> folder (e.g. medium_z196 for alpha0-mode=medium,
+z-threshold=1.96).
 """
 
 import argparse
@@ -57,6 +71,12 @@ CATEGORIES_FILE = ROOT.parent / "src" / "step_2" / "categories.json"
 
 TOP_K = 20          # max words kept per label
 MIN_POS_FREQ = 3    # a word must appear at least this many times in the positive corpus
+
+
+def z_suffix(z: float) -> str:
+    """0.0 -> 'z0', 1.96 -> 'z196' -- used for output folder names so
+    different z-thresholds don't overwrite each other (see 03/04/05)."""
+    return f"z{z:g}".replace(".", "")
 
 
 def log_odds_dirichlet(pos_counts: Counter, bg_counts: Counter, prior_counts: Counter,
@@ -125,6 +145,10 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--alpha0-mode", choices=["low", "medium", "high"], default="medium",
                          help="which pre-registered alpha0 (eq. 23) to use -- see module docstring")
+    parser.add_argument("--z-threshold", type=float, default=0.0,
+                         help="minimum z-score (eq. 22) for a word to be a dictionary candidate "
+                              "-- 0.0 keeps any positively-associated word, 1.96 matches the "
+                              "paper's own significance-based stopping rule (see module docstring)")
     args = parser.parse_args()
 
     train = pd.read_csv(DATA_DIR / "train.csv", keep_default_na=False)
@@ -163,22 +187,23 @@ def main():
     print(f"alpha0-mode = {args.alpha0_mode}  ->  alpha0 (eq. 23 prior sample size) = "
           f"{alpha0:.0f}  ({alpha0_description})\n")
 
-    out_dir = DICTIONARIES_DIR / args.alpha0_mode
+    out_dir = DICTIONARIES_DIR / f"{args.alpha0_mode}_{z_suffix(args.z_threshold)}"
     out_dir.mkdir(parents=True, exist_ok=True)
     with open(out_dir / "alpha0.json", "w", encoding="utf-8") as f:
         json.dump({
             "mode": args.alpha0_mode,
             "alpha0": alpha0,
             "description": alpha0_description,
+            "z_threshold": args.z_threshold,
         }, f, indent=2)
     summary_rows = []
 
     for d in label_data:
         scores = log_odds_dirichlet(d["pos_counts"], d["bg_counts"], prior_counts, alpha0)
-        # keep words that are (a) positively associated, (b) frequent enough
-        # in the positive corpus to not be a single-sentence fluke
+        # keep words that are (a) positively associated beyond --z-threshold,
+        # (b) frequent enough in the positive corpus to not be a single-sentence fluke
         candidates = [w for w, z in scores.items()
-                      if z > 0 and d["pos_counts"].get(w, 0) >= MIN_POS_FREQ]
+                      if z > args.z_threshold and d["pos_counts"].get(w, 0) >= MIN_POS_FREQ]
         ranked = sorted(candidates, key=lambda w: -scores[w])[:TOP_K]
 
         fname = f"{d['category']}__{d['label']}".replace("/", "-")

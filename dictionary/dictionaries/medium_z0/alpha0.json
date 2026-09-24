@@ -1,0 +1,6 @@
+{
+  "mode": "medium",
+  "alpha0": 664,
+  "description": "median positive-corpus token count across the 57 labels (train.csv only)",
+  "z_threshold": 0.0
+}

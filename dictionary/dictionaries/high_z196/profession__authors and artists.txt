@@ -1,0 +1,8 @@
+artistes
+künstler
+musiciens
+sänger
+autoren
+schauspieler
+écrivains
+danseurs

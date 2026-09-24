@@ -1,0 +1,58 @@
+category,label,support,tp,fp,fn,tn,precision,recall,f1
+socio_economic_position,lower class,12,1,2,11,1914,0.333,0.083,0.133
+socio_economic_position,middle class,6,0,0,6,1922,0.0,0.0,0.0
+socio_economic_position,upper class,8,0,0,8,1920,0.0,0.0,0.0
+socio_economic_position,"capital owners, investors and shareholders",48,33,4,15,1876,0.892,0.688,0.776
+socio_economic_position,unskilled or unqualified,8,0,0,8,1920,0.0,0.0,0.0
+socio_economic_position,skilled or qualified,10,2,0,8,1918,1.0,0.2,0.333
+labor_market_position,wage and salary earners,91,55,21,36,1816,0.724,0.604,0.659
+labor_market_position,civil servants,15,6,6,9,1907,0.5,0.4,0.444
+labor_market_position,CEOs and corporate leaders,49,13,7,36,1872,0.65,0.265,0.377
+labor_market_position,employers,12,6,3,6,1913,0.667,0.5,0.571
+labor_market_position,entrepreneurs,86,14,13,72,1829,0.519,0.163,0.248
+labor_market_position,self-employed and freelancers,7,0,0,7,1921,0.0,0.0,0.0
+labor_market_position,unemployed,10,6,5,4,1913,0.545,0.6,0.571
+labor_market_position,retirees,7,0,0,7,1921,0.0,0.0,0.0
+labor_market_position,housewives and househusbands,4,3,1,1,1923,0.75,0.75,0.75
+age_and_family_status,parents and families,42,24,12,18,1874,0.667,0.571,0.615
+age_and_family_status,"minors, including children and pupils",69,48,56,21,1803,0.462,0.696,0.555
+age_and_family_status,"youth, including students and apprentices",66,48,27,18,1835,0.64,0.727,0.681
+age_and_family_status,middle-aged and pre-retirement age groups,2,0,0,2,1926,0.0,0.0,0.0
+age_and_family_status,elderly,10,1,0,9,1918,1.0,0.1,0.182
+age_and_family_status,couples,6,2,0,4,1922,1.0,0.333,0.5
+age_and_family_status,singles,6,2,0,4,1922,1.0,0.333,0.5
+identities,men,30,19,40,11,1858,0.322,0.633,0.427
+identities,women,86,63,30,23,1812,0.677,0.733,0.704
+identities,cisgender and heterosexuals,6,2,0,4,1922,1.0,0.333,0.5
+identities,LGBTQIA+,19,9,49,10,1860,0.155,0.474,0.234
+identities,disabled people,8,3,0,5,1920,1.0,0.375,0.545
+identities,"people with an immigration background, including immigrants",47,26,5,21,1876,0.839,0.553,0.667
+identities,Ethnic and racial minorities,14,0,0,14,1914,0.0,0.0,0.0
+identities,Christians,10,2,0,8,1918,1.0,0.2,0.333
+identities,Jews,10,6,1,4,1917,0.857,0.6,0.706
+identities,Muslims,13,3,6,10,1909,0.333,0.231,0.273
+identities,multiple (or other) religious or minority groups,4,0,2,4,1922,0.0,0.0,0.0
+profession,athletes,66,26,13,40,1849,0.667,0.394,0.495
+profession,authors and artists,38,13,0,25,1890,1.0,0.342,0.51
+profession,doctors,21,9,0,12,1907,1.0,0.429,0.6
+profession,farmers and fishermen,16,9,2,7,1910,0.818,0.562,0.667
+profession,health and care professionals,6,1,0,5,1922,1.0,0.167,0.286
+profession,journalists,8,4,1,4,1919,0.8,0.5,0.615
+profession,legal professionals,12,3,5,9,1911,0.375,0.25,0.3
+profession,politicians and high-ranking officials,318,192,28,126,1582,0.873,0.604,0.714
+profession,sex workers,4,2,0,2,1924,1.0,0.5,0.667
+profession,scientists and professors,18,6,1,12,1909,0.857,0.333,0.48
+profession,security forces,61,39,32,22,1835,0.549,0.639,0.591
+profession,soldiers,30,22,14,8,1884,0.611,0.733,0.667
+profession,teachers and educators,11,6,0,5,1917,1.0,0.545,0.706
+profession,other professions,82,17,3,65,1843,0.85,0.207,0.333
+social_roles_and_behavior,consumers and clients,70,49,32,21,1826,0.605,0.7,0.649
+social_roles_and_behavior,car drivers,4,1,0,3,1924,1.0,0.25,0.4
+social_roles_and_behavior,patients,24,18,1,6,1903,0.947,0.75,0.837
+social_deviance,extremists,22,3,0,19,1906,1.0,0.136,0.24
+social_deviance,"terrorists, rebels, revolutionaries and/or movements of armed resistance",38,19,6,19,1884,0.76,0.5,0.603
+social_deviance,"offenders, criminals, prisoners and/or accused people",46,6,6,40,1876,0.5,0.13,0.207
+social_deviance,drug addicts,3,0,0,3,1925,0.0,0.0,0.0
+real_estate_ownership,real-estate owners,29,19,3,10,1896,0.864,0.655,0.745
+real_estate_ownership,tenants,8,5,0,3,1920,1.0,0.625,0.769
+real_estate_ownership,homeless,4,1,0,3,1924,1.0,0.25,0.4

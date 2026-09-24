@@ -19,9 +19,9 @@ matching has no training-time coupling to a subset of sentences. This gives
 a full-corpus picture, including how often the dictionary fires on
 sentences that don't belong to that label/category at all.
 
-Reads dictionaries from dictionary/dictionaries/<alpha0-mode>/ (see
---alpha0-mode and 02_build_dictionary.py's module docstring for what the
-three modes mean) and writes to dictionary/output/<alpha0-mode>/:
+Reads dictionaries from dictionary/dictionaries/<alpha0-mode>_<zsuffix>/ (see
+--alpha0-mode, --z-threshold, and 02_build_dictionary.py's module docstring
+for what these mean) and writes to dictionary/output/<alpha0-mode>_<zsuffix>/:
   per_specific_category_metrics.csv  precision/recall/F1/support per label
   per_broad_class_metrics.csv        same, rolled up to broad category (match =
                                       any label dictionary in that category fires)
@@ -37,6 +37,8 @@ from pathlib import Path
 import pandas as pd
 
 from tokenizer import tokenize
+from importlib import import_module
+z_suffix = import_module("02_build_dictionary").z_suffix
 
 ROOT = Path(__file__).resolve().parent
 DATA_DIR = ROOT / "data"
@@ -68,10 +70,14 @@ def main():
     parser.add_argument("--alpha0-mode", choices=["low", "medium", "high"], default="medium",
                          help="which alpha0-mode's dictionaries to evaluate (must have been "
                               "built already by 02_build_dictionary.py --alpha0-mode <mode>)")
+    parser.add_argument("--z-threshold", type=float, default=0.0,
+                         help="which z-threshold's dictionaries to evaluate (must match the "
+                              "value 02_build_dictionary.py was run with)")
     args = parser.parse_args()
 
-    dict_dir = DICTIONARIES_DIR / args.alpha0_mode
-    out_dir = OUTPUT_DIR / args.alpha0_mode
+    variant = f"{args.alpha0_mode}_{z_suffix(args.z_threshold)}"
+    dict_dir = DICTIONARIES_DIR / variant
+    out_dir = OUTPUT_DIR / variant
     out_dir.mkdir(parents=True, exist_ok=True)
 
     with open(dict_dir / "alpha0.json", encoding="utf-8") as f:
@@ -151,6 +157,7 @@ def main():
     lines = [
         f"alpha0-mode: {args.alpha0_mode}  (alpha0 = {alpha0_info['alpha0']:.0f}, "
         f"{alpha0_info['description']})",
+        f"z-threshold: {alpha0_info.get('z_threshold', 0.0)}",
         f"Test set size: {len(test):,}",
         "",
         f"Per-specific-category (57)  macro F1 = {macro_f1_label:.3f}",
