@@ -2,9 +2,9 @@ patienten
 studie
 patients
 masin
+maladies
 médicaments
 stiftung
-maladies
 behandlung
 diabetes
 deutschland
@@ -14,7 +14,7 @@ image
 hilfe
 vie
 frau
-part
 kinder
+part
 également
 frauen

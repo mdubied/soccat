@@ -3,7 +3,7 @@ z-threshold: 0.0
 Test set size: 1,928
 
 Per-specific-category (57)  macro F1 = 0.283
-Per-specific-category (57)  micro P/R/F1 = 0.240 / 0.471 / 0.318
+Per-specific-category (57)  micro P/R/F1 = 0.239 / 0.471 / 0.317
 Per-broad-class (8)         macro F1 = 0.394
 
 Any-group detection (mirrors step 1's binary task, full test set):

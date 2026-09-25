@@ -7,11 +7,11 @@ start
 produits
 secteur
 händler
-yens
 hersteller
+yens
 fêtes
-verkauft
 markt
+verkauft
 opérateurs
 producteurs
 artisans

@@ -7,7 +7,7 @@ socio_economic_position,unskilled or unqualified,18,0,
 socio_economic_position,skilled or qualified,36,2,"absolventen, akademiker"
 labor_market_position,wage and salary earners,368,20,"salariés, syndicats, mitarbeiter, cgt, arbeitnehmer, syndicat, gewerkschaft, mitarbeitern, personal, employés"
 labor_market_position,civil servants,37,2,"fonctionnaires, beamten"
-labor_market_position,CEOs and corporate leaders,208,8,"banques, banken, dirigeants, bancaires, multinationales, fmi, emittenten, firmes"
+labor_market_position,CEOs and corporate leaders,208,8,"banques, banken, dirigeants, bancaires, fmi, multinationales, emittenten, firmes"
 labor_market_position,employers,58,5,"arbeitgeber, patronat, employeurs, patrons, arbeitgebern"
 labor_market_position,entrepreneurs,376,11,"banken, commerçants, constructeurs, industrie, artisans, händler, bank, branche, händlern, sewing"
 labor_market_position,self-employed and freelancers,13,0,
@@ -22,11 +22,11 @@ age_and_family_status,elderly,29,1,âgées
 age_and_family_status,couples,30,2,"couples, lebensgemeinschaften"
 age_and_family_status,singles,21,2,"célibataires, singles"
 identities,men,118,6,"männer, männern, hommes, frauen, garçons, jungs"
-identities,women,281,17,"frauen, femmes, mädchen, trans, frau, filles, foyer, sexarbeiterinnen, mütter, männer"
+identities,women,281,17,"frauen, femmes, mädchen, trans, frau, filles, foyer, mütter, sexarbeiterinnen, männer"
 identities,cisgender and heterosexuals,14,1,cis
 identities,LGBTQIA+,60,3,"trans, personen, frauen"
 identities,disabled people,27,2,"handicapés, behinderte"
-identities,"people with an immigration background, including immigrants",223,13,"flüchtlinge, réfugiés, migranten, ausländer, flüchtlingen, migrants, invité, asylbewerber, immigrés, flüchtlingspolitik"
+identities,"people with an immigration background, including immigrants",223,13,"flüchtlinge, réfugiés, migranten, ausländer, flüchtlingen, invité, migrants, asylbewerber, flüchtlingspolitik, immigrés"
 identities,Ethnic and racial minorities,27,0,
 identities,Christians,33,2,"chrétiens, evangelikale"
 identities,Jews,31,2,"juifs, juive"
@@ -35,7 +35,7 @@ identities,multiple (or other) religious or minority groups,17,1,penang
 profession,athletes,351,20,"joueurs, spieler, trainer, mannschaft, spielern, invité, athleten, spiele, spiel, coureurs"
 profession,authors and artists,157,8,"artistes, künstler, musiciens, sänger, autoren, schauspieler, écrivains, danseurs"
 profession,doctors,48,3,"ärzte, médecins, zahnärzte"
-profession,farmers and fishermen,62,6,"bauern, invité, landwirte, obstbauern, landwirten, agriculteurs"
+profession,farmers and fishermen,62,6,"bauern, invité, landwirte, landwirten, obstbauern, agriculteurs"
 profession,health and care professionals,30,1,pflegekräfte
 profession,journalists,41,2,"journalistes, journalisten"
 profession,legal professionals,42,3,"juges, anwälte, richter"
@@ -45,13 +45,13 @@ profession,scientists and professors,82,5,"chercheurs, forscher, wissenschaftler
 profession,security forces,211,15,"policiers, ermittler, gendarmes, polizisten, invité, police, beamten, gendarmerie, ermittlern, beamte"
 profession,soldiers,135,9,"soldaten, militaires, soldats, troupes, russes, armées, retrait, streitkräfte, armee"
 profession,teachers and educators,52,3,"lehrer, éducateurs, enseignants"
-profession,other professions,265,10,"experten, analystes, piloten, pompiers, experts, fachleute, architekten, analysten, kritiker, spécialistes"
+profession,other professions,265,10,"experten, analystes, piloten, pompiers, experts, analysten, architekten, fachleute, kritiker, spécialistes"
 social_roles_and_behavior,consumers and clients,290,20,"kunden, clients, visiteurs, consommateurs, touristen, gäste, verbraucher, voyageurs, spectateurs, nutzer"
 social_roles_and_behavior,car drivers,20,1,automobilistes
-social_roles_and_behavior,patients,78,4,"patienten, patients, patient, malades"
+social_roles_and_behavior,patients,78,4,"patienten, patients, malades, patient"
 social_deviance,extremists,60,1,extrémistes
-social_deviance,"terrorists, rebels, revolutionaries and/or movements of armed resistance",162,13,"hamas, is, al, terroristen, rebelles, qaida, saboteure, milizen, nsu, taliban"
-social_deviance,"offenders, criminals, prisoners and/or accused people",161,8,"invité, casseurs, détenus, kriminelle, délinquants, täter, bandes, anklage"
+social_deviance,"terrorists, rebels, revolutionaries and/or movements of armed resistance",162,13,"hamas, is, al, terroristen, rebelles, qaida, saboteure, milizen, nsu, gazastreifen"
+social_deviance,"offenders, criminals, prisoners and/or accused people",161,8,"invité, casseurs, détenus, kriminelle, délinquants, täter, anklage, bandes"
 social_deviance,drug addicts,20,1,toxicomanes
 real_estate_ownership,real-estate owners,69,5,"propriétaires, bailleurs, vermieter, privés, fonciers"
 real_estate_ownership,tenants,33,2,"locataires, mieter"

@@ -5,9 +5,9 @@ patient
 diabetes
 behandlung
 studie
+maladies
 médicaments
 stiftung
-maladies
 masin
 gebracht
 interesse

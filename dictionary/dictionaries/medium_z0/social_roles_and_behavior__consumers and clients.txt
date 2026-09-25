@@ -12,8 +12,8 @@ résultats
 daten
 nutzer
 usagers
-mail
 käufer
+mail
 publikum
 verbraucher
 parc

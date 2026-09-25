@@ -2,9 +2,9 @@ patienten
 studie
 patients
 masin
-stiftung
 maladies
 médicaments
+stiftung
 behandlung
 diabetes
 deutschland

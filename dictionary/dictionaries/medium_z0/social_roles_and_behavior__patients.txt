@@ -4,8 +4,8 @@ patients
 masin
 behandlung
 maladies
-stiftung
 médicaments
+stiftung
 diabetes
 deutschland
 gebracht

@@ -3,9 +3,9 @@ studie
 patients
 masin
 behandlung
+maladies
 médicaments
 stiftung
-maladies
 diabetes
 deutschland
 gebracht

@@ -6,8 +6,8 @@ fonciers
 grundbesitzer
 grundeigentümer
 travaux
-occupants
 hausbesitzer
+occupants
 grundstücken
 logement
 locataires
@@ -16,5 +16,5 @@ eigentümer
 wald
 assure
 prêts
-logements
 eau
+logements

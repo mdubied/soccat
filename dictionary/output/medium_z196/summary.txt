@@ -3,8 +3,8 @@ z-threshold: 1.96
 Test set size: 1,928
 
 Per-specific-category (57)  macro F1 = 0.258
-Per-specific-category (57)  micro P/R/F1 = 0.257 / 0.465 / 0.331
-Per-broad-class (8)         macro F1 = 0.397
+Per-specific-category (57)  micro P/R/F1 = 0.256 / 0.465 / 0.330
+Per-broad-class (8)         macro F1 = 0.396
 
 Any-group detection (mirrors step 1's binary task, full test set):
-  precision=0.760  recall=0.737  f1=0.748  (support=1334/1928 sentences have >=1 label)
+  precision=0.760  recall=0.738  f1=0.749  (support=1334/1928 sentences have >=1 label)

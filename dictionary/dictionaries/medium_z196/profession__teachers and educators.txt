@@ -1,7 +1,7 @@
 lehrer
 enseignants
-maternelles
 bildung
+maternelles
 assistantes
 bezahlung
 pflege

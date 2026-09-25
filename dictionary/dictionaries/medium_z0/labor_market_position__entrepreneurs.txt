@@ -10,8 +10,8 @@ secteur
 hersteller
 yens
 fêtes
-verkauft
 markt
+verkauft
 artisans
 opérateurs
 producteurs

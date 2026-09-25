@@ -4,8 +4,8 @@ kriminelle
 violence
 anklage
 bandes
-prévenus
 info
+prévenus
 prison
 angeklagten
 voleurs
@@ -13,8 +13,8 @@ hacker
 innenminister
 kampf
 commis
+banden
 déplacement
 nice
 prisonniers
-banden
 victime

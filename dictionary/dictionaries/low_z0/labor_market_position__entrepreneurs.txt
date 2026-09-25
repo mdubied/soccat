@@ -4,14 +4,14 @@ bank
 branche
 marché
 start
-secteur
 produits
+secteur
 händler
-yens
 hersteller
+yens
 fêtes
-verkauft
 markt
+verkauft
 opérateurs
 producteurs
 artisans

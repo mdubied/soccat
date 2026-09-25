@@ -2,7 +2,7 @@ banques
 banken
 dirigeants
 bancaires
-multinationales
 fmi
+multinationales
 emittenten
 firmes

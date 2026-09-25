@@ -1,8 +1,8 @@
 category,support,tp,fp,fn,tn,precision,recall,f1
-age_and_family_status,175,123,201,52,1552,0.38,0.703,0.493
-identities,209,127,236,82,1483,0.35,0.608,0.444
-labor_market_position,243,130,236,113,1449,0.355,0.535,0.427
-profession,655,371,302,284,971,0.551,0.566,0.559
+age_and_family_status,175,123,198,52,1555,0.383,0.703,0.496
+identities,209,127,240,82,1479,0.346,0.608,0.441
+labor_market_position,243,130,237,113,1448,0.354,0.535,0.426
+profession,655,371,303,284,970,0.55,0.566,0.558
 real_estate_ownership,37,19,63,18,1828,0.232,0.514,0.319
 social_deviance,107,38,79,69,1742,0.325,0.355,0.339
 social_roles_and_behavior,98,55,138,43,1692,0.285,0.561,0.378

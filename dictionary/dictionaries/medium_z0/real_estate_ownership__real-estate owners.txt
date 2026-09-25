@@ -5,8 +5,8 @@ bailleurs
 logement
 locataires
 mieter
-occupants
 hausbesitzer
+occupants
 eigentümer
 wald
 assure

@@ -3,8 +3,8 @@ yens
 aktie
 private
 fusion
-kaufen
 equity
+kaufen
 bank
 euro
 zertifikate
@@ -17,4 +17,4 @@ hausse
 uniper
 actions
 titres
-transaktionen
+hp

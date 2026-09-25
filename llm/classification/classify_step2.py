@@ -45,6 +45,13 @@ Usage:
 
     # Low-effort (less thinking) run -- output folder becomes claude-sonnet-5-low__short:
     python classify_step2.py --prompt short --model claude-sonnet-5 --effort low --limit 200
+
+    # Explicit sentence ids (one per line, ignores --limit/--all/--seed), written
+    # outside output/step_2 so the run stays out of llm/analysis/report_step2.py
+    # (used by unseen_generalization/01_seen_unseen_recall.py, which writes the ids file):
+    python classify_step2.py --prompt long --model claude-sonnet-5 --effort high \\
+        --ids-file ../../unseen_generalization/output/llm/ids_to_classify.txt \\
+        --output-root ../../unseen_generalization/output/llm
 """
 
 import argparse
@@ -126,6 +133,16 @@ def select_rows(all_rows: list, limit: int, seed: int) -> list:
     return [all_rows[i] for i in order]
 
 
+def select_rows_by_id(all_rows: list, ids_file: Path) -> list:
+    """Rows whose id is listed in ids_file (one id per line), in file order."""
+    ids = [line.strip() for line in ids_file.read_text(encoding="utf-8").splitlines() if line.strip()]
+    by_id = {r["id"]: r for r in all_rows}
+    unknown = [i for i in ids if i not in by_id]
+    if unknown:
+        raise SystemExit(f"error: {len(unknown)} ids in {ids_file} not in the data, e.g. {unknown[:5]}")
+    return [by_id[i] for i in dict.fromkeys(ids)]
+
+
 def load_existing_predictions(output_path: Path) -> dict:
     if not output_path.exists():
         return {}
@@ -182,6 +199,7 @@ def write_run_meta(path: Path, args, prompt_path: Path, n_available: int) -> Non
         "prompt_path": str(prompt_path.relative_to(REPO_ROOT)),
         "data_path": str(args.data_path.relative_to(REPO_ROOT)),
         "seed": args.seed,
+        "ids_file": str(args.ids_file.resolve()) if args.ids_file else None,
         "batch_size": args.batch_size,
         "n_available": n_available,
     }
@@ -199,6 +217,10 @@ def main():
                          help="Number of sentences to sample (default: ~1/5 of the corpus, i.e. one CV-fold-sized sample)")
     parser.add_argument("--all", action="store_true", help="Classify the full corpus, ignoring --limit")
     parser.add_argument("--seed", type=int, default=42, help="Sampling seed (default: 42)")
+    parser.add_argument("--ids-file", type=Path, default=None,
+                         help="Classify exactly these sentence ids (one per line); overrides --limit/--all/--seed")
+    parser.add_argument("--output-root", type=Path, default=OUTPUT_ROOT,
+                         help=f"Parent folder of the run folder (default: {OUTPUT_ROOT.relative_to(REPO_ROOT)})")
     parser.add_argument("--batch-size", type=int, default=20, help="Sentences per claude invocation")
     parser.add_argument("--timeout", type=int, default=180, help="Per-call subprocess timeout in seconds")
     parser.add_argument("--sleep", type=float, default=0.0, help="Seconds to sleep between calls")
@@ -218,9 +240,16 @@ def main():
     else:
         limit = len(all_rows) // 5  # fold-sized default: mirrors the ~1/5 held out per CV fold
 
-    sampled_rows = select_rows(all_rows, limit, args.seed)
+    if args.ids_file:
+        if args.output_root.resolve() == OUTPUT_ROOT.resolve():
+            raise SystemExit("error: --ids-file needs a separate --output-root, so the targeted run "
+                             "doesn't mix with (or show up in the reports of) the random-sample runs "
+                             f"in {OUTPUT_ROOT.relative_to(REPO_ROOT)}")
+        sampled_rows = select_rows_by_id(all_rows, args.ids_file)
+    else:
+        sampled_rows = select_rows(all_rows, limit, args.seed)
 
-    run_dir = OUTPUT_ROOT / f"{model_label(args.model, args.effort)}__{args.prompt}"
+    run_dir = args.output_root / f"{model_label(args.model, args.effort)}__{args.prompt}"
     run_dir.mkdir(parents=True, exist_ok=True)
     predictions_path = run_dir / "predictions.csv"
     usage_path = run_dir / "usage_totals.json"
@@ -239,12 +268,18 @@ def main():
     ]
 
     def persist():
+        # Rows already in predictions.csv but outside this run's selection (e.g.
+        # a smaller --limit, or an --ids-file) are kept at the end, never dropped.
+        sampled_ids = {row["id"] for row in sampled_rows}
         with predictions_path.open("w", encoding="utf-8", newline="") as f:
             writer = csv.DictWriter(f, fieldnames=output_fields)
             writer.writeheader()
             for row in sampled_rows:
                 out_row = existing.get(row["id"])
                 if out_row is not None:
+                    writer.writerow(out_row)
+            for row_id, out_row in existing.items():
+                if row_id not in sampled_ids:
                     writer.writerow(out_row)
 
     if not todo:

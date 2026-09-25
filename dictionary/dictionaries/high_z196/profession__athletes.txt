@@ -16,5 +16,5 @@ sportler
 spielen
 sportifs
 liga
-hitzfeld
 arbeitszeit
+déplacement

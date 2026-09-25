@@ -16,7 +16,7 @@ labor_market_position,retirees,7,3,0,4,1921,1.0,0.429,0.6
 labor_market_position,housewives and househusbands,4,3,30,1,1894,0.091,0.75,0.162
 age_and_family_status,parents and families,42,24,54,18,1832,0.308,0.571,0.4
 age_and_family_status,"minors, including children and pupils",69,46,76,23,1783,0.377,0.667,0.482
-age_and_family_status,"youth, including students and apprentices",66,49,85,17,1777,0.366,0.742,0.49
+age_and_family_status,"youth, including students and apprentices",66,49,82,17,1780,0.374,0.742,0.497
 age_and_family_status,middle-aged and pre-retirement age groups,2,0,75,2,1851,0.0,0.0,0.0
 age_and_family_status,elderly,10,1,81,9,1837,0.012,0.1,0.022
 age_and_family_status,couples,6,2,51,4,1871,0.038,0.333,0.068
@@ -35,7 +35,7 @@ identities,multiple (or other) religious or minority groups,4,0,3,4,1921,0.0,0.0
 profession,athletes,66,24,34,42,1828,0.414,0.364,0.387
 profession,authors and artists,38,16,21,22,1869,0.432,0.421,0.427
 profession,doctors,21,9,18,12,1889,0.333,0.429,0.375
-profession,farmers and fishermen,16,7,94,9,1818,0.069,0.438,0.12
+profession,farmers and fishermen,16,7,101,9,1811,0.065,0.438,0.113
 profession,health and care professionals,6,1,36,5,1886,0.027,0.167,0.047
 profession,journalists,8,4,16,4,1904,0.2,0.5,0.286
 profession,legal professionals,12,5,39,7,1877,0.114,0.417,0.179

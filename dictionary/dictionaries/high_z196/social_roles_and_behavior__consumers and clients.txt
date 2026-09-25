@@ -15,6 +15,6 @@ millions
 fastpass
 gutseigene
 besucher
-mail
 käufer
+mail
 bank

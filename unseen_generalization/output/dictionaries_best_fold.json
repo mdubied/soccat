@@ -1,0 +1,461 @@
+{
+  "alpha0_mode": "high",
+  "z_threshold": 1.96,
+  "best_folds": {
+    "age_and_family_status": 2,
+    "identities": 0,
+    "labor_market_position": 0,
+    "profession": 3,
+    "real_estate_ownership": 3,
+    "social_deviance": 3,
+    "social_roles_and_behavior": 1,
+    "socio_economic_position": 1
+  },
+  "dictionaries": {
+    "age_and_family_status": {
+      "couples": [
+        "couples",
+        "lebensgemeinschaften"
+      ],
+      "elderly": [
+        "âgées"
+      ],
+      "middle-aged and pre-retirement age groups": [],
+      "minors, including children and pupils": [
+        "enfants",
+        "kinder",
+        "ans",
+        "mädchen",
+        "filles",
+        "kindern",
+        "élèves",
+        "avril",
+        "schüler",
+        "mineurs",
+        "stage",
+        "petits",
+        "adulte",
+        "enfant"
+      ],
+      "parents and families": [
+        "familles",
+        "eltern",
+        "parents",
+        "familien",
+        "angehörige",
+        "mütter",
+        "famille"
+      ],
+      "singles": [
+        "célibataires",
+        "filiation"
+      ],
+      "youth, including students and apprentices": [
+        "jeunes",
+        "étudiants",
+        "jungen",
+        "junge",
+        "jeunesse",
+        "studenten",
+        "jugendlichen",
+        "jugend",
+        "jugendliche",
+        "équitation",
+        "foot",
+        "jugendgewalt",
+        "jugendlicher"
+      ]
+    },
+    "identities": {
+      "Christians": [
+        "chrétiens"
+      ],
+      "Ethnic and racial minorities": [],
+      "Jews": [
+        "juifs",
+        "juden"
+      ],
+      "LGBTQIA+": [
+        "trans",
+        "personen",
+        "frauen",
+        "braslavsky",
+        "villa",
+        "geschlecht"
+      ],
+      "Muslims": [
+        "islamistes"
+      ],
+      "cisgender and heterosexuals": [
+        "cis",
+        "hétérosexuels"
+      ],
+      "disabled people": [
+        "handicapés",
+        "behinderten"
+      ],
+      "men": [
+        "männer",
+        "männern",
+        "frauen",
+        "hommes",
+        "jungs",
+        "mädchen",
+        "penis",
+        "garçons",
+        "jungen"
+      ],
+      "multiple (or other) religious or minority groups": [],
+      "people with an immigration background, including immigrants": [
+        "flüchtlinge",
+        "flüchtlingen",
+        "réfugiés",
+        "migranten",
+        "asylbewerber",
+        "migrants",
+        "ausländer",
+        "anerkannten",
+        "flüchtlingspolitik",
+        "geflüchteten"
+      ],
+      "women": [
+        "frauen",
+        "femmes",
+        "frau",
+        "mädchen",
+        "trans",
+        "filles",
+        "foyer",
+        "mütter",
+        "männer",
+        "hausfrau",
+        "cis",
+        "couple",
+        "hamam",
+        "iran",
+        "amoureuses",
+        "penis",
+        "sexarbeiterinnen",
+        "schwarzer"
+      ]
+    },
+    "labor_market_position": {
+      "CEOs and corporate leaders": [
+        "dirigeants"
+      ],
+      "civil servants": [
+        "fonctionnaires"
+      ],
+      "employers": [
+        "arbeitgeber",
+        "patronat",
+        "employeurs",
+        "arbeitgebern",
+        "patrons"
+      ],
+      "entrepreneurs": [
+        "entreprises",
+        "unternehmen",
+        "banques",
+        "banken",
+        "firmen",
+        "commerçants",
+        "industrie",
+        "hersteller",
+        "markt",
+        "start",
+        "artisans",
+        "milliarden",
+        "sociétés",
+        "bancaires",
+        "capitaux",
+        "constructeurs",
+        "händler",
+        "branche",
+        "betriebe",
+        "geschäft"
+      ],
+      "housewives and househusbands": [
+        "foyer"
+      ],
+      "retirees": [],
+      "self-employed and freelancers": [
+        "entrepreneurs"
+      ],
+      "unemployed": [
+        "chômeurs",
+        "résultats",
+        "février",
+        "arbeitslose",
+        "arbeitslosen",
+        "mars"
+      ],
+      "wage and salary earners": [
+        "salariés",
+        "mitarbeiter",
+        "syndicat",
+        "cgt",
+        "syndicats",
+        "arbeitnehmer",
+        "gewerkschaft",
+        "beschäftigten",
+        "syndicales",
+        "employés",
+        "personal",
+        "mitarbeitern",
+        "grève",
+        "travailleurs",
+        "nokia",
+        "gewerkschaften",
+        "ouvriers",
+        "ig",
+        "personnel",
+        "cfdt"
+      ]
+    },
+    "profession": {
+      "athletes": [
+        "joueurs",
+        "spieler",
+        "spielern",
+        "mannschaft",
+        "athleten",
+        "spiel",
+        "trainer",
+        "coureurs",
+        "bayern",
+        "bundesliga",
+        "entraîneur",
+        "arbeitszeit",
+        "hitzfeld",
+        "nationalspieler",
+        "spiele",
+        "sportler",
+        "fußball",
+        "sportifs",
+        "équipe"
+      ],
+      "authors and artists": [
+        "artistes",
+        "künstler",
+        "musiciens",
+        "écrivains",
+        "sänger",
+        "autoren",
+        "schauspieler",
+        "danseuses",
+        "künstlern",
+        "schriftsteller"
+      ],
+      "doctors": [
+        "ärzte",
+        "médecins",
+        "zahnärzte",
+        "ärzten"
+      ],
+      "farmers and fishermen": [
+        "bauern",
+        "agriculteurs",
+        "landwirte",
+        "landwirten",
+        "pêcheurs"
+      ],
+      "health and care professionals": [],
+      "journalists": [
+        "journalisten",
+        "journalistes"
+      ],
+      "legal professionals": [
+        "richter",
+        "anwälte"
+      ],
+      "other professions": [
+        "analystes",
+        "experten",
+        "pompiers",
+        "piloten",
+        "experts",
+        "spécialistes",
+        "fachleute"
+      ],
+      "politicians and high-ranking officials": [
+        "spd",
+        "cdu",
+        "csu",
+        "gauche",
+        "parti",
+        "ps",
+        "grünen",
+        "rpr",
+        "politiker",
+        "élus",
+        "fn",
+        "udf",
+        "partei",
+        "afd",
+        "fdp",
+        "grüne",
+        "opposition",
+        "politiques",
+        "candidat",
+        "socialistes"
+      ],
+      "scientists and professors": [
+        "chercheurs",
+        "forscher",
+        "wissenschaftler",
+        "économistes"
+      ],
+      "security forces": [
+        "policiers",
+        "ermittler",
+        "police",
+        "polizisten",
+        "gendarmes",
+        "bka",
+        "beamten",
+        "ermittlern",
+        "sprengstoff",
+        "gendarmerie",
+        "agents",
+        "bundespolizei",
+        "forces",
+        "crs",
+        "polizei",
+        "enquêteurs",
+        "fahrer",
+        "policière",
+        "beamte"
+      ],
+      "sex workers": [
+        "prostituées"
+      ],
+      "soldiers": [
+        "soldaten",
+        "soldats",
+        "militaires",
+        "troupes"
+      ],
+      "teachers and educators": [
+        "lehrer",
+        "éducateurs",
+        "enseignants"
+      ]
+    },
+    "real_estate_ownership": {
+      "homeless": [
+        "sdf",
+        "obdachlose"
+      ],
+      "real-estate owners": [
+        "propriétaires",
+        "bailleurs",
+        "vermieter",
+        "privés",
+        "occupants",
+        "travaux",
+        "locataires",
+        "logement"
+      ],
+      "tenants": [
+        "locataires",
+        "mieter",
+        "mietern"
+      ]
+    },
+    "social_deviance": {
+      "drug addicts": [
+        "toxicomanes"
+      ],
+      "extremists": [
+        "extrémistes"
+      ],
+      "offenders, criminals, prisoners and/or accused people": [
+        "täter",
+        "kriminelle",
+        "détenus",
+        "délinquants",
+        "angeklagten",
+        "bandes"
+      ],
+      "terrorists, rebels, revolutionaries and/or movements of armed resistance": [
+        "terroristen",
+        "saboteure",
+        "hamas",
+        "eta"
+      ]
+    },
+    "social_roles_and_behavior": {
+      "car drivers": [
+        "automobilistes"
+      ],
+      "consumers and clients": [
+        "kunden",
+        "clients",
+        "consommateurs",
+        "touristen",
+        "verbraucher",
+        "spectateurs",
+        "besucher",
+        "visiteurs",
+        "gäste",
+        "clientèle",
+        "voyageurs",
+        "nutzer",
+        "nutzern",
+        "résultats",
+        "usagers",
+        "greenpeace",
+        "gutseigene",
+        "ökostrom",
+        "février",
+        "millions"
+      ],
+      "patients": [
+        "patienten",
+        "malades",
+        "patients"
+      ]
+    },
+    "socio_economic_position": {
+      "capital owners, investors and shareholders": [
+        "actionnaires",
+        "anleger",
+        "investoren",
+        "investisseurs",
+        "aktien",
+        "vivendi",
+        "private",
+        "aktie",
+        "aktionäre",
+        "aktionären",
+        "equity",
+        "transaktionen",
+        "hp",
+        "universal",
+        "fusion",
+        "kaufen",
+        "sponsoren",
+        "cfds",
+        "finanzinvestor",
+        "nachschusspflicht"
+      ],
+      "lower class": [
+        "armen",
+        "modestes"
+      ],
+      "middle class": [
+        "moyennes",
+        "classes"
+      ],
+      "skilled or qualified": [
+        "absolventen"
+      ],
+      "unskilled or unqualified": [
+        "qualifizierte",
+        "gering"
+      ],
+      "upper class": []
+    }
+  }
+}

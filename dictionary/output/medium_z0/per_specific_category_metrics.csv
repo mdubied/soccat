@@ -21,7 +21,7 @@ age_and_family_status,middle-aged and pre-retirement age groups,2,0,75,2,1851,0.
 age_and_family_status,elderly,10,1,81,9,1837,0.012,0.1,0.022
 age_and_family_status,couples,6,2,51,4,1871,0.038,0.333,0.068
 age_and_family_status,singles,6,2,19,4,1903,0.095,0.333,0.148
-identities,men,30,23,102,7,1796,0.184,0.767,0.297
+identities,men,30,23,106,7,1792,0.178,0.767,0.289
 identities,women,86,62,61,24,1781,0.504,0.721,0.593
 identities,cisgender and heterosexuals,6,5,57,1,1865,0.081,0.833,0.147
 identities,LGBTQIA+,19,12,110,7,1799,0.098,0.632,0.17
@@ -43,7 +43,7 @@ profession,politicians and high-ranking officials,318,150,59,168,1551,0.718,0.47
 profession,sex workers,4,2,0,2,1924,1.0,0.5,0.667
 profession,scientists and professors,18,9,78,9,1832,0.103,0.5,0.171
 profession,security forces,61,40,48,21,1819,0.455,0.656,0.537
-profession,soldiers,30,16,41,14,1857,0.281,0.533,0.368
+profession,soldiers,30,16,39,14,1859,0.291,0.533,0.376
 profession,teachers and educators,11,7,124,4,1793,0.053,0.636,0.099
 profession,other professions,82,21,37,61,1809,0.362,0.256,0.3
 social_roles_and_behavior,consumers and clients,70,38,47,32,1811,0.447,0.543,0.49

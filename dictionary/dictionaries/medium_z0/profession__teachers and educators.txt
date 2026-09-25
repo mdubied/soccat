@@ -1,9 +1,9 @@
 lehrer
 enseignants
-maternelles
 bildung
-bezahlung
+maternelles
 assistantes
+bezahlung
 pflege
 eltern
 parents

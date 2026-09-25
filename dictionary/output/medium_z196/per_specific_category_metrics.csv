@@ -7,7 +7,7 @@ socio_economic_position,unskilled or unqualified,8,2,0,6,1920,1.0,0.25,0.4
 socio_economic_position,skilled or qualified,10,2,4,8,1914,0.333,0.2,0.25
 labor_market_position,wage and salary earners,91,46,36,45,1801,0.561,0.505,0.532
 labor_market_position,civil servants,15,6,10,9,1903,0.375,0.4,0.387
-labor_market_position,CEOs and corporate leaders,49,18,54,31,1825,0.25,0.367,0.298
+labor_market_position,CEOs and corporate leaders,49,18,56,31,1823,0.243,0.367,0.293
 labor_market_position,employers,12,7,74,5,1842,0.086,0.583,0.151
 labor_market_position,entrepreneurs,86,26,61,60,1781,0.299,0.302,0.301
 labor_market_position,self-employed and freelancers,7,3,3,4,1918,0.5,0.429,0.462
@@ -16,12 +16,12 @@ labor_market_position,retirees,7,2,0,5,1921,1.0,0.286,0.444
 labor_market_position,housewives and househusbands,4,2,30,2,1894,0.062,0.5,0.111
 age_and_family_status,parents and families,42,24,54,18,1832,0.308,0.571,0.4
 age_and_family_status,"minors, including children and pupils",69,46,76,23,1783,0.377,0.667,0.482
-age_and_family_status,"youth, including students and apprentices",66,49,85,17,1777,0.366,0.742,0.49
+age_and_family_status,"youth, including students and apprentices",66,49,82,17,1780,0.374,0.742,0.497
 age_and_family_status,middle-aged and pre-retirement age groups,2,0,75,2,1851,0.0,0.0,0.0
 age_and_family_status,elderly,10,1,81,9,1837,0.012,0.1,0.022
 age_and_family_status,couples,6,2,51,4,1871,0.038,0.333,0.068
 age_and_family_status,singles,6,2,19,4,1903,0.095,0.333,0.148
-identities,men,30,23,101,7,1797,0.185,0.767,0.299
+identities,men,30,23,106,7,1792,0.178,0.767,0.289
 identities,women,86,62,61,24,1781,0.504,0.721,0.593
 identities,cisgender and heterosexuals,6,5,57,1,1865,0.081,0.833,0.147
 identities,LGBTQIA+,19,12,96,7,1813,0.111,0.632,0.189
@@ -35,7 +35,7 @@ identities,multiple (or other) religious or minority groups,4,0,2,4,1922,0.0,0.0
 profession,athletes,66,24,34,42,1828,0.414,0.364,0.387
 profession,authors and artists,38,16,21,22,1869,0.432,0.421,0.427
 profession,doctors,21,9,18,12,1889,0.333,0.429,0.375
-profession,farmers and fishermen,16,7,94,9,1818,0.069,0.438,0.12
+profession,farmers and fishermen,16,7,101,9,1811,0.065,0.438,0.113
 profession,health and care professionals,6,0,36,6,1886,0.0,0.0,0.0
 profession,journalists,8,4,16,4,1904,0.2,0.5,0.286
 profession,legal professionals,12,4,8,8,1908,0.333,0.333,0.333

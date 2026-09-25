@@ -11,8 +11,8 @@ rpr
 opposition
 élus
 fn
-udf
 afd
+udf
 fdp
 parteien
 socialistes

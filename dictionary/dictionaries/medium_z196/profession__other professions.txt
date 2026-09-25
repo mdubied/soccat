@@ -6,8 +6,8 @@ kritiker
 berater
 piloten
 interrogent
-lorraine
 hôtesses
+lorraine
 estiment
 professionnels
 mineurs
@@ -15,6 +15,6 @@ agents
 spécialistes
 café
 marins
-techniciens
 milch
+techniciens
 geben

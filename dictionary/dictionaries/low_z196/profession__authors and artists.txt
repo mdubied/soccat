@@ -4,8 +4,8 @@ schauspieler
 kunst
 sänger
 schriftsteller
-pop
 arts
+pop
 danseurs
 musik
 auteur

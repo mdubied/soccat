@@ -7,8 +7,8 @@ mädchen
 trans
 filles
 femmes
-jungs
 garçons
+jungs
 frau
 sex
 söhne

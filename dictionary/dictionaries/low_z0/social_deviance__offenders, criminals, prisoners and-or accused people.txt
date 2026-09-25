@@ -2,10 +2,10 @@ täter
 détenus
 violence
 kriminelle
-bandes
 anklage
-prévenus
+bandes
 info
+prévenus
 prison
 hacker
 innenminister
@@ -15,6 +15,6 @@ kampf
 commis
 victime
 banden
-prisonniers
 déplacement
 nice
+prisonniers

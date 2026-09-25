@@ -1,6 +1,6 @@
 künstler
-schauspieler
 autoren
+schauspieler
 sänger
 kunst
 schriftsteller

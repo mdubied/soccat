@@ -204,7 +204,9 @@ def main():
         # (b) frequent enough in the positive corpus to not be a single-sentence fluke
         candidates = [w for w, z in scores.items()
                       if z > args.z_threshold and d["pos_counts"].get(w, 0) >= MIN_POS_FREQ]
-        ranked = sorted(candidates, key=lambda w: -scores[w])[:TOP_K]
+        # tie-break on the word: log_odds_dirichlet iterates a set, so equal
+        # scores at the TOP_K cutoff would otherwise vary between runs
+        ranked = sorted(candidates, key=lambda w: (-scores[w], w))[:TOP_K]
 
         fname = f"{d['category']}__{d['label']}".replace("/", "-")
         fname = re.sub(r'[<>:"\\|?*]', "_", fname) + ".txt"

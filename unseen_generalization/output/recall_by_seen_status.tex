@@ -1,0 +1,63 @@
+\begin{table}[htb]
+\centering
+\scriptsize
+\begin{threeparttable}
+\caption{Recall on mentions seen and unseen in the training data (best fold of each broad class).}
+\label{tab:unseen_recall}
+\begin{tabular}{l r r r r}
+\toprule
+Broad class / model & All & Seen & Partial overlap & Unseen \\
+\midrule
+\addlinespace
+\textbf{Age and family status} & \textit{N = 193} & \textit{N = 124} & \textit{N = 58} & \textit{N = 11} \\
+\quad SOCCAT & 0.83 & 0.90 & 0.83 & 0.09 \\
+\quad LLM & 0.79 & 0.81 & 0.78 & 0.55 \\
+\quad Dictionary & 0.64 & 0.71 & 0.60 & 0.00 \\
+\addlinespace
+\textbf{Identities and minority/majority status} & \textit{N = 192} & \textit{N = 110} & \textit{N = 62} & \textit{N = 19} \\
+\quad SOCCAT & 0.72 & 0.84 & 0.69 & 0.21 \\
+\quad LLM & 0.82 & 0.85 & 0.81 & 0.74 \\
+\quad Dictionary & 0.55 & 0.74 & 0.37 & 0.05 \\
+\addlinespace
+\textbf{Labor market position} & \textit{N = 288} & \textit{N = 140} & \textit{N = 111} & \textit{N = 20} \\
+\quad SOCCAT & 0.74 & 0.83 & 0.68 & 0.45 \\
+\quad LLM & 0.61 & 0.73 & 0.49 & 0.55 \\
+\quad Dictionary & 0.52 & 0.66 & 0.41 & 0.25 \\
+\addlinespace
+\textbf{Profession} & \textit{N = 575} & \textit{N = 337} & \textit{N = 183} & \textit{N = 50} \\
+\quad SOCCAT & 0.83 & 0.95 & 0.77 & 0.22 \\
+\quad LLM & 0.82 & 0.85 & 0.83 & 0.58 \\
+\quad Dictionary & 0.55 & 0.69 & 0.42 & 0.06 \\
+\addlinespace
+\textbf{Real estate ownership} & \textit{N = 34} & \textit{N = 22} & \textit{N = 12} & \textit{N = 0} \\
+\quad SOCCAT & 0.97 & 0.95 & 1.00 & -- \\
+\quad LLM & 1.00 & 1.00 & 1.00 & -- \\
+\quad Dictionary & 0.53 & 0.55 & 0.50 & -- \\
+\addlinespace
+\textbf{Social deviance} & \textit{N = 67} & \textit{N = 29} & \textit{N = 28} & \textit{N = 10} \\
+\quad SOCCAT & 0.66 & 0.83 & 0.61 & 0.30 \\
+\quad LLM & 0.84 & 0.79 & 0.86 & 0.90 \\
+\quad Dictionary & 0.24 & 0.38 & 0.14 & 0.10 \\
+\addlinespace
+\textbf{Social roles and behavior} & \textit{N = 90} & \textit{N = 67} & \textit{N = 16} & \textit{N = 7} \\
+\quad SOCCAT & 0.82 & 0.88 & 0.81 & -- \\
+\quad LLM & 0.80 & 0.84 & 0.81 & -- \\
+\quad Dictionary & 0.61 & 0.69 & 0.56 & -- \\
+\addlinespace
+\textbf{Socio-economic position} & \textit{N = 68} & \textit{N = 30} & \textit{N = 29} & \textit{N = 9} \\
+\quad SOCCAT & 0.74 & 0.87 & 0.83 & -- \\
+\quad LLM & 0.78 & 0.77 & 0.86 & -- \\
+\quad Dictionary & 0.41 & 0.60 & 0.34 & -- \\
+\midrule
+\textbf{Total} & \textit{N = 1507} & \textit{N = 859} & \textit{N = 499} & \textit{N = 126} \\
+\quad SOCCAT & 0.79 {\tiny [0.77, 0.81]} & 0.90 {\tiny [0.87, 0.91]} & 0.75 {\tiny [0.71, 0.78]} & 0.24 {\tiny [0.17, 0.32]} \\
+\quad LLM & 0.78 {\tiny [0.76, 0.80]} & 0.82 {\tiny [0.79, 0.85]} & 0.75 {\tiny [0.71, 0.79]} & 0.61 {\tiny [0.52, 0.69]} \\
+\quad Dictionary & 0.54 {\tiny [0.51, 0.56]} & 0.68 {\tiny [0.65, 0.71]} & 0.42 {\tiny [0.38, 0.46]} & 0.08 {\tiny [0.04, 0.14]} \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item \textit{Note:} Reported scores are the recall of the positive class; precision and F1 cannot be split by seen status, as false positives have no annotated mention. A test mention is \emph{seen} if its content words (stopwords removed, stemmed) match those of a training mention of the same category, \emph{partial overlap} if it shares at least one content word or compound part with one, and \emph{unseen} otherwise. \emph{All} also includes a few mentions with no content words (e.g.\ pronouns). Cells with fewer than 10 cases are not reported (--). 95\% Wilson confidence intervals in brackets.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}

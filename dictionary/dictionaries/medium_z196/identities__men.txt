@@ -6,8 +6,8 @@ jungen
 mädchen
 trans
 filles
-jungs
 garçons
+jungs
 femmes
 frau
 sex
@@ -17,4 +17,4 @@ cis
 schwarzer
 krieg
 welt
-kämpfen
+bleibt
