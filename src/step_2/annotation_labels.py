@@ -2,7 +2,7 @@
 annotation_labels.py
 
 Step 2 manual annotations: codebook, label normalisation, span parsing and loading of
-data/manual_annotations/step_2/annotation_step2.csv (ground truth + independent coders).
+data/manual_annotations/step_2/annotations_all_coders.csv (ground truth + independent coders).
 
 Shared by tables/icr_step2_krippendorff.ipynb and figures/annotation_confusion_matrix.py.
 """
@@ -12,7 +12,7 @@ from pathlib import Path
 
 import pandas as pd
 
-ANNOTATION_FILE = Path(__file__).resolve().parents[2] / 'data' / 'manual_annotations' / 'step_2' / 'annotation_step2.csv'
+ANNOTATION_FILE = Path(__file__).resolve().parents[2] / 'data' / 'manual_annotations' / 'step_2' / 'annotations_all_coders.csv'
 
 
 # ── Codebook ─────────────────────────────────────────────────────────────────

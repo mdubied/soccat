@@ -23,7 +23,7 @@ are computed directly from the label sets (not from the matrix, whose row sums c
 cross-product pairs).
 
 Data:
-- data/manual_annotations/step_2/annotation_step2.csv (via src/step_2/annotation_labels.py)
+- data/manual_annotations/step_2/annotations_all_coders.csv (via src/step_2/annotation_labels.py)
 
 Outputs:
 - figures/step_2/annotation_confusion_matrix/annotation_confusion_matrix.pdf
