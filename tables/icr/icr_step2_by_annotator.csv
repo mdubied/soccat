@@ -1,8 +1,8 @@
 Annotator,Country,Krippendorff α (MASI),N
-A1,Germany,0.7394,1749
-A2,Germany,0.9457,802
-A3,"France, Germany",0.9704,1075
-A4,France,0.8023,2037
-A5,"France, Germany",0.8804,1644
-A6,Germany,0.8275,1748
-A7,Germany,0.925,800
+A1,Germany,0.9457,802
+A2,"France, Germany",0.9704,1075
+A3,France,0.8023,2037
+A4,"France, Germany",0.8804,1644
+A5,Germany,0.925,800
+A6,Germany,0.7394,1749
+A7,Germany,0.8275,1748

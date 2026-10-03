@@ -1,0 +1,13 @@
+Outlet,Country,# Sentences,All annotators,A1 + A2,A1 + A3,A1 + A4,A1 + A5,A2 + A3,A2 + A4,A2 + A5,A3 + A4,A3 + A5,A4 + A5
+Le Figaro,France,300,0.9141,,,,,,,,0.9141,,
+Le Monde,France,300,0.9444,,,,,,,,0.9444,,
+Le Monde diplomatique,France,1200,0.8944,,,,,,,,0.8944,,
+Le Parisien,France,300,0.6541,,,,,,,,0.6541,,
+Médiapart,France,1200,0.7442,,,,,,,,0.7442,,
+Libération,France,1206,0.7568,0.7526,0.7221,0.8469,,0.7225,0.7643,,0.7248,,
+Bild,Germany,300,0.6757,0.7506,0.7152,0.5919,0.6003,0.9051,0.5709,0.7368,0.5556,0.7203,0.5732
+Frankfurter Allgemeine,Germany,300,0.7035,,,,,0.7035,,,,,
+Spiegel,Germany,300,0.682,,,,,0.682,,,,,
+Süddeutsche Zeitung,Germany,300,0.7431,,,0.7431,,,,,,,
+Die Welt,Germany,300,0.628,,,0.628,,,,,,,
+Die Zeit,Germany,300,0.7546,0.7561,0.8051,0.7524,0.6912,0.8128,0.826,0.733,0.758,0.7134,0.6961

@@ -1,4 +1,9 @@
 Outlet,Country,Pair,Krippendorff α,N
+Le Figaro,France,A3 + A4,0.9141,300
+Le Monde,France,A3 + A4,0.9444,300
+Le Monde diplomatique,France,A3 + A4,0.8944,1200
+Le Parisien,France,A3 + A4,0.6541,300
+Médiapart,France,A3 + A4,0.7442,1200
 Libération,France,A1 + A2,0.7526,1206
 Libération,France,A1 + A3,0.7221,1206
 Libération,France,A1 + A4,0.8469,1206
@@ -15,6 +20,10 @@ Bild,Germany,A2 + A5,0.7368,300
 Bild,Germany,A3 + A4,0.5556,300
 Bild,Germany,A3 + A5,0.7203,300
 Bild,Germany,A4 + A5,0.5732,300
+Frankfurter Allgemeine,Germany,A2 + A3,0.7035,300
+Spiegel,Germany,A2 + A3,0.682,300
+Süddeutsche Zeitung,Germany,A1 + A4,0.7431,300
+Die Welt,Germany,A1 + A4,0.628,300
 Die Zeit,Germany,A1 + A2,0.7561,300
 Die Zeit,Germany,A1 + A3,0.8051,300
 Die Zeit,Germany,A1 + A4,0.7524,300
