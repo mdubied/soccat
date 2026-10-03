@@ -1,13 +1,16 @@
-Outlet,Country,Krippendorff α (MASI),# Sentences,# Annotators
-Bild,Germany,0.814,930,2
-FAZ,Germany,0.84,950,2
-Figaro,France,0.9501,866,2
-Liberation,France,0.7372,226,2
-Mediapart,France,0.6934,364,2
-Monde,France,0.9369,853,2
-MondeDiplo,France,0.6751,374,2
-Parisien,France,0.9428,879,2
-SZ,Germany,0.82,922,2
-Spiegel,Germany,0.8259,906,2
-Welt,Germany,0.8351,914,2
-Zeit,Germany,0.8074,936,2
+Outlet,Country,Krippendorff α (MASI),# Sentences
+Figaro,France,0.927,988
+Liberation,France,0.7761,290
+Mediapart,France,0.7182,390
+Monde,France,0.9153,1014
+MondeDiplo,France,0.6944,397
+Parisien,France,0.9333,994
+France (all outlets),France,0.876,4073
+Bild,Germany,0.8299,914
+FAZ,Germany,0.8431,961
+Spiegel,Germany,0.8336,920
+SZ,Germany,0.8321,921
+Welt,Germany,0.8498,924
+Zeit,Germany,0.8211,916
+Germany (all outlets),Germany,0.8359,5556
+Overall,All,0.8534,9629

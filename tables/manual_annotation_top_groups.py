@@ -6,7 +6,7 @@ Read manual annotation file and compute the top-N most frequent "specific_group_
 separately for France and Germany, then export a side-by-side LaTeX table.
 
 Input:
-- data/manual_annotations/step_2/annotations_ground_truth.csv
+- data/manual_annotations/step_2/annotation_step2.csv
 
 Output:
 - tables/manual_annotation_top_XX.tex   (XX = top_n argument)
@@ -24,7 +24,7 @@ import pandas as pd
 import argparse
 import os
 
-DEFAULT_INPUT_PATH = "../data/manual_annotations/step_2/annotations_ground_truth.csv"
+DEFAULT_INPUT_PATH = "../data/manual_annotations/step_2/annotation_step2.csv"
 DEFAULT_OUT_DIR = "../tables"
 DISCARD_CATEGORIES = [
     "others",
@@ -163,6 +163,9 @@ def count_categories_by_country(
             continue
 
         cats = parse_multi_categories(row.get(col_categories))
+        # set: several raw labels can normalise to the same category (e.g. the
+        # entrepreneurs variants); count each category once per sentence
+        sentence_cats = set()
         for c in cats:
             c_clean = str(c).strip()
             if c_clean == "":
@@ -170,7 +173,9 @@ def count_categories_by_country(
             c_clean = NORMALISE.get(c_clean.lower(), c_clean)
             if c_clean in discard_set:
                 continue
+            sentence_cats.add(c_clean)
 
+        for c_clean in sentence_cats:
             counts[country][c_clean] = counts[country].get(c_clean, 0) + 1
 
     return counts
@@ -216,20 +221,21 @@ def latex_escape(s):
     return s
 
 
-def build_side_by_side_latex_table(top_fr, top_de, top_n, caption=None, label=None):
+def build_side_by_side_latex_table(top_fr, top_de, top_n, caption=None, label=None, note=None):
     """
     Creates LaTeX code for a 5-column table:
       Rank | (France: Category, #) | (Germany: Category, #)
-    With merged headers for France and Germany.
+    With merged headers for France and Germany, and an optional table note.
     """
     lines = []
     lines.append(r"\begin{table}[htbp]")
     lines.append(r"\centering")
+    lines.append(r"\begin{threeparttable}")
     lines.append(r"\begin{tabularx}{\textwidth}{r X r X r}")
     lines.append(r"\toprule")
     lines.append(r" & \multicolumn{2}{c}{France} & \multicolumn{2}{c}{Germany} \\")
     lines.append(r"\cmidrule(lr){2-3}\cmidrule(lr){4-5}")
-    lines.append(r"Rank & Specific category & \# & Specific category & \# \\")
+    lines.append(r"Rank & Specific group & \# & Specific group & \# \\")
     lines.append(r"\midrule")
 
     # pad to top_n
@@ -240,8 +246,8 @@ def build_side_by_side_latex_table(top_fr, top_de, top_n, caption=None, label=No
         fr_cat, fr_ct = fr_pad[i]
         de_cat, de_ct = de_pad[i]
 
-        fr_cat = latex_escape(fr_cat)
-        de_cat = latex_escape(de_cat)
+        fr_cat = latex_escape(fr_cat[:1].upper() + fr_cat[1:])
+        de_cat = latex_escape(de_cat[:1].upper() + de_cat[1:])
 
         fr_ct = "" if fr_ct == "" else str(fr_ct)
         de_ct = "" if de_ct == "" else str(de_ct)
@@ -249,6 +255,12 @@ def build_side_by_side_latex_table(top_fr, top_de, top_n, caption=None, label=No
         lines.append(f"{i+1} & {fr_cat} & {fr_ct} & {de_cat} & {de_ct} \\\\")
     lines.append(r"\bottomrule")
     lines.append(r"\end{tabularx}")
+    if note:
+        lines.append(r"\begin{tablenotes}[flushleft]")
+        lines.append(r"\footnotesize")
+        lines.append(rf"\item \textit{{Note:}} {latex_escape(note)}")
+        lines.append(r"\end{tablenotes}")
+    lines.append(r"\end{threeparttable}")
 
     if caption:
         lines.append(rf"\caption{{{latex_escape(caption)}}}")
@@ -288,7 +300,8 @@ def generate_top_groups_table(
         top_fr=top_fr,
         top_de=top_de,
         top_n=top_n,
-        caption=f"Top {top_n} most frequent annotated specific categories for France and Germany. The numbers indicate how many sentences contain at least one mention of the respective categories. Residual categories are excluded.",
+        caption=f"Top {top_n} most frequent annotated specific groups for France and Germany.",
+        note="The numbers indicate how many sentences contain at least one mention of the respective group label. Residual groups are excluded.",
         label=f"tab:manual-annotation-top-{top_n}",
     )
 

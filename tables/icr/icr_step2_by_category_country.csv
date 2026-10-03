@@ -1,0 +1,68 @@
+Subcategory,Category,France α (MASI),France # Ground-truth mentions,Germany α (MASI),Germany # Ground-truth mentions,All α (MASI),All # Ground-truth mentions
+Socio-economic position,(aggregate),0.8521,154,0.8644,226,0.8594,380
+Socio-economic position,lower class,0.7649,45,0.8484,29,0.7945,74
+Socio-economic position,middle class,0.9373,16,0.9165,11,0.9284,27
+Socio-economic position,upper class,0.7331,21,0.7223,23,0.7278,44
+Socio-economic position,"capital owners, investors and shareholders",0.9413,62,0.892,119,0.9084,181
+Socio-economic position,unskilled or unqualified,0.9089,11,0.7888,15,0.8328,26
+Socio-economic position,skilled or qualified,0.5874,9,0.8669,37,0.8109,46
+Labor market position,(aggregate),0.908,616,0.8398,810,0.8701,1426
+Labor market position,wage and salary earners,0.9323,241,0.8591,218,0.8982,459
+Labor market position,civil servants,0.8324,24,0.5334,28,0.6713,52
+Labor market position,CEOs and corporate leaders,0.7716,39,0.6332,45,0.7002,84
+Labor market position,employers,0.9482,39,0.8817,31,0.9172,70
+Labor market position,entrepreneurs,0.9183,286,0.854,481,0.8794,767
+Labor market position,self-employed and freelancers,0.8887,8,0.7774,11,0.833,19
+Labor market position,unemployed,0.8562,27,0.9103,29,0.8833,56
+Labor market position,retirees,0.7495,8,0.8844,14,0.833,22
+Labor market position,housewives and househusbands,1.0,10,0.9165,11,0.9544,21
+Age and family status,(aggregate),0.9132,462,0.9142,463,0.9139,925
+Age and family status,parents and families,0.9178,86,0.881,127,0.8958,213
+Age and family status,minors,0.9098,216,0.9105,163,0.9104,379
+Age and family status,youth,0.8952,169,0.9406,186,0.9191,355
+Age and family status,middle-aged and pre-retirement age groups,0.5874,10,0.8748,9,0.7268,19
+Age and family status,elderly,0.7585,22,0.7427,17,0.7517,39
+Age and family status,couples,1.0,20,0.8433,16,0.9303,36
+Age and family status,singles,1.0,11,0.906,16,0.9443,27
+"Gender, sexuality, and sociocultural characteristics",(aggregate),0.8682,363,0.9212,637,0.9017,1000
+"Gender, sexuality, and sociocultural characteristics",men,0.9033,34,0.9056,114,0.9052,148
+"Gender, sexuality, and sociocultural characteristics",women,0.9161,114,0.9479,253,0.9378,367
+"Gender, sexuality, and sociocultural characteristics",cisgender and heterosexuals,1.0,8,0.8569,12,0.9188,20
+"Gender, sexuality, and sociocultural characteristics",lgbtqia+,0.9087,16,0.9171,63,0.9155,79
+"Gender, sexuality, and sociocultural characteristics",disabled people,0.8887,8,0.9212,27,0.9127,35
+"Gender, sexuality, and sociocultural characteristics","people with an immigration background, including immigrants",0.8804,67,0.9451,203,0.9285,270
+"Gender, sexuality, and sociocultural characteristics",ethnic and racial minorities,0.683,33,0.8325,31,0.7522,64
+"Gender, sexuality, and sociocultural characteristics",christians,0.8479,19,0.8366,24,0.8415,43
+"Gender, sexuality, and sociocultural characteristics",jews,0.9033,34,0.8748,7,0.8984,41
+"Gender, sexuality, and sociocultural characteristics",muslims,0.8646,36,0.6746,22,0.797,58
+"Gender, sexuality, and sociocultural characteristics",multiple (or other) religious or minority groups,0.6918,35,0.7268,9,0.7007,44
+Profession,(aggregate),0.9277,1383,0.8995,1842,0.9116,3225
+Profession,athletes,0.978,141,0.9,276,0.9272,417
+Profession,authors and artists,0.96,92,0.9237,103,0.9408,195
+Profession,doctors,0.9029,17,0.9604,52,0.947,69
+Profession,farmers and fishermen,0.9105,40,0.8954,38,0.9031,78
+Profession,health and care professionals,0.8745,14,0.7888,22,0.828,36
+Profession,journalists,1.0,20,0.866,28,0.9196,48
+Profession,legal professionals,0.9409,18,0.9108,36,0.9199,54
+Profession,politicians and high-ranking officials,0.9356,659,0.9409,834,0.9386,1493
+Profession,sex workers,1.0,16,1.0,11,1.0,27
+Profession,scientists and professors,0.8738,39,0.9216,61,0.9021,100
+Profession,security forces,0.9332,130,0.7857,142,0.8607,272
+Profession,soldiers,0.9287,84,0.8967,81,0.9134,165
+Profession,teachers and educators,0.952,30,0.9176,33,0.9351,63
+Profession,other professions,0.8502,137,0.7963,220,0.8153,357
+Social roles and behavior,(aggregate),0.8975,173,0.8889,338,0.8919,511
+Social roles and behavior,consumers and clients,0.8923,135,0.862,232,0.8733,367
+Social roles and behavior,car drivers,1.0,18,0.9677,16,0.985,34
+Social roles and behavior,patients,0.8414,20,0.9439,91,0.9261,111
+Social deviance,(aggregate),0.8968,222,0.8442,272,0.8686,494
+Social deviance,extremists,0.8425,34,0.8648,48,0.856,82
+Social deviance,"terrorists, rebels, revolutionaries and/or movements of armed resistance",0.8513,99,0.8174,101,0.836,200
+Social deviance,"offenders, criminals, prisoners and/or accused people",0.9469,84,0.8042,123,0.8618,207
+Social deviance,drug addicts,1.0,10,0.8844,13,0.9346,23
+Real estate ownership,(aggregate),0.965,83,0.9482,73,0.9571,156
+Real estate ownership,real-estate owners,0.9716,51,0.9231,47,0.9475,98
+Real estate ownership,tenants,0.9742,19,0.9777,22,0.9761,41
+Real estate ownership,homeless,0.9543,21,1.0,14,0.9721,35
+Others,(aggregate),0.8661,1120,0.8414,1339,0.8532,2459
+Others,others,0.8661,1120,0.8414,1339,0.8532,2459
