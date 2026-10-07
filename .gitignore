@@ -10,6 +10,7 @@ venv/
 
 # Generated pipeline outputs
 nli_pairs_by_category/
+src/step_1/output/
 src/step_2/nli_pairs_by_category/
 src/step_2/output/
 

@@ -235,8 +235,11 @@ def plot_heatmap(
     show_colorbar=True,
     save_path=None,
     separator_after_rows=None,
-    anchor_xticklabels="right"
+    anchor_xticklabels="right",
+    dark_text_below=None
 ):
+    # dark_text_below: write values below this threshold in black instead of
+    # white, so they stay readable on the lightest cells (None = always white)
     configure_fonts()
 
     fig_w, fig_h = figure_cm[0] / 2.54, figure_cm[1] / 2.54
@@ -275,8 +278,9 @@ def plot_heatmap(
         for j in range(df.shape[1]):
             val = df.iloc[i, j]
             if not np.isnan(val):
+                dark = dark_text_below is not None and val < dark_text_below
                 ax.text(j, i, f"{val:.{decimals}f}",
-                        ha="center", va="center", color="white")
+                        ha="center", va="center", color="black" if dark else "white")
 
     if show_colorbar:
         cbar = plt.colorbar(im)

@@ -50,9 +50,8 @@ def find_runs(root: Path) -> list:
 
 def load_baseline_metrics() -> dict | None:
     """Return the SOCCAT mDeBERTa baseline's overall row from
-    performance_all_levels.csv, or None if unavailable. Note the "F1" column
-    there is weighted F1 (see report_step1.py's own f1_weighted computation
-    above) -- the baseline pipeline doesn't report a macro F1."""
+    performance_all_levels.csv, or None if unavailable. Uses the weighted
+    columns, to match report_step1.py's own f1_weighted computation above."""
     if not BASELINE_PATH.exists():
         return None
     with BASELINE_PATH.open("r", encoding="utf-8-sig", newline="") as f:
@@ -60,9 +59,9 @@ def load_baseline_metrics() -> dict | None:
             if row.get("group") == "ALL":
                 return {
                     "accuracy": float(row["Accuracy"]),
-                    "precision": float(row["Precision"]),
-                    "recall": float(row["Recall"]),
-                    "f1_weighted": float(row["F1"]),
+                    "precision": float(row["Precision_weighted"]),
+                    "recall": float(row["Recall_weighted"]),
+                    "f1_weighted": float(row["F1_weighted"]),
                     "n": row["N"],
                 }
     return None

@@ -19,14 +19,14 @@ from step_2_heatmap import plot_heatmap
 def extract_result_matrix(df_long, map_level, exclude_rows=None):
     """
     Expects long-format CSV with columns:
-      group, Accuracy, Precision, Recall, F1
+      group, Accuracy, Precision, Recall, F1, Macro F1
 
     Output:
       index   = mapped group names (order from map_level)
-      columns = Accuracy, Precision, Recall, F1
+      columns = Accuracy, Precision, Recall, F1, Macro F1
     """
 
-    metrics = ["Accuracy", "Precision", "Recall", "F1"]
+    metrics = ["Accuracy", "Precision", "Recall", "F1", "Macro F1"]
 
     needed = {"group", *metrics}
     missing = needed - set(df_long.columns)
@@ -88,6 +88,14 @@ def main():
 
     # Read data
     df = pd.read_csv("../data/model_performance/step_1/performance_all_levels.csv")
+    # Precision / Recall / F1 are positive-class (sentence mentions a social
+    # group) scores, see src/step_1/SOCCAT_mDeBERTa_replication.py
+    df = df.rename(columns={
+        "Precision_binary": "Precision",
+        "Recall_binary": "Recall",
+        "F1_binary": "F1",
+        "F1_macro": "Macro F1",
+    })
 
     # Extract result matrix from dataframe
     df_matrix = extract_result_matrix(
@@ -102,7 +110,8 @@ def main():
         figure_cm=(14, 18),
         rotation_x=0,
         decimals=2,
-        uniform_range=(0.6, 1.0),
+        uniform_range=(0.4, 1.0),
+        dark_text_below=0.62,
         show_colorbar=False,
         save_path="step_1/step_1_outlet_country_decade_performance.pdf",
         separator_after_rows=["Süddeutsche\n Zeitung", "Germany"],
