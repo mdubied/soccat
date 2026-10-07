@@ -37,10 +37,22 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 REPO_ROOT = SCRIPT_DIR.parent.parent
 
 sys.path.insert(0, str(REPO_ROOT / "llm" / "classification"))
-from step2_taxonomy import LABEL_MAP, TAXONOMY  # noqa: E402
+from step2_taxonomy import LABEL_MAP, TAXONOMY, parse_true_categories  # noqa: E402
 
 OUTPUT_ROOT = REPO_ROOT / "llm" / "classification" / "output" / "step_2"
 STEP_2_DATA_DIR = REPO_ROOT / "data" / "model_performance" / "step_2"
+GROUND_TRUTH_PATH = REPO_ROOT / "data" / "manual_annotations" / "step_2" / "annotations_ground_truth.csv"
+
+# Display names for broad categories in the report. TAXONOMY keys are left as
+# is: they are the labels stored in the runs' predictions.csv (and given to
+# the LLM), so renaming them there would break matching with existing runs.
+BROAD_DISPLAY_NAMES = {
+    "Identities and minority/majority status": "Gender, sexuality, and sociocultural characteristics",
+}
+
+
+def display_broad(broad: str) -> str:
+    return BROAD_DISPLAY_NAMES.get(broad, broad)
 
 # broad-class file stem -> its own folder directly under STEP_2_DATA_DIR,
 # containing fold_*_per_label.csv (one file per fold, no "fold" column).
@@ -244,6 +256,24 @@ def _weighted_avg(stats_list: list):
     return out
 
 
+def load_ground_truth() -> dict:
+    """{sentence id: list of (broad, specific) pairs} from the current ground-truth
+    file, parsed exactly as classify_step2.py does."""
+    with GROUND_TRUTH_PATH.open("r", encoding="utf-8-sig", newline="") as f:
+        return {row["id"]: parse_true_categories(row.get("specific_group_new"))
+                for row in csv.DictReader(f)}
+
+
+def apply_ground_truth(rows: list, ground_truth: dict) -> None:
+    """Overwrite the true_* columns stored in predictions.csv at classification
+    time with labels from the current ground-truth file, so runs are always
+    scored against the same annotations as SOCCAT, whenever they were made."""
+    for r in rows:
+        true_categories = ground_truth[r["id"]]
+        r["true_categories"] = json.dumps(true_categories, ensure_ascii=False)
+        r["true_has_social_category"] = int(bool(true_categories))
+
+
 def compute_metrics(rows: list) -> dict:
     """rows: predictions dicts with true_categories/pred_categories JSON columns
     (list of [broad, specific] pairs) and true/pred_has_social_category. Excludes
@@ -321,7 +351,7 @@ def build_run_section(model: str, prompt: str, meta: dict, rows: list, usage: di
         lines.append(_format_metric_line("OVERALL (all specific labels)", metrics["overall"]))
         lines.append("")
         for broad, labels in TAXONOMY.items():
-            lines.append(_format_metric_line(broad, metrics["broad_metrics"][broad]))
+            lines.append(_format_metric_line(display_broad(broad), metrics["broad_metrics"][broad]))
             broad_baseline_f1 = baseline["broad_f1"].get(broad)
             if broad_baseline_f1 is not None:
                 lines.append(f"  SOCCAT baseline: F1={broad_baseline_f1:.3f}  (best CV fold, weighted across its labels)")
@@ -402,7 +432,7 @@ def build_broad_comparison_table(summary_rows: list, baseline: dict) -> list:
     )
     run_labels = [f"{display_model(model)}/{prompt}" for model, prompt, *_ in ranked]
 
-    cat_col_width = max(len("Broad category"), max((len(b) for b in TAXONOMY), default=0))
+    cat_col_width = max(len("Broad category"), max((len(display_broad(b)) for b in TAXONOMY), default=0))
     col_widths = [max(len(rl), 9) for rl in run_labels]
 
     header = [f"{'Broad category':<{cat_col_width}}", f"{'SOCCAT':>9}"]
@@ -414,7 +444,7 @@ def build_broad_comparison_table(summary_rows: list, baseline: dict) -> list:
         baseline_f1 = baseline["broad_f1"].get(broad)
         baseline_str = f"{baseline_f1:.3f}" if baseline_f1 is not None else "n/a"
 
-        row = [f"{broad:<{cat_col_width}}", f"{baseline_str:>9}"]
+        row = [f"{display_broad(broad):<{cat_col_width}}", f"{baseline_str:>9}"]
         for (model, prompt, metrics, cost, n_sampled, duration_ms), w in zip(ranked, col_widths):
             bm = metrics["broad_metrics"][broad] if metrics else None
             row.append(f"{bm['f1']:.3f}".rjust(w) if bm else "n/a".rjust(w))
@@ -443,7 +473,7 @@ def build_category_comparison_table(summary_rows: list, baseline: dict) -> list:
     cat_col_width = max(
         len("Category"),
         max((len(f"  {s}") for labels in TAXONOMY.values() for s in labels), default=0),
-        max((len(b) for b in TAXONOMY), default=0),
+        max((len(display_broad(b)) for b in TAXONOMY), default=0),
     )
     col_widths = [max(len(rl), 9) for rl in run_labels]
 
@@ -453,7 +483,7 @@ def build_category_comparison_table(summary_rows: list, baseline: dict) -> list:
     lines = [header_line, "-" * len(header_line)]
 
     for broad, labels in TAXONOMY.items():
-        lines.append(f"{broad:<{cat_col_width}}")
+        lines.append(f"{display_broad(broad):<{cat_col_width}}")
         for specific in labels:
             n_pos_values = [
                 metrics["label_metrics"][(broad, specific)]["n_pos"]
@@ -510,7 +540,7 @@ def build_category_outperform_table(summary_rows: list, baseline: dict) -> list:
     cat_col_width = max(
         len("Category"),
         max((len(f"  {s}") for labels in qualifying.values() for s in labels), default=0),
-        max((len(b) for b in qualifying), default=0),
+        max((len(display_broad(b)) for b in qualifying), default=0),
     )
     col_widths = [max(len(rl), 9) for rl in run_labels]
 
@@ -520,7 +550,7 @@ def build_category_outperform_table(summary_rows: list, baseline: dict) -> list:
     lines = [header_line, "-" * len(header_line)]
 
     for broad, labels in qualifying.items():
-        lines.append(f"{broad:<{cat_col_width}}")
+        lines.append(f"{display_broad(broad):<{cat_col_width}}")
         for specific in labels:
             n_pos_values = [
                 metrics["label_metrics"][(broad, specific)]["n_pos"]
@@ -595,6 +625,7 @@ def build_latex_category_tables(summary_rows: list, baseline: dict) -> list:
             r"\begin{table}[htb]",
             r"\centering",
             r"\scriptsize",
+            r"\begin{threeparttable}",
             r"\begin{tabular}{>{\raggedright\arraybackslash}p{4.2cm}" + " c" * (1 + n_runs) + "}",
             r"\toprule",
         ]
@@ -608,6 +639,9 @@ def build_latex_category_tables(summary_rows: list, baseline: dict) -> list:
         lines.append(r"\midrule")
 
         for broad in broads:
+            lines.append(
+                f"\\multicolumn{{{2 + n_runs}}}{{l}}{{\\textbf{{{escape_latex(display_broad(broad))}}}}} \\\\"
+            )
             for specific in TAXONOMY[broad]:
                 baseline_f1 = baseline["specific_f1"].get((broad, specific))
                 run_f1s = []
@@ -623,7 +657,9 @@ def build_latex_category_tables(summary_rows: list, baseline: dict) -> list:
                     label_text = r"\textbf{" + label_text + "}"
                 baseline_str = f"{baseline_f1:.2f}" if baseline_f1 is not None else "--"
 
-                cells = [label_text]
+                # indent the whole cell (not just its first line) under the
+                # broad-class heading, so wrapped labels stay aligned
+                cells = [r"\leftskip=1em\relax " + label_text]
                 for f1 in run_f1s:
                     if f1 is None:
                         cells.append("--")
@@ -639,10 +675,13 @@ def build_latex_category_tables(summary_rows: list, baseline: dict) -> list:
         lines += [
             r"\bottomrule",
             r"\end{tabular}",
-            r"\\",
-            r"\vspace{2pt}",
-            r"{\footnotesize \textit{Note:} Bold font is used when at least one LLM run beats SOCCAT, and it shows "
-            r"the beating F1 values.\par}",
+            r"\begin{tablenotes}[flushleft]",
+            r"\footnotesize",
+            r"\item \textit{Note:} Specific categories are grouped under their broad class (unindented heading). "
+            r"Bold font is used for a category when at least one LLM run beats SOCCAT, and it shows "
+            r"the beating F1 values.",
+            r"\end{tablenotes}",
+            r"\end{threeparttable}",
             f"\\caption{{Performance comparison with LLMs for Step 2, detailed F1 score by specific "
             f"categories. Part {part_idx}/2.}}",
             f"\\label{{tab:llm-step2-{part_idx}}}",
@@ -736,8 +775,10 @@ def main():
 
     summary_rows = []
     detail_lines = []
+    ground_truth = load_ground_truth()
     for model, prompt, run_dir in runs:
         rows = list(csv.DictReader((run_dir / "predictions.csv").open("r", encoding="utf-8", newline="")))
+        apply_ground_truth(rows, ground_truth)
         usage = json.loads((run_dir / "usage_totals.json").read_text(encoding="utf-8"))
         meta = json.loads((run_dir / "run_meta.json").read_text(encoding="utf-8"))
 

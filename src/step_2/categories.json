@@ -50,7 +50,7 @@
   },
   {
     "name": "identities",
-    "display_name": "Identities and Minority/Majority Status",
+    "display_name": "Gender, Sexuality, and Sociocultural Characteristics",
     "data": "data/nli_dataset_identities.csv",
     "hub_repo": "selsar/cv_identities",
     "epochs": 4,

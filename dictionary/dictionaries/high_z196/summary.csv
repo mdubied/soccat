@@ -7,9 +7,9 @@ socio_economic_position,unskilled or unqualified,18,0,
 socio_economic_position,skilled or qualified,36,2,"absolventen, akademiker"
 labor_market_position,wage and salary earners,368,20,"salariés, syndicats, mitarbeiter, cgt, arbeitnehmer, syndicat, gewerkschaft, mitarbeitern, personal, employés"
 labor_market_position,civil servants,37,2,"fonctionnaires, beamten"
-labor_market_position,CEOs and corporate leaders,208,8,"banques, banken, dirigeants, bancaires, fmi, multinationales, emittenten, firmes"
+labor_market_position,CEOs and corporate leaders,62,1,dirigeants
 labor_market_position,employers,58,5,"arbeitgeber, patronat, employeurs, patrons, arbeitgebern"
-labor_market_position,entrepreneurs,376,11,"banken, commerçants, constructeurs, industrie, artisans, händler, bank, branche, händlern, sewing"
+labor_market_position,entrepreneurs,624,20,"entreprises, unternehmen, banques, banken, commerçants, industrie, firmen, constructeurs, bank, start"
 labor_market_position,self-employed and freelancers,13,0,
 labor_market_position,unemployed,46,6,"chômeurs, arbeitslose, arbeitslos, arbeitslosen, février, résultats"
 labor_market_position,retirees,15,0,

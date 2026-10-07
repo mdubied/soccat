@@ -7,9 +7,9 @@ socio_economic_position,unskilled or unqualified,8,2,0,6,1920,1.0,0.25,0.4
 socio_economic_position,skilled or qualified,10,2,4,8,1914,0.333,0.2,0.25
 labor_market_position,wage and salary earners,91,46,36,45,1801,0.561,0.505,0.532
 labor_market_position,civil servants,15,6,10,9,1903,0.375,0.4,0.387
-labor_market_position,CEOs and corporate leaders,49,18,56,31,1823,0.243,0.367,0.293
+labor_market_position,CEOs and corporate leaders,22,6,80,16,1826,0.07,0.273,0.111
 labor_market_position,employers,12,7,74,5,1842,0.086,0.583,0.151
-labor_market_position,entrepreneurs,86,26,61,60,1781,0.299,0.302,0.301
+labor_market_position,entrepreneurs,145,62,47,83,1736,0.569,0.428,0.488
 labor_market_position,self-employed and freelancers,7,3,3,4,1918,0.5,0.429,0.462
 labor_market_position,unemployed,10,3,105,7,1813,0.028,0.3,0.051
 labor_market_position,retirees,7,2,0,5,1921,1.0,0.286,0.444

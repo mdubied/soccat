@@ -111,6 +111,15 @@ MANUAL_LABEL_BREAKS = {
 }
 
 
+# manual line breaks for broad-class headings too wide for the label column
+MANUAL_BROAD_CLASS_BREAKS = {
+    "Gender, Sexuality, and Sociocultural Characteristics": [
+        "Gender, Sexuality, and",
+        "Sociocultural Characteristics",
+    ],
+}
+
+
 def wrap_label(text: str) -> str:
     """Split long label names onto balanced lines via \\shortstack."""
     text = text[:1].upper() + text[1:]
@@ -272,7 +281,9 @@ def build_table(categories_subset, part_num, n_parts, metrics,
         for j, label in enumerate(cat["labels"]):
             label_cell = wrap_label(label)
             if j == 0:
-                prefix = rf"\textbf{{{escape_latex(cat['display_name'])}}}"
+                name_lines = MANUAL_BROAD_CLASS_BREAKS.get(cat["display_name"], [cat["display_name"]])
+                prefix = rf"\\[{LABEL_LINE_GAP}]".join(
+                    rf"\textbf{{{escape_latex(line)}}}" for line in name_lines)
                 if label_cell.startswith(r"\shortstack[l]{"):
                     label_cell = label_cell.replace(
                         r"\shortstack[l]{", rf"\shortstack[l]{{{prefix}\\[{BROAD_CLASS_LINE_GAP}]", 1)
