@@ -59,7 +59,7 @@ RENAME_DICT = {
     "socio_economic": "Socio-economic position",
     "labor_market_w_entrepreneurs": "Labor market position",
     "age_family": "Age and family status",
-    "identity": "Identities and minority/majority status",
+    "identity": "Gender, sexuality, and sociocultural characteristics",
     "profession": "Profession",
     "social_roles": "Social roles and behavior",
     "social_deviance": "Social deviance",
@@ -161,10 +161,21 @@ def build_table(rows, part_num):
     lines.extend(rows)
     lines.append(r"\bottomrule")
     lines.append(r"\end{tabular}")
+    lines.append(r"\par\vspace{0.15cm}")
+    lines.append(r"\begin{minipage}{0.9\linewidth}")
+    lines.append(r"\footnotesize")
     lines.append(
-        r"\caption{Performance per category for each broad class' best fold. "
-        r"N indicates the number of positive cases for the category in the test set "
-        rf"(Part {part_num}/2).}}"
+        r"\textit{Note:} "
+        r"Each box plot represents the distribution of results over five cross-validation folds. "
+        r"The numerical values reported in the plot are the ones obtained with the fold used for the final model. "
+        r"N is the average number of true positive in the validation sets. "
+        r"The performance of each broad class (in bold font) is computed as weighted averages of the "
+        r"specific-group label scores, with weights given by the number of positive cases. "
+        r"For each broad class, the final model was selected based on the highest macro F1 score."
+    )
+    lines.append(r"\end{minipage}")
+    lines.append(
+        rf"\caption{{Performance scores of the NLI models for each social group. Part {part_num}/2.}}"
     )
     lines.append(rf"\label{{tab:step2_best_fold_metrics_{part_num}}}")
     lines.append(r"\end{table}")

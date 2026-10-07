@@ -47,6 +47,11 @@ Category & N & Bin. Prec. & Bin. Rec. & Bin. F1 & Macro F1 \\
 \quad Upper class & 6 & 0.29 & 0.33 & 0.31 & 0.65 \\
 \bottomrule
 \end{tabular}
-\caption{Performance per category for each broad class' best fold. N indicates the number of positive cases for the category in the test set (Part 2/2).}
+\par\vspace{0.15cm}
+\begin{minipage}{0.9\linewidth}
+\footnotesize
+\textit{Note:} Each box plot represents the distribution of results over five cross-validation folds. The numerical values reported in the plot are the ones obtained with the fold used for the final model. N is the average number of true positive in the validation sets. The performance of each broad class (in bold font) is computed as weighted averages of the specific-group label scores, with weights given by the number of positive cases. For each broad class, the final model was selected based on the highest macro F1 score.
+\end{minipage}
+\caption{Performance scores of the NLI models for each social group. Part 2/2.}
 \label{tab:step2_best_fold_metrics_2}
 \end{table}

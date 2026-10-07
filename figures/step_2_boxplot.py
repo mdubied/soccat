@@ -109,7 +109,7 @@ RENAME_DICT = {
     "socio_economic": "Socio-economic position",
     "labor_market_position": "Labor market position",
     "age_family": "Age and family status",
-    "identity": "Identities and minority/ majority status",
+    "identity": "Gender, sexuality, and sociocultural characteristics",
     "profession": "Profession",
     "social_roles": "Social roles and behavior",
     "social_deviance": "Social deviance",
@@ -257,8 +257,18 @@ plt.rcParams.update({
 # HELPER FUNCTIONS
 # ============================================================
 
+# Manual line breaks for labels that textwrap splits badly at WRAP_CHARS
+# (a 3-line label overlaps the neighbouring rows)
+MANUAL_WRAP = {
+    "Gender, sexuality, and sociocultural characteristics":
+        ["Gender, sexuality, and", "sociocultural characteristics"],
+}
+
+def wrap_lines(lbl, width_chars):
+    return MANUAL_WRAP.get(str(lbl)) or textwrap.wrap(str(lbl), width_chars)
+
 def wrap_labels(labels, width_chars=40):
-    return ["\n".join(textwrap.wrap(str(lbl), width_chars)) for lbl in labels]
+    return ["\n".join(wrap_lines(lbl, width_chars)) for lbl in labels]
 
 def compute_y_positions(raw_labels, header_labels=frozenset(), extra_gap_rows=0.0):
     """
@@ -631,6 +641,18 @@ if SETUP_NAME == "broad_class_boxplot":
     # Merge all subcategory data (long format)
     df_raw = pd.concat(dfs, ignore_index=True)
 
+    # Short log of the best fold per broad class (the fold whose model is
+    # published), same format as tables/step_2_best_fold_used.txt
+    fold_log = "\n".join(
+        f"{RENAME_DICT.get(bc, bc)} ({bc}): fold "
+        f"{best_fold_for_group(df_raw[df_raw['broad_class'] == bc])}"
+        for bc in BROAD_CLASS_LIST
+    )
+    fold_log_path = os.path.join(OUTPUT_DIR, f"{OUTPUT_BASE_NAME}_best_fold_used.txt")
+    with open(fold_log_path, "w", encoding="utf-8") as f:
+        f.write(fold_log + "\n")
+    print(f"Saved file as: {fold_log_path}")
+
     # Compute broad category aggregation — RETURNS ONLY broad categories
     df = compute_broad_class_boxplot(
         df_raw,
@@ -913,7 +935,7 @@ if SETUP_NAME == "broad_class_boxplot":
             if lbl in header_labels:
                 # each wrapped physical line must be independently LaTeX-balanced
                 # for matplotlib's usetex rendering (see step_2_roc_pr_curves.py)
-                bc_lines = textwrap.wrap(lbl, wrap_w)
+                bc_lines = wrap_lines(lbl, wrap_w)
                 part_wrapped.append("\n".join(rf"\textbf{{{line}}}" for line in bc_lines))
             else:
                 part_wrapped.append(wrap_and_capitalize([lbl], wrap_w)[0])

@@ -15,18 +15,18 @@ Category & N & Bin. Prec. & Bin. Rec. & Bin. F1 & Macro F1 \\
 \quad Middle-aged and pre-retirement age groups & 4 & 1.00 & 0.50 & 0.67 & 0.83 \\
 \quad Elderly & 7 & 1.00 & 0.43 & 0.60 & 0.80 \\
 \addlinespace
-\textbf{Identities and minority/majority status} & \textbf{192} & \textbf{0.78} & \textbf{0.83} & \textbf{0.80} & \textbf{0.90} \\
-\quad Cisgender and heterosexuals & 4 & 1.00 & 1.00 & 1.00 & 1.00 \\
-\quad Jews & 7 & 0.78 & 1.00 & 0.88 & 0.94 \\
-\quad Disabled people & 7 & 0.78 & 1.00 & 0.88 & 0.94 \\
-\quad People with immigration background & 44 & 0.81 & 0.89 & 0.85 & 0.92 \\
-\quad Women & 66 & 0.82 & 0.88 & 0.85 & 0.92 \\
-\quad LGBTQIA+ & 16 & 0.92 & 0.75 & 0.83 & 0.91 \\
-\quad Men & 27 & 0.73 & 0.81 & 0.77 & 0.88 \\
-\quad Muslims & 7 & 0.60 & 0.86 & 0.71 & 0.85 \\
-\quad Christians & 7 & 0.75 & 0.43 & 0.55 & 0.77 \\
-\quad Ethnic and racial minorities & 4 & 0.50 & 0.25 & 0.33 & 0.67 \\
-\quad Multiple (or other) religious or minority groups & 3 & 0.00 & 0.00 & 0.00 & 0.50 \\
+\textbf{Gender, sexuality, and sociocultural characteristics} & \textbf{185} & \textbf{0.85} & \textbf{0.83} & \textbf{0.84} & \textbf{0.92} \\
+\quad Jews & 6 & 0.86 & 1.00 & 0.92 & 0.96 \\
+\quad Women & 65 & 0.90 & 0.95 & 0.93 & 0.96 \\
+\quad People with immigration background & 44 & 0.91 & 0.89 & 0.90 & 0.95 \\
+\quad Christians & 7 & 1.00 & 0.71 & 0.83 & 0.92 \\
+\quad LGBTQIA+ & 15 & 0.76 & 0.87 & 0.81 & 0.91 \\
+\quad Muslims & 6 & 1.00 & 0.67 & 0.80 & 0.90 \\
+\quad Disabled people & 6 & 0.67 & 1.00 & 0.80 & 0.90 \\
+\quad Cisgender and heterosexuals & 4 & 0.75 & 0.75 & 0.75 & 0.87 \\
+\quad Men & 27 & 0.79 & 0.56 & 0.65 & 0.82 \\
+\quad Ethnic and racial minorities & 3 & 0.50 & 0.33 & 0.40 & 0.70 \\
+\quad Multiple (or other) religious or minority groups & 2 & 0.00 & 0.00 & 0.00 & 0.50 \\
 \addlinespace
 \textbf{Labor market position} & \textbf{288} & \textbf{0.86} & \textbf{0.74} & \textbf{0.79} & \textbf{0.89} \\
 \quad Housewives and househusbands & 5 & 1.00 & 0.80 & 0.89 & 0.94 \\
@@ -40,6 +40,11 @@ Category & N & Bin. Prec. & Bin. Rec. & Bin. F1 & Macro F1 \\
 \quad Retirees & 5 & 0.60 & 0.60 & 0.60 & 0.80 \\
 \bottomrule
 \end{tabular}
-\caption{Performance per category for each broad class' best fold. N indicates the number of positive cases for the category in the test set (Part 1/2).}
+\par\vspace{0.15cm}
+\begin{minipage}{0.9\linewidth}
+\footnotesize
+\textit{Note:} Each box plot represents the distribution of results over five cross-validation folds. The numerical values reported in the plot are the ones obtained with the fold used for the final model. N is the average number of true positive in the validation sets. The performance of each broad class (in bold font) is computed as weighted averages of the specific-group label scores, with weights given by the number of positive cases. For each broad class, the final model was selected based on the highest macro F1 score.
+\end{minipage}
+\caption{Performance scores of the NLI models for each social group. Part 1/2.}
 \label{tab:step2_best_fold_metrics_1}
 \end{table}
