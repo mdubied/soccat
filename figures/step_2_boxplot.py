@@ -147,14 +147,7 @@ CATEGORY_SCORE_X_OVERRIDES = {
         ("f1_binary", "Ethnic and racial minorities"): 0.44,
     },
     "labor_market": {
-        ("precision_binary", "employers"): 0.38,
-        ("precision_binary", "unemployed"): 0.38,
-        ("precision_binary", "civil servants"): 0.01,
-        ("precision_binary", "CEOs and corporate leaders"): 0.72,
-        ("precision_binary", "retirees"): 0.64,
         ("recall_binary", "self-employed and freelancers"): 0.00,
-        ("recall_binary", "retirees"): 0.64,
-        ("f1_binary", "retirees"): 0.64,
     },
     "age_family": {
         ("recall_binary", "elderly"): 0.02,
@@ -179,12 +172,7 @@ CATEGORY_BBOX_COLOR_OVERRIDES = {
         ("f1_binary", "middle-aged and pre-retirement age groups"): "lightgray",
     },
     "labor_market": {
-        ("precision_binary", "employers"): "none",
-        ("precision_binary", "civil servants"): "none",
-        ("precision_binary", "unemployed"): "none",
-        ("precision_binary", "CEOs and corporate leaders"): "none",
         ("recall_binary", "self-employed and freelancers"): "none",
-        ("recall_binary", "retirees"): "none",
     },
     "socio_economic_position": {
         ("precision_binary", "upper class"): "none",
