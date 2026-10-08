@@ -1,0 +1,18 @@
+,,f1_gap,f1_gap,f1_gap_hi,f1_gap_hi,f1_gap_lo,f1_gap_lo,prauc_gap,prauc_gap
+direction,,de2fr,fr2de,de2fr,fr2de,de2fr,fr2de,de2fr,fr2de
+category,label_short,,,,,,,,
+Age and family,minors,0.146,0.119,0.202,0.183,0.094,0.057,0.111,-0.019
+Age and family,parents and families,0.111,-0.015,0.182,0.059,0.049,-0.093,0.175,0.019
+Age and family,youth,0.066,0.134,0.105,0.208,0.026,0.059,0.109,-0.013
+Identities,immigration background,0.172,0.025,0.276,0.07,0.073,-0.019,0.192,-0.043
+Identities,women,0.067,0.047,0.125,0.088,0.013,0.008,0.061,-0.023
+Labour market,entrepreneurs,0.068,0.161,0.102,0.2,0.032,0.119,0.163,0.068
+Labour market,wage and salary earners,0.05,0.107,0.092,0.153,0.008,0.056,0.106,0.073
+Profession,athletes,0.061,0.048,0.112,0.095,0.014,0.003,0.028,0.057
+Profession,authors and artists,0.038,-0.001,0.113,0.078,-0.033,-0.085,-0.048,-0.017
+Profession,other professions,0.114,0.089,0.202,0.169,0.023,0.009,0.104,-0.001
+Profession,"politicians, high officials",0.051,0.04,0.073,0.057,0.028,0.025,0.076,0.031
+Profession,security forces,0.143,0.068,0.212,0.148,0.07,-0.01,0.051,0.137
+Social deviance,"offenders, criminals",0.196,0.2,0.319,0.306,0.083,0.103,0.243,0.102
+Social roles,consumers and clients,0.075,0.05,0.137,0.106,0.011,-0.004,0.082,-0.019
+Socio-economic,"capital owners, investors",0.043,0.018,0.096,0.084,0.0,-0.046,0.067,0.053

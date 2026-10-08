@@ -1,0 +1,58 @@
+category,hypothesis_label,n_pos_de,n_pos_fr,min_both,reportable
+Socio-economic,"capital owners, investors and shareholders",105,61,61,True
+Socio-economic,lower class,18,39,18,False
+Socio-economic,middle class,8,16,8,False
+Socio-economic,skilled or qualified,27,9,9,False
+Socio-economic,unskilled or unqualified,14,11,11,False
+Socio-economic,upper class,11,20,11,False
+Profession,athletes,228,139,139,True
+Profession,authors and artists,86,92,86,True
+Profession,doctors,51,17,17,False
+Profession,farmers and fishermen,36,37,36,False
+Profession,health and care professionals,20,14,14,False
+Profession,journalists,23,18,18,False
+Profession,legal professionals,31,18,18,False
+Profession,other professions,187,130,130,True
+Profession,politicians and high-ranking officials,671,613,613,True
+Profession,scientists and professors,45,38,38,False
+Profession,security forces,119,119,119,True
+Profession,sex workers,11,16,11,False
+Profession,soldiers,35,42,35,False
+Profession,teachers and educators,32,30,30,False
+Age and family,couples,16,20,16,False
+Age and family,elderly,14,21,14,False
+Age and family,middle-aged and pre-retirement age groups,9,10,9,False
+Age and family,"minors, including children and pupils",136,213,136,True
+Age and family,parents and families,107,83,83,True
+Age and family,singles,16,11,11,False
+Age and family,"youth, including students and apprentices",144,166,144,True
+Identities,Christians,16,19,16,False
+Identities,Ethnic and racial minorities,6,11,6,False
+Identities,Jews,6,28,6,False
+Identities,LGBTQIA+,63,16,16,False
+Identities,Muslims,9,25,9,False
+Identities,cisgender and heterosexuals,12,8,8,False
+Identities,disabled people,24,8,8,False
+Identities,men,102,33,33,False
+Identities,multiple (or other) religious or minority groups,6,8,6,False
+Identities,"people with an immigration background, including immigrants",163,57,57,True
+Identities,women,215,111,111,True
+Labour market,CEOs and corporate leaders,35,37,35,False
+Labour market,civil servants,24,23,23,False
+Labour market,employers,30,38,30,False
+Labour market,entrepreneurs,409,271,271,True
+Labour market,housewives and househusbands,11,10,10,False
+Labour market,retirees,13,8,8,False
+Labour market,self-employed and freelancers,10,9,9,False
+Labour market,unemployed,25,27,25,False
+Labour market,wage and salary earners,200,237,200,True
+Social roles,car drivers,10,11,10,False
+Social roles,consumers and clients,207,129,129,True
+Social roles,patients,78,18,18,False
+Social deviance,drug addicts,13,10,10,False
+Social deviance,extremists,34,28,28,False
+Social deviance,"offenders, criminals, prisoners and/or accused people",107,76,76,True
+Social deviance,"terrorists, rebels, revolutionaries and/or movements of armed resistance",42,32,32,False
+Real estate,homeless,14,20,14,False
+Real estate,real-estate owners,44,51,44,False
+Real estate,tenants,22,19,19,False
