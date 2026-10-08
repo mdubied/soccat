@@ -9,8 +9,10 @@ src/step_1/SOCCAT_mDeBERTa_replication.py.
 
 Sentences are sent to `claude -p` in batches (one CLI call per batch) to
 limit fixed per-call overhead. Results are written incrementally to a CSV, so
-a run can be interrupted and resumed: rows whose id already appears in the
-output file are skipped. If a batch's response is malformed, that batch is
+a run can be interrupted and resumed: rows already in the output file are
+skipped. Rows are identified by (id, text), not id alone: the test set reuses
+some ids for different sentences (2 ids for 7 sentences), which an id key
+would collapse into one prediction. If a batch's response is malformed, that batch is
 retried one sentence at a time so a single bad response doesn't cost the
 whole batch.
 
@@ -109,11 +111,16 @@ def select_rows(all_rows: list, limit: int, seed: int) -> list:
     return [all_rows[i] for i in order]
 
 
+def row_key(row: dict) -> tuple:
+    """Unique key of a test sentence (ids alone are not unique, see module docstring)."""
+    return (str(row["id"]), row["text"])
+
+
 def load_existing_predictions(output_path: Path) -> dict:
     if not output_path.exists():
         return {}
     with output_path.open("r", encoding="utf-8", newline="") as f:
-        return {row["id"]: row for row in csv.DictReader(f)}
+        return {row_key(row): row for row in csv.DictReader(f)}
 
 
 def build_batch_user_message(items: list) -> str:
@@ -138,10 +145,11 @@ def model_label(model: str, effort: str) -> str:
     return f"{model}-{effort}" if effort else model
 
 
-def classify_batch(rows: list, system_prompt_file: str, model: str, effort: str, timeout: int, claude_path: str, totals: UsageTotals) -> dict:
-    """rows: list of row dicts (each with "id" and "text"). Returns {id: bool}."""
+def classify_batch(rows: list, system_prompt_file: str, model: str, effort: str, timeout: int, claude_path: str, totals: UsageTotals) -> list:
+    """rows: list of row dicts (each with "id" and "text"). Returns one bool per
+    row, in the order of `rows` (positional, so duplicate ids cannot collide)."""
     items = [(r["id"], r["text"]) for r in rows]
-    local_to_real = {str(i): real_id for i, (real_id, _) in enumerate(items)}
+    local_ids = [str(i) for i in range(len(items))]
     message = build_batch_user_message(items)
     response = call_claude(message, system_prompt_file, BATCH_SCHEMA, model, timeout, claude_path, effort)
     totals.add(response)
@@ -150,10 +158,10 @@ def classify_batch(rows: list, system_prompt_file: str, model: str, effort: str,
     by_local_id = {str(r["id"]): r["has_social_category"] for r in results}
     if len(results) != len(by_local_id):
         raise RuntimeError("batch response contains duplicate ids")
-    missing = [i for i in local_to_real if i not in by_local_id]
+    missing = [i for i in local_ids if i not in by_local_id]
     if missing:
         raise RuntimeError(f"batch response missing ids: {missing}")
-    return {local_to_real[i]: pred for i, pred in by_local_id.items()}
+    return [by_local_id[i] for i in local_ids]
 
 
 def write_run_meta(path: Path, args, prompt_path: Path, n_available: int) -> None:
@@ -204,7 +212,7 @@ def main():
     write_run_meta(meta_path, args, prompt_path, len(all_rows))
 
     existing = load_existing_predictions(predictions_path)
-    todo = [r for r in sampled_rows if r["id"] not in existing]
+    todo = [r for r in sampled_rows if row_key(r) not in existing]
 
     output_fields = ["id", "text", "paper", "language", "true", "pred", "correct"]
 
@@ -213,7 +221,7 @@ def main():
             writer = csv.DictWriter(f, fieldnames=output_fields)
             writer.writeheader()
             for row in sampled_rows:
-                out_row = existing.get(row["id"])
+                out_row = existing.get(row_key(row))
                 if out_row is not None:
                     writer.writerow(out_row)
 
@@ -230,7 +238,7 @@ def main():
 
         def record(row, pred):
             true = row["has_group"]
-            existing[row["id"]] = {
+            existing[row_key(row)] = {
                 "id": row["id"],
                 "text": row["text"],
                 "paper": row.get("paper", ""),
@@ -242,7 +250,7 @@ def main():
 
         def record_error(row, error):
             tqdm.write(f"row {row['id']}: FAILED ({error})")
-            existing[row["id"]] = {
+            existing[row_key(row)] = {
                 "id": row["id"], "text": row["text"], "paper": row.get("paper", ""),
                 "language": row.get("language", ""), "true": row["has_group"],
                 "pred": "ERROR", "correct": "",
@@ -251,15 +259,15 @@ def main():
         batches = [todo[i : i + args.batch_size] for i in range(0, len(todo), args.batch_size)]
         for batch in tqdm(batches, desc="classifying", unit="batch"):
             try:
-                by_id = classify_batch(batch, system_prompt_file, args.model, args.effort, args.timeout, claude_path, totals)
-                for row in batch:
-                    record(row, by_id[row["id"]])
+                preds = classify_batch(batch, system_prompt_file, args.model, args.effort, args.timeout, claude_path, totals)
+                for row, pred in zip(batch, preds):
+                    record(row, pred)
             except Exception as e:
                 tqdm.write(f"batch of {len(batch)} FAILED ({e}) - retrying one sentence at a time")
                 for row in batch:
                     try:
-                        by_id = classify_batch([row], system_prompt_file, args.model, args.effort, args.timeout, claude_path, totals)
-                        record(row, by_id[row["id"]])
+                        [pred] = classify_batch([row], system_prompt_file, args.model, args.effort, args.timeout, claude_path, totals)
+                        record(row, pred)
                     except Exception as e2:
                         record_error(row, e2)
             persist()

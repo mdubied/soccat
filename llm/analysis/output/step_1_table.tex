@@ -1,19 +1,25 @@
 \begin{table}[htb]
 \centering
-\begin{tabular}{lllrrrrrr}
+\begin{threeparttable}
+\begin{tabular}{lllrrrrrrr}
 \toprule
-Model & Thinking & Prompt & Accuracy & Precision & Recall & F1 & Cost/1k (\$) & Rate/1k \\
+Model & Thinking & Prompt & Accuracy & Precision & Recall & F1 & Macro F1 & Cost/1k (\$) & Rate/1k \\
 \midrule
-Sonnet-5 & High & Medium & 0.91 & 0.91 & 0.91 & 0.91 & 1.85 & 13m 3s \\
-Sonnet-5 & Low & Long & 0.90 & 0.91 & 0.90 & 0.91 & 1.49 & 6m 59s \\
-Sonnet-5 & High & Long & 0.90 & 0.91 & 0.90 & 0.90 & 2.15 & 15m 27s \\
-Sonnet-5 & Low & Medium & 0.90 & 0.90 & 0.90 & 0.90 & 1.28 & 6m 39s \\
-Sonnet-5 & Low & Short & 0.86 & 0.86 & 0.86 & 0.86 & 1.42 & 6m 17s \\
-Sonnet-5 & High & Short & 0.86 & 0.86 & 0.86 & 0.86 & 1.86 & 12m 41s \\
+Sonnet-5 & High & Medium & 0.91 & 0.80 & 0.89 & 0.84 & 0.89 & 1.87 & 13m 7s \\
+Sonnet-5 & Low & Long & 0.90 & 0.80 & 0.87 & 0.83 & 0.88 & 1.53 & 7m 1s \\
+Sonnet-5 & High & Long & 0.90 & 0.79 & 0.88 & 0.83 & 0.88 & 2.18 & 15m 30s \\
+Sonnet-5 & Low & Medium & 0.90 & 0.79 & 0.87 & 0.83 & 0.88 & 1.30 & 6m 42s \\
+Sonnet-5 & Low & Short & 0.86 & 0.78 & 0.71 & 0.74 & 0.83 & 1.43 & 6m 22s \\
+Sonnet-5 & High & Short & 0.86 & 0.79 & 0.69 & 0.74 & 0.82 & 1.87 & 12m 44s \\
 \midrule
-SOCCAT & -- & -- & 0.90 & 0.90 & 0.90 & 0.90 & -- & -- \\
+SOCCAT & -- & -- & 0.90 & 0.77 & 0.89 & 0.83 & 0.88 & -- & -- \\
 \bottomrule
 \end{tabular}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item \textit{Note:} Precision, recall and F1 refer to the positive class (sentence mentions a social group); macro F1 averages the F1 scores of both classes. Held-out test set, N = 1,260 sentences.
+\end{tablenotes}
+\end{threeparttable}
 \caption{Step 1 classification performance across LLM runs and the SOCCAT mDeBERTa baseline.}
 \label{tab:llm-step1}
 \end{table}
