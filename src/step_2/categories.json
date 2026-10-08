@@ -1,7 +1,7 @@
 [
   {
     "name": "socio_economic_position",
-    "display_name": "Socio-Economic Position",
+    "display_name": "Socio-economic position",
     "data": "data/nli_dataset_socio_economic_position.csv",
     "hub_repo": "selsar/cv_socio_economic_position",
     "epochs": 3,
@@ -16,7 +16,7 @@
   },
   {
     "name": "labor_market_position",
-    "display_name": "Labor Market Position",
+    "display_name": "Labor market position",
     "data": "data/nli_dataset_labor_market_position.csv",
     "hub_repo": "selsar/cv_labor_market_position",
     "epochs": 4,
@@ -34,7 +34,7 @@
   },
   {
     "name": "age_and_family_status",
-    "display_name": "Age and Family Status",
+    "display_name": "Age and family status",
     "data": "data/nli_dataset_age_and_family_status.csv",
     "hub_repo": "selsar/cv_age_family_status",
     "epochs": 3,
@@ -50,7 +50,7 @@
   },
   {
     "name": "identities",
-    "display_name": "Gender, Sexuality, and Sociocultural Characteristics",
+    "display_name": "Gender, sexuality, and sociocultural characteristics",
     "data": "data/nli_dataset_identities.csv",
     "hub_repo": "selsar/cv_identities",
     "epochs": 4,
@@ -93,7 +93,7 @@
   },
   {
     "name": "social_roles_and_behavior",
-    "display_name": "Social Roles and Behavior",
+    "display_name": "Social roles and behavior",
     "data": "data/nli_dataset_social_roles_and_behavior.csv",
     "hub_repo": "selsar/cv_social_roles_and_behavior_wo_volunteers",
     "epochs": 4,
@@ -106,7 +106,7 @@
   },
   {
     "name": "social_deviance",
-    "display_name": "Social Deviance",
+    "display_name": "Social deviance",
     "data": "data/nli_dataset_social_deviance.csv",
     "hub_repo": "selsar/cv_social_deviance",
     "epochs": 4,
@@ -119,7 +119,7 @@
   },
   {
     "name": "real_estate_ownership",
-    "display_name": "Real Estate Ownership",
+    "display_name": "Real estate ownership",
     "data": "data/nli_dataset_real_estate_ownership.csv",
     "hub_repo": "selsar/cv_real_estate_ownership",
     "epochs": 4,

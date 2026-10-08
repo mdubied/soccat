@@ -113,9 +113,9 @@ MANUAL_LABEL_BREAKS = {
 
 # manual line breaks for broad-class headings too wide for the label column
 MANUAL_BROAD_CLASS_BREAKS = {
-    "Gender, Sexuality, and Sociocultural Characteristics": [
-        "Gender, Sexuality, and",
-        "Sociocultural Characteristics",
+    "Gender, sexuality, and sociocultural characteristics": [
+        "Gender, sexuality, and",
+        "sociocultural characteristics",
     ],
 }
 
