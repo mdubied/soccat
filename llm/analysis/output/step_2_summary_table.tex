@@ -1,19 +1,27 @@
 \begin{table}[htb]
 \centering
+\begin{threeparttable}
 \begin{tabular}{lllrrrrrr}
 \toprule
-Model & Thinking & Prompt & Accuracy & Precision & Recall & F1 & Cost/1k (\$) & Rate/1k \\
+Model & Thinking & Prompt & Precision & Recall & F1 & Macro F1 & Cost/1k (\$) & Rate/1k \\
 \midrule
-Sonnet-5 & High & Long & 0.94 & 0.72 & 0.66 & 0.64 & 3.71 & 28m 14s \\
-Sonnet-5 & Low & Long & 0.94 & 0.71 & 0.63 & 0.63 & 2.48 & 13m 40s \\
-Sonnet-5 & High & Medium & 0.93 & 0.71 & 0.63 & 0.63 & 3.35 & 25m 18s \\
-Sonnet-5 & Low & Short & 0.93 & 0.67 & 0.65 & 0.62 & 2.38 & 14m 32s \\
-Sonnet-5 & Low & Medium & 0.93 & 0.69 & 0.63 & 0.62 & 2.35 & 13m 7s \\
-Sonnet-5 & High & Short & 0.93 & 0.69 & 0.64 & 0.62 & 3.54 & 25m 57s \\
+Sonnet-5 & High & Long & 0.72 & 0.66 & 0.64 & 0.80 & 3.71 & 28m 14s \\
+Sonnet-5 & Low & Long & 0.71 & 0.63 & 0.63 & 0.80 & 2.48 & 13m 40s \\
+Sonnet-5 & High & Medium & 0.71 & 0.63 & 0.63 & 0.79 & 3.35 & 25m 18s \\
+Sonnet-5 & Low & Short & 0.67 & 0.65 & 0.62 & 0.79 & 2.38 & 14m 32s \\
+Sonnet-5 & Low & Medium & 0.69 & 0.63 & 0.62 & 0.79 & 2.35 & 13m 7s \\
+Sonnet-5 & High & Short & 0.69 & 0.64 & 0.62 & 0.79 & 3.54 & 25m 57s \\
 \midrule
-SOCCAT & -- & -- & -- & -- & -- & 0.82 & -- & -- \\
+SOCCAT & \multicolumn{2}{l}{Best fold} & 0.85 & 0.80 & 0.82 & 0.91 & -- & -- \\
+SOCCAT & \multicolumn{2}{l}{Mean} & 0.82 & 0.78 & 0.80 & 0.89 & -- & -- \\
+SOCCAT & \multicolumn{2}{l}{Median} & 0.82 & 0.79 & 0.80 & 0.89 & -- & -- \\
 \bottomrule
 \end{tabular}
-\caption{Overall performance comparison with LLMs for Step 2. The scores for specific categories are weighted by positive-case count to obtain these average performances.}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item \textit{Note:} Precision, recall and F1 refer to the positive class of each specific category; macro F1 averages the F1 scores of the positive and negative class. The scores for specific categories are weighted by positive-case count to obtain these average performances. SOCCAT: best cross-validation fold (released model), or mean / median across the 5 folds.
+\end{tablenotes}
+\end{threeparttable}
+\caption{Overall performance comparison with LLMs for Step 2.}
 \label{tab:llm-step2-summary}
 \end{table}

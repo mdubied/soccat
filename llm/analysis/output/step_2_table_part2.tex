@@ -1,55 +1,52 @@
 \begin{table}[htb]
 \centering
+\renewcommand{\arraystretch}{0.9}
 \scriptsize
 \begin{threeparttable}
-\begin{tabular}{>{\raggedright\arraybackslash}p{4.2cm} c c c c c c c}
+\begin{tabular}{l c c c c c c c c c}
 \toprule
-Model & \multicolumn{6}{c}{Sonnet-5} & SOCCAT \\
-\cmidrule(lr){2-7}
-Thinking & High & High & High & Low & Low & Low &  \\
-Prompt & Short & Medium & Long & Short & Medium & Long &  \\
+Model & \multicolumn{6}{c}{Sonnet-5} & \multicolumn{3}{c}{SOCCAT} \\
+\cmidrule(lr){2-7} \cmidrule(lr){8-10}
+Thinking & High & High & High & Low & Low & Low &  &  &  \\
+Prompt & Short & Medium & Long & Short & Medium & Long & best & mean & med \\
 \midrule
-\multicolumn{8}{l}{\textbf{Profession}} \\
-\leftskip=1em\relax Athletes & 0.75 & 0.74 & 0.74 & 0.72 & 0.73 & 0.75 & 0.83 \\
-\leftskip=1em\relax Authors and artists & 0.62 & 0.69 & 0.70 & 0.62 & 0.65 & 0.65 & 0.84 \\
-\leftskip=1em\relax Doctors & 0.73 & 0.76 & 0.80 & 0.79 & 0.83 & 0.79 & 0.93 \\
-\leftskip=1em\relax \textbf{Farmers and fishermen} & 0.73 & 0.80 & 0.78 & \textbf{0.90} & 0.86 & 0.82 & 0.90 \\
-\leftskip=1em\relax \textbf{Health and care professionals} & \textbf{0.70} & \textbf{0.64} & \textbf{0.61} & \textbf{0.70} & \textbf{0.74} & \textbf{0.64} & 0.50 \\
-\leftskip=1em\relax Journalists & 0.40 & 0.44 & 0.43 & 0.46 & 0.50 & 0.50 & 0.88 \\
-\leftskip=1em\relax Legal professionals & 0.54 & 0.52 & 0.58 & 0.48 & 0.46 & 0.46 & 0.60 \\
-\leftskip=1em\relax Politicians and high-ranking officials & 0.78 & 0.77 & 0.81 & 0.79 & 0.78 & 0.79 & 0.91 \\
-\leftskip=1em\relax Sex workers & 0.80 & 0.86 & 0.80 & 0.80 & 0.86 & 0.67 & 0.89 \\
-\leftskip=1em\relax Scientists and professors & 0.61 & 0.62 & 0.64 & 0.63 & 0.63 & 0.63 & 0.77 \\
-\leftskip=1em\relax Security forces & 0.63 & 0.61 & 0.68 & 0.60 & 0.62 & 0.63 & 0.87 \\
-\leftskip=1em\relax \textbf{Soldiers} & \textbf{0.74} & \textbf{0.74} & \textbf{0.76} & \textbf{0.71} & \textbf{0.78} & \textbf{0.74} & 0.71 \\
-\leftskip=1em\relax Teachers and educators & 0.46 & 0.43 & 0.31 & 0.40 & 0.46 & 0.43 & 0.72 \\
-\leftskip=1em\relax Other professions & 0.43 & 0.44 & 0.48 & 0.42 & 0.46 & 0.47 & 0.56 \\
-\addlinespace
-\multicolumn{8}{l}{\textbf{Social roles and behavior}} \\
-\leftskip=1em\relax Consumers and clients & 0.66 & 0.68 & 0.69 & 0.61 & 0.58 & 0.59 & 0.85 \\
-\leftskip=1em\relax \textbf{Car drivers} & 0.70 & 0.54 & \textbf{0.76} & 0.58 & 0.61 & 0.60 & 0.75 \\
-\leftskip=1em\relax Patients & 0.76 & 0.77 & 0.79 & 0.80 & 0.72 & 0.75 & 0.89 \\
-\addlinespace
-\multicolumn{8}{l}{\textbf{Social deviance}} \\
-\leftskip=1em\relax \textbf{Extremists} & \textbf{0.74} & 0.58 & \textbf{0.64} & \textbf{0.73} & \textbf{0.64} & \textbf{0.64} & 0.63 \\
-\leftskip=1em\relax \textbf{Terrorists, rebels, revolutionaries and/or movements of armed resistance} & \textbf{0.74} & \textbf{0.69} & \textbf{0.73} & \textbf{0.71} & \textbf{0.67} & \textbf{0.68} & 0.67 \\
-\leftskip=1em\relax Offenders, criminals, prisoners and/or accused people & 0.53 & 0.51 & 0.50 & 0.59 & 0.53 & 0.50 & 0.70 \\
-\leftskip=1em\relax \textbf{Drug addicts} & \textbf{0.91} & \textbf{1.00} & \textbf{0.91} & \textbf{1.00} & 0.77 & \textbf{1.00} & 0.89 \\
-\addlinespace
-\multicolumn{8}{l}{\textbf{Real estate ownership}} \\
-\leftskip=1em\relax \textbf{Real-estate owners} & 0.90 & \textbf{0.95} & \textbf{0.94} & 0.92 & 0.92 & 0.90 & 0.92 \\
-\leftskip=1em\relax Tenants & 1.00 & 0.93 & 0.93 & 1.00 & 0.93 & 0.93 & 1.00 \\
-\leftskip=1em\relax Homeless & 0.93 & 0.82 & 0.80 & 0.93 & 0.82 & 0.86 & 1.00 \\
-\addlinespace
-\multicolumn{8}{l}{\textbf{Others}} \\
-\leftskip=1em\relax Others & 0.37 & 0.41 & 0.39 & 0.41 & 0.43 & 0.42 & -- \\
+\rule{0pt}{5pt} &  &  &  &  &  &  &  &  &  \\
+\shortstack[l]{\textbf{Profession}\\[3pt]Athletes} & 0.75 & 0.74 & 0.74 & 0.72 & 0.73 & 0.75 & 0.83 & 0.81 & 0.79 \\
+Authors and artists & 0.62 & 0.69 & 0.70 & 0.62 & 0.65 & 0.65 & 0.84 & 0.76 & 0.75 \\
+Doctors & 0.73 & 0.76 & 0.80 & 0.79 & 0.83 & 0.79 & 0.93 & 0.88 & 0.86 \\
+\textit{Farmers and fishermen} & 0.73 & 0.80 & 0.78 & \textit{0.90} & 0.86 & 0.82 & 0.90 & 0.86 & 0.87 \\
+\shortstack[l]{\textit{Health and care}\\[-3pt]\textit{professionals}} & \textit{0.70} & \textit{0.64} & \textit{0.61} & \textit{0.70} & \textit{0.74} & \textit{0.64} & 0.50 & 0.57 & 0.55 \\
+Journalists & 0.40 & 0.44 & 0.43 & 0.46 & 0.50 & 0.50 & 0.88 & 0.84 & 0.88 \\
+Legal professionals & 0.54 & 0.52 & 0.58 & 0.48 & 0.46 & 0.46 & 0.60 & 0.73 & 0.73 \\
+\shortstack[l]{Politicians and\\[-3pt]high-ranking officials} & 0.78 & 0.77 & 0.81 & 0.79 & 0.78 & 0.79 & 0.91 & 0.91 & 0.91 \\
+Sex workers & 0.80 & 0.86 & 0.80 & 0.80 & 0.86 & 0.67 & 0.89 & 0.88 & 0.89 \\
+\shortstack[l]{Scientists and\\[-3pt]professors} & 0.61 & 0.62 & 0.64 & 0.63 & 0.63 & 0.63 & 0.77 & 0.76 & 0.77 \\
+Security forces & 0.63 & 0.61 & 0.68 & 0.60 & 0.62 & 0.63 & 0.87 & 0.81 & 0.82 \\
+\textit{Soldiers} & \textit{0.74} & 0.74 & \textit{0.76} & 0.71 & \textit{0.78} & 0.74 & 0.71 & 0.74 & 0.75 \\
+Teachers and educators & 0.46 & 0.43 & 0.31 & 0.40 & 0.46 & 0.43 & 0.72 & 0.75 & 0.76 \\
+Other professions & 0.43 & 0.44 & 0.48 & 0.42 & 0.46 & 0.47 & 0.56 & 0.57 & 0.59 \\
+\rule{0pt}{5pt} &  &  &  &  &  &  &  &  &  \\
+\shortstack[l]{\textbf{Social roles and behavior}\\[3pt]Consumers and clients} & 0.66 & 0.68 & 0.69 & 0.61 & 0.58 & 0.59 & 0.85 & 0.82 & 0.82 \\
+\textit{Car drivers} & \textit{0.70} & 0.54 & \textit{0.76} & \textit{0.58} & \textit{0.61} & \textit{0.60} & 0.75 & 0.54 & 0.60 \\
+Patients & 0.76 & 0.77 & 0.79 & 0.80 & 0.72 & 0.75 & 0.89 & 0.81 & 0.85 \\
+\rule{0pt}{5pt} &  &  &  &  &  &  &  &  &  \\
+\shortstack[l]{\textbf{Social deviance}\\[3pt]\textit{Extremists}} & \textit{0.74} & 0.58 & \textit{0.64} & \textit{0.73} & \textit{0.64} & \textit{0.64} & 0.63 & 0.61 & 0.63 \\
+\shortstack[l]{\textit{Terrorists, rebels,}\\[-3pt]\textit{revolutionaries and/or}\\[-3pt]\textit{movements of armed resistance}} & \textit{0.74} & \textit{0.69} & \textit{0.73} & \textit{0.71} & \textit{0.67} & \textit{0.68} & 0.67 & 0.61 & 0.67 \\
+\shortstack[l]{Offenders, criminals, prisoners\\[-3pt]and/or accused people} & 0.53 & 0.51 & 0.50 & 0.59 & 0.53 & 0.50 & 0.70 & 0.61 & 0.58 \\
+\textit{Drug addicts} & \textit{0.91} & \textit{1.00} & \textit{0.91} & \textit{1.00} & 0.77 & \textit{1.00} & 0.89 & 0.87 & 0.89 \\
+\rule{0pt}{5pt} &  &  &  &  &  &  &  &  &  \\
+\shortstack[l]{\textbf{Real estate ownership}\\[3pt]\textit{Real-estate owners}} & \textit{0.90} & \textit{0.95} & \textit{0.94} & \textit{0.92} & \textit{0.92} & \textit{0.90} & 0.92 & 0.86 & 0.86 \\
+\textit{Tenants} & \textit{1.00} & \textit{0.93} & \textit{0.93} & \textit{1.00} & \textit{0.93} & \textit{0.93} & 1.00 & 0.88 & 0.89 \\
+\textit{Homeless} & \textit{0.93} & 0.82 & 0.80 & \textit{0.93} & 0.82 & \textit{0.86} & 1.00 & 0.86 & 0.91 \\
+\rule{0pt}{5pt} &  &  &  &  &  &  &  &  &  \\
+\shortstack[l]{\textbf{Others}\\[3pt]Others} & 0.37 & 0.41 & 0.39 & 0.41 & 0.43 & 0.42 & -- & -- & -- \\
 \bottomrule
 \end{tabular}
 \begin{tablenotes}[flushleft]
 \footnotesize
-\item \textit{Note:} Specific categories are grouped under their broad class (unindented heading). Bold font is used for a category when at least one LLM run beats SOCCAT, and it shows the beating F1 values.
+\item \textit{Note:} Specific group labels are listed under the name of their broad class. Scores are positive-class F1. SOCCAT: best cross-validation fold (best, released model), or mean / median (med) across the 5 folds. Italics are used for a label when at least one LLM run beats SOCCAT's mean F1, and it shows the beating F1 values.
 \end{tablenotes}
 \end{threeparttable}
-\caption{Performance comparison with LLMs for Step 2, detailed F1 score by specific categories. Part 2/2.}
+\caption{Performance comparison with LLMs for Step 2, detailed F1 score by specific group labels. Part 2/2.}
 \label{tab:llm-step2-2}
 \end{table}
