@@ -1,10 +1,10 @@
 Step 2 LLM classification report -- all runs
 ============================================================
-Generated:  2026-10-07T20:25:54
+Generated:  2026-10-07T21:20:58
 Runs found: 6  (in llm\classification\output\step_2)
 
 SOCCAT baseline for reference (data\model_performance\step_2/*/fold_*_per_label.csv, best fold selected by n_pos-weighted macro F1):
-  F1=0.817  (weighted avg across 8 broad categories' best CV fold, weighted by positive-case count)
+  F1=0.820  (weighted avg across 8 broad categories' best CV fold, weighted by positive-case count)
 
 Summary (all runs)
 ============================================================
@@ -22,7 +22,7 @@ Broad category F1 by model (weighted avg of specific-label F1s, weighted by posi
 Broad category                                          SOCCAT sonnet-5-high/long sonnet-5-low/long sonnet-5-high/medium sonnet-5-low/short sonnet-5-low/medium sonnet-5-high/short
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Socio-economic position                                  0.772              0.601             0.596                0.609              0.626               0.605               0.617
-Labor market position                                    0.791              0.654             0.623                0.581              0.563               0.567               0.595
+Labor market position                                    0.804              0.654             0.623                0.581              0.563               0.567               0.595
 Age and family status                                    0.819              0.769             0.751                0.770              0.762               0.747               0.783
 Gender, sexuality, and sociocultural characteristics     0.835              0.726             0.705                0.710              0.700               0.701               0.695
 Profession                                               0.829              0.726             0.711                0.700              0.701               0.709               0.698
@@ -43,15 +43,15 @@ Socio-economic position
   unskilled or unqualified                                                         3     0.889              1.000             0.800                0.857              0.571               0.800               0.800
   skilled or qualified                                                             7     0.833              0.118             0.000                0.125              0.143               0.143               0.143
 Labor market position                                                     
-  wage and salary earners                                                         97     0.817              0.723             0.713                0.714              0.586               0.691               0.624
-  civil servants                                                                   6     0.778              0.500             0.462                0.387              0.353               0.385               0.353
-  CEOs and corporate leaders                                                      18     0.643              0.400             0.182                0.478              0.478               0.500               0.468
-  employers                                                                       15     0.720              0.778             0.848                0.812              0.788               0.812               0.848
-  entrepreneurs                                                                  151     0.800              0.609             0.571                0.457              0.504               0.451               0.547
-  self-employed and freelancers                                                    6     0.667              0.667             0.769                0.625              0.625               0.588               0.667
-  unemployed                                                                      12     0.857              0.696             0.640                0.667              0.615               0.615               0.640
-  retirees                                                                         9     0.600              0.824             0.824                0.800              0.875               0.706               0.750
-  housewives and househusbands                                                     6     0.889              0.923             0.923                0.923              0.923               0.923               0.923
+  wage and salary earners                                                         97     0.814              0.723             0.713                0.714              0.586               0.691               0.624
+  civil servants                                                                   6     0.750              0.500             0.462                0.387              0.353               0.385               0.353
+  CEOs and corporate leaders                                                      18     0.727              0.400             0.182                0.478              0.478               0.500               0.468
+  employers                                                                       15     0.846              0.778             0.848                0.812              0.788               0.812               0.848
+  entrepreneurs                                                                  151     0.819              0.609             0.571                0.457              0.504               0.451               0.547
+  self-employed and freelancers                                                    6     0.400              0.667             0.769                0.625              0.625               0.588               0.667
+  unemployed                                                                      12     0.824              0.696             0.640                0.667              0.615               0.615               0.640
+  retirees                                                                         9     0.500              0.824             0.824                0.800              0.875               0.706               0.750
+  housewives and househusbands                                                     6     1.000              0.923             0.923                0.923              0.923               0.923               0.923
 Age and family status                                                     
   parents and families                                                            39     0.800              0.727             0.710                0.719              0.714               0.682               0.727
   minors, including children and pupils                                           71     0.846              0.769             0.748                0.739              0.755               0.718               0.768
@@ -113,10 +113,9 @@ Socio-economic position
   upper class                                                                      8     0.308              0.296            0.370*                0.308             0.400*              0.364*               0.308
   unskilled or unqualified                                                         3     0.889             1.000*             0.800                0.857              0.571               0.800               0.800
 Labor market position                                                     
-  employers                                                                       15     0.720             0.778*            0.848*               0.812*             0.788*              0.812*              0.848*
-  self-employed and freelancers                                                    6     0.667             0.667*            0.769*                0.625              0.625               0.588              0.667*
-  retirees                                                                         9     0.600             0.824*            0.824*               0.800*             0.875*              0.706*              0.750*
-  housewives and househusbands                                                     6     0.889             0.923*            0.923*               0.923*             0.923*              0.923*              0.923*
+  employers                                                                       15     0.846              0.778            0.848*                0.812              0.788               0.812              0.848*
+  self-employed and freelancers                                                    6     0.400             0.667*            0.769*               0.625*             0.625*              0.588*              0.667*
+  retirees                                                                         9     0.500             0.824*            0.824*               0.800*             0.875*              0.706*              0.750*
 Age and family status                                                     
   youth, including students and apprentices                                       70     0.815             0.820*             0.779               0.831*              0.803               0.792              0.846*
   middle-aged and pre-retirement age groups                                        5     0.667             0.750*             0.667               0.750*              0.571              0.750*               0.600
@@ -166,16 +165,16 @@ Socio-economic position                         N_pos=  70  Accuracy=0.991  Prec
   skilled or qualified                          N_pos=   7  Accuracy=0.992  Precision=0.100  Recall=0.143  F1=0.118  |  SOCCAT F1=0.833
 
 Labor market position                           N_pos= 320  Accuracy=0.968  Precision=0.758  Recall=0.600  F1=0.654
-  SOCCAT baseline: F1=0.791  (best CV fold, weighted across its labels)
-  wage and salary earners                       N_pos=  97  Accuracy=0.975  Precision=0.800  Recall=0.660  F1=0.723  |  SOCCAT F1=0.817
-  civil servants                                N_pos=   6  Accuracy=0.994  Precision=0.333  Recall=1.000  F1=0.500  |  SOCCAT F1=0.778
-  CEOs and corporate leaders                    N_pos=  18  Accuracy=0.988  Precision=0.364  Recall=0.444  F1=0.400  |  SOCCAT F1=0.643
-  employers                                     N_pos=  15  Accuracy=0.996  Precision=0.667  Recall=0.933  F1=0.778  |  SOCCAT F1=0.720
-  entrepreneurs                                 N_pos= 151  Accuracy=0.951  Precision=0.804  Recall=0.490  F1=0.609  |  SOCCAT F1=0.800
-  self-employed and freelancers                 N_pos=   6  Accuracy=0.997  Precision=0.556  Recall=0.833  F1=0.667  |  SOCCAT F1=0.667
-  unemployed                                    N_pos=  12  Accuracy=0.996  Precision=0.727  Recall=0.667  F1=0.696  |  SOCCAT F1=0.857
-  retirees                                      N_pos=   9  Accuracy=0.998  Precision=0.875  Recall=0.778  F1=0.824  |  SOCCAT F1=0.600
-  housewives and househusbands                  N_pos=   6  Accuracy=0.999  Precision=0.857  Recall=1.000  F1=0.923  |  SOCCAT F1=0.889
+  SOCCAT baseline: F1=0.804  (best CV fold, weighted across its labels)
+  wage and salary earners                       N_pos=  97  Accuracy=0.975  Precision=0.800  Recall=0.660  F1=0.723  |  SOCCAT F1=0.814
+  civil servants                                N_pos=   6  Accuracy=0.994  Precision=0.333  Recall=1.000  F1=0.500  |  SOCCAT F1=0.750
+  CEOs and corporate leaders                    N_pos=  18  Accuracy=0.988  Precision=0.364  Recall=0.444  F1=0.400  |  SOCCAT F1=0.727
+  employers                                     N_pos=  15  Accuracy=0.996  Precision=0.667  Recall=0.933  F1=0.778  |  SOCCAT F1=0.846
+  entrepreneurs                                 N_pos= 151  Accuracy=0.951  Precision=0.804  Recall=0.490  F1=0.609  |  SOCCAT F1=0.819
+  self-employed and freelancers                 N_pos=   6  Accuracy=0.997  Precision=0.556  Recall=0.833  F1=0.667  |  SOCCAT F1=0.400
+  unemployed                                    N_pos=  12  Accuracy=0.996  Precision=0.727  Recall=0.667  F1=0.696  |  SOCCAT F1=0.824
+  retirees                                      N_pos=   9  Accuracy=0.998  Precision=0.875  Recall=0.778  F1=0.824  |  SOCCAT F1=0.500
+  housewives and househusbands                  N_pos=   6  Accuracy=0.999  Precision=0.857  Recall=1.000  F1=0.923  |  SOCCAT F1=1.000
 
 Age and family status                           N_pos= 214  Accuracy=0.987  Precision=0.725  Recall=0.836  F1=0.769
   SOCCAT baseline: F1=0.819  (best CV fold, weighted across its labels)
@@ -272,16 +271,16 @@ Socio-economic position                         N_pos=  70  Accuracy=0.992  Prec
   skilled or qualified                          N_pos=   7  Accuracy=0.993  Precision=0.111  Recall=0.143  F1=0.125  |  SOCCAT F1=0.833
 
 Labor market position                           N_pos= 320  Accuracy=0.962  Precision=0.744  Recall=0.516  F1=0.581
-  SOCCAT baseline: F1=0.791  (best CV fold, weighted across its labels)
-  wage and salary earners                       N_pos=  97  Accuracy=0.975  Precision=0.845  Recall=0.619  F1=0.714  |  SOCCAT F1=0.817
-  civil servants                                N_pos=   6  Accuracy=0.990  Precision=0.240  Recall=1.000  F1=0.387  |  SOCCAT F1=0.778
-  CEOs and corporate leaders                    N_pos=  18  Accuracy=0.988  Precision=0.393  Recall=0.611  F1=0.478  |  SOCCAT F1=0.643
-  employers                                     N_pos=  15  Accuracy=0.997  Precision=0.765  Recall=0.867  F1=0.812  |  SOCCAT F1=0.720
-  entrepreneurs                                 N_pos= 151  Accuracy=0.938  Precision=0.735  Recall=0.331  F1=0.457  |  SOCCAT F1=0.800
-  self-employed and freelancers                 N_pos=   6  Accuracy=0.997  Precision=0.500  Recall=0.833  F1=0.625  |  SOCCAT F1=0.667
-  unemployed                                    N_pos=  12  Accuracy=0.996  Precision=0.667  Recall=0.667  F1=0.667  |  SOCCAT F1=0.857
-  retirees                                      N_pos=   9  Accuracy=0.998  Precision=1.000  Recall=0.667  F1=0.800  |  SOCCAT F1=0.600
-  housewives and househusbands                  N_pos=   6  Accuracy=0.999  Precision=0.857  Recall=1.000  F1=0.923  |  SOCCAT F1=0.889
+  SOCCAT baseline: F1=0.804  (best CV fold, weighted across its labels)
+  wage and salary earners                       N_pos=  97  Accuracy=0.975  Precision=0.845  Recall=0.619  F1=0.714  |  SOCCAT F1=0.814
+  civil servants                                N_pos=   6  Accuracy=0.990  Precision=0.240  Recall=1.000  F1=0.387  |  SOCCAT F1=0.750
+  CEOs and corporate leaders                    N_pos=  18  Accuracy=0.988  Precision=0.393  Recall=0.611  F1=0.478  |  SOCCAT F1=0.727
+  employers                                     N_pos=  15  Accuracy=0.997  Precision=0.765  Recall=0.867  F1=0.812  |  SOCCAT F1=0.846
+  entrepreneurs                                 N_pos= 151  Accuracy=0.938  Precision=0.735  Recall=0.331  F1=0.457  |  SOCCAT F1=0.819
+  self-employed and freelancers                 N_pos=   6  Accuracy=0.997  Precision=0.500  Recall=0.833  F1=0.625  |  SOCCAT F1=0.400
+  unemployed                                    N_pos=  12  Accuracy=0.996  Precision=0.667  Recall=0.667  F1=0.667  |  SOCCAT F1=0.824
+  retirees                                      N_pos=   9  Accuracy=0.998  Precision=1.000  Recall=0.667  F1=0.800  |  SOCCAT F1=0.500
+  housewives and househusbands                  N_pos=   6  Accuracy=0.999  Precision=0.857  Recall=1.000  F1=0.923  |  SOCCAT F1=1.000
 
 Age and family status                           N_pos= 214  Accuracy=0.987  Precision=0.736  Recall=0.822  F1=0.770
   SOCCAT baseline: F1=0.819  (best CV fold, weighted across its labels)
@@ -378,16 +377,16 @@ Socio-economic position                         N_pos=  70  Accuracy=0.992  Prec
   skilled or qualified                          N_pos=   7  Accuracy=0.994  Precision=0.143  Recall=0.143  F1=0.143  |  SOCCAT F1=0.833
 
 Labor market position                           N_pos= 320  Accuracy=0.963  Precision=0.747  Recall=0.528  F1=0.595
-  SOCCAT baseline: F1=0.791  (best CV fold, weighted across its labels)
-  wage and salary earners                       N_pos=  97  Accuracy=0.969  Precision=0.817  Recall=0.505  F1=0.624  |  SOCCAT F1=0.817
-  civil servants                                N_pos=   6  Accuracy=0.989  Precision=0.214  Recall=1.000  F1=0.353  |  SOCCAT F1=0.778
-  CEOs and corporate leaders                    N_pos=  18  Accuracy=0.987  Precision=0.379  Recall=0.611  F1=0.468  |  SOCCAT F1=0.643
-  employers                                     N_pos=  15  Accuracy=0.997  Precision=0.778  Recall=0.933  F1=0.848  |  SOCCAT F1=0.720
-  entrepreneurs                                 N_pos= 151  Accuracy=0.945  Precision=0.771  Recall=0.424  F1=0.547  |  SOCCAT F1=0.800
-  self-employed and freelancers                 N_pos=   6  Accuracy=0.997  Precision=0.556  Recall=0.833  F1=0.667  |  SOCCAT F1=0.667
-  unemployed                                    N_pos=  12  Accuracy=0.995  Precision=0.615  Recall=0.667  F1=0.640  |  SOCCAT F1=0.857
-  retirees                                      N_pos=   9  Accuracy=0.998  Precision=0.857  Recall=0.667  F1=0.750  |  SOCCAT F1=0.600
-  housewives and househusbands                  N_pos=   6  Accuracy=0.999  Precision=0.857  Recall=1.000  F1=0.923  |  SOCCAT F1=0.889
+  SOCCAT baseline: F1=0.804  (best CV fold, weighted across its labels)
+  wage and salary earners                       N_pos=  97  Accuracy=0.969  Precision=0.817  Recall=0.505  F1=0.624  |  SOCCAT F1=0.814
+  civil servants                                N_pos=   6  Accuracy=0.989  Precision=0.214  Recall=1.000  F1=0.353  |  SOCCAT F1=0.750
+  CEOs and corporate leaders                    N_pos=  18  Accuracy=0.987  Precision=0.379  Recall=0.611  F1=0.468  |  SOCCAT F1=0.727
+  employers                                     N_pos=  15  Accuracy=0.997  Precision=0.778  Recall=0.933  F1=0.848  |  SOCCAT F1=0.846
+  entrepreneurs                                 N_pos= 151  Accuracy=0.945  Precision=0.771  Recall=0.424  F1=0.547  |  SOCCAT F1=0.819
+  self-employed and freelancers                 N_pos=   6  Accuracy=0.997  Precision=0.556  Recall=0.833  F1=0.667  |  SOCCAT F1=0.400
+  unemployed                                    N_pos=  12  Accuracy=0.995  Precision=0.615  Recall=0.667  F1=0.640  |  SOCCAT F1=0.824
+  retirees                                      N_pos=   9  Accuracy=0.998  Precision=0.857  Recall=0.667  F1=0.750  |  SOCCAT F1=0.500
+  housewives and househusbands                  N_pos=   6  Accuracy=0.999  Precision=0.857  Recall=1.000  F1=0.923  |  SOCCAT F1=1.000
 
 Age and family status                           N_pos= 214  Accuracy=0.988  Precision=0.754  Recall=0.822  F1=0.783
   SOCCAT baseline: F1=0.819  (best CV fold, weighted across its labels)
@@ -484,16 +483,16 @@ Socio-economic position                         N_pos=  70  Accuracy=0.992  Prec
   skilled or qualified                          N_pos=   7  Accuracy=0.994  Precision=0.000  Recall=0.000  F1=0.000  |  SOCCAT F1=0.833
 
 Labor market position                           N_pos= 320  Accuracy=0.967  Precision=0.764  Recall=0.553  F1=0.623
-  SOCCAT baseline: F1=0.791  (best CV fold, weighted across its labels)
-  wage and salary earners                       N_pos=  97  Accuracy=0.974  Precision=0.805  Recall=0.639  F1=0.713  |  SOCCAT F1=0.817
-  civil servants                                N_pos=   6  Accuracy=0.993  Precision=0.300  Recall=1.000  F1=0.462  |  SOCCAT F1=0.778
-  CEOs and corporate leaders                    N_pos=  18  Accuracy=0.986  Precision=0.200  Recall=0.167  F1=0.182  |  SOCCAT F1=0.643
-  employers                                     N_pos=  15  Accuracy=0.997  Precision=0.778  Recall=0.933  F1=0.848  |  SOCCAT F1=0.720
-  entrepreneurs                                 N_pos= 151  Accuracy=0.949  Precision=0.825  Recall=0.437  F1=0.571  |  SOCCAT F1=0.800
-  self-employed and freelancers                 N_pos=   6  Accuracy=0.998  Precision=0.714  Recall=0.833  F1=0.769  |  SOCCAT F1=0.667
-  unemployed                                    N_pos=  12  Accuracy=0.995  Precision=0.615  Recall=0.667  F1=0.640  |  SOCCAT F1=0.857
-  retirees                                      N_pos=   9  Accuracy=0.998  Precision=0.875  Recall=0.778  F1=0.824  |  SOCCAT F1=0.600
-  housewives and househusbands                  N_pos=   6  Accuracy=0.999  Precision=0.857  Recall=1.000  F1=0.923  |  SOCCAT F1=0.889
+  SOCCAT baseline: F1=0.804  (best CV fold, weighted across its labels)
+  wage and salary earners                       N_pos=  97  Accuracy=0.974  Precision=0.805  Recall=0.639  F1=0.713  |  SOCCAT F1=0.814
+  civil servants                                N_pos=   6  Accuracy=0.993  Precision=0.300  Recall=1.000  F1=0.462  |  SOCCAT F1=0.750
+  CEOs and corporate leaders                    N_pos=  18  Accuracy=0.986  Precision=0.200  Recall=0.167  F1=0.182  |  SOCCAT F1=0.727
+  employers                                     N_pos=  15  Accuracy=0.997  Precision=0.778  Recall=0.933  F1=0.848  |  SOCCAT F1=0.846
+  entrepreneurs                                 N_pos= 151  Accuracy=0.949  Precision=0.825  Recall=0.437  F1=0.571  |  SOCCAT F1=0.819
+  self-employed and freelancers                 N_pos=   6  Accuracy=0.998  Precision=0.714  Recall=0.833  F1=0.769  |  SOCCAT F1=0.400
+  unemployed                                    N_pos=  12  Accuracy=0.995  Precision=0.615  Recall=0.667  F1=0.640  |  SOCCAT F1=0.824
+  retirees                                      N_pos=   9  Accuracy=0.998  Precision=0.875  Recall=0.778  F1=0.824  |  SOCCAT F1=0.500
+  housewives and househusbands                  N_pos=   6  Accuracy=0.999  Precision=0.857  Recall=1.000  F1=0.923  |  SOCCAT F1=1.000
 
 Age and family status                           N_pos= 214  Accuracy=0.985  Precision=0.716  Recall=0.804  F1=0.751
   SOCCAT baseline: F1=0.819  (best CV fold, weighted across its labels)
@@ -590,16 +589,16 @@ Socio-economic position                         N_pos=  70  Accuracy=0.992  Prec
   skilled or qualified                          N_pos=   7  Accuracy=0.994  Precision=0.143  Recall=0.143  F1=0.143  |  SOCCAT F1=0.833
 
 Labor market position                           N_pos= 320  Accuracy=0.962  Precision=0.753  Recall=0.494  F1=0.567
-  SOCCAT baseline: F1=0.791  (best CV fold, weighted across its labels)
-  wage and salary earners                       N_pos=  97  Accuracy=0.974  Precision=0.838  Recall=0.588  F1=0.691  |  SOCCAT F1=0.817
-  civil servants                                N_pos=   6  Accuracy=0.992  Precision=0.250  Recall=0.833  F1=0.385  |  SOCCAT F1=0.778
-  CEOs and corporate leaders                    N_pos=  18  Accuracy=0.990  Precision=0.455  Recall=0.556  F1=0.500  |  SOCCAT F1=0.643
-  employers                                     N_pos=  15  Accuracy=0.997  Precision=0.765  Recall=0.867  F1=0.812  |  SOCCAT F1=0.720
-  entrepreneurs                                 N_pos= 151  Accuracy=0.939  Precision=0.774  Recall=0.318  F1=0.451  |  SOCCAT F1=0.800
-  self-employed and freelancers                 N_pos=   6  Accuracy=0.996  Precision=0.455  Recall=0.833  F1=0.588  |  SOCCAT F1=0.667
-  unemployed                                    N_pos=  12  Accuracy=0.995  Precision=0.571  Recall=0.667  F1=0.615  |  SOCCAT F1=0.857
-  retirees                                      N_pos=   9  Accuracy=0.997  Precision=0.750  Recall=0.667  F1=0.706  |  SOCCAT F1=0.600
-  housewives and househusbands                  N_pos=   6  Accuracy=0.999  Precision=0.857  Recall=1.000  F1=0.923  |  SOCCAT F1=0.889
+  SOCCAT baseline: F1=0.804  (best CV fold, weighted across its labels)
+  wage and salary earners                       N_pos=  97  Accuracy=0.974  Precision=0.838  Recall=0.588  F1=0.691  |  SOCCAT F1=0.814
+  civil servants                                N_pos=   6  Accuracy=0.992  Precision=0.250  Recall=0.833  F1=0.385  |  SOCCAT F1=0.750
+  CEOs and corporate leaders                    N_pos=  18  Accuracy=0.990  Precision=0.455  Recall=0.556  F1=0.500  |  SOCCAT F1=0.727
+  employers                                     N_pos=  15  Accuracy=0.997  Precision=0.765  Recall=0.867  F1=0.812  |  SOCCAT F1=0.846
+  entrepreneurs                                 N_pos= 151  Accuracy=0.939  Precision=0.774  Recall=0.318  F1=0.451  |  SOCCAT F1=0.819
+  self-employed and freelancers                 N_pos=   6  Accuracy=0.996  Precision=0.455  Recall=0.833  F1=0.588  |  SOCCAT F1=0.400
+  unemployed                                    N_pos=  12  Accuracy=0.995  Precision=0.571  Recall=0.667  F1=0.615  |  SOCCAT F1=0.824
+  retirees                                      N_pos=   9  Accuracy=0.997  Precision=0.750  Recall=0.667  F1=0.706  |  SOCCAT F1=0.500
+  housewives and househusbands                  N_pos=   6  Accuracy=0.999  Precision=0.857  Recall=1.000  F1=0.923  |  SOCCAT F1=1.000
 
 Age and family status                           N_pos= 214  Accuracy=0.985  Precision=0.717  Recall=0.790  F1=0.747
   SOCCAT baseline: F1=0.819  (best CV fold, weighted across its labels)
@@ -696,16 +695,16 @@ Socio-economic position                         N_pos=  70  Accuracy=0.993  Prec
   skilled or qualified                          N_pos=   7  Accuracy=0.994  Precision=0.143  Recall=0.143  F1=0.143  |  SOCCAT F1=0.833
 
 Labor market position                           N_pos= 320  Accuracy=0.961  Precision=0.726  Recall=0.497  F1=0.563
-  SOCCAT baseline: F1=0.791  (best CV fold, weighted across its labels)
-  wage and salary earners                       N_pos=  97  Accuracy=0.966  Precision=0.767  Recall=0.474  F1=0.586  |  SOCCAT F1=0.817
-  civil servants                                N_pos=   6  Accuracy=0.989  Precision=0.214  Recall=1.000  F1=0.353  |  SOCCAT F1=0.778
-  CEOs and corporate leaders                    N_pos=  18  Accuracy=0.988  Precision=0.393  Recall=0.611  F1=0.478  |  SOCCAT F1=0.643
-  employers                                     N_pos=  15  Accuracy=0.996  Precision=0.722  Recall=0.867  F1=0.788  |  SOCCAT F1=0.720
-  entrepreneurs                                 N_pos= 151  Accuracy=0.942  Precision=0.760  Recall=0.377  F1=0.504  |  SOCCAT F1=0.800
-  self-employed and freelancers                 N_pos=   6  Accuracy=0.997  Precision=0.500  Recall=0.833  F1=0.625  |  SOCCAT F1=0.667
-  unemployed                                    N_pos=  12  Accuracy=0.995  Precision=0.571  Recall=0.667  F1=0.615  |  SOCCAT F1=0.857
-  retirees                                      N_pos=   9  Accuracy=0.999  Precision=1.000  Recall=0.778  F1=0.875  |  SOCCAT F1=0.600
-  housewives and househusbands                  N_pos=   6  Accuracy=0.999  Precision=0.857  Recall=1.000  F1=0.923  |  SOCCAT F1=0.889
+  SOCCAT baseline: F1=0.804  (best CV fold, weighted across its labels)
+  wage and salary earners                       N_pos=  97  Accuracy=0.966  Precision=0.767  Recall=0.474  F1=0.586  |  SOCCAT F1=0.814
+  civil servants                                N_pos=   6  Accuracy=0.989  Precision=0.214  Recall=1.000  F1=0.353  |  SOCCAT F1=0.750
+  CEOs and corporate leaders                    N_pos=  18  Accuracy=0.988  Precision=0.393  Recall=0.611  F1=0.478  |  SOCCAT F1=0.727
+  employers                                     N_pos=  15  Accuracy=0.996  Precision=0.722  Recall=0.867  F1=0.788  |  SOCCAT F1=0.846
+  entrepreneurs                                 N_pos= 151  Accuracy=0.942  Precision=0.760  Recall=0.377  F1=0.504  |  SOCCAT F1=0.819
+  self-employed and freelancers                 N_pos=   6  Accuracy=0.997  Precision=0.500  Recall=0.833  F1=0.625  |  SOCCAT F1=0.400
+  unemployed                                    N_pos=  12  Accuracy=0.995  Precision=0.571  Recall=0.667  F1=0.615  |  SOCCAT F1=0.824
+  retirees                                      N_pos=   9  Accuracy=0.999  Precision=1.000  Recall=0.778  F1=0.875  |  SOCCAT F1=0.500
+  housewives and househusbands                  N_pos=   6  Accuracy=0.999  Precision=0.857  Recall=1.000  F1=0.923  |  SOCCAT F1=1.000
 
 Age and family status                           N_pos= 214  Accuracy=0.986  Precision=0.733  Recall=0.808  F1=0.762
   SOCCAT baseline: F1=0.819  (best CV fold, weighted across its labels)

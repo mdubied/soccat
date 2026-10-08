@@ -32,7 +32,7 @@ age_and_family_status,2,1920,"minors, including children and pupils",Germany,den
 age_and_family_status,2,1922,"minors, including children and pupils",Germany,vieler Kinder,partial,partial,0.9852653,1,1,1,vieler Kinder,vielen Kindern,0.98627484,Q5
 age_and_family_status,2,1922,"youth, including students and apprentices",Germany,Jugendlichen,seen,seen,0.9896298,1,1,1,Jugendlichen,Jugendlichen,0.9999998,seen
 age_and_family_status,2,1969,"minors, including children and pupils",Germany,105 Jungen | 100 Mädchen,seen | seen,seen,0.99186456,1,1,1,100 Mädchen,800 garçons et filles,0.74236417,seen
-age_and_family_status,2,1983,"youth, including students and apprentices",Germany,die Kinder aus kaufkräftigen Familien,partial,partial,0.9653837,1,0,0,die Kinder aus kaufkräftigen Familien,de jeunes millionnaires,0.6964508,Q2
+age_and_family_status,2,1983,"youth, including students and apprentices",Germany,die Kinder aus kaufkräftigen Familien,partial,partial,0.9653837,1,0,0,die Kinder aus kaufkräftigen Familien,de jeunes millionnaires,0.6964508,Q1
 age_and_family_status,2,2291,parents and families,Germany,Eltern von 477 Kindern im Alter von unter zehn Jahren in Baierbrunn,partial,partial,0.9861136,1,1,1,Eltern von 477 Kindern im Alter von unter zehn Jahren in Baierbrunn,Einige Eltern der Kinder,0.68995017,Q1
 age_and_family_status,2,2427,"minors, including children and pupils",Germany,die Kinder,seen,seen,0.9915064,1,1,1,die Kinder,die Kinder,1.0,seen
 age_and_family_status,2,2507,"youth, including students and apprentices",Germany,"""Jugendliche"" | Jugend",seen | seen,seen,0.9883952,1,1,1,Jugend,Jugend,1.0,seen
@@ -41,7 +41,7 @@ age_and_family_status,2,2521,"minors, including children and pupils",Germany,Kin
 age_and_family_status,2,2531,parents and families,Germany,Familie | die Angehörigen,seen | seen,seen,0.98382425,1,0,1,Familie,famille,0.9938874,seen
 age_and_family_status,2,2539,"youth, including students and apprentices",Germany,Jugend,seen,seen,0.9881258,1,0,1,Jugend,Jugend,1.0,seen
 age_and_family_status,2,2558,parents and families,Germany,die Mutter,seen,seen,0.0008489131,0,0,0,die Mutter,la mère,0.9947259,seen
-age_and_family_status,2,2570,"youth, including students and apprentices",Germany,Jeder zweite junge Franzose,partial,partial,0.9554676,1,1,1,Jeder zweite junge Franzose,offert aux jeunes Français,0.85398495,Q4
+age_and_family_status,2,2570,"youth, including students and apprentices",Germany,Jeder zweite junge Franzose,partial,partial,0.9554676,1,1,1,Jeder zweite junge Franzose,offert aux jeunes Français,0.85398495,Q3
 age_and_family_status,2,2626,"youth, including students and apprentices",Germany,junger engagierter Menschen mit Migrationshintergrund,partial,partial,0.9892552,1,0,1,junger engagierter Menschen mit Migrationshintergrund,ausländischer Jugendlicher,0.8258792,Q3
 age_and_family_status,2,2742,singles,Germany,Singles,seen,seen,0.9802751,1,0,1,Singles,Singles,0.99999994,seen
 age_and_family_status,2,2902,"minors, including children and pupils",France,élèves en rupture avec le système scolaire,partial,partial,0.9925236,1,1,1,élèves en rupture avec le système scolaire,des écoliers,0.7770688,Q2
@@ -67,7 +67,7 @@ age_and_family_status,2,3465,"youth, including students and apprentices",France,
 age_and_family_status,2,3486,parents and families,France,ces familles qui sont obligées de faire appel à des assistantes maternelles agréées,partial,partial,0.9901134,1,1,1,ces familles qui sont obligées de faire appel à des assistantes maternelles agréées,Les mères de famille,0.81236845,Q3
 age_and_family_status,2,3486,"minors, including children and pupils",France,d'enfants,seen,seen,0.9035939,1,1,0,d'enfants,d'enfants,0.9999999,seen
 age_and_family_status,2,3530,"minors, including children and pupils",France,du mouvement lycéen,partial,partial,0.7686562,1,0,0,du mouvement lycéen,les lycéens,0.8865387,Q4
-age_and_family_status,2,3530,"youth, including students and apprentices",France,des plus jeunes manifestants,partial,partial,0.008687436,0,1,1,des plus jeunes manifestants,les représentants des jeunes,0.7906198,Q3
+age_and_family_status,2,3530,"youth, including students and apprentices",France,des plus jeunes manifestants,partial,partial,0.008687436,0,1,1,des plus jeunes manifestants,les représentants des jeunes,0.7906198,Q2
 age_and_family_status,2,3643,"youth, including students and apprentices",France,des meilleurs étudiants de cette université,partial,partial,0.98349553,1,1,1,des meilleurs étudiants de cette université,ihre Studenten,0.7973851,Q3
 age_and_family_status,2,3673,"minors, including children and pupils",France,aux élèves de terminales,partial,partial,0.9752501,1,1,0,aux élèves de terminales,des lycéens et collégiens,0.89041084,Q4
 age_and_family_status,2,3933,parents and families,France,toutes les familles,seen,seen,0.9913346,1,1,1,toutes les familles,ganze Großfamilien,0.9159274,seen
@@ -110,12 +110,12 @@ age_and_family_status,2,5519,"youth, including students and apprentices",France,
 age_and_family_status,2,5550,"minors, including children and pupils",France,aux enfants,seen,seen,0.9891774,1,1,1,aux enfants,aux enfants,1.0,seen
 age_and_family_status,2,5564,"youth, including students and apprentices",France,les jeunes comédiens,partial,partial,0.9885395,1,1,1,les jeunes comédiens,les jeunes comédiens de la compagnie Crescendo,0.8700821,Q4
 age_and_family_status,2,5576,"youth, including students and apprentices",France,Les jeunes filles | les jeunes hommes,partial | seen,seen,0.98406374,1,1,1,les jeunes hommes,jungen Männern,0.9832303,seen
-age_and_family_status,2,5611,"youth, including students and apprentices",Germany,junge Kriminelle,partial,partial,0.984193,1,1,1,junge Kriminelle,des jeunes délinquants,0.9096133,Q5
+age_and_family_status,2,5611,"youth, including students and apprentices",Germany,junge Kriminelle,partial,partial,0.984193,1,1,1,junge Kriminelle,des jeunes délinquants,0.9096133,Q4
 age_and_family_status,2,5743,parents and families,Germany,ihrer Angehörigen,seen,seen,0.98049223,1,0,1,ihrer Angehörigen,deren Angehörige,0.9851477,seen
 age_and_family_status,2,5808,parents and families,Germany,Die Eltern | die Kinder,seen | seen,seen,0.9924338,1,1,1,Die Eltern,Die Eltern,0.9999998,seen
 age_and_family_status,2,6071,parents and families,Germany,unserer Eltern | unserer Großeltern,seen | unseen,seen,0.9779839,1,1,1,unserer Eltern,unseren Eltern,0.997239,seen
 age_and_family_status,2,6076,"youth, including students and apprentices",Germany,Jugend,seen,seen,0.99107575,1,0,0,Jugend,Jugend,1.0000002,seen
-age_and_family_status,2,6146,"minors, including children and pupils",Germany,Teenager ab 15,unseen,unseen,0.0015082892,0,0,0,Teenager ab 15,l'adolescent,0.9076476,Q5
+age_and_family_status,2,6146,"minors, including children and pupils",Germany,Teenager ab 15,unseen,unseen,0.0015082892,0,0,0,Teenager ab 15,l'adolescent,0.9076476,Q4
 age_and_family_status,2,6241,"minors, including children and pupils",Germany,Kinder,seen,seen,0.98960495,1,0,0,Kinder,Kinder,1.0000001,seen
 age_and_family_status,2,6264,parents and families,Germany,die Eltern,seen,seen,0.99141055,1,1,1,die Eltern,die Eltern,1.0000001,seen
 age_and_family_status,2,6341,parents and families,Germany,zum zerknitterten Großvater,unseen,unseen,0.0001635202,0,0,0,zum zerknitterten Großvater,un parent à l'autre,0.6975379,Q2
@@ -184,7 +184,7 @@ age_and_family_status,2,9468,"minors, including children and pupils",France,d’
 age_and_family_status,2,9514,parents and families,Germany,"diejenigen, die Kinder erziehen",partial,partial,0.00021919196,0,0,1,"diejenigen, die Kinder erziehen",Einige Eltern der Kinder,0.8805691,Q4
 age_and_family_status,2,9514,"minors, including children and pupils",Germany,Kinder,seen,seen,0.98421127,1,1,0,Kinder,Kinder,1.0000001,seen
 age_and_family_status,2,9585,couples,Germany,mit klassischen Paaren heterosexueller Art,partial,partial,0.9652812,1,0,1,mit klassischen Paaren heterosexueller Art,les couples hétérosexuels,0.89242375,Q4
-age_and_family_status,2,9593,singles,Germany,Überzeugte Singles,partial,partial,0.9910663,1,0,1,Überzeugte Singles,Singles,0.8518326,Q4
+age_and_family_status,2,9593,singles,Germany,Überzeugte Singles,partial,partial,0.9910663,1,0,1,Überzeugte Singles,Singles,0.8518326,Q3
 age_and_family_status,2,9596,singles,Germany,Singles,seen,seen,0.9905627,1,0,1,Singles,Singles,1.0,seen
 age_and_family_status,2,9610,parents and families,Germany,Eltern,seen,seen,0.0010676597,0,0,1,Eltern,Eltern,1.0,seen
 age_and_family_status,2,9618,middle-aged and pre-retirement age groups,Germany,Vorruhestandsalter,unseen,unseen,0.084835455,0,0,1,Vorruhestandsalter,Les quinquagénaires,0.82941073,Q3
@@ -193,472 +193,473 @@ age_and_family_status,2,9636,"youth, including students and apprentices",France,
 age_and_family_status,2,9636,middle-aged and pre-retirement age groups,France,les quinquagénaires,seen,seen,0.6290856,1,0,1,les quinquagénaires,Les quinquagénaires,0.99696,seen
 age_and_family_status,2,9637,middle-aged and pre-retirement age groups,France,quinqua | les sexagénaires,partial | unseen,partial,0.7157566,1,0,1,les sexagénaires,des femmes en couple du même âge,0.7323485,Q2
 age_and_family_status,2,9638,middle-aged and pre-retirement age groups,France,un préretraité,unseen,unseen,0.0076133204,0,0,0,un préretraité,des quadras et quinquas,0.6568609,Q1
-identities,0,82,"people with an immigration background, including immigrants",Germany,Migranten,seen,seen,0.98363864,1,1,1,Migranten,Migranten,0.99999994,seen
-identities,0,84,"people with an immigration background, including immigrants",Germany,Flüchtlings,seen,seen,0.9834947,1,0,1,Flüchtlings,Flüchtlings,0.99999976,seen
-identities,0,92,"people with an immigration background, including immigrants",Germany,palästinensischer Einwanderer,partial,partial,0.97925687,1,0,1,palästinensischer Einwanderer,Einwanderer aus dem Osten,0.7115735,Q2
-identities,0,283,women,Germany,"Die Frauen, die jeden Tag aufstehen müssen, um gegen Brustkrebs zu kämpfen",partial,partial,0.9765638,1,1,1,"Die Frauen, die jeden Tag aufstehen müssen, um gegen Brustkrebs zu kämpfen",die sich mit ihr solidarisierenden Frauen,0.6557016,Q1
-identities,0,293,women,Germany,Grundschülerinnen,partial,partial,0.0014708877,0,0,0,Grundschülerinnen,den Mädchen im Grundschulalter,0.8694527,Q4
-identities,0,354,"people with an immigration background, including immigrants",Germany,vieler Menschen aus Afghanistan,unseen,unseen,0.20102991,0,0,1,vieler Menschen aus Afghanistan,dieser Menschen in ihre syrische Heimat,0.6681035,Q1
-identities,0,471,women,Germany,mit blonden nackten Frauen,partial,partial,0.9765702,1,1,1,mit blonden nackten Frauen,nackte Frauen,0.8410549,Q3
-identities,0,477,"people with an immigration background, including immigrants",Germany,ausländischer Jugendlicher,partial,partial,0.9832343,1,0,1,ausländischer Jugendlicher,junger engagierter Menschen mit Migrationshintergrund,0.8258792,Q3
-identities,0,485,women,Germany,keine weiteren Frauen,seen,seen,0.9829281,1,1,1,keine weiteren Frauen,nicht mehr genug Frauen,0.77782696,seen
-identities,0,533,LGBTQIA+,Germany,Homo | gleichgeschlechtliche Paare,seen | partial,seen,0.97630864,1,0,1,gleichgeschlechtliche Paare,les couples homos,0.93651253,seen
-identities,0,650,men,Germany,trans Mann,partial,partial,0.9805493,1,0,0,trans Mann,trans Mädchen,0.78274095,Q2
-identities,0,650,women,Germany,trans Frau,seen,seen,0.97736657,1,1,0,trans Frau,trans Frauen,0.8948622,seen
-identities,0,650,LGBTQIA+,Germany,trans Frau | Kinder,seen | unseen,seen,0.97975737,1,1,1,trans Frau,trans Frauen,0.8948622,seen
-identities,0,771,women,Germany,Frauen,seen,seen,0.9797468,1,1,1,Frauen,Frauen,0.99999994,seen
-identities,0,772,"people with an immigration background, including immigrants",Germany,Flüchtlings,seen,seen,0.9834221,1,1,1,Flüchtlings,Flüchtlings,0.99999976,seen
-identities,0,812,men,Germany,Trans,partial,partial,0.9784929,1,1,1,Trans,trans Mädchen,0.7290182,Q2
-identities,0,812,LGBTQIA+,Germany,Trans | die Männer | trans Personen,seen | partial | seen,seen,0.97449344,1,1,1,trans Personen,trans Personen,1.0000001,seen
-identities,0,815,multiple (or other) religious or minority groups,Germany,religiösen,partial,partial,0.059889365,0,0,1,religiösen,les religieux,0.9503691,Q5
-identities,0,846,disabled people,Germany,Blinden | Blinde,seen | seen,seen,0.95209336,1,0,1,Blinden,Blinden,1.0,seen
-identities,0,850,men,Germany,den Männern in der Altersklasse 50-54,partial,partial,0.9747975,1,1,1,den Männern in der Altersklasse 50-54,des hommes âgés de 20 à 39 ans,0.9017277,Q4
-identities,0,901,"people with an immigration background, including immigrants",Germany,viele anerkannte Flüchtlinge,seen,seen,0.98354393,1,1,1,viele anerkannte Flüchtlinge,die anerkannten Flüchtlinge,0.9522515,seen
-identities,0,1015,"people with an immigration background, including immigrants",Germany,Flüchtlings | Flüchtlinge,seen | seen,seen,0.9835845,1,1,1,Flüchtlinge,Flüchtlinge,0.9999999,seen
-identities,0,1040,"people with an immigration background, including immigrants",Germany,200 000 Menschen,no_content,no_content,0.0022263264,0,0,0,200 000 Menschen,500 bis 600 Menschen,0.65849507,
-identities,0,1112,women,Germany,als Frau,seen,seen,0.934394,1,1,1,als Frau,zur Frau,0.93357724,seen
-identities,0,1112,cisgender and heterosexuals,Germany,cis,partial,partial,0.9568966,1,1,1,cis,cis Frau,0.77300286,Q2
-identities,0,1156,LGBTQIA+,Germany,trans,seen,seen,0.8003432,1,1,0,trans,Trans,0.9954813,seen
-identities,0,1166,LGBTQIA+,Germany,"lesbischen, schwulen und transsexuellen  Kulturschaffenden",partial,partial,0.9799628,1,0,1,"lesbischen, schwulen und transsexuellen Kulturschaffenden",der queeren Gemeinschaft,0.8285811,Q3
-identities,0,1310,women,Germany,"die ,,Females' | ihre Protagonistinnen",unseen | unseen,unseen,0.9830852,1,0,1,ihre Protagonistinnen,die intriganten Feindinnen der Filmheldin,0.768739,Q2
-identities,0,1431,"people with an immigration background, including immigrants",Germany,sogenannte Gefährder,unseen,unseen,0.3745201,0,0,1,sogenannte Gefährder,Les clandestins,0.7256037,Q2
-identities,0,1438,"people with an immigration background, including immigrants",Germany,200 oder mehr Flüchtlinge,seen,seen,0.98361087,1,1,1,200 oder mehr Flüchtlinge,viele Flüchtlinge,0.86687636,seen
-identities,0,1439,women,Germany,als trans Frau,seen,seen,0.80428255,1,1,0,als trans Frau,Die trans Frau,0.97115326,seen
-identities,0,1439,LGBTQIA+,Germany,als trans Frau,seen,seen,0.94233733,1,1,1,als trans Frau,Die trans Frau,0.9711534,seen
-identities,0,1461,men,Germany,seiner Helden,unseen,unseen,0.00076926616,0,0,0,seiner Helden,Mann,0.5871998,Q1
-identities,0,1461,women,Germany,Heldinnen,unseen,unseen,0.04245696,0,0,0,Heldinnen,Superfrauen,0.7329924,Q2
-identities,0,1568,"people with an immigration background, including immigrants",Germany,Flüchtlings,seen,seen,0.9837193,1,1,1,Flüchtlings,Flüchtlings,0.99999976,seen
-identities,0,1582,"people with an immigration background, including immigrants",Germany,russischer Flüchtlinge,partial,partial,0.9835523,1,1,1,russischer Flüchtlinge,ukrainische Flüchtlinge,0.878246,Q4
-identities,0,1605,men,Germany,cis Männern,partial,partial,0.9775174,1,1,1,cis Männern,der Männer,0.9405252,Q5
-identities,0,1605,cisgender and heterosexuals,Germany,cis Männern,partial,partial,0.96670914,1,1,1,cis Männern,verkleidete cis Männer,0.78219044,Q2
-identities,0,1610,women,Germany,Feministinnen | lesbischen,partial | partial,partial,0.0009471523,0,0,1,Feministinnen,Les Femmes,0.89236397,Q4
-identities,0,1610,LGBTQIA+,Germany,lesbischen,partial,partial,0.9760567,1,0,1,lesbischen,Schwule,0.770769,Q2
-identities,0,1693,"people with an immigration background, including immigrants",Germany,"Türken, die in Deutschland in Haft sind",partial,partial,0.0062895026,0,0,0,"Türken, die in Deutschland in Haft sind",türkischstämmige Bürger in Deutschland,0.77289927,Q2
-identities,0,1864,women,Germany,die Frauen,seen,seen,0.98218197,1,1,1,die Frauen,die Frauen,1.0,seen
-identities,0,1898,men,Germany,Männer,seen,seen,0.9813067,1,1,1,Männer,Männer,1.0000002,seen
-identities,0,1898,women,Germany,"Frauen, die Männer als Sexobjekte sähen",partial,partial,0.98226434,1,1,1,"Frauen, die Männer als Sexobjekte sähen",der Sexarbeiterinnen,0.7276969,Q2
-identities,0,1919,"people with an immigration background, including immigrants",Germany,Flüchtlinge | die Migranten,seen | seen,seen,0.9836114,1,1,1,Flüchtlinge,Flüchtlinge,0.9999999,seen
-identities,0,2145,women,Germany,die Zuschauerinnen,unseen,unseen,0.00043584406,0,0,1,die Zuschauerinnen,andere,0.6389663,Q1
-identities,0,2156,"people with an immigration background, including immigrants",Germany,Ausländer,seen,seen,0.8601065,1,0,0,Ausländer,Ausländer,1.0000001,seen
-identities,0,2236,LGBTQIA+,Germany,um Liebe winselnden Transvestiten,partial,partial,0.16483253,0,0,1,um Liebe winselnden Transvestiten,Die trans Frau,0.88446236,Q4
-identities,0,2256,LGBTQIA+,Germany,der queeren Community | Viele in der Szene,partial | partial,partial,0.97818714,1,0,1,der queeren Community,der queeren Gemeinschaft,0.99233913,Q5
-identities,0,2389,men,Germany,Junge | Mann,seen | no_content,seen,0.9775058,1,0,0,Mann,Mann,1.0000005,seen
-identities,0,2389,women,Germany,Eine trans Frau,seen,seen,0.96214086,1,1,0,Eine trans Frau,eine trans Frau,0.9996203,seen
-identities,0,2389,cisgender and heterosexuals,Germany,Wer nicht trans ist,seen,seen,0.9729912,1,1,1,Wer nicht trans ist,die nicht trans sind,0.9041467,seen
-identities,0,2389,LGBTQIA+,Germany,Eine trans Frau,seen,seen,0.9604209,1,1,1,Eine trans Frau,eine trans Frau,0.99962,seen
-identities,0,2444,men,Germany,Männern,seen,seen,0.98330206,1,1,0,Männern,Männern,1.0,seen
-identities,0,2558,women,Germany,die Mutter,seen,seen,0.97342765,1,0,0,die Mutter,la mère,0.9947259,seen
-identities,0,2583,Christians,Germany,Gläubigen,unseen,unseen,0.00016648171,0,0,1,Gläubigen,aux peuples chrétiens,0.8486405,Q4
-identities,0,2620,men,Germany,zwei Männer,seen,seen,0.97138566,1,1,0,zwei Männer,einige Männer,0.77326536,seen
-identities,0,2620,women,Germany,zwei Frauen,seen,seen,0.44977072,0,1,0,zwei Frauen,diese Frauen,0.8075771,seen
-identities,0,2620,LGBTQIA+,Germany,zwei Männer | zwei Frauen | eine Familie,partial | seen | unseen,seen,9.8991e-05,0,1,1,eine Familie,deux parents du même sexe,0.66996557,seen
-identities,0,2670,"people with an immigration background, including immigrants",Germany,die Asylbewerber,seen,seen,0.9836091,1,1,1,die Asylbewerber,die Asylbewerber,0.9999999,seen
-identities,0,2705,men,Germany,Männer,seen,seen,0.97630227,1,1,1,Männer,Männer,1.0000002,seen
-identities,0,2705,women,Germany,keine Feministinnen,partial,partial,0.0005862402,0,1,0,keine Feministinnen,keine junge Frau,0.76928055,Q2
-identities,0,2744,men,Germany,männlicher,partial,partial,0.00016927804,0,0,1,männlicher,d'hommes,0.93900526,Q5
-identities,0,2744,women,Germany,weiblicher,partial,partial,0.97105026,1,0,1,weiblicher,féminine,0.96237993,Q5
-identities,0,2915,"people with an immigration background, including immigrants",France,des enfants d'immigrés,seen,seen,0.98269075,1,0,1,des enfants d'immigrés,des enfants d'immigrés,0.99999976,seen
-identities,0,3016,Jews,France,Juifs,seen,seen,0.9816907,1,1,1,Juifs,Les juifs,0.9706929,seen
-identities,0,3122,"people with an immigration background, including immigrants",France,des sans-papiers,seen,seen,0.00028578594,0,0,1,des sans-papiers,des sans-papiers,1.0000001,seen
-identities,0,3122,Ethnic and racial minorities,France,les petits beurs,unseen,unseen,3.380627e-05,0,0,1,les petits beurs,un Zigane,0.49860737,Q1
-identities,0,3210,Jews,France,ses amis juifs,partial,partial,0.95946145,1,1,1,ses amis juifs,des juifs,0.8420166,Q3
-identities,0,3313,women,France,des femmes,seen,seen,0.4896853,0,1,1,des femmes,des femmes,0.9999997,seen
-identities,0,3407,men,France,Tous ces hommes,seen,seen,0.18810023,0,1,1,Tous ces hommes,der übrigen Männer,0.8663066,seen
-identities,0,3409,women,France,si peu de femmes,seen,seen,0.98223096,1,1,1,si peu de femmes,nicht mehr genug Frauen,0.87143147,seen
-identities,0,3453,men,France,les masculins,unseen,unseen,0.9579072,1,0,1,les masculins,d'hommes,0.9369278,Q5
-identities,0,3453,women,France,les féminines,seen,seen,0.9819072,1,0,1,les féminines,de femmes,0.986734,seen
-identities,0,3469,"people with an immigration background, including immigrants",France,le migrateur,partial,partial,0.16683517,0,0,1,le migrateur,den Migranten,0.89353013,Q4
-identities,0,4156,Muslims,France,17 000 Français musulmans,partial,partial,0.001315852,0,0,1,17 000 Français musulmans,du Conseil français du culte musulman,0.71454465,Q2
-identities,0,4181,women,France,des mamans venues avec leurs bambins dans des poussettes,partial,partial,0.9802806,1,0,0,des mamans venues avec leurs bambins dans des poussettes,les mamans,0.7909245,Q3
-identities,0,4294,"people with an immigration background, including immigrants",France,des familles « lourdes » d'immigrés qui posent des problèmes sociaux,partial,partial,0.98358256,1,0,1,des familles « lourdes » d'immigrés qui posent des problèmes sociaux,des enfants d'immigrés,0.77744216,Q2
-identities,0,4325,women,France,trois à vingt autres hôtesses,seen,seen,0.0002133128,0,0,0,trois à vingt autres hôtesses,nos hôtesses,0.76658523,seen
-identities,0,4332,women,France,des femmes,seen,seen,0.9827344,1,1,1,des femmes,des femmes,0.9999997,seen
-identities,0,4438,women,France,les femmes de cinquante à soixante-neuf ans,partial,partial,0.9821929,1,1,1,les femmes de cinquante à soixante-neuf ans,des femmes mariées de plus de 50 ans,0.8927312,Q4
-identities,0,4448,women,France,Les femmes,seen,seen,0.9829184,1,1,1,Les femmes,Les femmes,1.0,seen
-identities,0,4533,Christians,France,des prêtres orthodoxes extrémistes,partial,partial,0.97675246,1,0,1,des prêtres orthodoxes extrémistes,certains chrétiens extrémistes,0.84264064,Q3
-identities,0,4655,women,France,des chanteuses françaises,partial,partial,0.0036147542,0,0,0,des chanteuses françaises,des filles des Pavillons-sous-Bois,0.7071591,Q2
-identities,0,4681,women,France,les femmes présentes,partial,partial,0.123312786,0,1,1,les femmes présentes,Die Frauen,0.92736816,Q5
-identities,0,4681,Jews,France,les Juifs,seen,seen,0.9770448,1,1,1,les Juifs,les Juifs,0.99999976,seen
-identities,0,4681,Muslims,France,les femmes présentes,unseen,unseen,0.00014769926,0,0,0,les femmes présentes,muslimische Frauen,0.6519369,Q1
-identities,0,4682,"people with an immigration background, including immigrants",France,des sans-papiers,seen,seen,0.0007000522,0,0,1,des sans-papiers,des sans-papiers,1.0000001,seen
-identities,0,4687,women,France,des femmes,seen,seen,0.983095,1,1,1,des femmes,des femmes,0.9999997,seen
-identities,0,4761,women,France,des colonnes de femmes,partial,partial,0.87634325,1,1,1,des colonnes de femmes,de femmes,0.9083005,Q5
-identities,0,4858,Muslims,France,perdre aux fondamentalistes musulmans,partial,partial,0.9767865,1,0,1,perdre aux fondamentalistes musulmans,radikaler Muslime,0.83377874,Q3
-identities,0,4868,Muslims,France,aux extrémistes musulmans,partial,partial,0.9804186,1,0,1,aux extrémistes musulmans,des islamistes,0.9082005,Q5
-identities,0,4897,men,France,Si les petits garçons,partial,partial,0.9769966,1,1,0,Si les petits garçons,de garçons,0.8910879,Q4
-identities,0,4897,women,France,beaucoup de petites filles,partial,partial,0.97578615,1,1,0,beaucoup de petites filles,des jeunes filles,0.84817773,Q4
-identities,0,5280,"people with an immigration background, including immigrants",France,les clandestins,seen,seen,0.9826805,1,0,1,les clandestins,Les clandestins,0.9972538,seen
-identities,0,5434,Christians,France,les jésuites,seen,seen,0.108486705,0,0,0,les jésuites,des jésuites,0.9934648,seen
-identities,0,5447,"people with an immigration background, including immigrants",France,des immigrés,seen,seen,0.97651255,1,0,1,des immigrés,des immigrés,1.0000002,seen
-identities,0,5455,Jews,France,juive,partial,partial,0.97664136,1,0,1,juive,le Crif,0.4986288,Q1
-identities,0,5503,disabled people,France,les Handicapés,seen,seen,0.97415924,1,1,1,les Handicapés,les handicapés,0.99662375,seen
-identities,0,5576,men,France,les jeunes hommes,seen,seen,0.98029524,1,1,1,les jeunes hommes,den jungen Männer,0.9814137,seen
-identities,0,5576,women,France,Les jeunes filles,seen,seen,0.9807162,1,1,1,Les jeunes filles,des jeunes filles,0.9937352,seen
-identities,0,5579,Jews,France,des Juifs | les Juifs d'Europe,seen | seen,seen,0.97889644,1,1,1,des Juifs,des juifs,0.99899757,seen
-identities,0,5632,men,Germany,"Die Jungs, die reingekommen sind",partial,partial,0.9833208,1,1,1,"Die Jungs, die reingekommen sind",die Jungs,0.83440423,Q3
-identities,0,5636,men,Germany,"bodenständige, gute Typen",unseen,unseen,8.2503466e-05,0,0,0,"bodenständige, gute Typen",aux hommes,0.67559576,Q1
-identities,0,5747,"people with an immigration background, including immigrants",Germany,"gut 4000 Flüchtlinge, davon 1315 in der Bayernkaserne, deren Obergrenze bei 1200 liegt",partial,partial,0.983556,1,1,1,"gut 4000 Flüchtlinge, davon 1315 in der Bayernkaserne, deren Obergrenze bei 1200 liegt",740 Flüchtlinge,0.71196866,Q2
-identities,0,5766,Christians,Germany,der katholischen Gemeinde,partial,partial,0.9822114,1,0,1,der katholischen Gemeinde,les catholiques,0.9573172,Q5
-identities,0,5779,"people with an immigration background, including immigrants",Germany,Migranten,seen,seen,0.9822076,1,1,1,Migranten,Migranten,0.99999976,seen
-identities,0,5800,disabled people,Germany,behinderte Kinder,partial,partial,0.9806191,1,0,1,behinderte Kinder,handicapés,0.79653263,Q3
-identities,0,5867,women,Germany,Leserinnen,unseen,unseen,0.97329456,1,0,1,Leserinnen,Näherin,0.7262753,Q2
-identities,0,5872,disabled people,Germany,Behinderten,seen,seen,0.9831771,1,1,1,Behinderten,Behinderten,1.0,seen
-identities,0,5987,disabled people,Germany,darauf angewiesene Personen,partial,partial,0.98164266,1,0,1,darauf angewiesene Personen,die geistig Behinderten,0.6468305,Q1
-identities,0,6084,"people with an immigration background, including immigrants",Germany,die Flüchtlinge,seen,seen,0.9835759,1,1,1,die Flüchtlinge,die Flüchtlinge,1.0,seen
-identities,0,6144,Christians,Germany,den Pfarrer,unseen,unseen,0.0069098915,0,0,1,den Pfarrer,Priester,0.9007304,Q4
-identities,0,6250,men,Germany,Die verlorenen Männer | Söhne,partial | seen,seen,0.979076,1,1,1,Söhne,eines Sohnes,0.855091,seen
-identities,0,6284,men,Germany,den Männern,seen,seen,0.9829064,1,1,1,den Männern,der Männer,0.9939496,seen
-identities,0,6322,"people with an immigration background, including immigrants",Germany,die Flüchtlinge,seen,seen,0.98364973,1,1,1,die Flüchtlinge,die Flüchtlinge,1.0,seen
-identities,0,6323,women,Germany,Zuschauerinnen | eine Frau | Frauen,unseen | seen | seen,seen,0.97674304,1,1,1,eine Frau,eine Frau,1.0,seen
-identities,0,6436,women,Germany,eine Sängerin | den Jazzsängerinnen,partial | unseen,partial,0.97271055,1,0,0,eine Sängerin,dieser Verblüffungs- oder Überrumpelungssängerinnen,0.6337071,Q1
-identities,0,6438,"people with an immigration background, including immigrants",Germany,bis zu 200 000 arbeitslose Flüchtlinge,seen,seen,0.98360556,1,1,1,bis zu 200 000 arbeitslose Flüchtlinge,der arbeitslosen Flüchtlinge,0.7621465,seen
-identities,0,6544,Jews,Germany,jüdische,partial,partial,0.96974283,1,0,1,jüdische,des juifs,0.96050644,Q5
-identities,0,6547,Christians,Germany,seine Wähler aus dem Bibelgürtel,unseen,unseen,0.018639298,0,0,1,seine Wähler aus dem Bibelgürtel,aux peuples chrétiens,0.8330544,Q3
-identities,0,6591,women,Germany,Frauen,seen,seen,0.9811443,1,1,1,Frauen,Frauen,0.9999999,seen
-identities,0,6599,women,Germany,"eine sportliche, junge Frau",partial,partial,0.007044016,0,1,1,"eine sportliche, junge Frau",Sportlerinnen,0.82352775,Q3
-identities,0,6636,men,Germany,Männer,seen,seen,0.9826864,1,0,1,Männer,Männer,1.0000001,seen
-identities,0,6636,LGBTQIA+,Germany,"Ein Mann, der zur Frau werde",seen,seen,0.004952822,0,0,1,"Ein Mann, der zur Frau werde","einem Menschen, der Weib sein will",0.85643893,seen
-identities,0,6717,women,Germany,"moderne junge Frauen, die in queeren Kreisen verkehren | Feministinnen | jene Mädchen, die ­keine Lust auf rosa Tüll hatten",partial | partial | partial,partial,0.9792494,1,1,1,Feministinnen,Les Femmes,0.89236397,Q4
-identities,0,6917,men,Germany,der Sohn,seen,seen,0.04165812,0,0,0,der Sohn,eines Sohnes,0.9632002,seen
-identities,0,6917,women,Germany,eine verheiratete Tochter,partial,partial,0.06139005,0,0,0,eine verheiratete Tochter,eine Tochter,0.81110424,Q3
-identities,0,6939,disabled people,Germany,Blinde,seen,seen,0.032271955,0,0,1,Blinde,Blinden,0.9876898,seen
-identities,0,6998,women,Germany,das Frausein,partial,partial,0.9794971,1,1,1,das Frausein,den Frauen,0.9157578,Q5
-identities,0,6998,LGBTQIA+,Germany,Eine Frau,seen,seen,0.003478667,0,0,1,Eine Frau,"einem Menschen, der Weib sein will",0.6380901,seen
-identities,0,7162,"people with an immigration background, including immigrants",Germany,den rund 40 000 neu Angekommenen,partial,partial,0.020276826,0,0,1,den rund 40 000 neu Angekommenen,des milliers de personnes,0.6037653,Q1
-identities,0,7179,"people with an immigration background, including immigrants",Germany,die Flüchtlinge,seen,seen,0.98375374,1,1,1,die Flüchtlinge,die Flüchtlinge,1.0,seen
-identities,0,7214,women,Germany,Die Verkäuferinnen,partial,partial,0.072589666,0,0,0,Die Verkäuferinnen,die Verkäuferin,0.8876173,Q4
-identities,0,7291,women,Germany,Frauen,seen,seen,0.98280495,1,1,1,Frauen,Frauen,0.9999999,seen
-identities,0,7362,women,Germany,"Frauen | Kölner Verein ""Frauen gegen Gewalt""",seen | partial,seen,0.98173887,1,1,1,Frauen,Frauen,0.9999999,seen
-identities,0,7375,"people with an immigration background, including immigrants",Germany,Ausländern,seen,seen,0.9812212,1,0,1,Ausländern,Ausländer,0.99637604,seen
-identities,0,7612,women,Germany,Frauen,seen,seen,0.9782039,1,1,1,Frauen,Frauen,0.9999999,seen
-identities,0,7612,LGBTQIA+,Germany,trans Frauen,seen,seen,0.97373736,1,1,1,trans Frauen,trans Frauen,0.99999964,seen
-identities,0,7683,women,Germany,Frau,seen,seen,0.9796824,1,1,1,Frau,Frau,1.0000001,seen
-identities,0,7760,women,Germany,Frauen,seen,seen,0.98144686,1,0,1,Frauen,Frauen,0.9999999,seen
-identities,0,7817,men,Germany,Männern,seen,seen,0.9815253,1,1,1,Männern,Männern,1.0,seen
-identities,0,7817,women,Germany,Frauen im Mainstreamporno | Frauen,partial | seen,seen,0.98270214,1,1,1,Frauen,Frauen,0.9999999,seen
-identities,0,7822,men,Germany,jungen Männern,seen,seen,0.98311806,1,1,1,jungen Männern,Junge Männer,0.9894455,seen
-identities,0,7878,disabled people,Germany,zehn Millionen Menschen mit körperlichen | geistigen Einschränkungen,partial | partial,partial,0.9431678,1,0,1,geistigen Einschränkungen,die geistig Behinderten,0.8876565,Q4
-identities,0,8037,women,Germany,Frauen,seen,seen,0.9826043,1,1,1,Frauen,Frauen,0.9999999,seen
-identities,0,8059,women,Germany,Frauen,seen,seen,0.14504243,0,1,1,Frauen,Frauen,0.9999999,seen
-identities,0,8059,"people with an immigration background, including immigrants",Germany,Flüchtlingen,seen,seen,0.97855294,1,1,1,Flüchtlingen,Flüchtlingen,1.0,seen
-identities,0,8157,"people with an immigration background, including immigrants",France,Plus de 95 000 migrants,seen,seen,0.98132104,1,1,1,Plus de 95 000 migrants,des milliers de migrants,0.7260574,seen
-identities,0,8201,"people with an immigration background, including immigrants",France,"de jeunes peu ou pas scolarisés dans leur pays d’origine, affectés dans des lycées professionnels avec des cours de remise à niveau",partial,partial,0.00067955075,0,0,1,"de jeunes peu ou pas scolarisés dans leur pays d’origine, affectés dans des lycées professionnels avec des cours de remise à niveau",de très nombreux jeunes,0.6537384,Q1
-identities,0,8248,"people with an immigration background, including immigrants",France,les étrangers en situation régulière,partial,partial,0.9824483,1,0,1,les étrangers en situation régulière,aux étrangers,0.9207624,Q5
-identities,0,8274,men,France,Polonais,unseen,unseen,5.9781163e-05,0,0,0,Polonais,der Klempner,0.5022699,Q1
-identities,0,8281,"people with an immigration background, including immigrants",France,les expulsés,unseen,unseen,0.0056569674,0,0,1,les expulsés,deren Abschiebung ausgesetzt ist,0.83445656,Q3
-identities,0,8389,"people with an immigration background, including immigrants",France,de personnes migrantes,seen,seen,0.9816389,1,0,1,de personnes migrantes,des migrants,0.9792806,seen
-identities,0,8465,women,France,les femmes,seen,seen,0.98288786,1,1,1,les femmes,les femmes,1.0000002,seen
-identities,0,8500,Jews,France,Les juifs,seen,seen,0.9766898,1,1,1,Les juifs,Les juifs,1.0000001,seen
-identities,0,8511,men,France,les hommes,seen,seen,0.9830237,1,1,1,les hommes,les hommes,1.0,seen
-identities,0,8528,Christians,France,les mandéens,unseen,unseen,0.9784309,1,1,1,les mandéens,aux « chrétiens d’Orient,0.7221995,Q2
-identities,0,8565,"people with an immigration background, including immigrants",France,des étrangers,seen,seen,0.09268375,0,0,0,des étrangers,des étrangers,1.0000001,seen
-identities,0,8587,women,France,les jeunes femmes,partial,partial,0.9803649,1,1,1,les jeunes femmes,junge Frauen,0.98562,Q5
-identities,0,8600,women,France,aux femmes,seen,seen,0.98270136,1,1,1,aux femmes,de femmes,0.97481614,seen
-identities,0,8611,Ethnic and racial minorities,France,des Gitans,partial,partial,0.013069823,0,0,1,des Gitans,la bande des Gitans,0.931513,Q5
-identities,0,8743,"people with an immigration background, including immigrants",France,des « migrants »,seen,seen,0.9823199,1,1,1,des « migrants,des migrants,0.9700864,seen
-identities,0,8775,multiple (or other) religious or minority groups,France,minorités,seen,seen,0.09305278,0,0,1,minorités,Minderheiten,0.9958432,seen
-identities,0,8804,"people with an immigration background, including immigrants",France,des réfugiés,seen,seen,0.9834458,1,1,1,des réfugiés,les réfugiés,0.9979755,seen
-identities,0,8899,Ethnic and racial minorities,France,la communauté rom,partial,partial,0.10380845,0,0,1,la communauté rom,les Roms,0.820159,Q3
-identities,0,8971,multiple (or other) religious or minority groups,France,aux supérieurs des maisons religieuses,partial,partial,0.00019569187,0,0,0,aux supérieurs des maisons religieuses,les religieux,0.88438505,Q4
-identities,0,9061,women,France,les femmes,seen,seen,0.691417,1,1,1,les femmes,les femmes,1.0000002,seen
-identities,0,9069,Muslims,France,aux musulmans de l'arrondissement,partial,partial,0.98055446,1,0,1,aux musulmans de l'arrondissement,des musulmans,0.94097966,Q5
-identities,0,9138,men,France,hommes,seen,seen,0.9474099,1,1,1,hommes,hommes,1.0000001,seen
-identities,0,9173,women,France,applaudissez suffragettes,unseen,unseen,0.00025829687,0,0,1,applaudissez suffragettes,die sich mit ihr solidarisierenden Frauen,0.632278,Q1
-identities,0,9202,"people with an immigration background, including immigrants",France,des migrants,seen,seen,0.983593,1,1,1,des migrants,des migrants,0.9999999,seen
-identities,0,9225,women,France,des femmes,seen,seen,0.98294663,1,1,1,des femmes,des femmes,0.9999997,seen
-identities,0,9296,Muslims,France,du musulma,partial,partial,0.97886413,1,0,1,du musulma,les mollahs,0.7678061,Q2
-identities,0,9313,men,France,les garçons,seen,seen,0.98156595,1,1,1,les garçons,les garçons,1.0000001,seen
-identities,0,9313,women,France,les filles | les filles,seen | seen,seen,0.9818553,1,1,1,les filles,les filles,1.0,seen
-identities,0,9384,women,France,de prostituées | des filles qui commencent à racoler dans les rues à 12 ans,seen | partial,seen,0.9822359,1,1,0,de prostituées,prostituées,0.9792113,seen
-identities,0,9406,women,France,aux femmes toxicomanes,partial,partial,0.9741134,1,1,1,aux femmes toxicomanes,de femmes,0.73560005,Q2
-identities,0,9475,women,France,les femmes au foyer,seen,seen,0.9830603,1,1,1,les femmes au foyer,les femmes au foyer,1.0000002,seen
-identities,0,9478,women,France,des femmes au foyer,seen,seen,0.98307645,1,1,1,des femmes au foyer,des femmes au foyer,1.0000001,seen
-identities,0,9488,women,France,de femmes,seen,seen,0.9580956,1,1,1,de femmes,de femmes,1.0000001,seen
-identities,0,9513,"people with an immigration background, including immigrants",Germany,Ausländer,seen,seen,0.9800253,1,1,1,Ausländer,Ausländer,1.0000001,seen
-identities,0,9525,women,Germany,der Sexarbeiterinnen,seen,seen,0.98259395,1,1,0,der Sexarbeiterinnen,der Sexarbeiterinnen,0.9999998,seen
-identities,0,9531,women,Germany,legale Sexarbeiterinnen,seen,seen,0.9813649,1,1,0,legale Sexarbeiterinnen,legale Sexarbeiterinnen,1.0,seen
-identities,0,9599,women,Germany,jede dritte alleinstehende Neurentnerin,unseen,unseen,0.00011333721,0,0,1,jede dritte alleinstehende Neurentnerin,aux femmes célibataires,0.6787039,Q1
-identities,0,9614,Ethnic and racial minorities,Germany,Für schwarze Menschen,seen,seen,0.97051907,1,0,1,Für schwarze Menschen,Les Noirs,0.9045812,seen
-identities,0,9625,LGBTQIA+,France,le milieu gay,seen,seen,0.9610855,1,0,1,le milieu gay,le milieu ' gay,0.9961904,seen
-identities,0,9630,women,France,les femmes | les Françaises | les étrangères | les musulmanes | les autres | les lesbiennes | les hétérosexuelles,seen | unseen | partial | unseen | no_content | partial | unseen,seen,0.87968653,1,1,1,les femmes,les femmes,1.0000002,seen
-identities,0,9630,cisgender and heterosexuals,France,les hétérosexuelles,seen,seen,0.04350976,0,0,1,les hétérosexuelles,des hétérosexuels,0.9587482,seen
-identities,0,9630,LGBTQIA+,France,les lesbiennes,partial,partial,0.94043165,1,0,1,les lesbiennes,der queeren Szene,0.7952584,Q3
-identities,0,9630,"people with an immigration background, including immigrants",France,les étrangères,seen,seen,0.033777125,0,0,1,les étrangères,les étrangers,0.97047174,seen
-identities,0,9630,Muslims,France,les musulmanes,seen,seen,0.20832647,0,0,1,les musulmanes,des musulmans,0.9954247,seen
-labor_market_position,0,32,entrepreneurs,Germany,"Unternehmen, die in der Region verwurzelt sind",partial,partial,0.92598814,1,1,1,"Unternehmen, die in der Region verwurzelt sind",des sociétés locales,0.79177284,Q3
-labor_market_position,0,40,wage and salary earners,Germany,die Mitarbeiter der Terminbörse,partial,partial,0.92365074,1,1,0,die Mitarbeiter der Terminbörse,des employés,0.8477061,Q4
-labor_market_position,0,59,wage and salary earners,Germany,rund 20 000 Mitarbeitern,seen,seen,0.94544923,1,1,1,rund 20 000 Mitarbeitern,ihren fast 20 000 Mitarbeitern,0.9738795,seen
-labor_market_position,0,100,wage and salary earners,Germany,Menschen,no_content,no_content,0.93691766,1,0,1,Menschen,Die Leute,0.92179894,
-labor_market_position,0,108,wage and salary earners,Germany,der Arbeitnehmer,seen,seen,0.94912285,1,1,1,der Arbeitnehmer,der Arbeitnehmer,0.99999964,seen
-labor_market_position,0,200,unemployed,Germany,dreieinhalb Millionen Arbeitslose,partial,partial,0.93053526,1,1,1,dreieinhalb Millionen Arbeitslose,des sans-emploi,0.76391876,Q2
-labor_market_position,0,206,entrepreneurs,Germany,"Unternehmen wie wir, die über internationale Kontakte und Einkauf verfügen",partial,partial,0.9579978,1,1,1,"Unternehmen wie wir, die über internationale Kontakte und Einkauf verfügen",d'entreprises internationales,0.83821535,Q3
-labor_market_position,0,239,wage and salary earners,Germany,Gewerkschaften,seen,seen,0.9664571,1,1,1,Gewerkschaften,Gewerkschaften,1.0000001,seen
-labor_market_position,0,280,wage and salary earners,Germany,arbeitnehmer,seen,seen,0.93948996,1,0,1,arbeitnehmer,Arbeitnehmer,0.97786,seen
-labor_market_position,0,302,entrepreneurs,Germany,"ein Dutzend Firmen, die nur noch mit einem Kurs/Gewinn-Verhältnis (KGV) von zehn gehandelt werden",partial,partial,0.9597282,1,1,0,"ein Dutzend Firmen, die nur noch mit einem Kurs/Gewinn-Verhältnis (KGV) von zehn gehandelt werden",50 Unternehmen,0.7146301,Q2
-labor_market_position,0,308,wage and salary earners,Germany,Verdi,seen,seen,0.9366142,1,0,0,Verdi,Verdi,1.0,seen
-labor_market_position,0,343,entrepreneurs,Germany,der Bars | Discotheken,unseen | unseen,unseen,0.30974692,0,1,1,Discotheken,Sparten,0.6703913,Q1
-labor_market_position,0,448,entrepreneurs,Germany,Energieunternehmen | fast jede Untergliederung von Gazprom | Ziegeleien | Wasserwerke,partial | unseen | unseen | partial,partial,0.93185127,1,0,0,Energieunternehmen,ihren Energieversorgern,0.84193957,Q3
-labor_market_position,0,573,wage and salary earners,Germany,Personal,seen,seen,0.9370482,1,0,0,Personal,Personal,0.99999994,seen
-labor_market_position,0,573,entrepreneurs,Germany,Der gesamte Luftverkehr,partial,partial,0.10623284,0,0,0,Der gesamte Luftverkehr,zivile Airlines,0.7777796,Q2
-labor_market_position,0,708,entrepreneurs,Germany,mehr Anwärter,unseen,unseen,0.030257495,0,1,0,mehr Anwärter,Mittelständler,0.67118347,Q1
-labor_market_position,0,757,entrepreneurs,Germany,solche Betriebe,seen,seen,0.9338045,1,1,0,solche Betriebe,Betriebe,0.91684985,seen
-labor_market_position,0,786,wage and salary earners,Germany,Beschäftigte aus den betroffenen Bereichen,partial,partial,0.93672806,1,0,1,Beschäftigte aus den betroffenen Bereichen,den Arbeitnehmern,0.8717485,Q4
-labor_market_position,0,793,wage and salary earners,Germany,Personal,seen,seen,0.9597476,1,1,1,Personal,Personal,0.99999994,seen
-labor_market_position,0,793,unemployed,Germany,Arbeitslosen,seen,seen,0.92973167,1,0,0,Arbeitslosen,Arbeitslosen,1.0000001,seen
-labor_market_position,0,804,CEOs and corporate leaders,Germany,dem deutschen Management,partial,partial,0.9383427,1,0,1,dem deutschen Management,seine deutschen Statthalter,0.7877199,Q2
-labor_market_position,0,840,wage and salary earners,Germany,8400 Mitarbeitern,seen,seen,0.9298208,1,1,1,8400 Mitarbeitern,2 800 employés,0.82123065,seen
-labor_market_position,0,861,entrepreneurs,Germany,Unternehmens,seen,seen,0.91813433,1,1,0,Unternehmens,Unternehmens,1.0,seen
-labor_market_position,0,983,entrepreneurs,Germany,die Bank,seen,seen,0.00088297646,0,1,0,die Bank,der Bank,0.9854335,seen
-labor_market_position,0,994,entrepreneurs,Germany,einzelnen Unternehmen wie TSMC,partial,partial,0.93500763,1,1,0,einzelnen Unternehmen wie TSMC,Wettbewerber von TSMC,0.83620435,Q3
-labor_market_position,0,1007,entrepreneurs,Germany,Autobauer,partial,partial,0.014845026,0,0,1,Autobauer,der Auto-,0.82009554,Q3
-labor_market_position,0,1034,CEOs and corporate leaders,Germany,Managerinnen,partial,partial,0.084434375,0,0,1,Managerinnen,Managern,0.8905692,Q4
-labor_market_position,0,1070,wage and salary earners,Germany,Tausende Aushilfen,partial,partial,0.026419912,0,0,1,Tausende Aushilfen,de nombreux effectifs,0.6607207,Q1
-labor_market_position,0,1087,retirees,Germany,der Senioren,seen,seen,0.93995327,1,0,0,der Senioren,Senioren,0.9752388,seen
-labor_market_position,0,1107,entrepreneurs,Germany,Händler,seen,seen,0.0317854,0,1,0,Händler,Händler,1.0,seen
-labor_market_position,0,1107,unemployed,Germany,Arbeitslosen,seen,seen,0.91718984,1,0,1,Arbeitslosen,Arbeitslosen,1.0000001,seen
-labor_market_position,0,1116,wage and salary earners,Germany,die Mitarbeiterinnen,seen,seen,0.9212956,1,0,1,die Mitarbeiterinnen,Die Mitarbeiterinnen,0.994395,seen
-labor_market_position,0,1183,wage and salary earners,Germany,Die Mitarbeiter in Bochum,partial,partial,0.9503349,1,1,1,Die Mitarbeiter in Bochum,die Mitarbeiter der Bochumer Fabrik,0.8340891,Q3
-labor_market_position,0,1242,wage and salary earners,Germany,unsere Arbeitnehmer,seen,seen,0.95210415,1,1,1,unsere Arbeitnehmer,nos salariés,0.99167216,seen
-labor_market_position,0,1391,entrepreneurs,Germany,"""normalen"" Automarken wie VW, Seat oder Skoda | Luxus-Marken",partial | partial,partial,0.9316989,1,0,0,Luxus-Marken,die großen Luxusmarken,0.943854,Q5
-labor_market_position,0,1496,entrepreneurs,Germany,der Branche,seen,seen,0.95166326,1,1,0,der Branche,der Branche,0.99999976,seen
-labor_market_position,0,1579,entrepreneurs,Germany,einer der erfolgreichsten Unternehmer Deutschlands,partial,partial,0.027049456,0,0,1,einer der erfolgreichsten Unternehmer Deutschlands,der deutschen Unternehmen,0.7116269,Q2
-labor_market_position,0,1643,entrepreneurs,Germany,Geschäften | Firmen,partial | seen,seen,0.8749752,1,1,0,Firmen,Firmen,0.9999999,seen
-labor_market_position,0,1712,entrepreneurs,Germany,Unternehmen mit hohen  Marktanteilen im digitalen Bereich,partial,partial,0.96702194,1,1,0,Unternehmen mit hohen Marktanteilen im digitalen Bereich,der größten Internet-Unternehmen der Welt,0.7558433,Q2
-labor_market_position,0,1713,entrepreneurs,Germany,Unternehmen,seen,seen,0.8710332,1,1,0,Unternehmen,Unternehmen,1.0000001,seen
-labor_market_position,0,1729,entrepreneurs,Germany,Fintechs,seen,seen,0.8019978,1,0,0,Fintechs,den Fintechs,0.9676838,seen
-labor_market_position,0,1811,entrepreneurs,Germany,der britischen Finanzbranche,partial,partial,0.95636684,1,0,0,der britischen Finanzbranche,Banken und Finanzdienstleistern,0.8188477,Q3
-labor_market_position,0,1840,CEOs and corporate leaders,Germany,Vorstandsmitglieder,partial,partial,0.5230573,1,0,1,Vorstandsmitglieder,Der Vorstand,0.9454445,Q5
-labor_market_position,0,2048,wage and salary earners,Germany,Die Mitarbeiterinnen,seen,seen,0.876992,1,0,1,Die Mitarbeiterinnen,Die Mitarbeiterinnen,1.0000001,seen
-labor_market_position,0,2106,entrepreneurs,Germany,Branchen,seen,seen,0.1414647,0,0,0,Branchen,Branchen,0.9999999,seen
-labor_market_position,0,2252,entrepreneurs,Germany,Fintechs,seen,seen,0.9420279,1,0,1,Fintechs,den Fintechs,0.9676838,seen
-labor_market_position,0,2258,entrepreneurs,Germany,die hoch gelobte Zertifikate-Branche,partial,partial,0.9709556,1,1,1,die hoch gelobte Zertifikate-Branche,les professionnels,0.59324706,Q1
-labor_market_position,0,2289,entrepreneurs,Germany,die Pharmahersteller,seen,seen,0.9587006,1,0,1,die Pharmahersteller,die Pharmahersteller,0.9999999,seen
-labor_market_position,0,2325,entrepreneurs,Germany,zum Unternehmer | vielen Unternehmen,seen | seen,seen,0.9244339,1,1,1,vielen Unternehmen,Viele Unternehmen,0.9980824,seen
-labor_market_position,0,2479,CEOs and corporate leaders,Germany,der Unternehmenslenker,unseen,unseen,0.92375976,1,0,1,der Unternehmenslenker,Konzernspitze,0.92746985,Q5
-labor_market_position,0,2485,entrepreneurs,Germany,Discountern,seen,seen,0.9509481,1,0,0,Discountern,der Discounter,0.9289845,seen
-labor_market_position,0,2500,wage and salary earners,Germany,reinen Gehaltsempfängern,unseen,unseen,0.0017628015,0,0,1,reinen Gehaltsempfängern,des salariés du privé,0.6636051,Q1
-labor_market_position,0,2530,entrepreneurs,Germany,Autozulieferer | im Bereich Rüstung,partial | partial,partial,0.8709704,1,0,0,Autozulieferer,Die Autozuliefer-Sparte,0.95408726,Q5
-labor_market_position,0,2532,entrepreneurs,Germany,der Unternehmen,seen,seen,0.9607592,1,1,0,der Unternehmen,der Unternehmen,1.0000002,seen
-labor_market_position,0,2545,entrepreneurs,Germany,Unternehmen,seen,seen,0.9462382,1,1,0,Unternehmen,Unternehmen,0.99999994,seen
-labor_market_position,0,2547,entrepreneurs,Germany,andere Unternehmen,seen,seen,0.95626205,1,1,1,andere Unternehmen,andere Unternehmen,1.0000001,seen
-labor_market_position,0,2548,entrepreneurs,Germany,Schlachthöfe,unseen,unseen,0.0019997405,0,0,0,Schlachthöfe,Sparten,0.7527791,Q2
-labor_market_position,0,2567,entrepreneurs,Germany,Kaufhaus,partial,partial,0.8204067,1,0,0,Kaufhaus,les magasins de détail,0.6809807,Q1
-labor_market_position,0,2635,entrepreneurs,Germany,Unternehmen,seen,seen,0.9290917,1,1,0,Unternehmen,Unternehmen,0.99999994,seen
-labor_market_position,0,2742,entrepreneurs,Germany,"Portale wie ""Mysugardaddy.eu"" oder ""Rubensfans.de""",partial,partial,0.008373764,0,0,0,"Portale wie ""Mysugardaddy.eu"" oder ""Rubensfans.de",Großklubs wie der FC Bayern,0.5485853,Q1
-labor_market_position,0,2758,civil servants,Germany,den Beamten des Finanzministers,partial,partial,0.0104868505,0,0,1,den Beamten des Finanzministers,Les fonctionnaires des finances,0.81177914,Q3
-labor_market_position,0,2862,wage and salary earners,Germany,ihre künftigen Mitarbeiter,partial,partial,0.9359701,1,1,0,ihre künftigen Mitarbeiter,plusieurs salariés de futurs CPI,0.9096726,Q5
-labor_market_position,0,2862,CEOs and corporate leaders,Germany,Personalchefs,partial,partial,0.25834242,0,0,0,Personalchefs,les gérants,0.75270003,Q2
-labor_market_position,0,2878,entrepreneurs,Germany,ihrer Öllobby,unseen,unseen,0.023264907,0,0,1,ihrer Öllobby,der Zunft,0.80005485,Q3
-labor_market_position,0,2940,entrepreneurs,France,Aucune société,seen,seen,0.9347653,1,1,1,Aucune société,Kein Unternehmen,0.9447673,seen
-labor_market_position,0,2952,CEOs and corporate leaders,France,dirigeants,seen,seen,0.03019134,0,1,1,dirigeants,Führungskräfte,0.9764476,seen
-labor_market_position,0,3019,unemployed,France,"de Français sans abri, victimes du chômage, de la pauvreté, de l'exclusion",partial,partial,0.0007715549,0,0,0,"de Français sans abri, victimes du chômage, de la pauvreté, de l'exclusion",der arbeitslosen Flüchtlinge,0.7894522,Q3
-labor_market_position,0,3093,entrepreneurs,France,des entreprises,seen,seen,0.9605864,1,1,1,des entreprises,des entreprises,1.0,seen
-labor_market_position,0,3133,wage and salary earners,France,une main-d'oeuvre spécialisée,partial,partial,0.19726934,0,0,0,une main-d'oeuvre spécialisée,de travailleurs,0.8618186,Q4
-labor_market_position,0,3330,CEOs and corporate leaders,France,aux patrons de ses groupes industriels,partial,partial,0.8904024,1,0,1,aux patrons de ses groupes industriels,bien des chefs d’entreprise,0.8548949,Q4
-labor_market_position,0,3330,entrepreneurs,France,ses groupes industriels,partial,partial,0.90954685,1,0,0,ses groupes industriels,les industriels,0.9258992,Q5
-labor_market_position,0,3382,wage and salary earners,France,la CGT.,seen,seen,0.96011364,1,1,1,la CGT,la CGT,1.0,seen
-labor_market_position,0,3406,entrepreneurs,France,aux signataires,unseen,unseen,0.000319077,0,0,0,aux signataires,Genossenschafts,0.6715245,Q1
-labor_market_position,0,3424,wage and salary earners,France,syndicales,seen,seen,0.9397117,1,1,1,syndicales,syndicalistes,0.8934887,seen
-labor_market_position,0,3424,employers,France,les représentants des organisations officielles patronales,partial,partial,0.87177104,1,0,1,les représentants des organisations officielles patronales,l'organisation patronale,0.8544421,Q4
-labor_market_position,0,3426,wage and salary earners,France,les secrétaires généraux de la CGT et de la CFDT,partial,partial,0.90721864,1,1,1,les secrétaires généraux de la CGT et de la CFDT,la CFDT,0.6781296,Q1
-labor_market_position,0,3430,entrepreneurs,France,les grandes surfaces | le secteur des industries agroalimentaires | le secteur des industries agroalimentaires,partial | partial | partial,partial,0.941812,1,0,1,le secteur des industries agroalimentaires,l'agro-industrie,0.952623,Q5
-labor_market_position,0,3478,entrepreneurs,France,aux petits commerces existants,partial,partial,0.9466815,1,0,1,aux petits commerces existants,le petit commerce,0.9279953,Q5
-labor_market_position,0,3595,entrepreneurs,France,l'industrie pharmaceutique | l'industrie pharmaceutique,seen | seen,seen,0.93231523,1,1,1,l'industrie pharmaceutique,l'industrie pharmaceutique,0.99999976,seen
-labor_market_position,0,3637,entrepreneurs,France,des plus gros groupes d'élevage,partial,partial,0.0015015139,0,0,0,des plus gros groupes d'élevage,der Wirtshäuser auf dem Land,0.66105485,Q1
-labor_market_position,0,3640,entrepreneurs,France,les Saoudiens,partial,partial,6.638505e-05,0,0,0,les Saoudiens,"Unternehmen, die in Bezug auf Medizin und Gesundheitstechnik den Nahen und Mittleren Osten im Blick haben",0.4766851,Q1
-labor_market_position,0,3666,entrepreneurs,France,les entreprises françaises,partial,partial,0.9634239,1,1,1,les entreprises françaises,le Mouvement des entreprises de France (Medef,0.85537416,Q4
-labor_market_position,0,3693,wage and salary earners,France,le syndicat,seen,seen,0.96541816,1,1,1,le syndicat,le syndicat,1.0,seen
-labor_market_position,0,3705,entrepreneurs,France,des entreprises,seen,seen,0.9627079,1,1,1,des entreprises,des entreprises,1.0,seen
-labor_market_position,0,3732,entrepreneurs,France,Les petits commerces | Les petits commerces | des réseaux de franchise,seen | seen | partial,seen,0.95754987,1,0,1,Les petits commerces,le petit commerce,0.96189076,seen
-labor_market_position,0,3813,wage and salary earners,France,Le personnel des grandes firmes européennes,partial,partial,0.9466144,1,1,1,Le personnel des grandes firmes européennes,les salariés des grandes entreprises,0.7886323,Q2
-labor_market_position,0,3824,entrepreneurs,France,de fabricants concurrents,partial,partial,0.94103354,1,0,1,de fabricants concurrents,andere Hersteller,0.9194187,Q5
-labor_market_position,0,3849,CEOs and corporate leaders,France,les nouveaux dirigeants de KirchMedia | ceux de la chaîne à péage en difficulté de Kirch,partial | partial,partial,0.88536793,1,1,1,ceux de la chaîne à péage en difficulté de Kirch,chefs d’entrepris,0.5933801,Q1
-labor_market_position,0,3910,entrepreneurs,France,des entreprises qui recrutent,partial,partial,0.8967601,1,1,0,des entreprises qui recrutent,aux entreprises,0.8286896,Q3
-labor_market_position,0,3910,unemployed,France,Les chômeurs,seen,seen,0.95949274,1,1,1,Les chômeurs,des chômeurs,0.9973404,seen
-labor_market_position,0,3928,wage and salary earners,France,200 personnes,no_content,no_content,0.0133203715,0,0,1,200 personnes,200 personnes,1.0,
-labor_market_position,0,3966,wage and salary earners,France,Les soixante-dix-sept grévistes,seen,seen,0.0015340748,0,0,1,Les soixante-dix-sept grévistes,des grévistes,0.75722206,seen
-labor_market_position,0,4029,entrepreneurs,France,les commerçants,seen,seen,0.96073437,1,1,1,les commerçants,les commerçants,0.99999976,seen
-labor_market_position,0,4052,employers,France,du CNPF | patronal,partial | seen,seen,0.052630033,0,0,1,du CNPF,patron du CNPF,0.93381274,seen
-labor_market_position,0,4066,CEOs and corporate leaders,France,Les sept groupes | aux cadres,partial | partial,partial,0.052935712,0,0,0,aux cadres,cadres supérieurs,0.8654826,Q4
-labor_market_position,0,4129,CEOs and corporate leaders,France,le conseil d'administration de Vivendi,partial,partial,0.023714352,0,0,0,le conseil d'administration de Vivendi,Der Vorstand,0.5962367,Q1
-labor_market_position,0,4184,entrepreneurs,France,les firmes dont ils détiennent des titres,partial,partial,0.9077093,1,0,0,les firmes dont ils détiennent des titres,die Beteiligungsgesellschaften,0.8959788,Q4
-labor_market_position,0,4215,wage and salary earners,France,l'employé,seen,seen,0.43665704,0,0,1,l'employé,du salarié,0.9622034,seen
-labor_market_position,0,4242,wage and salary earners,France,main-d'oeuvre,partial,partial,0.1252105,0,0,0,main-d'oeuvre,La main-d’œuvre comorienne,0.66472113,Q1
-labor_market_position,0,4252,entrepreneurs,France,des entreprises,seen,seen,0.9569312,1,1,0,des entreprises,des entreprises,1.0,seen
-labor_market_position,0,4262,retirees,France,retraités,seen,seen,0.0038199376,0,0,1,retraités,des retraités,0.96790254,seen
-labor_market_position,0,4279,wage and salary earners,France,les leaders syndicaux | les syndicats | FSU | Unsa | CGT | CFDT,partial | seen | unseen | partial | seen | seen,seen,0.9065121,1,1,1,CGT,CGT,1.0,seen
-labor_market_position,0,4284,wage and salary earners,France,les employés,seen,seen,0.9587227,1,1,1,les employés,des employés,0.99576616,seen
-labor_market_position,0,4318,civil servants,France,les fonctionnaires,seen,seen,0.91638964,1,1,1,les fonctionnaires,les fonctionnaires,1.0,seen
-labor_market_position,0,4322,entrepreneurs,France,Les groupes de la haute technologie,partial,partial,0.1451115,0,0,1,Les groupes de la haute technologie,des leaders technologiques dans ce domaine,0.82786274,Q3
-labor_market_position,0,4342,entrepreneurs,France,les constructeurs,seen,seen,0.9529905,1,1,1,les constructeurs,les constructeurs,0.99999994,seen
-labor_market_position,0,4344,entrepreneurs,France,des entreprises,seen,seen,0.9561743,1,1,0,des entreprises,des entreprises,1.0,seen
-labor_market_position,0,4369,wage and salary earners,France,certains salariés,seen,seen,0.9650702,1,1,1,certains salariés,des salariés,0.9628712,seen
-labor_market_position,0,4397,entrepreneurs,France,les industriels américains | des entreprises chinoises,partial | seen,seen,0.9290879,1,1,1,des entreprises chinoises,Les entreprises chinoises,0.99076843,seen
-labor_market_position,0,4428,entrepreneurs,France,Les constructeurs automobiles | les autres industries exportatrices,seen | partial,seen,0.95440316,1,1,1,Les constructeurs automobiles,des constructeurs automobiles,0.9909712,seen
-labor_market_position,0,4467,entrepreneurs,France,l'entreprise | les sociétés chargées du recrutement,seen | partial,seen,0.891004,1,1,1,l'entreprise,l'entreprise,0.99999994,seen
-labor_market_position,0,4467,unemployed,France,de bons candidats,partial,partial,7.5008495e-05,0,0,0,de bons candidats,les candidates idéales,0.8251868,Q3
-labor_market_position,0,4496,civil servants,France,les fonctionnaires,seen,seen,0.9118502,1,1,1,les fonctionnaires,les fonctionnaires,1.0,seen
-labor_market_position,0,4532,employers,France,aux patrons,seen,seen,0.9317009,1,1,1,aux patrons,des patrons,0.96475255,seen
-labor_market_position,0,4564,wage and salary earners,France,syndica,seen,seen,0.95954925,1,1,1,syndica,syndicaux,0.9291893,seen
-labor_market_position,0,4564,employers,France,patronat,seen,seen,0.88595,1,1,1,patronat,Le patronat,0.8986608,seen
-labor_market_position,0,4612,entrepreneurs,France,Les commerçants du centre-ville,partial,partial,0.95903826,1,1,1,Les commerçants du centre-ville,Die Markenboutiquen in der Stadt,0.8690549,Q4
-labor_market_position,0,4629,CEOs and corporate leaders,France,tous les dirigeants,seen,seen,0.5776837,1,1,1,tous les dirigeants,die Führungskräfte,0.8711013,seen
-labor_market_position,0,4684,employers,France,L'organisation patronale,seen,seen,0.85862935,1,0,1,L'organisation patronale,l'organisation patronale,0.99817705,seen
-labor_market_position,0,4703,wage and salary earners,France,la majorité des salariés,partial,partial,0.9646989,1,1,1,la majorité des salariés,la majorité des employés,0.9873734,Q5
-labor_market_position,0,4776,wage and salary earners,France,syndicat professionnel,partial,partial,0.9138833,1,1,0,syndicat professionnel,du syndicat,0.9024097,Q5
-labor_market_position,0,4788,entrepreneurs,France,des entreprises,seen,seen,0.9126683,1,1,0,des entreprises,des entreprises,1.0,seen
-labor_market_position,0,4809,entrepreneurs,France,des entreprises,seen,seen,0.9615676,1,1,0,des entreprises,des entreprises,1.0,seen
-labor_market_position,0,4862,entrepreneurs,France,du secteur industriel,seen,seen,0.86349237,1,0,0,du secteur industriel,égard des industriels du secteur,0.96429884,seen
-labor_market_position,0,4878,entrepreneurs,France,d'autres entreprises,seen,seen,0.93263054,1,1,1,d'autres entreprises,anderen Firmen,0.9800922,seen
-labor_market_position,0,4883,wage and salary earners,France,d'un employeur | Les syndicats,unseen | seen,seen,0.95960844,1,1,1,Les syndicats,Les syndicats,1.0,seen
-labor_market_position,0,4896,entrepreneurs,France,aux industriels,seen,seen,0.95755064,1,0,1,aux industriels,les industriels,0.97304463,seen
-labor_market_position,0,4903,wage and salary earners,France,jeunes,partial,partial,0.020723542,0,0,0,jeunes,des jeunes professionnels,0.8247607,Q3
-labor_market_position,0,4974,wage and salary earners,France,les personnels,seen,seen,0.9246713,1,0,1,les personnels,les personnels,1.0000001,seen
-labor_market_position,0,5034,employers,France,servit les grands « patrons,partial,partial,0.118380226,0,1,0,servit les grands « patrons,les patrons,0.8088607,Q3
-labor_market_position,0,5048,wage and salary earners,France,les organisations,partial,partial,0.0033753258,0,0,0,les organisations,aux organisations professionnelles de salariés,0.7992584,Q3
-labor_market_position,0,5051,wage and salary earners,France,des salariés du privé,seen,seen,0.94421977,1,1,1,des salariés du privé,des salariés du privé,0.9999999,seen
-labor_market_position,0,5051,civil servants,France,des fonctionnaires,seen,seen,0.9167085,1,1,1,des fonctionnaires,des fonctionnaires,1.0000001,seen
-labor_market_position,0,5051,unemployed,France,des chômeurs,seen,seen,0.926495,1,1,1,des chômeurs,des chômeurs,1.0,seen
-labor_market_position,0,5051,retirees,France,des retraités,seen,seen,0.024601744,0,0,1,des retraités,des retraités,1.0000001,seen
-labor_market_position,0,5089,entrepreneurs,France,"des entreprises prestigieuses de la mode, du luxe, de la communication ou de l'audiovisuel",partial,partial,0.8816875,1,1,0,"des entreprises prestigieuses de la mode, du luxe, de la communication ou de l'audiovisuel",die großen Luxusmarken,0.80893797,Q3
-labor_market_position,0,5122,wage and salary earners,France,syndicats,seen,seen,0.952919,1,1,1,syndicats,gewerkschaftlichen,0.86002475,seen
-labor_market_position,0,5122,employers,France,patronat,seen,seen,0.88106924,1,1,1,patronat,Le patronat,0.8986608,seen
-labor_market_position,0,5160,wage and salary earners,France,les employés de chaque structure,partial,partial,0.9551645,1,1,1,les employés de chaque structure,der Beschäftigten,0.82816917,Q3
-labor_market_position,0,5199,wage and salary earners,France,La CGT,seen,seen,0.9664574,1,1,1,La CGT,La CGT,0.99999994,seen
-labor_market_position,0,5220,wage and salary earners,France,Les syndicats,seen,seen,0.96480757,1,1,1,Les syndicats,Les syndicats,1.0,seen
-labor_market_position,0,5332,wage and salary earners,France,des salariés,seen,seen,0.9512456,1,1,1,des salariés,des salariés,1.0000001,seen
-labor_market_position,0,5332,unemployed,France,de chômeurs,seen,seen,0.93834823,1,1,1,de chômeurs,de chômeurs,0.99999994,seen
-labor_market_position,0,5417,entrepreneurs,France,139 entreprises non rentables,partial,partial,0.88441414,1,1,0,139 entreprises non rentables,angeschlagenen Unternehmen,0.71476954,Q2
-labor_market_position,0,5419,wage and salary earners,France,syndicalistes,seen,seen,0.95032865,1,0,1,syndicalistes,syndicalistes,1.0,seen
-labor_market_position,0,5419,civil servants,France,hauts fonctionnaires,seen,seen,0.877951,1,1,1,hauts fonctionnaires,hochrangigen Beamten,0.9724004,seen
-labor_market_position,0,5419,employers,France,patrons,seen,seen,0.13138881,0,1,1,patrons,les patrons,0.7042145,seen
-labor_market_position,0,5425,entrepreneurs,France,commerçants,seen,seen,0.9093458,1,1,1,commerçants,les commerçants,0.97217345,seen
-labor_market_position,0,5426,entrepreneurs,France,nos entreprises | celles des pays produisant sans protection sociale et environnementale,seen | partial,seen,0.93855715,1,1,1,nos entreprises,d'entreprises,0.9100976,seen
-labor_market_position,0,5445,housewives and househusbands,France,des femmes au foyer,seen,seen,0.9334749,1,1,1,des femmes au foyer,des femmes au foyer,1.0000001,seen
-labor_market_position,0,5508,entrepreneurs,France,d'actionnaires américains,partial,partial,0.0014304467,0,0,0,d'actionnaires américains,die Beteiligungsgesellschaften,0.83170295,Q3
-labor_market_position,0,5521,entrepreneurs,France,Une équipe de professionnels,partial,partial,0.0016197037,0,0,0,Une équipe de professionnels,les professionnels,0.77772987,Q2
-labor_market_position,0,5530,wage and salary earners,France,des travailleurs,seen,seen,0.9354319,1,1,1,des travailleurs,des travailleurs,0.99999994,seen
-labor_market_position,0,5564,entrepreneurs,France,les jeunes comédiens,partial,partial,4.6471385e-05,0,0,0,les jeunes comédiens,Les artisans du spectacle,0.6458508,Q1
-labor_market_position,0,5565,entrepreneurs,France,plusieurs grandes marques,partial,partial,0.92780954,1,0,0,plusieurs grandes marques,plusieurs entreprises,0.8212485,Q3
-labor_market_position,0,5586,civil servants,France,25 000 fonctionnaires,seen,seen,0.9187872,1,1,1,25 000 fonctionnaires,Zehntausende Beamte,0.749519,seen
-labor_market_position,0,5608,wage and salary earners,Germany,erboster Gewerkschaftsmitglieder,partial,partial,0.941459,1,1,1,erboster Gewerkschaftsmitglieder,gewerkschaftlichen,0.8489155,Q4
-labor_market_position,0,5742,wage and salary earners,Germany,nicht alle unsere Kollegen,seen,seen,0.008654743,0,0,1,nicht alle unsere Kollegen,unsere Kollegen,0.77382874,seen
-labor_market_position,0,5742,entrepreneurs,Germany,den Tochterfirmen,seen,seen,0.8933384,1,0,0,den Tochterfirmen,die Tochterfirmen,0.988674,seen
-labor_market_position,0,5752,wage and salary earners,Germany,sein Personal,seen,seen,0.9602685,1,1,1,sein Personal,seine Mitarbeiter,0.9397043,seen
-labor_market_position,0,5804,entrepreneurs,Germany,der BJU,seen,seen,0.00015772207,0,0,0,der BJU,der BJU,1.0000002,seen
-labor_market_position,0,5816,CEOs and corporate leaders,Germany,Die Medienchefs,partial,partial,0.67882514,1,0,1,Die Medienchefs,des directeurs de pub qui sont scotchés sur ces chaînes info,0.7448735,Q2
-labor_market_position,0,5853,entrepreneurs,Germany,Banker | Bestatter,seen | partial,seen,0.0071426337,0,0,0,Banker,der Banker,0.96129215,seen
-labor_market_position,0,5904,entrepreneurs,Germany,Händler,seen,seen,0.9421299,1,1,1,Händler,Händler,1.0,seen
-labor_market_position,0,5906,wage and salary earners,Germany,ihre Beschäftigten,seen,seen,0.92732203,1,1,1,ihre Beschäftigten,leurs employés,0.9803652,seen
-labor_market_position,0,5906,CEOs and corporate leaders,Germany,die Betriebsrät,unseen,unseen,0.38928834,0,0,0,die Betriebsrät,le conseil d'administration,0.87877464,Q4
-labor_market_position,0,5906,entrepreneurs,Germany,unseren Tochterfirmen,partial,partial,0.014355384,0,0,0,unseren Tochterfirmen,die Tochterfirmen,0.911645,Q5
-labor_market_position,0,5918,wage and salary earners,Germany,die Gewerkschaften,seen,seen,0.9371256,1,1,1,die Gewerkschaften,die Gewerkschaften,0.99999994,seen
-labor_market_position,0,5918,employers,Germany,Arbeitgeber,seen,seen,0.70246744,1,1,1,Arbeitgeber,Arbeitgeber,1.0000002,seen
-labor_market_position,0,5918,unemployed,Germany,Arbeitslosen,seen,seen,0.9080878,1,0,0,Arbeitslosen,Arbeitslosen,1.0000001,seen
-labor_market_position,0,5920,entrepreneurs,Germany,die Clubs,unseen,unseen,0.124023385,0,0,0,die Clubs,der Klubs,0.92913353,Q5
-labor_market_position,0,6018,entrepreneurs,Germany,Unternehmen,seen,seen,0.89528364,1,1,0,Unternehmen,Unternehmen,0.99999994,seen
-labor_market_position,0,6065,wage and salary earners,Germany,DG,unseen,unseen,0.8894444,1,1,1,DG,la CGE-CGC,0.5515704,Q1
-labor_market_position,0,6068,entrepreneurs,Germany,der Dienstleistungssektor,partial,partial,0.9234533,1,0,0,der Dienstleistungssektor,Dienstleistungen,0.8428967,Q3
-labor_market_position,0,6098,entrepreneurs,Germany,Pensionsfonds,unseen,unseen,0.9380171,1,0,0,Pensionsfonds,Die FinanzIT,0.5855552,Q1
-labor_market_position,0,6140,wage and salary earners,Germany,die betroffenen Arbeitnehmer außerhalb des Streikgebiets,partial,partial,0.9465831,1,1,1,die betroffenen Arbeitnehmer außerhalb des Streikgebiets,die von den Fernwirkungen einer Aussperrung betroffenen Arbeitnehmer,0.7591827,Q2
-labor_market_position,0,6196,entrepreneurs,Germany,der Branche,seen,seen,0.96674615,1,1,0,der Branche,der Branche,0.99999976,seen
-labor_market_position,0,6343,entrepreneurs,Germany,Firmen,seen,seen,0.009956869,0,0,0,Firmen,Firmen,0.9999999,seen
-labor_market_position,0,6529,wage and salary earners,Germany,Personal,seen,seen,0.9527845,1,1,0,Personal,Personal,1.0,seen
-labor_market_position,0,6622,wage and salary earners,Germany, Verfassungs,unseen,unseen,0.8687655,1,1,0,Verfassungs,"Le Syndicat de la magistrature (SM, classé à gauche",0.6424993,Q1
-labor_market_position,0,6696,wage and salary earners,Germany,Gewerkschafter,seen,seen,0.87214327,1,0,0,Gewerkschafter,Gewerkschafter,1.0000001,seen
-labor_market_position,0,6714,entrepreneurs,Germany,Private-Equity-Häuser,seen,seen,0.924536,1,0,0,Private-Equity-Häuser,Private-Equity-Häuser,1.0000001,seen
-labor_market_position,0,6730,entrepreneurs,Germany,Platzhirsche wie VW und Mercedes,unseen,unseen,0.9152019,1,0,0,Platzhirsche wie VW und Mercedes,des grands constructeurs automobiles,0.806468,Q3
-labor_market_position,0,6820,wage and salary earners,Germany,das Ordnungspersonal,partial,partial,0.008930085,0,0,0,das Ordnungspersonal,Aufsichtspersonal,0.895367,Q4
-labor_market_position,0,6833,wage and salary earners,Germany,die Interessenvertreter,partial,partial,0.00021323758,0,0,0,die Interessenvertreter,les dirigeants syndicaux,0.7265972,Q2
-labor_market_position,0,6833,CEOs and corporate leaders,Germany,den Unternehmensleitungen,unseen,unseen,0.9410488,1,0,1,den Unternehmensleitungen,der Konzernführung,0.96468985,Q5
-labor_market_position,0,6842,wage and salary earners,Germany,geschulte Kräfte | Personal | Personal | Personal im Terminal,partial | seen | seen | partial,seen,0.9029535,1,1,0,Personal,Personal,1.0,seen
-labor_market_position,0,6869,entrepreneurs,Germany,die Medienbranche,partial,partial,0.8464935,1,0,0,die Medienbranche,les médias occidentaux,0.7828529,Q2
-labor_market_position,0,6886,employers,Germany,der vormals beliebtesten privaten Arbeitgeber,partial,partial,0.90502334,1,1,1,der vormals beliebtesten privaten Arbeitgeber,den Arbeitgebern,0.764091,Q2
-labor_market_position,0,6931,entrepreneurs,Germany,der 64 größten europäischen Banken,partial,partial,0.9549677,1,1,1,der 64 größten europäischen Banken,die europäischen Banken,0.84293157,Q3
-labor_market_position,0,6947,entrepreneurs,Germany,Die deutsche Wirtschaft,partial,partial,0.06835371,0,0,0,Die deutsche Wirtschaft,der deutschen Exportwirtschaft,0.84846556,Q4
-labor_market_position,0,7018,entrepreneurs,Germany,kleine und mittlere Unternehmen | Staatsbetriebe,partial | partial,partial,0.9518942,1,1,1,kleine und mittlere Unternehmen,kleinen und großen Betrieben,0.9544458,Q5
-labor_market_position,0,7023,entrepreneurs,Germany,Banken,seen,seen,0.96801054,1,0,1,Banken,Banken,1.0000001,seen
-labor_market_position,0,7057,entrepreneurs,Germany,Handels | unsere Händler und Händlerinnen,seen | partial,seen,0.8834326,1,1,1,Handels,Handels,0.9999999,seen
-labor_market_position,0,7171,wage and salary earners,Germany,Lehmziegel schleppende Kinder,partial,partial,0.00011540923,0,0,0,Lehmziegel schleppende Kinder,die schwer arbeitenden Kinder,0.6528074,Q1
-labor_market_position,0,7201,entrepreneurs,Germany,weiterverarbeitende Branchen | die Grundstoffindustrien,partial | partial,partial,0.95618236,1,0,0,weiterverarbeitende Branchen,anderen Industrien,0.8666216,Q4
-labor_market_position,0,7310,entrepreneurs,Germany,Imbissbereich,unseen,unseen,0.94836414,1,1,1,Imbissbereich,Les pâtissiers,0.7437811,Q2
-labor_market_position,0,7562,retirees,Germany,von Senioren ab 60 Jahren,seen,seen,0.8947158,1,0,0,von Senioren ab 60 Jahren,Senioren,0.87376434,seen
-labor_market_position,0,7573,entrepreneurs,Germany,sein Geschäft | den Geschäften,partial | partial,partial,0.0025945234,0,1,0,den Geschäften,les commerces,0.9186999,Q5
-labor_market_position,0,7592,employers,Germany,der Arbeitgeber,seen,seen,0.9416707,1,1,1,der Arbeitgeber,der Arbeitgeber,0.9999999,seen
-labor_market_position,0,7596,civil servants,Germany,Beamten,seen,seen,0.27035016,0,0,1,Beamten,Beamten,1.0,seen
-labor_market_position,0,7614,entrepreneurs,Germany,ausländische Konkurrenz aus Märkten wie der Solar- oder Batteriefertigung | ausländische Konkurrenz aus Märkten wie der Solar- oder Batteriefertigung,partial | partial,partial,0.8412747,1,0,0,ausländische Konkurrenz aus Märkten wie der Solar- oder Batteriefertigung,der Solarindustrie,0.6908318,Q1
-labor_market_position,0,7635,CEOs and corporate leaders,Germany,Bayers Pharmamanager,partial,partial,0.90645456,1,0,1,Bayers Pharmamanager,der Spitzenmanager,0.514491,Q1
-labor_market_position,0,7675,entrepreneurs,Germany,Baufirmen,seen,seen,0.9382199,1,0,1,Baufirmen,Baubranche,0.8381675,seen
-labor_market_position,0,7694,entrepreneurs,Germany,mitNokia-Zulieferern,partial,partial,0.9112271,1,0,0,mitNokia-Zulieferern,les télécoms,0.56668943,Q1
-labor_market_position,0,7725,entrepreneurs,Germany,den Unternehmen,seen,seen,0.9620518,1,1,1,den Unternehmen,das Unternehmen,0.9985179,seen
-labor_market_position,0,7744,civil servants,Germany,Brüsseler Funktionäre,partial,partial,0.77608305,1,0,0,Brüsseler Funktionäre,die nicht gewählten Funktionäre in Brüssel,0.84313744,Q3
-labor_market_position,0,7744,entrepreneurs,Germany,der Banker,seen,seen,0.85400385,1,0,0,der Banker,der Banker,0.99999994,seen
-labor_market_position,0,7745,wage and salary earners,Germany,rund 4000 Mitarbeitern an 27 Standorten,partial,partial,0.9508647,1,1,1,rund 4000 Mitarbeitern an 27 Standorten,des 400 salariés,0.72832644,Q2
-labor_market_position,0,7757,entrepreneurs,Germany,Konkurrenten,seen,seen,0.0047328076,0,0,1,Konkurrenten,ein Konkurrent,0.97032183,seen
-labor_market_position,0,7786,wage and salary earners,Germany,Opel-Mitarbeiter,seen,seen,0.9392178,1,1,1,Opel-Mitarbeiter,Opel-Mitarbeitern,0.98043853,seen
-labor_market_position,0,7866,wage and salary earners,Germany,der größten deutschen Polizeigewerkschaft GdP,partial,partial,0.0005730609,0,0,0,der größten deutschen Polizeigewerkschaft GdP,des Deutschen Gewerkschaftsbundes,0.7493762,Q2
-labor_market_position,0,7886,entrepreneurs,Germany,Die Gründer,unseen,unseen,0.0019883616,0,0,0,Die Gründer,die Träger der Einrichtungen,0.70307314,Q2
-labor_market_position,0,8077,entrepreneurs,Germany,"Jene Unternehmen, die die Insel verlassen",partial,partial,0.9488139,1,1,0,"Jene Unternehmen, die die Insel verlassen",Die gesamte Inselwirtschaft,0.6955763,Q2
-labor_market_position,0,8093,entrepreneurs,Germany,der Energiebranche,partial,partial,0.8956771,1,0,0,der Energiebranche,den Energiemärkten,0.901608,Q4
-labor_market_position,0,8108,retirees,Germany,Rentner,seen,seen,0.9263551,1,0,1,Rentner,die Rentner,0.75280476,seen
-labor_market_position,0,8165,entrepreneurs,France,Les entreprises high-tech américaines,partial,partial,0.9050224,1,1,1,Les entreprises high-tech américaines,les entreprises américaines,0.8631841,Q4
-labor_market_position,0,8169,entrepreneurs,France,des entreprises endettées en devises,partial,partial,0.9661097,1,1,1,des entreprises endettées en devises,einige Wirtschaftsverbände,0.7580266,Q2
-labor_market_position,0,8191,wage and salary earners,France,aux plus précaires,seen,seen,0.00030454854,0,0,0,aux plus précaires,les précaires,0.93027294,seen
-labor_market_position,0,8230,wage and salary earners,France,des syndicats comme la CGT et la FSU,partial,partial,0.95805514,1,1,1,des syndicats comme la CGT et la FSU,d’autres organisations syndicales,0.8610901,Q4
-labor_market_position,0,8240,entrepreneurs,France,"des « pure players », les entreprises majoritairement spécialisées dans l’extraction",partial,partial,0.9514967,1,1,1,"des « pure players », les entreprises majoritairement spécialisées dans l’extraction",les entreprises de ce secteur,0.75807416,Q2
-labor_market_position,0,8282,entrepreneurs,France,la filière nucléaire,partial,partial,0.8068271,1,0,0,la filière nucléaire,der französischen Atomindustrie,0.80635595,Q3
-labor_market_position,0,8301,wage and salary earners,France,la CGT,seen,seen,0.95695364,1,1,1,la CGT,la CGT,1.0,seen
-labor_market_position,0,8308,wage and salary earners,France,les syndiqués,unseen,unseen,0.0033167512,0,0,1,les syndiqués,du syndicat,0.9719482,Q5
-labor_market_position,0,8319,wage and salary earners,France,les personnels,seen,seen,0.9375054,1,0,1,les personnels,les personnels,1.0000001,seen
-labor_market_position,0,8386,employers,France,votre employeur,seen,seen,0.041096017,0,0,1,votre employeur,einem Arbeitgeber,0.91369617,seen
-labor_market_position,0,8394,entrepreneurs,France,les commerçants,seen,seen,0.9572993,1,1,1,les commerçants,les commerçants,0.99999976,seen
-labor_market_position,0,8424,wage and salary earners,France,des salariés de la Villette,partial,partial,0.96442175,1,1,1,des salariés de la Villette,les salariés de l'usine Affinal de Béthisy-Saint-Pierre,0.82312894,Q3
-labor_market_position,0,8444,employers,France,des employeurs,seen,seen,0.94400555,1,1,1,des employeurs,des employeurs,1.0000001,seen
-labor_market_position,0,8499,wage and salary earners,France,des salariés,seen,seen,0.9492974,1,1,1,des salariés,des salariés,1.0000001,seen
-labor_market_position,0,8523,entrepreneurs,France,les géants du Net,partial,partial,0.007907336,0,0,1,les géants du Net,les sociétés Internet,0.6678103,Q1
-labor_market_position,0,8539,wage and salary earners,France,des actifs,seen,seen,0.0072640874,0,0,1,des actifs,plus de trois actifs,0.81947994,seen
-labor_market_position,0,8539,unemployed,France,les chômeurs,seen,seen,0.9419423,1,1,1,les chômeurs,les chômeurs,1.0,seen
-labor_market_position,0,8572,wage and salary earners,France,la moitié des salariés,partial,partial,0.94934994,1,1,1,la moitié des salariés,la majorité des employés,0.82502526,Q3
-labor_market_position,0,8599,entrepreneurs,France,les entreprises,seen,seen,0.9500106,1,1,1,les entreprises,les entreprises,0.99999976,seen
-labor_market_position,0,8628,entrepreneurs,France,des entreprises américaines à l’étranger et aux Etats-Unis,partial,partial,0.9579728,1,1,1,des entreprises américaines à l’étranger et aux Etats-Unis,les entreprises américaines,0.93142545,Q5
-labor_market_position,0,8664,wage and salary earners,France,les salariés de Fonmarty,partial,partial,0.9522996,1,1,1,les salariés de Fonmarty,den Mitarbeitern,0.7154028,Q2
-labor_market_position,0,8670,wage and salary earners,France,la main-d’œuvre,partial,partial,0.9159935,1,0,1,la main-d’œuvre,Arbeitskräfte,0.9332095,Q5
-labor_market_position,0,8676,wage and salary earners,France,de précaires employés par l’État,partial,partial,0.91208786,1,1,0,de précaires employés par l’État,die von den Fernwirkungen einer Aussperrung betroffenen Arbeitnehmer,0.7885747,Q2
-labor_market_position,0,8785,civil servants,France,des agents chargés de l’indemnisation,unseen,unseen,5.8328136e-05,0,0,1,des agents chargés de l’indemnisation,des employées de l’administration,0.8614733,Q4
-labor_market_position,0,8786,wage and salary earners,France,les syndicats,seen,seen,0.95050395,1,1,1,les syndicats,les syndicats,1.0,seen
-labor_market_position,0,8838,employers,France,de multiples employeurs,seen,seen,0.13839243,0,1,1,de multiples employeurs,des employeurs,0.9278474,seen
-labor_market_position,0,8884,entrepreneurs,France,aux constructeurs européens,partial,partial,0.94740415,1,1,1,aux constructeurs européens,aux entreprises européennes,0.85040784,Q4
-labor_market_position,0,8894,entrepreneurs,France,Les artisans de l'UPA,partial,partial,0.017228957,0,1,0,Les artisans de l'UPA,Gewerbe,0.6753814,Q1
-labor_market_position,0,8896,wage and salary earners,France,l'intersyndicale,partial,partial,0.9495093,1,0,1,l'intersyndicale,les syndica,0.73271626,Q2
-labor_market_position,0,8904,entrepreneurs,France,les entreprises,seen,seen,0.92932045,1,1,1,les entreprises,les entreprises,0.99999976,seen
-labor_market_position,0,8941,entrepreneurs,France,de producteurs,partial,partial,0.86801076,1,0,0,de producteurs,des producteurs extérieurs,0.8560484,Q4
-labor_market_position,0,8956,wage and salary earners,France,la C.G.C,no_content,no_content,0.00091920106,0,0,0,la C.G.C,la CGE-CGC,0.8275459,
-labor_market_position,0,8995,entrepreneurs,France,une industrie,seen,seen,0.30198723,0,1,1,une industrie,die Industrie,0.98386717,seen
-labor_market_position,0,9008,entrepreneurs,France,les entreprises favorables au gouvernement,partial,partial,0.94091046,1,1,1,les entreprises favorables au gouvernement,Staatsunternehmen,0.8208524,Q3
-labor_market_position,0,9014,wage and salary earners,France,tous les syndicats,seen,seen,0.8976058,1,1,1,tous les syndicats,les syndicats,0.9138961,seen
-labor_market_position,0,9078,entrepreneurs,France,les grands distributeurs de jouets,partial,partial,0.12202384,0,0,1,les grands distributeurs de jouets,Spielwarengeschäften,0.89427567,Q4
-labor_market_position,0,9113,entrepreneurs,France,les entreprises françaises,partial,partial,0.9537201,1,1,1,les entreprises françaises,le Mouvement des entreprises de France (Medef,0.85537416,Q4
-labor_market_position,0,9114,wage and salary earners,France,à de nouveaux salariés étrange,partial,partial,0.9378986,1,1,1,à de nouveaux salariés étrange,des nouvelles recrues,0.82380086,Q3
-labor_market_position,0,9140,wage and salary earners,France,les équipes,partial,partial,0.00023417623,0,0,0,les équipes,alle Belegschaften,0.6391934,Q1
-labor_market_position,0,9144,entrepreneurs,France,Les entreprises,seen,seen,0.9631895,1,1,1,Les entreprises,Les entreprises,1.0,seen
-labor_market_position,0,9148,wage and salary earners,France,les ouvriers qui arrivent,partial,partial,0.89233303,1,1,1,les ouvriers qui arrivent,ces travailleurs,0.88908696,Q4
-labor_market_position,0,9277,wage and salary earners,France,des moniteurs,partial,partial,0.00043992803,0,0,0,des moniteurs,Die Gewerkschaf,0.802246,Q3
-labor_market_position,0,9309,unemployed,France,aider certains chômeurs,partial,partial,0.9456269,1,1,1,aider certains chômeurs,des chômeurs,0.900672,Q4
-labor_market_position,0,9355,wage and salary earners,France,la CGT,seen,seen,0.9379375,1,1,1,la CGT,la CGT,1.0,seen
-labor_market_position,0,9378,entrepreneurs,France,les entrepreneurs | les assureurs | les assureurs,seen | seen | seen,seen,0.9342844,1,0,1,les assureurs,des assureurs,0.9949504,seen
-labor_market_position,0,9400,housewives and househusbands,France,les femmes au foyer,seen,seen,0.94095445,1,1,1,les femmes au foyer,les femmes au foyer,0.9999999,seen
-labor_market_position,0,9407,wage and salary earners,France,des bas salaires | des gens peu qualifiés,unseen | partial,partial,0.89075685,1,0,1,des gens peu qualifiés,des ouvriers non qualifiés,0.83937997,Q3
-labor_market_position,0,9441,wage and salary earners,France,aux personnels peu qualifiés,partial,partial,0.9550972,1,0,0,aux personnels peu qualifiés,des ouvriers non qualifiés,0.8595922,Q4
-labor_market_position,0,9496,wage and salary earners,France,les femmes qui travaillent,partial,partial,0.035069346,0,0,0,les femmes qui travaillent,Die Mitarbeiterinnen,0.7631969,Q2
-labor_market_position,0,9508,self-employed and freelancers,Germany,zusätzliche Freiberufler,unseen,unseen,0.9244428,1,0,1,zusätzliche Freiberufler,Freelancer,0.76716954,Q2
-labor_market_position,0,9572,wage and salary earners,Germany,der Arbeiter | der Angestellten,seen | seen,seen,0.9478935,1,0,1,der Angestellten,der Beschäftigten,0.97716594,seen
-labor_market_position,0,9572,civil servants,Germany,Beamten,seen,seen,0.84111416,1,0,1,Beamten,Beamten,1.0000001,seen
-labor_market_position,0,9572,self-employed and freelancers,Germany,der Gewerbetreibenden | der Freiberufler,unseen | unseen,unseen,0.9240144,1,0,1,der Gewerbetreibenden,aux entrepreneurs,0.8644229,Q4
-labor_market_position,0,9607,housewives and househusbands,Germany,Hausfrauen und Hausmänner,seen,seen,0.9620567,1,0,1,Hausfrauen und Hausmänner,der Hausfrauen und Hausmänner,0.98433995,seen
-labor_market_position,0,9611,housewives and househusbands,Germany,Hausfrau,seen,seen,0.46549687,0,0,1,Hausfrau,Hausfrau,1.0000001,seen
-labor_market_position,0,9612,housewives and househusbands,Germany,der Vorort-Hausfrau | Puddingköchin | Windelwechslerin,partial | unseen | unseen,partial,0.9225646,1,0,1,der Vorort-Hausfrau,der schwäbischen Hausfrau,0.9117352,Q5
-labor_market_position,0,9633,self-employed and freelancers,France,Les entrepreneurs,seen,seen,0.0018078777,0,1,0,Les entrepreneurs,aux entrepreneurs,0.9701492,seen
-labor_market_position,0,9635,self-employed and freelancers,France,des entrepreneurs,seen,seen,0.0008481356,0,1,0,des entrepreneurs,aux entrepreneurs,0.97735345,seen
+identities,4,167,"people with an immigration background, including immigrants",Germany,der arbeitslosen Flüchtlinge,seen,seen,0.957164,1,1,1,der arbeitslosen Flüchtlinge,beaucoup de chômeurs étrangers,0.84980726,seen
+identities,4,189,men,Germany,Männer,seen,seen,0.9352621,1,1,1,Männer,Männer,1.0000002,seen
+identities,4,189,women,Germany,Frauen,seen,seen,0.95512927,1,1,1,Frauen,Frauen,0.99999994,seen
+identities,4,284,women,Germany,iranischen Frauen,seen,seen,0.95514566,1,1,1,iranischen Frauen,Iranische Frauen,0.9986548,seen
+identities,4,335,women,Germany,den Müttern vor 1992 | den Müttern ab 1992,seen | seen,seen,0.9464123,1,0,0,den Müttern vor 1992,die Mutter,0.8249358,seen
+identities,4,405,women,Germany,Mütter,seen,seen,0.93899286,1,1,0,Mütter,Mütter,1.0,seen
+identities,4,405,disabled people,Germany,Rollstuhlfahrer,unseen,unseen,0.9167529,1,0,1,Rollstuhlfahrer,einem behinderten Menschen,0.84136385,Q3
+identities,4,464,men,Germany,Junge Männer,seen,seen,0.9581581,1,1,1,Junge Männer,jungen Männern,0.98944545,seen
+identities,4,469,women,Germany,die unterdrückten Frauen,partial,partial,0.95744395,1,1,1,die unterdrückten Frauen,die sich mit ihr solidarisierenden Frauen,0.75068027,Q2
+identities,4,482,"people with an immigration background, including immigrants",Germany,Viele Flüchtlinge aus der Ukraine,seen,seen,0.9602311,1,1,1,Viele Flüchtlinge aus der Ukraine,ukrainische Flüchtlinge,0.9378281,seen
+identities,4,606,women,Germany,Frauen,seen,seen,0.95204735,1,1,1,Frauen,Frauen,0.99999994,seen
+identities,4,619,men,Germany,Familienväter,unseen,unseen,6.588581e-05,0,0,0,Familienväter,fürsorgliche Väter,0.8801189,Q4
+identities,4,647,women,Germany,"13-, 14-jährige Mädchen",seen,seen,0.9414833,1,1,0,"13-, 14-jährige Mädchen",den zehn- bis 14-jährigen Mädchen,0.9235381,seen
+identities,4,676,"people with an immigration background, including immigrants",Germany,Flüchtlings,seen,seen,0.9587976,1,0,1,Flüchtlings,Flüchtlings,0.99999976,seen
+identities,4,692,women,Germany,Mädchen,seen,seen,0.9320183,1,0,0,Mädchen,Mädchen,1.0000002,seen
+identities,4,694,men,Germany,Männer,seen,seen,0.93602526,1,1,1,Männer,Männer,1.0000002,seen
+identities,4,694,women,Germany,Frauen,seen,seen,0.9164633,1,1,1,Frauen,Frauen,0.99999994,seen
+identities,4,703,women,Germany,kleine Mädchen,seen,seen,0.94746125,1,1,1,kleine Mädchen,d'une fillette,0.944078,seen
+identities,4,706,women,Germany,die Frauen | Rassistinnen,seen | unseen,seen,0.9475754,1,1,1,die Frauen,die Frauen,0.9999998,seen
+identities,4,726,"people with an immigration background, including immigrants",Germany,den Migranten,seen,seen,0.956672,1,1,1,den Migranten,den Migranten,1.0000002,seen
+identities,4,758,LGBTQIA+,Germany,Trans | Trans | sehr viele,seen | seen | no_content,seen,0.9490199,1,1,1,Trans,Trans,1.0,seen
+identities,4,769,women,Germany,weinender Frauen mit verwischter Mascara,partial,partial,0.9528271,1,1,1,weinender Frauen mit verwischter Mascara,"Frauen mit Hermès-Taschen über ihren schmalen Schultern, die große Sonnenbrillen und Mundschutz tragen - als Schutz vor Sonnenlicht und Staub, aber vielleicht auch, um zu verbergen, dass sie gerade ihre Lippen aufgespritzt oder eine künstliche Lidfalte bekommen haben",0.6520532,Q1
+identities,4,806,"people with an immigration background, including immigrants",Germany,Flüchtlings,seen,seen,0.95763546,1,0,1,Flüchtlings,Flüchtlings,0.99999976,seen
+identities,4,954,Muslims,Germany,radikaler Muslime,partial,partial,0.9581972,1,0,1,radikaler Muslime,radikalisierte Islamisten,0.94316685,Q5
+identities,4,1145,women,Germany,Mädchen,seen,seen,0.88138276,1,0,0,Mädchen,Mädchen,1.0000002,seen
+identities,4,1164,Jews,Germany,Juden,partial,partial,0.94415295,1,0,1,Juden,Juifs,0.60857224,Q1
+identities,4,1191,women,Germany,Frauen | Damen,seen | seen,seen,0.9493778,1,1,1,Frauen,Frauen,0.99999994,seen
+identities,4,1191,LGBTQIA+,Germany,trans Personen,seen,seen,0.927201,1,1,1,trans Personen,trans Personen,1.0000001,seen
+identities,4,1229,men,Germany,Schwule | Schwule,seen | seen,seen,0.00013565135,0,0,0,Schwule,Schwulen,0.9886983,seen
+identities,4,1229,LGBTQIA+,Germany,Schwule | Schwule,seen | seen,seen,0.9435869,1,0,1,Schwule,Schwulen,0.9886983,seen
+identities,4,1317,men,Germany,der Männer,seen,seen,0.9539447,1,1,1,der Männer,den Männern,0.9939496,seen
+identities,4,1319,women,Germany,keine andere Schauspielerin,unseen,unseen,0.06613052,0,0,0,keine andere Schauspielerin,keine weiteren Frauen,0.70741737,Q2
+identities,4,1319,"people with an immigration background, including immigrants",Germany,Fremden,seen,seen,0.9381217,1,0,0,Fremden,Fremden,1.0,seen
+identities,4,1319,Jews,Germany,Juden,partial,partial,0.85557115,1,0,1,Juden,Juifs,0.60857224,Q1
+identities,4,1511,"people with an immigration background, including immigrants",Germany,der Vertriebenen,unseen,unseen,0.0030222835,0,0,1,der Vertriebenen,des réfugiés,0.8840166,Q4
+identities,4,1522,"people with an immigration background, including immigrants",Germany,Die Leute | 500 bis 600 Menschen,partial | no_content,partial,0.84130025,1,0,1,Die Leute,des étrangers,0.6946917,Q1
+identities,4,1538,"people with an immigration background, including immigrants",Germany,mehr als 148 000 Kriegsflüchtlinge aus der Ukraine | fast 22 000 Asylbewerber aus anderen Ländern,partial | partial,partial,0.9451581,1,1,1,mehr als 148 000 Kriegsflüchtlinge aus der Ukraine,rund 130 000 ukrainische Geflüchtete,0.80967283,Q3
+identities,4,1546,"people with an immigration background, including immigrants",Germany,eine kleine Gruppe von ausländischen Mitbürgern,partial,partial,0.9515258,1,0,1,eine kleine Gruppe von ausländischen Mitbürgern,les étrangères,0.82597,Q3
+identities,4,1584,"people with an immigration background, including immigrants",Germany,mehrerer abgelehnter Asylbewerber,partial,partial,0.95360774,1,1,1,mehrerer abgelehnter Asylbewerber,abgelehnter Asylbewerber,0.94165957,Q5
+identities,4,1686,"people with an immigration background, including immigrants",Germany,der Hilfesuchenden | viele Ukraine-Flüchtlinge,unseen | seen,seen,0.9482864,1,1,1,viele Ukraine-Flüchtlinge,ukrainische Flüchtlinge,0.9584891,seen
+identities,4,1715,"people with an immigration background, including immigrants",Germany,anderer syrischer Geflüchteter,partial,partial,0.9547442,1,0,1,anderer syrischer Geflüchteter,syrischen Flüchtlingen,0.9524681,Q5
+identities,4,1736,Jews,Germany,die Juden Berlins,partial,partial,0.9360729,1,0,1,die Juden Berlins,l’Union des étudiants juifs d’Autriche,0.67137295,Q1
+identities,4,1753,"people with an immigration background, including immigrants",Germany,Viele Fußballer mit multinationalen Wurzeln,unseen,unseen,5.2584583e-05,0,0,1,Viele Fußballer mit multinationalen Wurzeln,"die ""vielen ausländischen Männer",0.579552,Q1
+identities,4,1920,women,Germany,den Mädchen,seen,seen,0.9504948,1,1,0,den Mädchen,die Mädchen,0.9226607,seen
+identities,4,1962,"people with an immigration background, including immigrants",Germany,so viele Flüchtlinge,seen,seen,0.95630693,1,1,1,so viele Flüchtlinge,die vielen Flüchtlinge,0.9523505,seen
+identities,4,2022,men,Germany,Die Männer,seen,seen,0.95340455,1,1,1,Die Männer,die Männer,0.9961615,seen
+identities,4,2079,"people with an immigration background, including immigrants",Germany,Die älteren Flüchtlinge zwischen 16 und 21,partial,partial,0.95493287,1,1,1,Die älteren Flüchtlinge zwischen 16 und 21,junge Flüchtlinge,0.8057858,Q3
+identities,4,2149,women,Germany,Promi-Frauen zeigen | unterdrückten Frauen im Iran.--- |  Stars las,partial | partial | partial,partial,0.93702024,1,1,1,unterdrückten Frauen im Iran.---,das iranische Frauen,0.85452306,Q4
+identities,4,2379,women,Germany,eine trans Frau | Damen,seen | seen,seen,0.9549475,1,1,0,eine trans Frau,Eine trans Frau,0.9996203,seen
+identities,4,2379,LGBTQIA+,Germany,eine trans Frau,seen,seen,0.95119256,1,1,1,eine trans Frau,Eine trans Frau,0.9996203,seen
+identities,4,2402,women,Germany,den besiegten Frauen,partial,partial,0.9500443,1,1,1,den besiegten Frauen,den Frauen,0.8189341,Q3
+identities,4,2474,"people with an immigration background, including immigrants",Germany,viele Flüchtlinge,seen,seen,0.9611757,1,1,1,viele Flüchtlinge,die vielen Flüchtlinge,0.97338474,seen
+identities,4,2508,men,Germany,"118,5 Jungen",seen,seen,0.9476747,1,0,0,"118,5 Jungen",105 Jungen,0.83583486,seen
+identities,4,2508,women,Germany,100 Mädchen,seen,seen,0.9158811,1,1,0,100 Mädchen,100 Mädchen,0.99999976,seen
+identities,4,2516,"people with an immigration background, including immigrants",Germany,jungen Flüchtlingen,seen,seen,0.95595455,1,1,1,jungen Flüchtlingen,junge Flüchtlinge,0.9977987,seen
+identities,4,2621,"people with an immigration background, including immigrants",Germany,Flüchtlinge,seen,seen,0.95826155,1,1,1,Flüchtlinge,Flüchtlinge,1.0000001,seen
+identities,4,2754,multiple (or other) religious or minority groups,Germany,viele Gläubige,seen,seen,0.0005674912,0,0,1,viele Gläubige,die Gläubigen,0.87289566,seen
+identities,4,2755,women,Germany,Viele Frauen,seen,seen,0.9570314,1,1,1,Viele Frauen,Eine Vielzahl weiterer Frauen,0.94630384,seen
+identities,4,2756,"people with an immigration background, including immigrants",Germany,Migranten | krimineller Ausländer,seen | partial,seen,0.9529787,1,1,1,Migranten,Migranten,0.99999976,seen
+identities,4,2819,men,Germany,Jungen | trans Jungs,seen | partial,seen,0.95332694,1,0,0,Jungen,Junge,0.967371,seen
+identities,4,2819,women,Germany,diesen Mädchen | trans Mädchen,seen | seen,seen,0.9507648,1,1,0,trans Mädchen,trans Mädchen,0.99999994,seen
+identities,4,2819,LGBTQIA+,Germany,trans Jungs | trans Mädchen,seen | seen,seen,0.93879074,1,1,1,trans Jungs,trans Jungs,1.0000001,seen
+identities,4,3054,women,France,nos hôtesses,seen,seen,0.88769203,1,0,0,nos hôtesses,Les hôtesses polyvalentes,0.8156272,seen
+identities,4,3431,Christians,France,"Une centaine de fidèles polonais, biélorusses, arméniens, lituaniens",unseen,unseen,0.00010070439,0,0,1,"Une centaine de fidèles polonais, biélorusses, arméniens, lituaniens",les deux communautés chrétiennes de Vladimir,0.5415231,Q1
+identities,4,3539,women,France,un tiers de femmes | des femmes,partial | seen,seen,0.9477848,1,1,1,des femmes,des femmes,0.9999997,seen
+identities,4,3540,"people with an immigration background, including immigrants",France,Les clandestins,seen,seen,0.9503261,1,0,1,Les clandestins,les clandestins,0.9972538,seen
+identities,4,3652,women,France,de belles femmes,partial,partial,0.95099163,1,1,1,de belles femmes,des femmes,0.82911783,Q3
+identities,4,3661,Christians,France,certains chrétiens extrémistes,partial,partial,0.93890727,1,1,1,certains chrétiens extrémistes,des prêtres orthodoxes extrémistes,0.84264064,Q3
+identities,4,3677,Christians,France,des prêtres catholiques,partial,partial,0.9105275,1,0,1,des prêtres catholiques,der katholischen Gemeinde,0.92434084,Q5
+identities,4,3757,Jews,France,aux juifs,seen,seen,0.91342485,1,1,1,aux juifs,des juifs,0.98280984,seen
+identities,4,3775,women,France,les femmes,seen,seen,0.94902956,1,1,1,les femmes,les femmes,1.0000002,seen
+identities,4,3915,LGBTQIA+,France,Des travestis,partial,partial,0.9382474,1,0,1,Des travestis,Lesben,0.7945408,Q3
+identities,4,3978,Muslims,France,des musulmans,seen,seen,0.95328295,1,1,1,des musulmans,des musulmans,1.0000004,seen
+identities,4,3995,women,France,féminine | des dames de Palestine | quelque deux cents participantes,seen | partial | partial,seen,0.8862529,1,0,1,féminine,féminine,1.0000004,seen
+identities,4,3995,Muslims,France,La population musulmane,partial,partial,0.88423824,1,0,1,La population musulmane,les Musulmans,0.8852419,Q4
+identities,4,4040,women,France,des femmes plutôt jolies,partial,partial,0.950635,1,1,1,des femmes plutôt jolies,de jeunes et jolies filles,0.81585294,Q3
+identities,4,4165,women,France,Les candidates,partial,partial,0.79218477,1,0,1,Les candidates,les candidates idéales,0.76989436,Q2
+identities,4,4205,men,France,d'hommes,seen,seen,0.52110124,1,1,1,d'hommes,les hommes,0.9734125,seen
+identities,4,4205,women,France,au moins quelques femmes | de femmes,seen | seen,seen,0.9399106,1,1,1,de femmes,de femmes,1.0000001,seen
+identities,4,4445,Jews,France,tous les musiciens juifs du National,partial,partial,0.89611244,1,1,1,tous les musiciens juifs du National,des Juifs,0.6806345,Q1
+identities,4,4558,disabled people,France,des aveugles,unseen,unseen,0.920364,1,0,0,des aveugles,Blinden,0.9024856,Q4
+identities,4,4615,Muslims,France,les mollahs,unseen,unseen,3.918779e-05,0,0,1,les mollahs,des musulmans,0.8171199,Q3
+identities,4,4819,Christians,France,jeunes chrétiens,partial,partial,0.7985538,1,1,1,jeunes chrétiens,aux peuples chrétiens,0.8337089,Q3
+identities,4,4911,Ethnic and racial minorities,France,au peuple indigène | l'indigène | un Zigane,unseen | unseen | unseen,unseen,0.00035190428,0,0,1,l'indigène,Indianer,0.8577532,Q4
+identities,4,4935,men,France,ces jeunes hommes,seen,seen,0.0002984995,0,1,1,ces jeunes hommes,diese jungen Männer,0.996368,seen
+identities,4,4972,men,France,les hommes,seen,seen,0.00043780135,0,1,0,les hommes,les hommes,1.0,seen
+identities,4,5050,Christians,France,les catholiques | des chrétiens de seconde zone,unseen | partial,partial,0.94721276,1,1,1,les catholiques,der katholischen Gemeinde,0.9573172,Q5
+identities,4,5076,women,France,Femmes,seen,seen,0.95637316,1,1,1,Femmes,Frauen,0.9791957,seen
+identities,4,5319,Jews,France,les prolétaires juifs,partial,partial,0.8103255,1,1,1,les prolétaires juifs,des Juifs,0.8708275,Q4
+identities,4,5439,"people with an immigration background, including immigrants",France,les réfugiés,seen,seen,0.9483888,1,1,1,les réfugiés,les réfugiés,1.0000001,seen
+identities,4,5445,women,France,des femmes au foyer,seen,seen,0.932287,1,1,1,des femmes au foyer,des femmes au foyer,1.0000001,seen
+identities,4,5445,"people with an immigration background, including immigrants",France,des étrangers,seen,seen,0.9428737,1,0,1,des étrangers,des étrangers,1.0000001,seen
+identities,4,5505,men,France,Les garçons,seen,seen,0.9402769,1,1,0,Les garçons,les garçons,0.9991802,seen
+identities,4,5598,disabled people,Germany,die blinden Teenager,partial,partial,0.93057823,1,0,1,die blinden Teenager,Blinden,0.8045497,Q3
+identities,4,5728,"people with an immigration background, including immigrants",Germany,Flüchtlings,seen,seen,0.944833,1,0,0,Flüchtlings,Flüchtlings,1.0,seen
+identities,4,5731,"people with an immigration background, including immigrants",Germany,immer mehr Flüchtlinge,seen,seen,0.957677,1,1,1,immer mehr Flüchtlinge,die vielen Flüchtlinge,0.9287485,seen
+identities,4,5740,"people with an immigration background, including immigrants",Germany,alle Migranten der Welt,partial,partial,0.9623804,1,1,1,alle Migranten der Welt,die Migranten,0.8843909,Q4
+identities,4,5804,men,Germany,die Jungs,seen,seen,0.9424111,1,0,0,die Jungs,die Jungen,0.99088264,seen
+identities,4,5804,women,Germany,die Mädchen,seen,seen,0.92906696,1,1,0,die Mädchen,die Mädchen,0.9999999,seen
+identities,4,5823,women,Germany,starke Frauen | der Frauen,partial | seen,seen,0.9513386,1,1,1,der Frauen,der Frauen,1.0,seen
+identities,4,5896,men,Germany,"ein Trans-Mann, der geschlagen wird",partial,partial,0.040229235,0,0,0,"ein Trans-Mann, der geschlagen wird",trans Mann,0.6001177,Q1
+identities,4,5896,LGBTQIA+,Germany,"ein Trans-Mann, der geschlagen wird",partial,partial,0.9420207,1,1,1,"ein Trans-Mann, der geschlagen wird",Trans Personen,0.6797816,Q1
+identities,4,5925,Christians,Germany,seiner christlichen Finanziers,partial,partial,0.055042725,0,0,1,seiner christlichen Finanziers,aux peuples chrétiens,0.72952884,Q2
+identities,4,5957,LGBTQIA+,Germany,trans Personen,seen,seen,0.93284863,1,1,1,trans Personen,trans Personen,1.0000001,seen
+identities,4,6082,"people with an immigration background, including immigrants",Germany,Flüchtlinge | Flüchtlinge,seen | seen,seen,0.95482355,1,1,1,Flüchtlinge,Flüchtlinge,1.0000001,seen
+identities,4,6161,women,Germany,mancher älteren (Power)-Frau,partial,partial,0.93038416,1,1,1,mancher älteren (Power)-Frau,ältere noch rüstige Damen,0.7225864,Q2
+identities,4,6193,women,Germany,Mutter,seen,seen,0.03232999,0,0,0,Mutter,Mutter,1.0,seen
+identities,4,6393,women,Germany,die Frauen,seen,seen,0.9544719,1,1,1,die Frauen,die Frauen,0.9999998,seen
+identities,4,6429,"people with an immigration background, including immigrants",Germany,ausländischen,seen,seen,0.9511506,1,0,1,ausländischen,Ausländern,0.97915566,seen
+identities,4,6454,disabled people,Germany,Behinderten,seen,seen,0.9494518,1,0,1,Behinderten,Behinderten,1.0,seen
+identities,4,6562,women,Germany,der Frauen-Union in Berlin-Mitte,partial,partial,0.9362576,1,1,1,der Frauen-Union in Berlin-Mitte,"Kölner Verein ""Frauen gegen Gewalt",0.729746,Q2
+identities,4,6568,LGBTQIA+,Germany,Trans Personen,seen,seen,0.9370643,1,1,1,Trans Personen,Trans Personen,1.0000001,seen
+identities,4,6598,"people with an immigration background, including immigrants",Germany,etwa 15 600 Flüchtlingen | etwa 70 000 Flüchtlinge | jeder Dritte,seen | seen | no_content,seen,0.95124,1,1,1,etwa 15 600 Flüchtlingen,rund 15 400 Asylbewerber,0.8752369,seen
+identities,4,6688,women,Germany,der Frauen,seen,seen,0.95989865,1,1,1,der Frauen,der Frauen,1.0,seen
+identities,4,6750,women,Germany,Die Mädchen,seen,seen,0.9543727,1,1,0,Die Mädchen,die Mädchen,0.9945742,seen
+identities,4,6792,women,Germany,Die einen | andere,no_content | no_content,no_content,0.9080689,1,0,1,andere,les autres,0.9511359,
+identities,4,6794,"people with an immigration background, including immigrants",Germany,Einwanderungs,partial,partial,0.91511464,1,0,0,Einwanderungs,immigrés,0.9527994,Q5
+identities,4,6810,"people with an immigration background, including immigrants",Germany,Die Millionen von Heimatvertriebenen,partial,partial,0.94195175,1,0,1,Die Millionen von Heimatvertriebenen,des milliers de migrants,0.8432931,Q3
+identities,4,6831,"people with an immigration background, including immigrants",Germany,türkischstämmige Bürger in Deutschland,partial,partial,7.602116e-05,0,0,1,türkischstämmige Bürger in Deutschland,"Türken, die in Deutschland in Haft sind",0.77289927,Q2
+identities,4,6851,"people with an immigration background, including immigrants",Germany,Flüchtlings,seen,seen,0.9577352,1,1,1,Flüchtlings,Flüchtlings,1.0,seen
+identities,4,6899,"people with an immigration background, including immigrants",Germany,mehr als 9000 Flüchtlinge | etwa 150 Flüchtlinge,seen | seen,seen,0.95107186,1,1,1,etwa 150 Flüchtlinge,200 oder mehr Flüchtlinge,0.82875085,seen
+identities,4,6948,women,Germany,Frauen,seen,seen,0.956367,1,1,1,Frauen,Frauen,0.9999999,seen
+identities,4,6972,women,Germany,eine alkoholsüchtige Frau,partial,partial,0.94269454,1,1,1,eine alkoholsüchtige Frau,eine Trinkerin,0.886153,Q4
+identities,4,7026,Ethnic and racial minorities,Germany,Indianern,seen,seen,0.018789705,0,0,1,Indianern,Indianer,0.99326926,seen
+identities,4,7180,"people with an immigration background, including immigrants",Germany,Flüchtlings,seen,seen,0.9494617,1,0,1,Flüchtlings,Flüchtlings,1.0,seen
+identities,4,7225,men,Germany,die Männer,seen,seen,0.9553575,1,1,0,die Männer,die Männer,1.0000001,seen
+identities,4,7236,LGBTQIA+,Germany,"Frauen, die keine Frauen waren",seen,seen,0.0003354259,0,1,1,"Frauen, die keine Frauen waren",die sich mit ihr solidarisierenden Frauen,0.6780804,seen
+identities,4,7266,disabled people,Germany,die geistig Behinderten,partial,partial,0.9482042,1,1,1,die geistig Behinderten,geistigen Einschränkungen,0.8876565,Q4
+identities,4,7285,"people with an immigration background, including immigrants",Germany,Flüchtlings,seen,seen,0.942461,1,0,1,Flüchtlings,Flüchtlings,1.0,seen
+identities,4,7303,women,Germany,Schwangeren,unseen,unseen,0.9007783,1,0,1,Schwangeren,Les célibataires enceintes,0.8752346,Q4
+identities,4,7393,men,Germany,die Jungs aus seinem Kiez um die Naunynstraße,partial,partial,0.2603139,0,0,0,die Jungs aus seinem Kiez um die Naunynstraße,die Jungen,0.7136252,Q2
+identities,4,7407,women,Germany,der Frauen,seen,seen,0.9567485,1,1,1,der Frauen,der Frauen,1.0,seen
+identities,4,7420,men,Germany,den Jungen im Jugendalter,partial,partial,0.94941795,1,0,0,den Jungen im Jugendalter,de garçons,0.81336397,Q3
+identities,4,7420,women,Germany,den Mädchen im Grundschulalter,partial,partial,0.9062688,1,1,0,den Mädchen im Grundschulalter,Grundschülerinnen,0.8694527,Q4
+identities,4,7447,"people with an immigration background, including immigrants",Germany,Rund 250 000,no_content,no_content,0.911631,1,0,0,Rund 250 000,200 000 Menschen,0.63046765,
+identities,4,7495,"people with an immigration background, including immigrants",Germany,Illegal eingereiste Ausländer,partial,partial,0.9569375,1,1,1,Illegal eingereiste Ausländer,eingewanderten Bürgern,0.873094,Q4
+identities,4,7519,men,Germany,keinen Sohn,seen,seen,0.8433403,1,0,0,keinen Sohn,eines Sohnes,0.730505,seen
+identities,4,7519,women,Germany,eine Tochter,partial,partial,0.86233777,1,0,0,eine Tochter,d'une fillette,0.9143641,Q5
+identities,4,7563,"people with an immigration background, including immigrants",Germany,Kleinkinder,unseen,unseen,0.00023292367,0,0,1,Kleinkinder,des enfants d'immigrés,0.64491963,Q1
+identities,4,7663,LGBTQIA+,Germany,Trans,seen,seen,0.7751021,1,0,1,Trans,Trans,1.0,seen
+identities,4,7729,disabled people,Germany,Down-Syndrom-Kindern | diese Kinder,partial | partial,partial,0.9478466,1,0,1,Down-Syndrom-Kindern,die Menschen mit Down-Syndrom,0.87577933,Q4
+identities,4,7875,men,Germany,dummen Männern,partial,partial,0.9552034,1,1,1,dummen Männern,les hommes,0.7093578,Q2
+identities,4,7875,women,Germany,das hübsche Mädchen,partial,partial,0.9399573,1,1,1,das hübsche Mädchen,die Mädchen,0.8126626,Q3
+identities,4,8107,"people with an immigration background, including immigrants",Germany,Ausländer,seen,seen,0.9509591,1,1,0,Ausländer,Ausländer,1.0000001,seen
+identities,4,8130,"people with an immigration background, including immigrants",Germany,Flüchtling,seen,seen,0.9490552,1,0,1,Flüchtling,Flüchtling,1.0,seen
+identities,4,8266,women,France,des femmes,seen,seen,0.94206285,1,1,1,des femmes,des femmes,0.9999999,seen
+identities,4,8269,LGBTQIA+,France,les Trans,seen,seen,0.9309532,1,1,0,les Trans,trans,0.9485501,seen
+identities,4,8290,multiple (or other) religious or minority groups,France,des groupes stigmatisés,unseen,unseen,9.9898396e-05,0,0,0,des groupes stigmatisés,marginalisierte Menschen,0.775852,Q2
+identities,4,8331,women,France,Les femmes,seen,seen,0.9507,1,1,1,Les femmes,Les femmes,1.0000001,seen
+identities,4,8332,"people with an immigration background, including immigrants",France,"Plus de 1 162 personnes, pour la plupart syriennes",unseen,unseen,0.00043316052,0,0,1,"Plus de 1 162 personnes, pour la plupart syriennes",200 oder mehr Flüchtlinge,0.66487455,Q1
+identities,4,8400,men,France,les hommes,seen,seen,0.16388002,0,1,1,les hommes,les hommes,1.0,seen
+identities,4,8400,women,France,Une communauté de femmes,partial,partial,0.94267684,1,1,1,Une communauté de femmes,den Frauen,0.8646497,Q4
+identities,4,8506,men,France,les hommes,seen,seen,3.4014985e-05,0,1,0,les hommes,les hommes,1.0000001,seen
+identities,4,8586,"people with an immigration background, including immigrants",France,les migrants,seen,seen,0.9624803,1,1,1,les migrants,les migrants,0.99999994,seen
+identities,4,8663,Christians,France,frontistes catholiques,unseen,unseen,0.84763426,1,0,1,frontistes catholiques,der katholischen Gemeinde,0.8989676,Q4
+identities,4,8740,Ethnic and racial minorities,France,la majorité des Noirs,partial,partial,0.9513438,1,0,1,la majorité des Noirs,Für schwarze Menschen,0.8573265,Q4
+identities,4,8779,Muslims,France,du Mouvement islamiste,partial,partial,0.7310144,1,0,0,du Mouvement islamiste,des islamistes,0.940953,Q5
+identities,4,8824,"people with an immigration background, including immigrants",France,ces réfugiés,seen,seen,0.9536396,1,1,1,ces réfugiés,der Flüchtlinge,0.98710793,seen
+identities,4,8846,women,France,les femmes en France (Enveff),partial,partial,0.94809586,1,1,1,les femmes en France (Enveff,les Françaises,0.8033454,Q3
+identities,4,9096,men,France,les hommes,seen,seen,0.00029163406,0,1,1,les hommes,les hommes,1.0000001,seen
+identities,4,9181,women,France,la femme,seen,seen,0.9512067,1,0,1,la femme,einer Frau,0.96621394,seen
+identities,4,9284,women,France,une femme,seen,seen,0.9457044,1,0,1,une femme,eine Frau,0.9977664,seen
+identities,4,9340,women,France,la mère,seen,seen,0.8735848,1,0,1,la mère,la mère,0.9999998,seen
+identities,4,9363,Muslims,France,du Conseil français du culte musulman,partial,partial,0.15387793,0,0,1,du Conseil français du culte musulman,d'islamistes,0.7779685,Q2
+identities,4,9379,men,France,les hommes,seen,seen,0.9118457,1,1,1,les hommes,les hommes,1.0000001,seen
+identities,4,9379,women,France,les femmes,seen,seen,0.94834626,1,1,1,les femmes,les femmes,1.0000002,seen
+identities,4,9398,men,France,"de «salarymen», célibataires ou bons pères de famille | bons pères de famille",unseen | unseen,unseen,5.4627344e-05,0,0,0,bons pères de famille,fürsorgliche Väter,0.910418,Q4
+identities,4,9410,women,France,Les filles,seen,seen,0.95395106,1,1,1,Les filles,Les filles,1.0,seen
+identities,4,9419,women,France,aux couples de femmes | aux femmes célibataires,partial | partial,partial,0.9417042,1,1,1,aux femmes célibataires,aux seules féminines,0.8778419,Q4
+identities,4,9419,LGBTQIA+,France,aux couples de femmes,partial,partial,7.3201845e-05,0,0,1,aux couples de femmes,les couples de lesbiennes mariées,0.83953905,Q3
+identities,4,9449,cisgender and heterosexuals,France,des parents hétéros,partial,partial,3.2614593e-05,0,0,1,des parents hétéros,des hétérosexuels,0.7824651,Q2
+identities,4,9489,men,France,l’homme blanc hétérosexuel,partial,partial,0.0030082504,0,0,1,l’homme blanc hétérosexuel,les hommes gays et bisexuels,0.8052009,Q3
+identities,4,9489,women,France,des femmes,seen,seen,0.949387,1,1,1,des femmes,des femmes,0.9999997,seen
+identities,4,9489,cisgender and heterosexuals,France,l’homme blanc hétérosexuel,partial,partial,0.929502,1,0,1,l’homme blanc hétérosexuel,heterosexuell,0.74126095,Q2
+identities,4,9530,women,Germany,Sexarbeiterinnen,seen,seen,0.9397007,1,1,0,Sexarbeiterinnen,Sexarbeiterinnen,1.0000002,seen
+identities,4,9585,men,Germany,weißer Cis-Mann,partial,partial,0.0008423312,0,0,1,weißer Cis-Mann,der Klempner,0.6676337,Q1
+identities,4,9585,cisgender and heterosexuals,Germany,weißer Cis-Mann,partial,partial,0.94628507,1,1,1,weißer Cis-Mann,cis Frauen,0.646967,Q1
+identities,4,9585,LGBTQIA+,Germany,queere Kreise | mit klassischen Paaren heterosexueller Art,partial | partial,partial,0.7420037,1,0,1,mit klassischen Paaren heterosexueller Art,aux couples du même sexe,0.8646475,Q4
+identities,4,9602,women,Germany,die Frauen,seen,seen,0.9557696,1,1,1,die Frauen,die Frauen,0.9999998,seen
+identities,4,9605,women,Germany,keine junge Frau | Hausfrau | Mutter,seen | partial | seen,seen,0.9489414,1,1,1,Mutter,Mutter,1.0,seen
+identities,4,9609,women,Germany,der schwäbischen Hausfrau,partial,partial,0.00015182876,0,0,0,der schwäbischen Hausfrau,der Vorort-Hausfrau,0.9117352,Q5
+identities,4,9611,women,Germany,Hausfrau | Glamourgirl,partial | partial,partial,0.6910796,1,0,0,Hausfrau,aux housewives,0.90098304,Q4
+identities,4,9613,women,Germany,"die moderne, gesundheitsbewußte Hausfrau",partial,partial,0.799629,1,0,0,"die moderne, gesundheitsbewußte Hausfrau",la femme au foyer,0.7878687,Q2
+identities,4,9626,LGBTQIA+,France,les homosexuels,seen,seen,0.815137,1,0,1,les homosexuels,Homo­sexuelle,0.9674832,seen
+identities,4,9629,cisgender and heterosexuals,France,les couples hétérosexuels,seen,seen,0.95173526,1,0,1,les couples hétérosexuels,les couples hétérosexuels,0.9999998,seen
+labor_market_position,2,68,civil servants,Germany,hochrangigen Beamten,partial,partial,0.22551313,0,0,0,hochrangigen Beamten,hauts fonctionnaires,0.9724004,Q5
+labor_market_position,2,78,entrepreneurs,Germany,eine andere Bank | eine andere Bank,seen | seen,seen,0.11057909,0,0,1,eine andere Bank,die Bank,0.902273,seen
+labor_market_position,2,131,employers,Germany,Arbeitgebern,seen,seen,0.9907706,1,1,1,Arbeitgebern,Arbeitgebern,0.9999999,seen
+labor_market_position,2,211,wage and salary earners,Germany,Opel-Mitarbeitern | Angestellte von Baufirmen,seen | partial,seen,0.9911177,1,1,1,Opel-Mitarbeitern,Opel-Mitarbeiter,0.98043853,seen
+labor_market_position,2,228,entrepreneurs,Germany,die Stromerzeuger | den Verkehrssektor | Landwirtschaft | Industrie | Gebäudewirtschaft,unseen | partial | partial | seen | partial,seen,0.9957694,1,1,1,Industrie,Industrie,0.9999998,seen
+labor_market_position,2,286,entrepreneurs,Germany,ein Internetunternehmen,partial,partial,0.99328893,1,0,0,ein Internetunternehmen,Netzbetreiber,0.788975,Q2
+labor_market_position,2,287,employers,Germany,der Arbeitgeber,seen,seen,0.9900647,1,1,1,der Arbeitgeber,der Arbeitgeber,0.9999999,seen
+labor_market_position,2,310,entrepreneurs,Germany,andere Hersteller,seen,seen,0.9931378,1,0,1,andere Hersteller,les fabricants,0.9370297,seen
+labor_market_position,2,411,CEOs and corporate leaders,Germany,der Spitzenmanager,partial,partial,0.98817444,1,0,1,der Spitzenmanager,Managerinnen,0.8501767,Q3
+labor_market_position,2,564,entrepreneurs,Germany,Briefkastenfirmen,partial,partial,0.9957832,1,0,0,Briefkastenfirmen,aux distributeurs,0.71208036,Q2
+labor_market_position,2,566,wage and salary earners,Germany,die Gewerkschaft,seen,seen,0.99403906,1,1,0,die Gewerkschaft,die Gewerkschaft,0.99999976,seen
+labor_market_position,2,566,entrepreneurs,Germany,Mittelständler,partial,partial,0.0018409621,0,0,1,Mittelständler,Makler,0.84168535,Q3
+labor_market_position,2,663,entrepreneurs,Germany,Konzern,seen,seen,0.9956039,1,0,0,Konzern,der Konzern,0.9814458,seen
+labor_market_position,2,666,entrepreneurs,Germany,die Betreiber,seen,seen,0.03909165,0,0,1,die Betreiber,die Betreiber,0.9999998,seen
+labor_market_position,2,693,wage and salary earners,Germany,Gewerkschaften | der Arbeiterpartei,seen | partial,seen,0.9937775,1,1,1,Gewerkschaften,Gewerkschaften,1.0000001,seen
+labor_market_position,2,697,entrepreneurs,Germany,ein Unternehmen | einen Industriekonzern,seen | partial,seen,0.9954116,1,1,0,ein Unternehmen,l'entreprise,0.9795259,seen
+labor_market_position,2,719,civil servants,Germany,Den Funktionären,seen,seen,0.4322619,0,0,0,Den Funktionären,der Funktionäre,0.98684675,seen
+labor_market_position,2,759,entrepreneurs,Germany,Branchen,seen,seen,0.99013746,1,0,0,Branchen,Branchen,0.9999999,seen
+labor_market_position,2,829,entrepreneurs,Germany,mehrere Hersteller,partial,partial,0.99429286,1,0,1,mehrere Hersteller,les fabricants,0.9519385,Q5
+labor_market_position,2,836,entrepreneurs,Germany,die Banken | die Banken und damit,seen | seen,seen,0.99582326,1,1,1,die Banken,die Banken,1.0,seen
+labor_market_position,2,852,entrepreneurs,Germany,die Hersteller,seen,seen,0.99529797,1,0,1,die Hersteller,die Hersteller,0.9999999,seen
+labor_market_position,2,871,wage and salary earners,Germany,Personal,seen,seen,0.9846102,1,1,0,Personal,Personal,0.99999994,seen
+labor_market_position,2,902,entrepreneurs,Germany,Geschäftsbesitzer,partial,partial,0.02954863,0,0,1,Geschäftsbesitzer,Unternehmer,0.83105934,Q3
+labor_market_position,2,913,entrepreneurs,Germany,Händler,seen,seen,0.989911,1,1,1,Händler,Händler,1.0,seen
+labor_market_position,2,914,entrepreneurs,Germany,"Konzernen aus Industrie, Handel oder Dienstleistungen | Industrie | Handel | Dienstleistungen",partial | seen | seen | seen,seen,0.99559385,1,1,1,Industrie,Industrie,0.9999998,seen
+labor_market_position,2,915,CEOs and corporate leaders,Germany,der Spitze von Gesamtmetall,partial,partial,5.854217e-05,0,0,0,der Spitze von Gesamtmetall,Konzernspitze,0.4588179,Q1
+labor_market_position,2,915,employers,Germany,Gesamtmetall,unseen,unseen,0.00012308292,0,0,1,Gesamtmetall,die Metallarbeitgeber,0.7125112,Q2
+labor_market_position,2,962,entrepreneurs,Germany,andere Indu­strien | die Autobranche,partial | partial,partial,0.9958962,1,0,0,die Autobranche,l'industrie automobile,0.98003983,Q5
+labor_market_position,2,1100,wage and salary earners,Germany,die Belegschaften,seen,seen,0.99370676,1,0,1,die Belegschaften,der Belegschaft,0.98503,seen
+labor_market_position,2,1135,wage and salary earners,Germany,Gewerkschaft,seen,seen,0.9925789,1,1,0,Gewerkschaft,Gewerkschaften,0.9871332,seen
+labor_market_position,2,1140,wage and salary earners,Germany,normale Arbeitnehmer,partial,partial,0.41380534,0,1,1,normale Arbeitnehmer,des Durchschnittsarbeitnehmers,0.8610755,Q4
+labor_market_position,2,1145,entrepreneurs,Germany,"Verkäufern von Batterien, Einlegesohlen und Kämmen",partial,partial,0.00016831218,0,0,0,"Verkäufern von Batterien, Einlegesohlen und Kämmen",des revendeurs,0.6782193,Q1
+labor_market_position,2,1165,entrepreneurs,Germany,Staatsunternehmen,partial,partial,0.9939779,1,0,0,Staatsunternehmen,Staatsbetriebe,0.94553494,Q5
+labor_market_position,2,1168,entrepreneurs,Germany,Ein Konzern,seen,seen,0.007205581,0,0,0,Ein Konzern,der Konzern,0.9856429,seen
+labor_market_position,2,1174,entrepreneurs,Germany,Pharma | Pharma,seen | seen,seen,7.962925e-05,0,0,0,Pharma,Pharma,1.0,seen
+labor_market_position,2,1176,entrepreneurs,Germany,Viele der Unternehme | diese riesigen Konzerne,seen | partial,seen,0.99566156,1,0,1,diese riesigen Konzerne,de grandes entreprises,0.93776387,seen
+labor_market_position,2,1230,entrepreneurs,Germany,Pharma,seen,seen,0.09612218,0,0,0,Pharma,Pharma,0.99999964,seen
+labor_market_position,2,1332,entrepreneurs,Germany,die deutsche Stahlindustrie,partial,partial,0.9957424,1,0,1,die deutsche Stahlindustrie,die Stahlbranche,0.89866257,Q4
+labor_market_position,2,1365,entrepreneurs,Germany,der »Weißen Flotte«,unseen,unseen,0.00019195845,0,0,0,der »Weißen Flotte,Sparten,0.67034525,Q1
+labor_market_position,2,1462,wage and salary earners,Germany,der Beschäftigten,seen,seen,0.9940382,1,1,1,der Beschäftigten,des salariés,0.9891956,seen
+labor_market_position,2,1534,entrepreneurs,Germany,den gesetzlichen Krankenversicherungen | den gesetzlichen Krankenversicherungen,partial | partial,partial,0.0009920005,0,0,0,den gesetzlichen Krankenversicherungen,der Krankenversicherung,0.9750321,Q5
+labor_market_position,2,1553,unemployed,Germany,besonders ältere Arbeitslose,seen,seen,0.990217,1,0,1,besonders ältere Arbeitslose,ältere Arbeitslose,0.9785593,seen
+labor_market_position,2,1631,entrepreneurs,Germany,Bank | Bank,seen | seen,seen,0.96091264,1,0,0,Bank,Bank,0.9999999,seen
+labor_market_position,2,1682,wage and salary earners,Germany,die Beschäftigten,seen,seen,0.993832,1,1,1,die Beschäftigten,les salariés,0.99070776,seen
+labor_market_position,2,1777,entrepreneurs,Germany,"mehr als 20 Firmen auf, mit denen das UKM während Masins Tätigkeit als Ernährungsbeauftragter zusammenarbeitete",partial,partial,0.99352384,1,1,0,"mehr als 20 Firmen auf, mit denen das UKM während Masins Tätigkeit als Ernährungsbeauftragter zusammenarbeitete",l'industrie alimentaire,0.5871153,Q1
+labor_market_position,2,1866,entrepreneurs,Germany,Die Autozuliefer-Sparte,partial,partial,0.9949398,1,1,1,Die Autozuliefer-Sparte,Autozulieferer,0.95408726,Q5
+labor_market_position,2,1871,entrepreneurs,Germany,Einrichtungsfirmen,partial,partial,0.9957634,1,0,1,Einrichtungsfirmen,entreprises,0.92242,Q5
+labor_market_position,2,1883,entrepreneurs,Germany,der Ersatzkassenverbände,unseen,unseen,0.0014913481,0,0,0,der Ersatzkassenverbände,Sparkassen,0.8398992,Q3
+labor_market_position,2,1910,entrepreneurs,Germany,Die Markenboutiquen in der Stadt,partial,partial,0.9946465,1,0,0,Die Markenboutiquen in der Stadt,Les commerçants du centre-ville,0.86905485,Q4
+labor_market_position,2,2051,wage and salary earners,Germany,Der Betriebsrat,unseen,unseen,0.003921814,0,0,0,Der Betriebsrat,den Mitarbeitern,0.757821,Q2
+labor_market_position,2,2160,entrepreneurs,Germany,der Branche,seen,seen,0.9949215,1,0,0,der Branche,der Branche,1.0000001,seen
+labor_market_position,2,2200,wage and salary earners,Germany,den aktuell 2000 Mitarbeitern in München,partial,partial,0.99399287,1,1,1,den aktuell 2000 Mitarbeitern in München,Viele Mitarbeiter in Deutschland,0.8406602,Q3
+labor_market_position,2,2228,entrepreneurs,Germany,Banken | Banken,seen | seen,seen,0.99582326,1,1,1,Banken,Banken,1.0000001,seen
+labor_market_position,2,2238,entrepreneurs,Germany,zivilen Airlines,seen,seen,0.049730483,0,0,0,zivilen Airlines,zivile Airlines,0.97651976,seen
+labor_market_position,2,2273,CEOs and corporate leaders,Germany,Manager,seen,seen,0.95944566,1,0,1,Manager,Managern,0.9931389,seen
+labor_market_position,2,2273,employers,Germany,der Arbeitgeber,seen,seen,0.98512065,1,1,1,der Arbeitgeber,der Arbeitgeber,0.9999999,seen
+labor_market_position,2,2314,entrepreneurs,Germany,branchenfremden Unternehmen,partial,partial,0.99589765,1,1,1,branchenfremden Unternehmen,d'autres entreprises,0.9117077,Q4
+labor_market_position,2,2320,entrepreneurs,Germany,Unternehmen,seen,seen,0.9952034,1,1,0,Unternehmen,Unternehmen,0.99999994,seen
+labor_market_position,2,2468,entrepreneurs,Germany,Die Gasimporteure,partial,partial,0.00016393814,0,0,1,Die Gasimporteure,les importateurs,0.6918934,Q1
+labor_market_position,2,2586,entrepreneurs,Germany,Die Handwerksbetriebe in Schleswig-Holstein,partial,partial,0.9827702,1,0,1,Die Handwerksbetriebe in Schleswig-Holstein,der deutschen Unternehmen,0.7273698,Q2
+labor_market_position,2,2630,entrepreneurs,Germany,Die Branche,seen,seen,0.2460757,0,0,1,Die Branche,der Branche,0.93940675,seen
+labor_market_position,2,2677,employers,Germany,den Arbeitgebern,seen,seen,0.98837435,1,1,1,den Arbeitgebern,den Arbeitgebern,0.99999976,seen
+labor_market_position,2,2701,unemployed,Germany,jungen Arbeitslosen,partial,partial,0.98534065,1,0,1,jungen Arbeitslosen,de jeunes au chômage,0.95940834,Q5
+labor_market_position,2,2736,wage and salary earners,Germany,der Gewerkschaft,seen,seen,0.9936329,1,1,0,der Gewerkschaft,der Gewerkschaft,1.0,seen
+labor_market_position,2,2736,employers,Germany,Die Arbeitgeber,seen,seen,0.990949,1,1,1,Die Arbeitgeber,Die Arbeitgeber,1.0000002,seen
+labor_market_position,2,2821,wage and salary earners,Germany,die Arbeiter,seen,seen,0.9917157,1,0,1,die Arbeiter,les ouvriers,0.9861693,seen
+labor_market_position,2,2832,unemployed,Germany,den Arbeitssuchenden,partial,partial,0.98198456,1,0,1,den Arbeitssuchenden,chômeurs,0.87389946,Q4
+labor_market_position,2,2848,entrepreneurs,Germany,der Banken | der Banken,seen | seen,seen,0.99578947,1,1,1,der Banken,der Banken,0.99999976,seen
+labor_market_position,2,2849,entrepreneurs,Germany,Viele Unternehmen,seen,seen,0.9957818,1,1,1,Viele Unternehmen,vielen Unternehmen,0.9980824,seen
+labor_market_position,2,2864,entrepreneurs,Germany,der französischen Atomindustrie,partial,partial,0.9913635,1,1,0,der französischen Atomindustrie,la filière nucléaire,0.80635595,Q3
+labor_market_position,2,2922,unemployed,France,de demandeurs d'emploi,seen,seen,0.0001926547,0,0,0,de demandeurs d'emploi,de chômeurs,0.89243495,seen
+labor_market_position,2,2962,entrepreneurs,France,les médias occidentaux,partial,partial,8.890016e-05,0,0,0,les médias occidentaux,die Medienbranche,0.7828529,Q2
+labor_market_position,2,2975,wage and salary earners,France,2000 salariés,seen,seen,0.9932592,1,1,1,2000 salariés,2300 Festangestellte,0.93006146,seen
+labor_market_position,2,2975,entrepreneurs,France,des constructeurs automobiles,seen,seen,0.99447495,1,1,1,des constructeurs automobiles,Les constructeurs automobiles,0.9909712,seen
+labor_market_position,2,2994,entrepreneurs,France,Les compagnies d'assurances,seen,seen,0.995795,1,0,1,Les compagnies d'assurances,compagnies d'assurances,0.9965229,seen
+labor_market_position,2,3054,wage and salary earners,France,nos hôtesses,partial,partial,0.014497422,0,0,0,nos hôtesses,unserer Mitglieder,0.7572267,Q2
+labor_market_position,2,3157,entrepreneurs,France,Les entreprises,seen,seen,0.9958104,1,1,1,Les entreprises,Les entreprises,1.0,seen
+labor_market_position,2,3180,entrepreneurs,France,l'agro-industrie | l'agro-industrie | les firmes de boisson | les magasins de détail | les hypermarchés | les hypermarchés,partial | partial | partial | unseen | partial | partial,partial,0.99511045,1,1,1,l'agro-industrie,le secteur des industries agroalimentaires,0.952623,Q5
+labor_market_position,2,3185,wage and salary earners,France,"les autres centrales syndicales, de la CFDT à FO en passant par les autonomes de l'Unsa",partial,partial,0.9940177,1,1,1,"les autres centrales syndicales, de la CFDT à FO en passant par les autonomes de l'Unsa",des syndicats comme la CGT et la FSU,0.8068043,Q3
+labor_market_position,2,3191,entrepreneurs,France,"les gérants de sicav, comme Deutsche Bank Asset Management | les gérants de sicav, comme Deutsche Bank Asset Management",partial | partial,partial,0.00021479945,0,0,0,"les gérants de sicav, comme Deutsche Bank Asset Management",Vertreter deutscher Banken,0.6891257,Q1
+labor_market_position,2,3244,entrepreneurs,France,l'industrie,seen,seen,0.99493355,1,1,0,l'industrie,die Industrie,0.98785305,seen
+labor_market_position,2,3263,wage and salary earners,France,tous les collaborateurs,seen,seen,0.09090479,0,0,1,tous les collaborateurs,alle Belegschaften,0.86179376,seen
+labor_market_position,2,3263,entrepreneurs,France,ses agences,partial,partial,0.006362362,0,0,0,ses agences,ses filiales,0.7839982,Q2
+labor_market_position,2,3285,wage and salary earners,France,le mouvement ouvrier,partial,partial,0.4305828,0,0,1,le mouvement ouvrier,Force ouvrière,0.85714793,Q4
+labor_market_position,2,3290,entrepreneurs,France,Les marques françaises,partial,partial,0.9947702,1,0,0,Les marques françaises,les entreprises françaises,0.8819784,Q4
+labor_market_position,2,3295,entrepreneurs,France,des commerçants,seen,seen,0.9959254,1,1,1,des commerçants,les commerçants,0.99377394,seen
+labor_market_position,2,3344,entrepreneurs,France,Pharmaciens,seen,seen,0.86530685,1,0,0,Pharmaciens,Pharmaciens,1.0,seen
+labor_market_position,2,3421,CEOs and corporate leaders,France,chef d'entreprise,seen,seen,0.0052437945,0,0,1,chef d'entreprise,der Unternehmenslenker,0.8585777,seen
+labor_market_position,2,3434,entrepreneurs,France,plusieurs entreprises,seen,seen,0.9958935,1,1,1,plusieurs entreprises,vielen Unternehmen,0.97101796,seen
+labor_market_position,2,3443,employers,France,patronaux,seen,seen,0.9887632,1,0,1,patronaux,patronat,0.8756605,seen
+labor_market_position,2,3517,wage and salary earners,France,des effectifs salariés,partial,partial,0.9941566,1,1,1,des effectifs salariés,des salariés,0.9850038,Q5
+labor_market_position,2,3528,wage and salary earners,France,des candidates disponibles de qualité,unseen,unseen,0.015521192,0,0,0,des candidates disponibles de qualité,das erforderliche Personal,0.61642724,Q1
+labor_market_position,2,3528,entrepreneurs,France,les prestataires de services,partial,partial,0.9954442,1,1,1,les prestataires de services,Die Dienste,0.87375224,Q4
+labor_market_position,2,3536,entrepreneurs,France,les prestataires de services,partial,partial,0.0015360732,0,0,1,les prestataires de services,Die Dienste,0.87375224,Q4
+labor_market_position,2,3587,wage and salary earners,France,la CGT,seen,seen,0.9929182,1,1,1,la CGT,la CGT,1.0,seen
+labor_market_position,2,3639,wage and salary earners,France,des grévistes,seen,seen,0.0017910711,0,0,1,des grévistes,Les grévistes,0.9762347,seen
+labor_market_position,2,3658,entrepreneurs,France,les sociétés Internet,partial,partial,0.9923929,1,0,0,les sociétés Internet,die dominanten Online-Plattformen,0.84266996,Q3
+labor_market_position,2,3684,entrepreneurs,France,la plupart des industriels,seen,seen,0.99584275,1,0,1,la plupart des industriels,la plupart des secteurs industriels,0.90719855,seen
+labor_market_position,2,3694,wage and salary earners,France,la CGT,seen,seen,0.994111,1,1,1,la CGT,la CGT,1.0,seen
+labor_market_position,2,3734,wage and salary earners,France,l'ensemble des employés,partial,partial,0.99321884,1,1,1,l'ensemble des employés,alle Mitarbeiter,0.9424976,Q5
+labor_market_position,2,3828,wage and salary earners,France,du personnel,seen,seen,0.994214,1,1,1,du personnel,das Personal,0.99073803,seen
+labor_market_position,2,3840,entrepreneurs,France,Les constructeurs français,partial,partial,0.9958753,1,1,1,Les constructeurs français,des constructeurs français d'automobiles,0.85701513,Q4
+labor_market_position,2,3892,entrepreneurs,France,aux commerçants,seen,seen,0.995748,1,1,1,aux commerçants,les commerçants,0.9777998,seen
+labor_market_position,2,3972,entrepreneurs,France,Les compagnies,seen,seen,0.99577314,1,0,1,Les compagnies,die Firmen,0.9848499,seen
+labor_market_position,2,3982,entrepreneurs,France,des banques | des entreprises,seen | seen,seen,0.99583554,1,1,1,des banques,des banques,1.0,seen
+labor_market_position,2,4032,entrepreneurs,France,les industriels de la pharmacie,partial,partial,0.99569404,1,0,1,les industriels de la pharmacie,Pharmaciens,0.90614796,Q4
+labor_market_position,2,4038,wage and salary earners,France,aux hôtesses qui le souhaitent,partial,partial,0.0007508883,0,0,0,aux hôtesses qui le souhaitent,als Tagelöhner,0.72796464,Q2
+labor_market_position,2,4063,entrepreneurs,France,l'entreprise,seen,seen,0.0010502852,0,0,0,l'entreprise,l'entreprise,0.99999994,seen
+labor_market_position,2,4064,wage and salary earners,France,au salarié,seen,seen,0.9923568,1,0,1,au salarié,du salarié,0.96048063,seen
+labor_market_position,2,4099,entrepreneurs,France,aux entreprises européennes,partial,partial,0.9957355,1,1,1,aux entreprises européennes,aux constructeurs européens,0.8504078,Q3
+labor_market_position,2,4110,CEOs and corporate leaders,France,Les cadres de la compagnie,partial,partial,0.9114614,1,0,1,Les cadres de la compagnie,den Unternehmensleitungen,0.92325956,Q5
+labor_market_position,2,4146,wage and salary earners,France,du personnel | les postes à temps partiel,seen | partial,seen,0.98936355,1,0,1,du personnel,das Personal,0.99073803,seen
+labor_market_position,2,4165,entrepreneurs,France,De plus en plus d'entreprises | des prestataires de services spécialisés,seen | partial,seen,0.9951196,1,1,1,De plus en plus d'entreprises,immer mehr Betriebe,0.95242774,seen
+labor_market_position,2,4175,wage and salary earners,France,aux syndicats de Radio France,partial,partial,0.9942667,1,1,1,aux syndicats de Radio France,les salariés de l'usine Affinal de Béthisy-Saint-Pierre,0.6964535,Q2
+labor_market_position,2,4179,entrepreneurs,France,Les concurrents,partial,partial,6.8821195e-05,0,0,0,Les concurrents,Konkurrenten,0.9654161,Q5
+labor_market_position,2,4194,CEOs and corporate leaders,France,les dirigeants de Cofidis,partial,partial,0.9580489,1,1,1,les dirigeants de Cofidis,ses dirigeants,0.68664825,Q1
+labor_market_position,2,4246,entrepreneurs,France,les équipementiers,partial,partial,0.9946812,1,0,1,les équipementiers,Makler,0.79128915,Q2
+labor_market_position,2,4255,entrepreneurs,France,des assureurs | des assureurs,seen | seen,seen,0.0007012084,0,0,1,des assureurs,les assureurs,0.9949504,seen
+labor_market_position,2,4317,wage and salary earners,France,le salarié,seen,seen,0.9919443,1,0,1,le salarié,du salarié,0.99280304,seen
+labor_market_position,2,4317,entrepreneurs,France,les entreprises,seen,seen,0.9956542,1,1,1,les entreprises,les entreprises,0.99999976,seen
+labor_market_position,2,4327,wage and salary earners,France,3 000 personnes | les 5 000 prévues initialement,no_content | unseen,unseen,0.98968655,1,0,1,3 000 personnes,über 3500 Personen,0.91919094,Q5
+labor_market_position,2,4371,entrepreneurs,France,les entreprises de ce secteur | les entreprises de ce secteur,partial | partial,partial,0.99590576,1,1,1,les entreprises de ce secteur,les entreprises,0.9072973,Q4
+labor_market_position,2,4406,civil servants,France,aux fonctionnaires,seen,seen,0.9759,1,1,1,aux fonctionnaires,des fonctionnaires,0.9829329,seen
+labor_market_position,2,4406,entrepreneurs,France,les entreprises,seen,seen,0.9951113,1,1,1,les entreprises,les entreprises,0.99999976,seen
+labor_market_position,2,4431,entrepreneurs,France,les prestataires de services,partial,partial,0.00031319517,0,0,1,les prestataires de services,Die Dienste,0.87375224,Q4
+labor_market_position,2,4452,entrepreneurs,France,des grands constructeurs automobiles | des sponsors,partial | unseen,partial,0.995421,1,1,1,des grands constructeurs automobiles,Les constructeurs automobiles,0.95234513,Q5
+labor_market_position,2,4461,wage and salary earners,France,les salariés des grandes entreprises,partial,partial,0.99345374,1,1,1,les salariés des grandes entreprises,der Angestellten,0.8403773,Q3
+labor_market_position,2,4461,entrepreneurs,France,des PME | PMI,seen | unseen,seen,0.99313486,1,1,0,des PME,du statut de PME artisanale,0.8640784,seen
+labor_market_position,2,4466,entrepreneurs,France,des banques nationales | les banques étrangères,partial | partial,partial,0.9937044,1,1,1,les banques étrangères,internationale Großbanken,0.9050737,Q4
+labor_market_position,2,4486,entrepreneurs,France,certaines banques,seen,seen,0.9958538,1,1,1,certaines banques,des banques,0.97449064,seen
+labor_market_position,2,4526,CEOs and corporate leaders,France,certains dirigeants,seen,seen,0.14093359,0,1,1,certains dirigeants,leurs dirigeants,0.945158,seen
+labor_market_position,2,4577,entrepreneurs,France,"entreprises (hôtels, restaurants, Les Salins du Midi, Solvay, Saint-Gobain...)",partial,partial,0.9601155,1,1,1,"entreprises (hôtels, restaurants, Les Salins du Midi, Solvay, Saint-Gobain",les entreprises françaises,0.6657049,Q1
+labor_market_position,2,4579,wage and salary earners,France,2 800 employés,seen,seen,0.99221545,1,1,1,2 800 employés,2300 Festangestellte,0.8981468,seen
+labor_market_position,2,4582,civil servants,France,les fonctionnaires,seen,seen,0.98881257,1,1,1,les fonctionnaires,les fonctionnaires,1.0,seen
+labor_market_position,2,4583,CEOs and corporate leaders,France,Les chefs d'entreprise européens,partial,partial,0.9882731,1,0,1,Les chefs d'entreprise européens,bien des chefs d’entreprise,0.757301,Q2
+labor_market_position,2,4595,entrepreneurs,France,des entreprises fournissant les produits de base,partial,partial,0.9957814,1,1,1,des entreprises fournissant les produits de base,des fournisseurs,0.839219,Q3
+labor_market_position,2,4642,wage and salary earners,France,Force ouvrière | CGT,seen | seen,seen,0.99306256,1,1,1,Force ouvrière,Force ouvrière,1.0000002,seen
+labor_market_position,2,4717,entrepreneurs,France,les réseaux bancaires,seen,seen,0.98866963,1,0,1,les réseaux bancaires,aux réseaux bancaires,0.97658104,seen
+labor_market_position,2,4746,CEOs and corporate leaders,France,Les dirigeants nocéens,partial,partial,0.9080857,1,1,0,Les dirigeants nocéens,leurs dirigeants,0.9158202,Q5
+labor_market_position,2,4777,entrepreneurs,France,ses entreprises,seen,seen,0.99565107,1,1,0,ses entreprises,ses entreprises,1.0,seen
+labor_market_position,2,4781,entrepreneurs,France,des entreprises,seen,seen,0.9955656,1,1,1,des entreprises,des entreprises,1.0,seen
+labor_market_position,2,4799,entrepreneurs,France,80 % des hypermarchés,partial,partial,0.92478997,1,0,0,80 % des hypermarchés,La soixantaine de commerces du secteur e,0.6191718,Q1
+labor_market_position,2,4932,wage and salary earners,France,le personnel de Ris-Orangis,partial,partial,0.1899143,0,0,0,le personnel de Ris-Orangis,den Mitarbeitern,0.6794438,Q1
+labor_market_position,2,4967,wage and salary earners,France,Les salariés,seen,seen,0.99370074,1,1,1,Les salariés,Les salariés,0.9999999,seen
+labor_market_position,2,4979,civil servants,France,des serviteurs de l'Etat,partial,partial,0.000667352,0,0,1,des serviteurs de l'Etat,les fonctionnaires,0.86164564,Q4
+labor_market_position,2,5061,employers,France,les patrons,seen,seen,0.9922003,1,1,1,les patrons,les patrons,0.9999999,seen
+labor_market_position,2,5061,entrepreneurs,France,des entreprises,seen,seen,0.994568,1,1,0,des entreprises,des entreprises,1.0,seen
+labor_market_position,2,5080,CEOs and corporate leaders,France,les gérants,unseen,unseen,7.400507e-05,0,0,1,les gérants,les administrateurs,0.86990756,Q4
+labor_market_position,2,5190,employers,France,des anciens employeurs du présentateur,partial,partial,0.98624414,1,1,1,des anciens employeurs du présentateur,des patrons,0.7367675,Q2
+labor_market_position,2,5210,entrepreneurs,France,des entreprises,seen,seen,0.9958806,1,1,1,des entreprises,des entreprises,1.0,seen
+labor_market_position,2,5232,wage and salary earners,France,des anciens ouvriers de cette entreprise,partial,partial,0.993561,1,1,1,des anciens ouvriers de cette entreprise,des vieux travailleurs,0.8959657,Q4
+labor_market_position,2,5262,entrepreneurs,France,les banques | les banques | les entités bancaires,seen | seen | partial,seen,0.9957709,1,1,1,les banques,les banques,0.9999998,seen
+labor_market_position,2,5299,wage and salary earners,France,plus de trois actifs,seen,seen,0.9873396,1,0,1,plus de trois actifs,des actifs,0.81947994,seen
+labor_market_position,2,5299,retirees,France,un pensionné,partial,partial,0.033322606,0,0,1,un pensionné,die Rentner,0.9297525,Q5
+labor_market_position,2,5321,entrepreneurs,France,Les entreprises chinoises,seen,seen,0.99571264,1,1,1,Les entreprises chinoises,des entreprises chinoises,0.99076843,seen
+labor_market_position,2,5389,wage and salary earners,France,de nombreux effectifs,unseen,unseen,0.00020497973,0,0,0,de nombreux effectifs,mancher Mitarbeiter,0.8332036,Q3
+labor_market_position,2,5450,entrepreneurs,France,les commerçants,seen,seen,0.9919418,1,1,1,les commerçants,les commerçants,1.0,seen
+labor_market_position,2,5459,entrepreneurs,France,d'entreprises internationales,partial,partial,0.9959371,1,1,1,d'entreprises internationales,les entreprises étrangères,0.91971064,Q5
+labor_market_position,2,5461,wage and salary earners,France,travailleurs,seen,seen,0.0057225684,0,0,1,travailleurs,Arbeiter,0.99628776,seen
+labor_market_position,2,5482,wage and salary earners,France,les personnels,seen,seen,0.9925007,1,0,0,les personnels,les personnels,1.0000001,seen
+labor_market_position,2,5489,entrepreneurs,France,700 entreprises | d'autres établissements bancaires | d'autres établissements bancaires,seen | partial | partial,seen,0.99577975,1,1,1,700 entreprises,700 entreprises,0.9999998,seen
+labor_market_position,2,5527,entrepreneurs,France,les commerçants,seen,seen,0.99535805,1,1,0,les commerçants,les commerçants,1.0,seen
+labor_market_position,2,5540,entrepreneurs,France,les sociétés,seen,seen,0.9959032,1,0,0,les sociétés,leur société,0.86916757,seen
+labor_market_position,2,5701,entrepreneurs,Germany,die Wohnungswirtschaft,partial,partial,0.9940532,1,0,1,die Wohnungswirtschaft,ein Immobilienentwickler,0.7558726,Q2
+labor_market_position,2,5737,employers,Germany,die Arbeitgeber,seen,seen,0.9904903,1,1,1,die Arbeitgeber,die Arbeitgeber,1.0,seen
+labor_market_position,2,5770,entrepreneurs,Germany,Beratungsfirmen | Pharmakonzernen,partial | partial,partial,0.99588287,1,0,0,Pharmakonzernen,Pharmaherstellern,0.9564884,Q5
+labor_market_position,2,5803,wage and salary earners,Germany,keine Mitarbeiter vor Ort,partial,partial,0.9927965,1,1,1,keine Mitarbeiter vor Ort,Kein Mitarbeiter,0.896534,Q4
+labor_market_position,2,5900,retirees,Germany,"Unternehmen, die ihre neuen Assistenzsysteme für Senioren aus ethischer Sicht evaluieren wollen",partial,partial,0.9703574,1,0,0,"Unternehmen, die ihre neuen Assistenzsysteme für Senioren aus ethischer Sicht evaluieren wollen",der Senioren,0.6477754,Q1
+labor_market_position,2,5930,self-employed and freelancers,Germany,Freelancer,seen,seen,0.13720042,0,0,1,Freelancer,die Freelancer,0.9217415,seen
+labor_market_position,2,5936,entrepreneurs,Germany,ihren Energieversorgern,partial,partial,0.991491,1,0,0,ihren Energieversorgern,der Energiebranche,0.8574424,Q4
+labor_market_position,2,5953,entrepreneurs,Germany,Unternehmen,seen,seen,0.99569196,1,1,0,Unternehmen,Unternehmen,0.99999994,seen
+labor_market_position,2,5955,entrepreneurs,Germany,der Gesundheitswirtschaft,seen,seen,0.9948331,1,0,0,der Gesundheitswirtschaft,die Gesundheitswirtschaft,0.9969002,seen
+labor_market_position,2,6001,entrepreneurs,Germany,die Hersteller,seen,seen,0.9955239,1,0,1,die Hersteller,die Hersteller,0.9999999,seen
+labor_market_position,2,6016,entrepreneurs,Germany,Großhändler,partial,partial,0.99562174,1,0,1,Großhändler,Händler,0.9224679,Q5
+labor_market_position,2,6190,entrepreneurs,Germany,einzelnen Unternehmen,partial,partial,0.99200714,1,1,0,einzelnen Unternehmen,einige Unternehmen,0.9343403,Q5
+labor_market_position,2,6236,entrepreneurs,Germany,wichtige Unternehmen,partial,partial,0.99583,1,1,1,wichtige Unternehmen,les entreprises,0.9175912,Q5
+labor_market_position,2,6249,wage and salary earners,Germany,der Gewerkschaft IG BCE,partial,partial,0.99388427,1,1,1,der Gewerkschaft IG BCE,erboster Gewerkschaftsmitglieder,0.74875313,Q2
+labor_market_position,2,6279,wage and salary earners,Germany,"Leuten, die tagsüber an der Kasse des »Tropical Islands« sitzen oder im Park von Pankow mit dem Laubbläser unterwegs sind",partial,partial,0.00020031215,0,0,0,"Leuten, die tagsüber an der Kasse des »Tropical Islands« sitzen oder im Park von Pankow mit dem Laubbläser unterwegs sind",Die Leute,0.59236866,Q1
+labor_market_position,2,6302,civil servants,Germany,Karriereorientierte Ministerialbeamte,partial,partial,0.5726874,1,0,1,Karriereorientierte Ministerialbeamte,hauts fonctionnaires,0.70440215,Q2
+labor_market_position,2,6340,entrepreneurs,Germany,die Banke | die Banke,seen | seen,seen,0.9958171,1,1,1,die Banke,der Bank,0.9802122,seen
+labor_market_position,2,6383,entrepreneurs,Germany,Einige der Mitglieder,unseen,unseen,0.995427,1,0,0,Einige der Mitglieder,Die Vertreter,0.7740536,Q2
+labor_market_position,2,6483,civil servants,Germany,seiner Beamten,seen,seen,0.95596486,1,0,1,seiner Beamten,der Funktionäre,0.84771496,seen
+labor_market_position,2,6513,retirees,Germany,mehr als 500 Pensionisten,unseen,unseen,0.329489,0,0,1,mehr als 500 Pensionisten,von Senioren ab 60 Jahren,0.69272214,Q1
+labor_market_position,2,6515,entrepreneurs,Germany,der Banker | der Banker | der Banker,seen | seen | seen,seen,0.9949812,1,0,0,der Banker,der Banker,0.99999994,seen
+labor_market_position,2,6521,entrepreneurs,Germany,ins­gesamt 22 Firmen aus sieben Ländern,partial,partial,0.99524826,1,1,0,ins­gesamt 22 Firmen aus sieben Ländern,La plupart des entreprises étrangères,0.7277957,Q2
+labor_market_position,2,6556,entrepreneurs,Germany,der BJU,seen,seen,8.1621925e-05,0,0,0,der BJU,der BJU,1.0000002,seen
+labor_market_position,2,6596,self-employed and freelancers,Germany,ein freischaffendes Ehepaar,partial,partial,0.0062953825,0,0,1,ein freischaffendes Ehepaar,der Freiberufler,0.5722064,Q1
+labor_market_position,2,6600,wage and salary earners,Germany,Personal,seen,seen,0.9912915,1,0,0,Personal,Personal,1.0,seen
+labor_market_position,2,6621,wage and salary earners,Germany,wer pro Woche mindestens eine Stunde arbeitet,partial,partial,0.99066085,1,0,0,wer pro Woche mindestens eine Stunde arbeitet,"Menschen, die täglich zur Arbeit gehen",0.7027854,Q2
+labor_market_position,2,6621,unemployed,Germany,der Arbeitslosen,seen,seen,0.97566015,1,0,1,der Arbeitslosen,Les chômeurs,0.9802942,seen
+labor_market_position,2,6630,unemployed,Germany,die auf dem ersten Arbeitsmarkt keine Stelle finden,partial,partial,0.018131612,0,0,1,die auf dem ersten Arbeitsmarkt keine Stelle finden,les chômeurs,0.8351766,Q3
+labor_market_position,2,6652,wage and salary earners,Germany,die deutschen Beschäftigten,partial,partial,0.99382496,1,1,1,die deutschen Beschäftigten,Viele Mitarbeiter in Deutschland,0.9194151,Q5
+labor_market_position,2,6652,CEOs and corporate leaders,Germany,Der Vorstand,partial,partial,0.4669756,0,0,1,Der Vorstand,Vorstandsmitglieder,0.94544446,Q5
+labor_market_position,2,6660,entrepreneurs,Germany,der Chemiebranche,partial,partial,0.9957296,1,0,1,der Chemiebranche,aux industriels,0.7384809,Q2
+labor_market_position,2,6683,wage and salary earners,Germany,die Nokia-Mitarbeiter,partial,partial,0.993238,1,1,1,die Nokia-Mitarbeiter,die Bochumer Nokia-Beschäftigten,0.92794317,Q5
+labor_market_position,2,6805,CEOs and corporate leaders,Germany,Russen-Oligarchen,unseen,unseen,7.6183875e-05,0,0,0,Russen-Oligarchen,ceux de la chaîne à péage en difficulté de Kirch,0.36751294,Q1
+labor_market_position,2,6883,entrepreneurs,Germany,der Auto- | Wasserstoff- | Solarindustrie,partial | unseen | partial,partial,0.995815,1,0,0,der Auto-,l'automobile,0.95981413,Q5
+labor_market_position,2,6933,wage and salary earners,Germany,Betriebsrats,unseen,unseen,0.005735242,0,0,1,Betriebsrats,Mitarbeiter,0.84941214,Q3
+labor_market_position,2,6946,entrepreneurs,Germany,Unternehmen mit einer ohnehin starken Position | kleinere Konkurrenten oder Start-ups,partial | partial,partial,0.9957879,1,1,1,Unternehmen mit einer ohnehin starken Position,den dominanten Unternehmen,0.82587206,Q3
+labor_market_position,2,6951,entrepreneurs,Germany,den Energiemärkten,partial,partial,0.11840731,0,0,0,den Energiemärkten,der Energiebranche,0.901608,Q4
+labor_market_position,2,6973,wage and salary earners,Germany,etwa 5000 Mitarbeiter,seen,seen,0.99278355,1,1,1,etwa 5000 Mitarbeiter,5000 Fachkräfte,0.91529655,seen
+labor_market_position,2,6994,entrepreneurs,Germany,die Branche,seen,seen,0.99333584,1,0,1,die Branche,Branchen,0.94595516,seen
+labor_market_position,2,7003,entrepreneurs,Germany,Die mehr als 3000 staatlichen Unternehmen des  Landes,partial,partial,0.99581426,1,1,1,Die mehr als 3000 staatlichen Unternehmen des Landes,rund 3300 Unternehmen,0.7906298,Q2
+labor_market_position,2,7016,entrepreneurs,Germany,Großunternehmer,partial,partial,0.00911123,0,0,0,Großunternehmer,de grandes entreprises,0.9189882,Q5
+labor_market_position,2,7039,wage and salary earners,Germany,den 89 Mitarbeitern in der Berliner Zentrale,partial,partial,0.99306655,1,1,1,den 89 Mitarbeitern in der Berliner Zentrale,des Deutschen Gewerkschaftsbundes,0.792898,Q2
+labor_market_position,2,7095,wage and salary earners,Germany,der Daimler-Belegschaft,partial,partial,0.22339322,0,0,1,der Daimler-Belegschaft,les équipes d'usine,0.59343016,Q1
+labor_market_position,2,7095,entrepreneurs,Germany,die GmBHs,unseen,unseen,0.034581162,0,1,0,die GmBHs,der BJU,0.58881205,Q1
+labor_market_position,2,7231,wage and salary earners,Germany,die Hafenmitarbeiter,partial,partial,0.03899719,0,0,0,die Hafenmitarbeiter,der Arbeiter,0.7576477,Q2
+labor_market_position,2,7301,wage and salary earners,Germany,den Arbeitnehmern,seen,seen,0.99367636,1,0,1,den Arbeitnehmern,die Arbeitnehmer,0.9972795,seen
+labor_market_position,2,7305,wage and salary earners,Germany,Personal,seen,seen,0.08281343,0,0,0,Personal,Personal,1.0,seen
+labor_market_position,2,7311,entrepreneurs,Germany,deutschen Instituten,partial,partial,0.036349278,0,0,0,deutschen Instituten,deutschen Apotheken,0.7958535,Q3
+labor_market_position,2,7404,wage and salary earners,Germany,"Tausende teure, aber unproduktive Mitarbeiter",partial,partial,0.9933862,1,1,1,"Tausende teure, aber unproduktive Mitarbeiter",les travailleurs surexploités,0.7529639,Q2
+labor_market_position,2,7480,entrepreneurs,Germany,der Industrie,seen,seen,0.993694,1,1,0,der Industrie,der Industrie,1.0000001,seen
+labor_market_position,2,7502,entrepreneurs,Germany,externe Kooperationspartner aus der Fintech-Branche,partial,partial,0.9956542,1,0,1,externe Kooperationspartner aus der Fintech-Branche,einen starken Fintech-Sektor,0.799737,Q3
+labor_market_position,2,7511,entrepreneurs,Germany,Unternehmen,seen,seen,0.9948885,1,0,0,Unternehmen,Unternehmen,0.99999994,seen
+labor_market_position,2,7549,entrepreneurs,Germany,energieintensive kleine und mittelständische Unternehmen | energieintensive kleine und mittelständische Unternehmen.,partial | partial,partial,0.9957045,1,1,1,energieintensive kleine und mittelständische Unternehmen,Energieunternehmen,0.79442453,Q3
+labor_market_position,2,7576,wage and salary earners,Germany,viel weniger Beschäftigten,seen,seen,0.9928752,1,1,1,viel weniger Beschäftigten,gering qualifizierte Arbeitskräfte,0.5877978,seen
+labor_market_position,2,7639,wage and salary earners,Germany,die Gewerkschaft,seen,seen,0.99418074,1,1,1,die Gewerkschaft,die Gewerkschaft,0.99999976,seen
+labor_market_position,2,7659,wage and salary earners,Germany,Arbeitersproß,partial,partial,0.97281015,1,0,0,Arbeitersproß,der Arbeiter,0.96962875,Q5
+labor_market_position,2,7673,entrepreneurs,Germany,die Banken | die Banken,seen | seen,seen,0.99311936,1,1,0,die Banken,die Banken,1.0,seen
+labor_market_position,2,7755,entrepreneurs,Germany,der Solarindustrie | Chinas gepamperte Sonnenkonzerne | der Elektromobilität | Batteriehersteller,partial | partial | unseen | partial,partial,0.99558556,1,1,1,Chinas gepamperte Sonnenkonzerne,des entreprises chinoises,0.70052004,Q2
+labor_market_position,2,7828,wage and salary earners,Germany,der Weltarbeitnehmervertretung bei Daimler,partial,partial,0.9931157,1,1,1,der Weltarbeitnehmervertretung bei Daimler,Viele Mitarbeiter in Deutschland,0.6744693,Q1
+labor_market_position,2,7895,wage and salary earners,Germany,den Arbeitnehmern,seen,seen,0.9931235,1,0,1,den Arbeitnehmern,die Arbeitnehmer,0.9972795,seen
+labor_market_position,2,7895,employers,Germany,Arbeitgeber,seen,seen,0.0535682,0,0,1,Arbeitgeber,Arbeitgeber,1.0000002,seen
+labor_market_position,2,7906,entrepreneurs,Germany,der Bank | der Bank,seen | seen,seen,0.13770479,0,0,0,der Bank,der Bank,1.0000001,seen
+labor_market_position,2,7917,wage and salary earners,Germany,"eine Nachwuchskraft | einen sucht, der für den Job brennt",partial | unseen,partial,0.040849134,0,0,0,eine Nachwuchskraft,jeunes,0.805084,Q3
+labor_market_position,2,7980,unemployed,Germany,Jugendarbeitslosigkeit,partial,partial,0.30629766,0,0,1,Jugendarbeitslosigkeit,de jeunes au chômage,0.9153842,Q5
+labor_market_position,2,7985,entrepreneurs,Germany,Bank | Bank,seen | seen,seen,0.040060185,0,0,0,Bank,Bank,0.9999999,seen
+labor_market_position,2,8104,CEOs and corporate leaders,Germany,die Führungskräfte,seen,seen,0.9878484,1,0,1,die Führungskräfte,Führungskräfte,0.9771845,seen
+labor_market_position,2,8129,wage and salary earners,Germany,Arbeitnehmer,seen,seen,0.9936801,1,0,1,Arbeitnehmer,Arbeitnehmer,1.0000001,seen
+labor_market_position,2,8149,civil servants,France,les fonctionnaires,seen,seen,0.98898053,1,1,1,les fonctionnaires,les fonctionnaires,1.0,seen
+labor_market_position,2,8154,entrepreneurs,France,aux entreprises,seen,seen,0.9958352,1,1,0,aux entreprises,aux entreprises,1.0,seen
+labor_market_position,2,8178,wage and salary earners,France,au moins 400 salariés de l’équipementier télécom,partial,partial,0.9942873,1,1,1,au moins 400 salariés de l’équipementier télécom,des 400 salariés,0.82174623,Q3
+labor_market_position,2,8184,entrepreneurs,France,les entreprises,seen,seen,0.99584085,1,1,1,les entreprises,les entreprises,0.99999976,seen
+labor_market_position,2,8188,wage and salary earners,France,la majorité des employés,partial,partial,0.99306726,1,1,1,la majorité des employés,la majorité des salariés,0.9873734,Q5
+labor_market_position,2,8213,wage and salary earners,France,aux 18 000 salariés du groupe,partial,partial,0.99396646,1,1,1,aux 18 000 salariés du groupe,mehrere Dutzend Mitarbeiter,0.6981129,Q2
+labor_market_position,2,8223,wage and salary earners,France,des membres de la CNT anarchiste,partial,partial,0.99265987,1,0,0,des membres de la CNT anarchiste,syndicalistes,0.6949557,Q1
+labor_market_position,2,8234,entrepreneurs,France,aux industriels,seen,seen,0.99180764,1,0,1,aux industriels,aux industriels,1.0,seen
+labor_market_position,2,8265,unemployed,France,les chômeurs,seen,seen,0.9899541,1,1,1,les chômeurs,les chômeurs,1.0,seen
+labor_market_position,2,8283,wage and salary earners,France,les salariés,seen,seen,0.99397075,1,1,1,les salariés,les salariés,1.0,seen
+labor_market_position,2,8285,wage and salary earners,France,d’autres organisations syndicales,seen,seen,0.9936185,1,1,1,d’autres organisations syndicales,des organisations syndicales,0.95042014,seen
+labor_market_position,2,8300,wage and salary earners,France,de nombreux adhérents de la CGT,partial,partial,0.9935154,1,1,1,de nombreux adhérents de la CGT,la CGT,0.7862601,Q2
+labor_market_position,2,8420,entrepreneurs,France,les Gafam,unseen,unseen,0.0008477111,0,0,0,les Gafam,fast jede Untergliederung von Gazprom,0.51920825,Q1
+labor_market_position,2,8507,wage and salary earners,France,l’Union syndicale des travailleurs kanaks et exploités (l’USTKE),partial,partial,0.9931599,1,1,1,l’Union syndicale des travailleurs kanaks et exploités (l’USTKE,aux syndicat,0.79739,Q3
+labor_market_position,2,8507,employers,France,au patronat,seen,seen,0.9665943,1,1,1,au patronat,Le patronat,0.94671255,seen
+labor_market_position,2,8537,employers,France,les employeurs,seen,seen,0.9904283,1,1,1,les employeurs,les employeurs,1.0000001,seen
+labor_market_position,2,8562,wage and salary earners,France,ces travailleurs,seen,seen,0.99407876,1,0,1,ces travailleurs,certains travailleurs,0.97278786,seen
+labor_market_position,2,8575,entrepreneurs,France,"toutes les entreprises de réseau, en particulier les vendeurs de flux et possesseurs d’un maillage communicationnel (électricité, téléphonie, eau, gaz, chemins de fer, sociétés d’autoroutes, etc.)",partial,partial,0.9958456,1,1,1,"toutes les entreprises de réseau, en particulier les vendeurs de flux et possesseurs d’un maillage communicationnel (électricité, téléphonie, eau, gaz, chemins de fer, sociétés d’autoroutes, etc",des réseaux de franchise,0.6679771,Q1
+labor_market_position,2,8576,wage and salary earners,France,la population active aux Pays-Bas,partial,partial,0.9903487,1,0,1,la population active aux Pays-Bas,la population active,0.7040316,Q2
+labor_market_position,2,8583,wage and salary earners,France,de puissants syndicats corporatistes,partial,partial,0.99095505,1,1,0,de puissants syndicats corporatistes,les grandes organisations professionnelles et syndicales,0.88905454,Q4
+labor_market_position,2,8617,wage and salary earners,France,des travailleurs actifs,partial,partial,0.99219245,1,0,1,des travailleurs actifs,de travailleurs,0.94717896,Q5
+labor_market_position,2,8622,wage and salary earners,France,les syndicats,seen,seen,0.9938334,1,1,1,les syndicats,les syndicats,1.0,seen
+labor_market_position,2,8647,entrepreneurs,France,des banques jugées « trop grosses pour faire faillite »,partial,partial,0.9959169,1,1,1,des banques jugées « trop grosses pour faire faillite,lahmende Banken,0.7344949,Q2
+labor_market_position,2,8702,employers,France,le patronat américain,partial,partial,0.31462967,0,1,1,le patronat américain,servit les grands « patrons,0.75463676,Q2
+labor_market_position,2,8702,unemployed,France,des sans-emploi,partial,partial,0.81334865,1,0,1,des sans-emploi,Les chômeurs,0.96983707,Q5
+labor_market_position,2,8915,wage and salary earners,France,11 millions de salariés,partial,partial,0.99424547,1,1,1,11 millions de salariés,mehr als 11 000 festangestellte Mitarbeiter,0.90102994,Q4
+labor_market_position,2,8916,entrepreneurs,France,de distributeurs,seen,seen,0.9958255,1,1,1,de distributeurs,des distributeurs,0.9952097,seen
+labor_market_position,2,8935,CEOs and corporate leaders,France,la majorité des directeurs,partial,partial,0.98658633,1,0,1,la majorité des directeurs,Viele Unternehmenschefs,0.78520125,Q2
+labor_market_position,2,8959,entrepreneurs,France,des industries de défense,partial,partial,0.9922391,1,0,0,des industries de défense,im Bereich Rüstung,0.76154864,Q2
+labor_market_position,2,8978,wage and salary earners,France,", les syndica",seen,seen,0.99402386,1,1,1,les syndica,syndicaux,0.88965863,seen
+labor_market_position,2,8979,wage and salary earners,France,des personnels,seen,seen,0.9934509,1,0,1,des personnels,les personnels,0.9948991,seen
+labor_market_position,2,9009,civil servants,France,des ministres,partial,partial,0.9863434,1,1,1,des ministres,de hauts fonctionnaire,0.7708821,Q2
+labor_market_position,2,9106,wage and salary earners,France,les 3 800 salariés qu'il emploie dans cette activité,partial,partial,0.9934001,1,1,1,les 3 800 salariés qu'il emploie dans cette activité,3000 Mitarbeitern,0.80744356,Q3
+labor_market_position,2,9154,wage and salary earners,France,les syndicats,seen,seen,0.9931058,1,1,0,les syndicats,les syndicats,1.0,seen
+labor_market_position,2,9157,wage and salary earners,France,Les permanents,unseen,unseen,0.0067314385,0,0,0,Les permanents,les précaires,0.68194973,Q1
+labor_market_position,2,9163,wage and salary earners,France,528 salariés âgés de 18 à 65 ans,partial,partial,0.99398476,1,1,1,528 salariés âgés de 18 à 65 ans,55 000 Beschäftigte,0.70119584,Q2
+labor_market_position,2,9164,wage and salary earners,France,des employés,seen,seen,0.99321425,1,1,1,des employés,les employés,0.9957659,seen
+labor_market_position,2,9247,retirees,France,de retraités,seen,seen,0.99071723,1,1,1,de retraités,des retraités,0.9927582,seen
+labor_market_position,2,9414,entrepreneurs,France,Le business,unseen,unseen,0.98810905,1,0,1,Le business,Geschäften,0.8924177,Q4
+labor_market_position,2,9422,entrepreneurs,France,aux entrepreneurs français qui feraient l’objet d’offres hostiles,partial,partial,0.009092029,0,0,1,aux entrepreneurs français qui feraient l’objet d’offres hostiles,les entreprises françaises,0.8084345,Q3
+labor_market_position,2,9437,housewives and househusbands,France,les « femmes au foyer »,seen,seen,0.99265504,1,1,1,les « femmes au foyer,de femmes au foyer,0.9560519,seen
+labor_market_position,2,9465,wage and salary earners,France,une abondante main-d’œuvre non qualifiée | des techniciens et cadres hautement qualifiés,partial | partial,partial,0.99116653,1,0,0,une abondante main-d’œuvre non qualifiée,gering qualifizierte Arbeitskräfte,0.87270606,Q4
+labor_market_position,2,9465,entrepreneurs,France,aux sociétés multinationales | aux sociétés multinationales,partial | partial,partial,0.9958644,1,0,0,aux sociétés multinationales,des multinationales,0.95915926,Q5
+labor_market_position,2,9506,self-employed and freelancers,Germany,Soloselbstständigen | Freelancer,partial | seen,seen,0.9765999,1,0,1,Freelancer,die Freelancer,0.9217415,seen
+labor_market_position,2,9507,self-employed and freelancers,Germany,selbständige Akademiker,partial,partial,0.0021160215,0,0,1,selbständige Akademiker,der Freiberufler,0.6489828,Q1
+labor_market_position,2,9564,entrepreneurs,Germany,Makler,seen,seen,6.038028e-05,0,0,0,Makler,Makler,1.0,seen
+labor_market_position,2,9604,housewives and househusbands,Germany,echter Hausmann,partial,partial,0.9863495,1,0,1,echter Hausmann,Hausmann,0.8661504,Q4
+labor_market_position,2,9606,housewives and househusbands,Germany,der Hausfrauen und Hausmänner,seen,seen,0.99237216,1,0,1,der Hausfrauen und Hausmänner,Hausfrauen und Hausmänner,0.98433995,seen
+labor_market_position,2,9609,wage and salary earners,Germany,Personal,seen,seen,0.11470202,0,0,0,Personal,Personal,1.0,seen
+labor_market_position,2,9609,housewives and househusbands,Germany,der schwäbischen Hausfrau,partial,partial,0.9917191,1,1,1,der schwäbischen Hausfrau,Hausfrau,0.9448784,Q5
+labor_market_position,2,9615,unemployed,Germany,ältere Arbeitslose,seen,seen,0.98924774,1,0,1,ältere Arbeitslose,ältere Arbeitslose,1.0,seen
+labor_market_position,2,9636,wage and salary earners,France,des cadres | les ouvriers,seen | seen,seen,0.99046046,1,1,0,les ouvriers,les ouvriers,0.99999976,seen
 profession,3,19,politicians and high-ranking officials,Germany,CDU | die Opposition,seen | seen,seen,0.99724495,1,1,1,die Opposition,die Opposition,1.0000001,seen
 profession,3,34,politicians and high-ranking officials,Germany,Linke,seen,seen,0.99749374,1,0,1,Linke,Linke,0.99999994,seen
 profession,3,44,other professions,Germany,die Feuerwehrleute,seen,seen,0.9580806,1,0,1,die Feuerwehrleute,die Feuerwehrleute,1.0,seen
@@ -687,7 +688,7 @@ profession,3,389,journalists,Germany,missliebige Journalisten,partial,partial,0.
 profession,3,405,politicians and high-ranking officials,Germany,SPD,seen,seen,0.9976616,1,1,0,SPD,SPD,0.9999999,seen
 profession,3,429,security forces,Germany,Die Ermittler,seen,seen,0.9967205,1,1,1,Die Ermittler,Die Ermittler,1.0000002,seen
 profession,3,437,politicians and high-ranking officials,Germany,CSU,seen,seen,0.9973864,1,1,1,CSU,CSU,0.9999999,seen
-profession,3,450,security forces,Germany,Die deutschen Kriminalbeamtinnen und -beamten,partial,partial,0.9929778,1,1,1,Die deutschen Kriminalbeamtinnen und -beamten,die Ermittler der Münchner Kriminalpolizei,0.9104676,Q5
+profession,3,450,security forces,Germany,Die deutschen Kriminalbeamtinnen und -beamten,partial,partial,0.9929778,1,1,1,Die deutschen Kriminalbeamtinnen und -beamten,die Ermittler der Münchner Kriminalpolizei,0.9104676,Q4
 profession,3,455,politicians and high-ranking officials,Germany,ein gutes Drittel seiner Fraktion,partial,partial,0.98098123,1,0,1,ein gutes Drittel seiner Fraktion,seiner Fraktion,0.7124183,Q2
 profession,3,463,other professions,Germany,Kritik,seen,seen,0.000610861,0,0,0,Kritik,Kritiker,0.9409995,seen
 profession,3,475,politicians and high-ranking officials,Germany,der FW | die Partei,unseen | seen,seen,0.9974101,1,1,1,die Partei,die Partei,0.9999996,seen
@@ -699,7 +700,7 @@ profession,3,543,politicians and high-ranking officials,Germany,der AfD,seen,see
 profession,3,546,politicians and high-ranking officials,Germany,Partei | dem Ortsverband,seen | unseen,seen,0.99707794,1,0,1,Partei,Partei,1.0,seen
 profession,3,568,politicians and high-ranking officials,Germany,SPD,seen,seen,0.99764997,1,1,0,SPD,SPD,1.0,seen
 profession,3,589,politicians and high-ranking officials,Germany,der PDS | der CSU,seen | seen,seen,0.9975604,1,1,1,der CSU,der CSU,1.0000001,seen
-profession,3,607,health and care professionals,Germany,Pflegeberufen,partial,partial,0.01891502,0,0,1,Pflegeberufen,ein Pflegebeauftragter,0.85335636,Q4
+profession,3,607,health and care professionals,Germany,Pflegeberufen,partial,partial,0.01891502,0,0,1,Pflegeberufen,ein Pflegebeauftragter,0.85335636,Q3
 profession,3,616,politicians and high-ranking officials,Germany,Grünen,seen,seen,0.99739444,1,1,0,Grünen,Grünen,0.99999976,seen
 profession,3,620,athletes,Germany,Spieler | keinen Trainer,seen | seen,seen,0.994231,1,1,1,Spieler,Spieler,1.0000001,seen
 profession,3,633,politicians and high-ranking officials,Germany,die Dachauer Kommunalpolitiker | SPD,partial | seen,seen,0.9976311,1,1,1,SPD,SPD,1.0,seen
@@ -816,7 +817,7 @@ profession,3,2493,politicians and high-ranking officials,Germany,SPD | CDU,seen 
 profession,3,2539,politicians and high-ranking officials,Germany,der Union,seen,seen,0.9974921,1,0,1,der Union,der Union,1.0000002,seen
 profession,3,2540,politicians and high-ranking officials,Germany,die Minister,seen,seen,0.989641,1,0,1,die Minister,les ministres,0.9271445,seen
 profession,3,2566,politicians and high-ranking officials,Germany,SPD,seen,seen,0.99752885,1,1,0,SPD,SPD,1.0,seen
-profession,3,2592,politicians and high-ranking officials,Germany,CDU | Grüne,seen | seen,seen,0.99754757,1,1,1,Grüne,Grüne,0.9999999,seen
+profession,3,2592,politicians and high-ranking officials,Germany,CDU | Grüne,seen | seen,seen,0.99754757,1,1,1,CDU,CDU,0.9999999,seen
 profession,3,2691,politicians and high-ranking officials,Germany,der Mächtigen,partial,partial,0.8806149,1,0,0,der Mächtigen,die Mächtigen der Welt,0.8931799,Q4
 profession,3,2713,journalists,Germany,Journalisten,seen,seen,0.9962748,1,1,1,Journalisten,Journalisten,1.0,seen
 profession,3,2763,athletes,Germany,Alle Mannschaften,seen,seen,0.9972703,1,0,1,Alle Mannschaften,Alle anderen Teams,0.9290244,seen
@@ -827,7 +828,7 @@ profession,3,2844,other professions,Germany,die westdeutschen Architekten,partia
 profession,3,2854,politicians and high-ranking officials,Germany,CDU,seen,seen,0.9973091,1,1,1,CDU,CDU,0.9999999,seen
 profession,3,2861,other professions,Germany,die Wachleute,unseen,unseen,0.93875074,1,0,0,die Wachleute,den Wachmännern,0.8954544,Q4
 profession,3,2881,other professions,Germany,der Meetingorganisatoren,partial,partial,0.007646297,0,0,1,der Meetingorganisatoren,les organisateurs,0.75544727,Q2
-profession,3,2899,politicians and high-ranking officials,France,la bureaucratie de Washington,partial,partial,0.0046081683,0,0,1,la bureaucratie de Washington,milieux gouvernementaux,0.791133,Q3
+profession,3,2899,politicians and high-ranking officials,France,la bureaucratie de Washington,partial,partial,0.0046081683,0,0,1,la bureaucratie de Washington,milieux gouvernementaux,0.791133,Q2
 profession,3,2901,athletes,France,"aux coureurs R1, R2, D1 et D2",seen,seen,0.9940509,1,1,1,"aux coureurs R1, R2, D1 et D2",des coureurs,0.70012695,seen
 profession,3,2912,other professions,France,les analystes,seen,seen,0.9579063,1,1,1,les analystes,les analystes,1.0000004,seen
 profession,3,2921,politicians and high-ranking officials,France,les Verts | de candidats,seen | unseen,seen,0.9977042,1,0,1,les Verts,les Verts,1.0000001,seen
@@ -870,7 +871,7 @@ profession,3,3533,security forces,France,les gendarmes de Chantilly | ceux de Su
 profession,3,3533,other professions,France,d'éboueur,unseen,unseen,0.0001898334,0,0,1,d'éboueur,die Bestatter,0.83848184,Q3
 profession,3,3559,politicians and high-ranking officials,France,nos plus brillants diplomates,partial,partial,0.91531783,1,0,0,nos plus brillants diplomates,ses diplomates,0.88848966,Q4
 profession,3,3583,politicians and high-ranking officials,France,l'opposition de gauche,partial,partial,0.9973999,1,1,1,l'opposition de gauche,du Parti de gauche,0.92404526,Q5
-profession,3,3584,athletes,France,les Essonniens,unseen,unseen,0.00065797503,0,0,1,les Essonniens,die Recken,0.90513813,Q5
+profession,3,3584,athletes,France,les Essonniens,unseen,unseen,0.00065797503,0,0,1,les Essonniens,die Recken,0.90513813,Q4
 profession,3,3598,scientists and professors,France,les économistes,seen,seen,0.98571277,1,1,1,les économistes,les économistes,0.99999994,seen
 profession,3,3605,security forces,France,de gendarmes,seen,seen,0.9885002,1,1,1,de gendarmes,de gendarmes,1.0,seen
 profession,3,3606,athletes,France,un XV plaisirois | ses entraîneurs,partial | seen,seen,0.9972535,1,0,1,ses entraîneurs,dem Trainer,0.9424159,seen
@@ -931,7 +932,7 @@ profession,3,4418,politicians and high-ranking officials,France,la nouvelle majo
 profession,3,4421,security forces,France,les membres du DPS,unseen,unseen,3.845618e-05,0,0,1,les membres du DPS,der Beamten,0.6305906,Q1
 profession,3,4439,farmers and fishermen,France,les paysans,seen,seen,0.99532384,1,0,1,les paysans,Des paysans,0.9954846,seen
 profession,3,4445,authors and artists,France,tous les musiciens juifs du National,partial,partial,0.99414366,1,1,1,tous les musiciens juifs du National,die Musiker,0.7597679,Q2
-profession,3,4487,athletes,France,les clubs de DN2,partial,partial,0.011315262,0,0,0,les clubs de DN2,le club,0.694371,Q2
+profession,3,4487,athletes,France,les clubs de DN2,partial,partial,0.011315262,0,0,0,les clubs de DN2,le club,0.694371,Q1
 profession,3,4556,politicians and high-ranking officials,France,du PS,seen,seen,0.9972657,1,1,1,du PS,du PS,1.0,seen
 profession,3,4577,farmers and fishermen,France,400 riziculteurs | éleveurs,unseen | partial,partial,0.9757583,1,0,1,éleveurs,les agriculteurs,0.9368241,Q5
 profession,3,4606,politicians and high-ranking officials,France,RPR | UDF-CDS,seen | partial,seen,0.99719256,1,1,0,RPR,RPR,1.0,seen
@@ -941,9 +942,9 @@ profession,3,4819,doctors,France,médecins,seen,seen,0.92488635,1,1,1,médecins,
 profession,3,4819,legal professionals,France,avocats,seen,seen,0.9085973,1,0,1,avocats,les avocats,0.98054636,seen
 profession,3,4819,politicians and high-ranking officials,France,Le Front national,seen,seen,0.9962257,1,1,1,Le Front national,Le Front national,1.0000001,seen
 profession,3,4836,athletes,France,aux mêmes joueurs,seen,seen,0.9961272,1,1,1,aux mêmes joueurs,solche Spieler,0.8782806,seen
-profession,3,4838,athletes,France,les Cergypontaines | des Alsaciennes,unseen | unseen,unseen,0.040861364,0,0,1,les Cergypontaines,die Recken,0.84573597,Q4
+profession,3,4838,athletes,France,les Cergypontaines | des Alsaciennes,unseen | unseen,unseen,0.040861364,0,0,1,les Cergypontaines,die Recken,0.84573597,Q3
 profession,3,4857,politicians and high-ranking officials,France,RPR,seen,seen,0.99753004,1,1,1,RPR,RPR,1.0,seen
-profession,3,4860,athletes,France,Les sportifs du plateau Jules-Ferry,partial,partial,0.9954092,1,1,1,Les sportifs du plateau Jules-Ferry,les joueurs de l'Olympique Sannois-Saint-Gratien,0.69432914,Q2
+profession,3,4860,athletes,France,Les sportifs du plateau Jules-Ferry,partial,partial,0.9954092,1,1,1,Les sportifs du plateau Jules-Ferry,les joueurs de l'Olympique Sannois-Saint-Gratien,0.69432914,Q1
 profession,3,4872,legal professionals,France,des juges,seen,seen,0.9886072,1,0,1,des juges,les juges,0.994015,seen
 profession,3,4879,politicians and high-ranking officials,France,du FN,seen,seen,0.99751794,1,1,1,du FN,du FN,1.0000001,seen
 profession,3,4888,authors and artists,France,Danseurs | acrobate,seen | seen,seen,0.9219761,1,0,1,Danseurs,des danseuses,0.9867163,seen
@@ -957,7 +958,7 @@ profession,3,4969,soldiers,France,les forces serbes de Krajina,partial,partial,0
 profession,3,4981,authors and artists,France,les musiciens de la fanfare,partial,partial,0.9904214,1,1,1,les musiciens de la fanfare,les musiciens,0.9358485,Q5
 profession,3,5004,athletes,France,des joueurs de Noël Tosi,partial,partial,0.996579,1,1,1,des joueurs de Noël Tosi,les joueurs beauvaisiens,0.618499,Q1
 profession,3,5008,other professions,France,hôtesse,seen,seen,0.8502007,1,0,1,hôtesse,d'hôtesses,0.8014655,seen
-profession,3,5013,legal professionals,France,Les magistrats instructeurs,partial,partial,0.3802636,0,0,1,Les magistrats instructeurs,les magistrats,0.9059348,Q5
+profession,3,5013,legal professionals,France,Les magistrats instructeurs,partial,partial,0.3802636,0,0,1,Les magistrats instructeurs,les magistrats,0.9059348,Q4
 profession,3,5024,politicians and high-ranking officials,France,les forces d'extrême droite | la droite extrême | la droite du Parti républicain,partial | seen | seen,seen,0.9558224,1,1,1,la droite extrême,l’extrême droite,0.9862896,seen
 profession,3,5036,politicians and high-ranking officials,France,l'élite,seen,seen,0.00047769744,0,0,0,l'élite,die Elite,0.96558785,seen
 profession,3,5053,politicians and high-ranking officials,France,RPR,seen,seen,0.99698216,1,1,1,RPR,RPR,1.0,seen
@@ -970,7 +971,7 @@ profession,3,5176,athletes,France,les coureurs,seen,seen,0.9942688,1,1,1,les cou
 profession,3,5200,athletes,France,les autres coureurs,seen,seen,0.99677074,1,1,1,les autres coureurs,des autres coureurs,0.9867253,seen
 profession,3,5209,politicians and high-ranking officials,France,"élite le ramassis de diplômés bilingues qui, se couvrant d'une fausse jeunesse, en vient à manifester tous les jours contre son peuple",partial,partial,0.015780874,0,0,0,"élite le ramassis de diplômés bilingues qui, se couvrant d'une fausse jeunesse, en vient à manifester tous les jours contre son peuple",des milieux d’opposition de gauche libérale de son pays d’origine,0.6286298,Q1
 profession,3,5212,security forces,France,Les enquêteurs de la répression des fraudes,partial,partial,0.9288833,1,1,0,Les enquêteurs de la répression des fraudes,les enquêteurs,0.65054476,Q1
-profession,3,5243,security forces,France,les policiers du syndicat Alliance 93,partial,partial,0.9663272,1,1,1,les policiers du syndicat Alliance 93,les policiers,0.79055524,Q3
+profession,3,5243,security forces,France,les policiers du syndicat Alliance 93,partial,partial,0.9663272,1,1,1,les policiers du syndicat Alliance 93,les policiers,0.79055524,Q2
 profession,3,5272,authors and artists,France,"Tous les autres comédiens, dont Mallaury Nataf",partial,partial,0.0010873195,0,0,1,"Tous les autres comédiens, dont Mallaury Nataf",les comédiens,0.7119117,Q2
 profession,3,5295,authors and artists,France,les plus artistes,seen,seen,0.9788038,1,1,1,les plus artistes,des artistes,0.93388605,seen
 profession,3,5306,politicians and high-ranking officials,France,Une demi-douzaine de préfets de gauche,partial,partial,0.9962824,1,1,1,Une demi-douzaine de préfets de gauche,ses colistiers de la gauche plurielle,0.7843849,Q2
@@ -1016,7 +1017,7 @@ profession,3,6168,politicians and high-ranking officials,Germany,Die Kabinettsmi
 profession,3,6272,other professions,Germany,Die Piloten,seen,seen,0.95264196,1,1,1,Die Piloten,die Piloten,0.9989369,seen
 profession,3,6273,politicians and high-ranking officials,Germany,Die CDU,seen,seen,0.99710006,1,1,1,Die CDU,Die CDU,1.0000001,seen
 profession,3,6284,authors and artists,Germany,den Männern,partial,partial,0.00019238445,0,0,0,den Männern,Tous ces hommes,0.7952435,Q3
-profession,3,6294,soldiers,Germany,die meisten noch verbliebenen deutschen Soldaten,partial,partial,0.9931694,1,1,1,die meisten noch verbliebenen deutschen Soldaten,deutsche Soldaten,0.85247725,Q4
+profession,3,6294,soldiers,Germany,die meisten noch verbliebenen deutschen Soldaten,partial,partial,0.9931694,1,1,1,die meisten noch verbliebenen deutschen Soldaten,deutsche Soldaten,0.85247725,Q3
 profession,3,6295,other professions,Germany,die Analysten der LBBW,partial,partial,0.93351334,1,0,1,die Analysten der LBBW,les analystes,0.7082708,Q2
 profession,3,6334,politicians and high-ranking officials,Germany,die Politiker,seen,seen,0.99194217,1,1,1,die Politiker,die Politiker,0.99999994,seen
 profession,3,6336,athletes,Germany,Profis mit Star-Gehabe,partial,partial,0.99515885,1,0,1,Profis mit Star-Gehabe,den Profis,0.7278452,Q2
@@ -1038,7 +1039,7 @@ profession,3,6595,politicians and high-ranking officials,Germany,Grünen,seen,se
 profession,3,6609,politicians and high-ranking officials,Germany,SPD,seen,seen,0.9972127,1,1,1,SPD,SPD,1.0,seen
 profession,3,6627,politicians and high-ranking officials,Germany,Politiker,seen,seen,0.9950418,1,1,1,Politiker,Politiker,0.99999976,seen
 profession,3,6695,authors and artists,Germany,der Musik-Szene,partial,partial,0.04570836,0,0,1,der Musik-Szene,des amateurs de musique planante,0.8707255,Q4
-profession,3,6716,legal professionals,Germany,der Verteidigung,unseen,unseen,3.152806e-05,0,0,1,der Verteidigung,des défenseurs,0.84918624,Q4
+profession,3,6716,legal professionals,Germany,der Verteidigung,unseen,unseen,3.152806e-05,0,0,1,der Verteidigung,des défenseurs,0.84918624,Q3
 profession,3,6723,politicians and high-ranking officials,Germany,sowjetische Diplomaten,partial,partial,0.9974686,1,0,1,sowjetische Diplomaten,des diplomates,0.78082687,Q2
 profession,3,6736,authors and artists,Germany,die Produzenten,seen,seen,0.9537112,1,0,1,die Produzenten,die Produzenten,1.0000001,seen
 profession,3,6740,politicians and high-ranking officials,Germany,Hessens SPD,partial,partial,0.9971559,1,1,1,Hessens SPD,der Germeringer SPD,0.8733271,Q4
@@ -1064,7 +1065,7 @@ profession,3,6984,politicians and high-ranking officials,Germany,SPD | SPD | SPD
 profession,3,7015,athletes,Germany,"die besten Läufer, Werfer und Springer",partial,partial,0.9930248,1,0,1,"die besten Läufer, Werfer und Springer",les coureurs,0.83002436,Q3
 profession,3,7049,politicians and high-ranking officials,Germany,der Partei,seen,seen,0.9976393,1,1,1,der Partei,der Partei,0.99999994,seen
 profession,3,7054,politicians and high-ranking officials,Germany,der Union | FDP,seen | seen,seen,0.99720985,1,1,1,der Union,der Union,1.0000002,seen
-profession,3,7076,other professions,Germany,einheimische Verkäufer,partial,partial,0.0058358843,0,0,0,einheimische Verkäufer,Die Verkäuferinnen,0.8481196,Q4
+profession,3,7076,other professions,Germany,einheimische Verkäufer,partial,partial,0.0058358843,0,0,0,einheimische Verkäufer,Die Verkäuferinnen,0.8481196,Q3
 profession,3,7077,politicians and high-ranking officials,Germany,des politischen Verbündeten,partial,partial,0.9437174,1,0,0,des politischen Verbündeten,"ses alliés, l'extrême droite d'Alliance nationale et les Centristes chrétiens-démocrates",0.7809405,Q2
 profession,3,7099,soldiers,Germany,die Soldaten,seen,seen,0.9953542,1,1,1,die Soldaten,die Soldaten,0.99999976,seen
 profession,3,7103,athletes,Germany,die Kollegen,seen,seen,0.9932996,1,0,1,die Kollegen,Kolleginnen und Kollegen,0.8710853,seen
@@ -1076,7 +1077,7 @@ profession,3,7196,security forces,Germany,die Kriminalbeamten,partial,partial,0.
 profession,3,7209,politicians and high-ranking officials,Germany,die Grünen,seen,seen,0.9974868,1,1,1,die Grünen,die Grünen,0.9999999,seen
 profession,3,7222,security forces,Germany,angehenden Polizisten,partial,partial,0.9953615,1,1,1,angehenden Polizisten,policières,0.98728883,Q5
 profession,3,7223,politicians and high-ranking officials,Germany,die Linke,seen,seen,0.9976451,1,0,1,die Linke,des droites,0.8417883,seen
-profession,3,7225,other professions,Germany,Sicherheitskräfte,unseen,unseen,0.001258688,0,0,0,Sicherheitskräfte,Sicherheitspersonal,0.9041695,Q5
+profession,3,7225,other professions,Germany,Sicherheitskräfte,unseen,unseen,0.001258688,0,0,0,Sicherheitskräfte,Sicherheitspersonal,0.9041695,Q4
 profession,3,7246,politicians and high-ranking officials,Germany,die Grünen,seen,seen,0.9974051,1,1,1,die Grünen,die Grünen,0.9999999,seen
 profession,3,7292,politicians and high-ranking officials,Germany,Grünen,seen,seen,0.99762434,1,1,1,Grünen,Grünen,0.99999976,seen
 profession,3,7308,politicians and high-ranking officials,Germany,die Lokalpolitiker,partial,partial,0.9957419,1,0,1,die Lokalpolitiker,den Ortspolitikern,0.9758833,Q5
@@ -1173,7 +1174,7 @@ profession,3,8745,journalists,France,des journalistes,seen,seen,0.996609,1,1,1,d
 profession,3,8746,politicians and high-ranking officials,France,nos gouvernants,seen,seen,0.9773663,1,0,1,nos gouvernants,les gouverneurs,0.9399041,seen
 profession,3,8754,other professions,France,les experts,seen,seen,0.9681907,1,1,0,les experts,les experts,0.99999964,seen
 profession,3,8763,soldiers,France,Ses soldats,seen,seen,0.98946625,1,1,1,Ses soldats,ihre Soldaten,0.9563025,seen
-profession,3,8765,other professions,France,les promoteurs,unseen,unseen,0.0015523429,0,0,0,les promoteurs,Deren Zusteller,0.790197,Q3
+profession,3,8765,other professions,France,les promoteurs,unseen,unseen,0.0015523429,0,0,0,les promoteurs,Deren Zusteller,0.790197,Q2
 profession,3,8774,security forces,France,des policiers,seen,seen,0.996711,1,1,1,des policiers,des policiers,1.0000001,seen
 profession,3,8805,other professions,France,des experts,seen,seen,0.9638865,1,1,1,des experts,les experts,0.9951352,seen
 profession,3,8830,politicians and high-ranking officials,France,droites radicales,partial,partial,0.9967589,1,0,0,droites radicales,du Mouvement radical,0.8439944,Q3
@@ -1412,7 +1413,7 @@ social_roles_and_behavior,1,7314,consumers and clients,Germany,die Verbraucher,s
 social_roles_and_behavior,1,7348,patients,Germany,die Patienten,seen,seen,0.9834447,1,1,1,die Patienten,Die Patienten,0.9979884,seen
 social_roles_and_behavior,1,7671,consumers and clients,Germany,der Versicherten,seen,seen,0.0017339885,0,0,1,der Versicherten,der Versicherten,1.0000002,seen
 social_roles_and_behavior,1,7899,consumers and clients,Germany,Gäste,seen,seen,0.98117536,1,1,1,Gäste,Gäste,1.0,seen
-social_roles_and_behavior,1,7902,consumers and clients,Germany,Anleger,unseen,unseen,9.189174e-05,0,0,0,Anleger,Besteller,0.8477906,Q4
+social_roles_and_behavior,1,7902,consumers and clients,Germany,Anleger,unseen,unseen,9.189174e-05,0,0,0,Anleger,Besteller,0.8477906,Q3
 social_roles_and_behavior,1,7906,consumers and clients,Germany,Der Kunde,seen,seen,0.9827765,1,0,1,Der Kunde,den Kunden,0.9830062,seen
 social_roles_and_behavior,1,7926,consumers and clients,Germany,die Halter von Bonus-Zertifikaten,partial,partial,0.0003977,0,0,0,die Halter von Bonus-Zertifikaten,Endkunden,0.5158041,Q1
 social_roles_and_behavior,1,7946,patients,Germany,rund 35.000 Patienten,seen,seen,0.98328614,1,1,1,rund 35.000 Patienten,Tausende Patientinnen und Patienten,0.7145886,seen
@@ -1430,7 +1431,7 @@ socio_economic_position,1,1096,"capital owners, investors and shareholders",Germ
 socio_economic_position,1,1168,"capital owners, investors and shareholders",Germany,seinen Aktionären,seen,seen,0.9946242,1,1,1,seinen Aktionären,ses actionnaires,0.9329499,seen
 socio_economic_position,1,1383,"capital owners, investors and shareholders",Germany,Die restlichen Uniper-Aktionäre,partial,partial,0.99350667,1,1,1,Die restlichen Uniper-Aktionäre,die Gläubiger der jeweiligen Unister-Töchter,0.68838507,Q1
 socio_economic_position,1,1718,skilled or qualified,Germany,Akademiker mit Landeserfahrungen,partial,partial,0.9933873,1,0,1,Akademiker mit Landeserfahrungen,des diplômés,0.74120826,Q2
-socio_economic_position,1,1911,skilled or qualified,Germany,sechzig Absolventen pro Dozent,partial,partial,0.9935029,1,1,0,sechzig Absolventen pro Dozent,600 Absolventen von mehr als 80 Hochschul,0.8455831,Q4
+socio_economic_position,1,1911,skilled or qualified,Germany,sechzig Absolventen pro Dozent,partial,partial,0.9935029,1,1,0,sechzig Absolventen pro Dozent,600 Absolventen von mehr als 80 Hochschul,0.8455831,Q3
 socio_economic_position,1,3258,"capital owners, investors and shareholders",France,des actionnaires minoritaires,seen,seen,0.9945182,1,1,1,des actionnaires minoritaires,les actionnaires minoritaires,0.9913355,seen
 socio_economic_position,1,3351,"capital owners, investors and shareholders",France,Les investisseurs non japonais,partial,partial,0.99469817,1,1,1,Les investisseurs non japonais,les investisseurs étrangers,0.858062,Q4
 socio_economic_position,1,3848,lower class,France,pauvres,seen,seen,3.3804597e-05,0,0,1,pauvres,des pauvres,0.98452175,seen

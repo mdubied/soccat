@@ -138,6 +138,14 @@ EXTRA_SPAN_LABELS = {
     "minorities": "multiple (or other) religious or minority groups",
 }
 
+# Raw span labels whose mapping in dictionary/01_prepare_data.py's LABEL_MAP is
+# out of date: the span column (ground_truth) still carries them, but the
+# sentence labels (specific_group_new) were relabelled on 2026-10-03, matching
+# SOCCAT's training data. Checked before LABEL_MAP.
+SPAN_LABEL_OVERRIDES = {
+    "entrepreneurs (large enterprises)": "entrepreneurs",
+}
+
 STEMMERS = {"Germany": SnowballStemmer("german"), "France": SnowballStemmer("french")}
 STATUS_ORDER = ["seen", "partial", "unseen"]
 COMPOUND_MIN_LEN = 4  # min length of the contained stem for a compound match
@@ -188,7 +196,8 @@ def load_mentions(gt: pd.DataFrame) -> pd.DataFrame:
     rows, n_snapped = [], 0
     for r in gt.itertuples():
         for start, end, raw_label in parse_spans(r.ground_truth):
-            label = prep.LABEL_MAP.get(raw_label.lower()) or EXTRA_SPAN_LABELS.get(raw_label.lower())
+            label = (SPAN_LABEL_OVERRIDES.get(raw_label.lower()) or prep.LABEL_MAP.get(raw_label.lower())
+                     or EXTRA_SPAN_LABELS.get(raw_label.lower()))
             if label is None:
                 continue
             start, end, snapped = snap_span(r.text, start, end)

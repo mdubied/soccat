@@ -3,8 +3,8 @@
   "z_threshold": 1.96,
   "best_folds": {
     "age_and_family_status": 2,
-    "identities": 0,
-    "labor_market_position": 0,
+    "identities": 4,
+    "labor_market_position": 2,
     "profession": 3,
     "real_estate_ownership": 3,
     "social_deviance": 3,
@@ -68,12 +68,12 @@
     },
     "identities": {
       "Christians": [
-        "chrétiens"
+        "chrétiens",
+        "katholischen"
       ],
       "Ethnic and racial minorities": [],
       "Jews": [
-        "juifs",
-        "juden"
+        "juifs"
       ],
       "LGBTQIA+": [
         "trans",
@@ -84,11 +84,11 @@
         "geschlecht"
       ],
       "Muslims": [
+        "musulmans",
         "islamistes"
       ],
       "cisgender and heterosexuals": [
-        "cis",
-        "hétérosexuels"
+        "cis"
       ],
       "disabled people": [
         "handicapés",
@@ -98,45 +98,45 @@
         "männer",
         "männern",
         "frauen",
-        "hommes",
-        "jungs",
-        "mädchen",
-        "penis",
         "garçons",
-        "jungen"
+        "hommes",
+        "penis",
+        "sex"
       ],
       "multiple (or other) religious or minority groups": [],
       "people with an immigration background, including immigrants": [
         "flüchtlinge",
         "flüchtlingen",
+        "migrants",
         "réfugiés",
         "migranten",
         "asylbewerber",
-        "migrants",
+        "immigrés",
         "ausländer",
-        "anerkannten",
         "flüchtlingspolitik",
+        "papiers",
+        "anerkannten",
+        "erstaufnahme",
         "geflüchteten"
       ],
       "women": [
         "frauen",
         "femmes",
         "frau",
-        "mädchen",
         "trans",
         "filles",
+        "mädchen",
         "foyer",
-        "mütter",
         "männer",
-        "hausfrau",
         "cis",
-        "couple",
-        "hamam",
-        "iran",
-        "amoureuses",
+        "schwarzer",
+        "mütter",
         "penis",
         "sexarbeiterinnen",
-        "schwarzer"
+        "hamam",
+        "amoureuses",
+        "feministinnen",
+        "garçons"
       ]
     },
     "labor_market_position": {
@@ -150,8 +150,8 @@
         "arbeitgeber",
         "patronat",
         "employeurs",
-        "arbeitgebern",
-        "patrons"
+        "patrons",
+        "arbeitgebern"
       ],
       "entrepreneurs": [
         "entreprises",
@@ -161,56 +161,54 @@
         "firmen",
         "commerçants",
         "industrie",
-        "hersteller",
-        "markt",
-        "start",
-        "artisans",
-        "milliarden",
-        "sociétés",
-        "bancaires",
-        "capitaux",
-        "constructeurs",
         "händler",
-        "branche",
+        "equity",
+        "geschäft",
+        "markt",
+        "milliards",
+        "résultats",
+        "artisans",
         "betriebe",
-        "geschäft"
+        "start",
+        "commerces",
+        "constructeurs",
+        "emittenten",
+        "reprise"
       ],
       "housewives and househusbands": [
-        "foyer"
+        "foyer",
+        "hausfrau"
       ],
-      "retirees": [],
+      "retirees": [
+        "retraités"
+      ],
       "self-employed and freelancers": [
         "entrepreneurs"
       ],
       "unemployed": [
-        "chômeurs",
-        "résultats",
-        "février",
-        "arbeitslose",
-        "arbeitslosen",
-        "mars"
+        "chômeurs"
       ],
       "wage and salary earners": [
         "salariés",
         "mitarbeiter",
-        "syndicat",
-        "cgt",
         "syndicats",
+        "cgt",
+        "syndicat",
         "arbeitnehmer",
-        "gewerkschaft",
-        "beschäftigten",
-        "syndicales",
-        "employés",
         "personal",
+        "employés",
         "mitarbeitern",
-        "grève",
-        "travailleurs",
-        "nokia",
+        "syndicales",
+        "beschäftigten",
         "gewerkschaften",
-        "ouvriers",
         "ig",
-        "personnel",
-        "cfdt"
+        "metall",
+        "nokia",
+        "grève",
+        "gewerkschaft",
+        "cfdt",
+        "beschäftigte",
+        "ouvriers"
       ]
     },
     "profession": {

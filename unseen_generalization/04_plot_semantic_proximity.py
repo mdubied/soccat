@@ -16,11 +16,23 @@ Description:
   (hollow). Examples are picked automatically (short mentions, close to the
   bin median, distinct categories) unless listed in EXAMPLE_OVERRIDES.
 
-Outputs:
-  unseen_generalization/output/semantic_proximity.pdf
+  One figure per variant of 03_semantic_proximity.py (VARIANTS): pairs of
+  interest = partial + unseen (main), partial only, or unseen only; all
+  categories, or only those with SOCCAT median F1 >= 0.70 (suffix f1med70).
+  The third tick line shows the bin size N (set a variant to "share" in
+  VARIANTS to show the share of unseen pairs instead). A pooled tick (all of
+  Q1-Q5 together) and the seen reference stand right of the bins.
+
+Outputs (unseen_generalization/output/):
+  semantic_proximity.pdf                     main variant, all categories
+  semantic_proximity_partial.pdf             partial only
+  semantic_proximity_unseen.pdf              unseen only
+  semantic_proximity_f1med70.pdf             main variant, median F1 >= 0.70
+  semantic_proximity_partial_f1med70.pdf
+  semantic_proximity_unseen_f1med70.pdf
 
 Data:
-  unseen_generalization/output/recall_by_proximity_bin.csv
+  unseen_generalization/output/recall_by_proximity_bin[_<variant>].csv
   unseen_generalization/output/proximity_pairs.csv
   (both from 03_semantic_proximity.py)
 
@@ -41,9 +53,19 @@ sys.path.insert(0, str(ROOT.parent / "figures"))
 import utils as su  # noqa: E402
 
 
-RECALL_PATH = ROOT / "output" / "recall_by_proximity_bin.csv"
-PAIRS_PATH = ROOT / "output" / "proximity_pairs.csv"
-SAVE_PATH = ROOT / "output" / "semantic_proximity.pdf"
+OUTPUT_DIR = ROOT / "output"
+PAIRS_PATH = OUTPUT_DIR / "proximity_pairs.csv"
+# file suffix (as written by 03) -> (third tick line: "share" of unseen pairs or
+# bin size "n", name of the pooled tick = the pairs of interest of that variant)
+VARIANTS = {
+    "": ("n", "Not seen"),
+    "partial": ("n", "Partial"),
+    "unseen": ("n", "Unseen"),
+    "f1med70": ("n", "Not seen"),
+    "partial_f1med70": ("n", "Partial"),
+    "unseen_f1med70": ("n", "Unseen"),
+}
+REFERENCES = ["pooled", "seen"]  # reference ticks, right of the proximity bins
 FIGURE_CM = (17, 8.5)         # with the examples panel
 FIGURE_CM_SINGLE = (12, 7.5)  # recall panel only
 WIDTH_RATIOS = (1, 1.1)
@@ -98,11 +120,14 @@ def latex_escape(s):
 
 
 def bin_order(recall_df):
-    return [b for b in recall_df["bin"].drop_duplicates() if b != "seen"] + ["seen"]
+    present = list(recall_df["bin"].drop_duplicates())
+    return [b for b in present if b not in REFERENCES] + [b for b in REFERENCES if b in present]
 
 
 def x_positions(bins):
-    return {b: (i if b != "seen" else i - 1 + 1 + SEEN_GAP) for i, b in enumerate(bins)}
+    """Proximity bins at 0, 1, ...; the references after an extra SEEN_GAP."""
+    n_q = sum(b not in REFERENCES for b in bins)
+    return {b: (i if i < n_q else i + SEEN_GAP) for i, b in enumerate(bins)}
 
 
 def short_num(x):
@@ -113,13 +138,21 @@ def tick_lines():
     return 3 if SHOW_SHARE_UNSEEN and not SHOW_EXAMPLES else 2
 
 
-def tick_label(row):
-    if row["bin"] == "seen":
+def tick_label(row, third_line="share", pooled_name="Not seen"):
+    if row["bin"] == "pooled":
+        lines = [pooled_name, "(Q1--5 pooled)"]
+        if tick_lines() == 3:
+            lines.append(f"{row['share_unseen'] * 100:.0f}\\% unseen" if third_line == "share"
+                         else f"N = {row['n']}")
+    elif row["bin"] == "seen":
         lines = ["Seen", "(ref.)"]
+        if third_line == "n" and tick_lines() == 3:
+            lines.append(f"N = {row['n']}")
     else:
         lines = [row["bin"], f"{short_num(row['prox_min'])}--{short_num(row['prox_max'])}"]
         if tick_lines() == 3:
-            lines.append(f"{row['share_unseen'] * 100:.0f}\\% unseen")
+            lines.append(f"{row['share_unseen'] * 100:.0f}\\% unseen" if third_line == "share"
+                         else f"N = {row['n']}")
     lines += [""] * (tick_lines() - len(lines))  # same line count -> first lines aligned
     # \strut gives every line the same height and depth (equal line spacing
     # whatever the characters); vertical alignment is fixed in plot_recall
@@ -160,24 +193,25 @@ def pick_examples(pairs_df, b):
     return pd.DataFrame(picked)
 
 
-def plot_recall(ax, recall_df):
+def plot_recall(ax, recall_df, third_line="share", pooled_name="Not seen"):
     bins = bin_order(recall_df)
     xs = x_positions(bins)
+    n_q = sum(b not in REFERENCES for b in bins)
     for j, model in enumerate(m for m in MODELS if m in set(recall_df["model"])):
         d = recall_df[recall_df["model"] == model].set_index("bin").loc[bins]
         offset = (j - 1) * DODGE
         x = [xs[b] + offset for b in bins]
-        # line through the proximity bins only; the seen reference stands apart
-        ax.plot(x[:-1], d["recall"].iloc[:-1], color=COLORS[model], linestyle=LINESTYLES[model],
+        # line through the proximity bins only; the references stand apart
+        ax.plot(x[:n_q], d["recall"].iloc[:n_q], color=COLORS[model], linestyle=LINESTYLES[model],
                 linewidth=1.3, zorder=2)
         ax.vlines(x, d["ci_low"], d["ci_high"], color=COLORS[model], linewidth=0.8, zorder=2)
         ax.plot(x, d["recall"], linestyle="none", marker=MARKERS[model], markersize=4.5,
                 color=COLORS[model], markeredgecolor="white", markeredgewidth=0.6, zorder=3)
 
-    ax.axvline(xs[bins[-2]] + (1 + SEEN_GAP) / 2, color="grey", linestyle=":", linewidth=1.0, alpha=0.8, zorder=0)
+    ax.axvline(xs[bins[n_q - 1]] + (1 + SEEN_GAP) / 2, color="grey", linestyle=":", linewidth=1.0, alpha=0.8, zorder=0)
     rows = recall_df.drop_duplicates("bin").set_index("bin").loc[bins].reset_index()
     ax.set_xticks([xs[b] for b in bins])
-    ax.set_xticklabels([tick_label(r) for _, r in rows.iterrows()], fontsize=7,
+    ax.set_xticklabels([tick_label(r, third_line, pooled_name) for _, r in rows.iterrows()], fontsize=7,
                        verticalalignment="baseline")
     # baseline alignment: "top" uses the ink extent, which differs for "(ref.)"
     ax.tick_params(axis="x", pad=4 + 8.5 * tick_lines())
@@ -192,13 +226,16 @@ def plot_recall(ax, recall_df):
     handles = [Line2D([], [], color=COLORS[m], linestyle=LINESTYLES[m], marker=MARKERS[m], markersize=4.5,
                       markeredgecolor="white", markeredgewidth=0.6, linewidth=1.3, label=m)
                for m in MODELS if m in set(recall_df["model"])]
-    ax.legend(handles=handles, frameon=False, fontsize=8, loc="lower right", handlelength=2.5)
+    # above the axes, in one row: inside, it covers low reference markers
+    # (e.g. SOCCAT/dictionary on unseen pairs, near 0.2/0.0 at the bottom right)
+    ax.legend(handles=handles, frameon=False, fontsize=8, loc="lower center",
+              bbox_to_anchor=(0.5, 1.0), ncol=len(handles), handlelength=2.5)
     if SHOW_EXAMPLES:  # a single panel needs no title: the LaTeX caption names it
         ax.set_title(r"\textbf{A.} Recall by semantic proximity", loc="left", fontsize=9, pad=4)
 
 
 def plot_examples(ax, pairs_df, recall_df):
-    bins = bin_order(recall_df)
+    bins = [b for b in bin_order(recall_df) if b != "pooled"]  # pooled = all bins, no own examples
     ax.axis("off")
     ax.set_xlim(0, 1)
     ax.set_ylim(0, 1)
@@ -234,7 +271,7 @@ def plot_examples(ax, pairs_df, recall_df):
         y -= row_h * 0.2
 
 
-def plot_proximity(recall_df, pairs_df, save_path=SAVE_PATH):
+def plot_proximity(recall_df, pairs_df, save_path, third_line="share", pooled_name="Not seen"):
     su.configure_fonts()
 
     figure_cm = FIGURE_CM if SHOW_EXAMPLES else FIGURE_CM_SINGLE
@@ -245,7 +282,7 @@ def plot_proximity(recall_df, pairs_df, save_path=SAVE_PATH):
         plot_examples(ax_ex, pairs_df, recall_df)
     else:
         fig, ax = plt.subplots(figsize=(fig_w, fig_h))
-    plot_recall(ax, recall_df)
+    plot_recall(ax, recall_df, third_line, pooled_name)
 
     plt.tight_layout()
     os.makedirs(os.path.dirname(os.path.abspath(save_path)), exist_ok=True)
@@ -255,9 +292,12 @@ def plot_proximity(recall_df, pairs_df, save_path=SAVE_PATH):
 
 
 def main():
-    recall_df = pd.read_csv(RECALL_PATH)
     pairs_df = pd.read_csv(PAIRS_PATH)
-    plot_proximity(recall_df, pairs_df)
+    for variant, (third_line, pooled_name) in VARIANTS.items():
+        suffix = f"_{variant}" if variant else ""
+        recall_df = pd.read_csv(OUTPUT_DIR / f"recall_by_proximity_bin{suffix}.csv")
+        plot_proximity(recall_df, pairs_df, OUTPUT_DIR / f"semantic_proximity{suffix}.pdf",
+                       third_line, pooled_name)
 
 
 if __name__ == "__main__":
