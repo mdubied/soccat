@@ -1,0 +1,42 @@
+F1 PER SPECIFIC GROUP LABEL (within_matched minus cross_matched, positive-class F1)
+====================================================================================
+Trained on French, tested on German: cross-lingual F1 lower for 47 of 57 labels, paired CI above 0 for 27; median gap 0.119, mean gap 0.164
+Trained on German, tested on French: cross-lingual F1 lower for 51 of 57 labels, paired CI above 0 for 28; median gap 0.112, mean gap 0.171
+
+Broad class                                             Direction  F1 within  F1 cross     Gap       Gap 95% CI  Retained
+Real estate ownership                                   fr2de          0.775     0.495   0.279 [ 0.143,  0.422]      64%
+Real estate ownership                                   de2fr          0.856     0.559   0.297 [ 0.201,  0.399]      65%
+Profession                                              fr2de          0.825     0.779   0.046 [ 0.030,  0.062]      94%
+Profession                                              de2fr          0.785     0.723   0.062 [ 0.044,  0.080]      92%
+Age and family status                                   fr2de          0.762     0.677   0.085 [ 0.045,  0.127]      89%
+Age and family status                                   de2fr          0.820     0.699   0.121 [ 0.091,  0.152]      85%
+Social roles and behavior                               fr2de          0.782     0.737   0.045 [ 0.006,  0.084]      94%
+Social roles and behavior                               de2fr          0.759     0.685   0.075 [ 0.016,  0.135]      90%
+Gender, sexuality, and sociocultural characteristics    fr2de          0.807     0.693   0.115 [ 0.081,  0.146]      86%
+Gender, sexuality, and sociocultural characteristics    de2fr          0.752     0.645   0.106 [ 0.068,  0.146]      86%
+Labor market position                                   fr2de          0.806     0.639   0.167 [ 0.137,  0.198]      79%
+Labor market position                                   de2fr          0.772     0.660   0.112 [ 0.084,  0.142]      85%
+Socio-economic position                                 fr2de          0.696     0.621   0.075 [ 0.010,  0.138]      89%
+Socio-economic position                                 de2fr          0.714     0.617   0.097 [ 0.034,  0.163]      86%
+Social deviance                                         fr2de          0.672     0.441   0.231 [ 0.159,  0.306]      66%
+Social deviance                                         de2fr          0.519     0.374   0.145 [ 0.064,  0.225]      72%
+
+RECALL BY SIMILARITY QUARTILE (all labels pooled; quartiles per broad class, direction and condition)
+====================================================================================
+Direction Condition       Bin       N  Recall           95% CI  Median sim
+de2fr     cross_matched   Q1      847   0.478 [ 0.445,  0.512]       0.411
+de2fr     cross_matched   Q2      844   0.614 [ 0.580,  0.646]       0.493
+de2fr     cross_matched   Q3      843   0.700 [ 0.668,  0.730]       0.551
+de2fr     cross_matched   Q4      847   0.795 [ 0.766,  0.820]       0.628
+de2fr     within_matched  Q1      847   0.615 [ 0.582,  0.647]       0.455
+de2fr     within_matched  Q2      844   0.749 [ 0.718,  0.777]       0.536
+de2fr     within_matched  Q3      843   0.821 [ 0.794,  0.845]       0.597
+de2fr     within_matched  Q4      847   0.851 [ 0.826,  0.874]       0.673
+fr2de     cross_matched   Q1     1040   0.431 [ 0.401,  0.461]       0.420
+fr2de     cross_matched   Q2     1037   0.586 [ 0.556,  0.616]       0.499
+fr2de     cross_matched   Q3     1034   0.659 [ 0.629,  0.687]       0.556
+fr2de     cross_matched   Q4     1039   0.761 [ 0.734,  0.786]       0.634
+fr2de     within_matched  Q1     1040   0.606 [ 0.576,  0.635]       0.460
+fr2de     within_matched  Q2     1037   0.751 [ 0.724,  0.777]       0.548
+fr2de     within_matched  Q3     1034   0.828 [ 0.804,  0.850]       0.620
+fr2de     within_matched  Q4     1039   0.900 [ 0.880,  0.917]       0.702

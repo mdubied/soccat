@@ -23,12 +23,12 @@ def extract_result_matrix(df_long, map_level, exclude_rows=None):
 
     Output:
       index   = mapped group names (order from map_level)
-      columns = Accuracy, Precision, Recall, F1, Macro F1
+      columns = Accuracy, Precision, Recall, F1, Macro F1, N_pos
     """
 
     metrics = ["Accuracy", "Precision", "Recall", "F1", "Macro F1"]
 
-    needed = {"group", *metrics}
+    needed = {"group", "N_pos", *metrics}
     missing = needed - set(df_long.columns)
     if missing:
         raise ValueError(f"Missing required columns: {sorted(missing)}")
@@ -36,7 +36,7 @@ def extract_result_matrix(df_long, map_level, exclude_rows=None):
     exclude_rows = set(exclude_rows or [])
 
     # Keep only useful columns
-    d = df_long[["group"] + metrics].copy()
+    d = df_long[["group", "N_pos"] + metrics].copy()
 
     # Remove excluded groups
     if exclude_rows:
@@ -66,6 +66,7 @@ def extract_result_matrix(df_long, map_level, exclude_rows=None):
 def main():
 
     map_level = {
+        "ALL": "All",
         "Figaro": "Le Figaro",
         "Le Monde": "Le Monde",
         "Le Monde Diplomatique": "Le Monde\n diplomatique",
@@ -101,20 +102,21 @@ def main():
     df_matrix = extract_result_matrix(
         df_long=df,
         map_level=map_level,
-        exclude_rows=["Unknown", "ALL"],
+        exclude_rows=["Unknown"],
     )
 
-    # Plot heatmap
+    # Plot heatmap; N (positive test sentences) in a column on the right
     plot_heatmap(
-        df_matrix,
+        df_matrix.drop(columns="N_pos"),
+        row_n=df_matrix["N_pos"],
         figure_cm=(14, 18),
         rotation_x=0,
         decimals=2,
         uniform_range=(0.4, 1.0),
-        dark_text_below=0.62,
+        dark_text_below=0.6,   # same value threshold as step_2_heatmap.py
         show_colorbar=False,
         save_path="step_1/step_1_outlet_country_decade_performance.pdf",
-        separator_after_rows=["Süddeutsche\n Zeitung", "Germany"],
+        separator_after_rows=["All", "Süddeutsche\n Zeitung", "Germany"],
         anchor_xticklabels="center",
     )
 
