@@ -8,7 +8,7 @@ writes one appendix table, output/recall_by_seen_status.tex: one block per
 broad class (N row + one row per model), then a pooled Total block with
 Wilson 95% CIs.
 
-Columns: All / Seen / Partial overlap / Unseen (see 01's docstring for the
+Columns: All / Seen / Partial overlap / No word overlap (see 01's docstring for the
 definitions). Cells with fewer than MIN_N pairs are shown as "--": recall on
 e.g. 2 pairs is not interpretable. Any model present in the CSV is included,
 in MODEL_ORDER, so an extra model (e.g. an LLM) only needs to be added to
@@ -33,15 +33,15 @@ OUTPUT_FILE = ROOT / "output" / "recall_by_seen_status.tex"
 
 MIN_N = 10
 MODEL_ORDER = ["SOCCAT", "LLM", "Dictionary"]
-STATUSES = [("all", "All"), ("seen", "Seen"), ("partial", "Partial overlap"), ("unseen", "Unseen")]
+STATUSES = [("all", "All"), ("seen", "Seen"), ("partial", "Partial overlap"), ("no_overlap", "No word overlap")]
 
-CAPTION = "Recall on mentions seen and unseen in the training data (best fold of each broad class)."
+CAPTION = "Recall on mentions seen and not seen in the training data (best fold of each broad class)."
 NOTE = (
     r"\textit{Note:} Reported scores are the recall of the positive class; precision and F1 "
     r"cannot be split by seen status, as false positives have no annotated mention. "
     r"A test mention is \emph{seen} if its content words (stopwords removed, stemmed) match "
     r"those of a training mention of the same category, \emph{partial overlap} if it shares at "
-    r"least one content word or compound part with one, and \emph{unseen} otherwise. "
+    r"least one content word or compound part with one, and \emph{no word overlap} otherwise. "
     r"\emph{All} also includes a few mentions with no content words (e.g.\ pronouns). "
     rf"Cells with fewer than {MIN_N} cases are not reported (--). "
     r"95\% Wilson confidence intervals in brackets."

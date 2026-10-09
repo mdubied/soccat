@@ -2,11 +2,11 @@
 \centering
 \scriptsize
 \begin{threeparttable}
-\caption{Recall on mentions seen and unseen in the training data (best fold of each broad class).}
+\caption{Recall on mentions seen and not seen in the training data (best fold of each broad class).}
 \label{tab:unseen_recall}
 \begin{tabular}{l r r r r}
 \toprule
-Broad class / model & All & Seen & Partial overlap & Unseen \\
+Broad class / model & All & Seen & Partial overlap & No word overlap \\
 \midrule
 \addlinespace
 \textbf{Age and family status} & \textit{N = 193} & \textit{N = 124} & \textit{N = 58} & \textit{N = 11} \\
@@ -57,7 +57,7 @@ Broad class / model & All & Seen & Partial overlap & Unseen \\
 \end{tabular}
 \begin{tablenotes}[flushleft]
 \footnotesize
-\item \textit{Note:} Reported scores are the recall of the positive class; precision and F1 cannot be split by seen status, as false positives have no annotated mention. A test mention is \emph{seen} if its content words (stopwords removed, stemmed) match those of a training mention of the same category, \emph{partial overlap} if it shares at least one content word or compound part with one, and \emph{unseen} otherwise. \emph{All} also includes a few mentions with no content words (e.g.\ pronouns). Cells with fewer than 10 cases are not reported (--). 95\% Wilson confidence intervals in brackets.
+\item \textit{Note:} Reported scores are the recall of the positive class; precision and F1 cannot be split by seen status, as false positives have no annotated mention. A test mention is \emph{seen} if its content words (stopwords removed, stemmed) match those of a training mention of the same category, \emph{partial overlap} if it shares at least one content word or compound part with one, and \emph{no word overlap} otherwise. \emph{All} also includes a few mentions with no content words (e.g.\ pronouns). Cells with fewer than 10 cases are not reported (--). 95\% Wilson confidence intervals in brackets.
 \end{tablenotes}
 \end{threeparttable}
 \end{table}

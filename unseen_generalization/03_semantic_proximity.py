@@ -19,8 +19,8 @@ The pairs of interest are split into N_BINS equal-size bins by proximity;
 seen pairs form one extra reference group. Recall per bin and model, with
 Wilson 95% CIs; a "pooled" row gives recall over all pairs of interest (all
 bins together). Six variants (VARIANTS x category filter):
-    pairs of interest: partial overlap + unseen (main), partial only, or
-                       unseen only
+    pairs of interest: partial overlap + no word overlap (main), partial
+                       only, or no word overlap only
     categories:        all, or only labels whose SOCCAT median F1
                        (f1_binary across the 5 CV folds) is >= F1_MEDIAN_MIN;
                        the filter applies to the seen reference too
@@ -37,7 +37,7 @@ Outputs (unseen_generalization/output/):
     recall_by_proximity_bin[_<variant>].csv
                                    recall per bin x model (+ seen reference);
                                    no suffix = main variant, all categories
-    status_shares.txt              share of seen / partial / unseen pairs,
+    status_shares.txt              share of seen / partial / no_overlap pairs,
                                    overall and per proximity quintile
     embeddings/<model>.npz         embedding cache (delete to recompute)
 
@@ -69,9 +69,9 @@ STEP_2_DATA_DIR = base.REPO / "data" / "model_performance" / "step_2"
 F1_MEDIAN_MIN = 0.70
 # variant name -> statuses binned by proximity (seen is always the reference)
 VARIANTS = {
-    "": ["partial", "unseen"],
+    "": ["partial", "no_overlap"],
     "partial": ["partial"],
-    "unseen": ["unseen"],
+    "no_overlap": ["no_overlap"],
 }
 FILTER_SUFFIX = f"f1med{int(F1_MEDIAN_MIN * 100)}"
 
@@ -127,7 +127,7 @@ def recall_by_bin(prox: pd.DataFrame, statuses: list, models: list) -> tuple:
                          "ci_low": lo, "ci_high": hi,
                          "prox_min": sub["proximity"].min(), "prox_max": sub["proximity"].max(),
                          "prox_median": sub["proximity"].median(),
-                         "share_unseen": (sub["status"] == "unseen").mean()})
+                         "share_no_overlap": (sub["status"] == "no_overlap").mean()})
     return bins, pd.DataFrame(rows)
 
 
@@ -144,7 +144,7 @@ def status_shares_text(prox: pd.DataFrame, title: str) -> list:
         out.index.name = "quintile"
         return out.to_string().splitlines()
 
-    statuses = ["seen", "partial", "unseen"]
+    statuses = ["seen", "partial", "no_overlap"]
     other = prox[~prox["status"].isin(statuses)]
     counts = prox["status"].value_counts().reindex(statuses, fill_value=0)
     lines = [f"=== {title} ===", "",
@@ -153,10 +153,10 @@ def status_shares_text(prox: pd.DataFrame, title: str) -> list:
     lines += [f"  {s:<8} {n:5d} ({n / counts.sum() * 100:5.1f}%)" for s, n in counts.items()]
 
     labels = [f"Q{i + 1}" for i in range(N_BINS)]
-    not_seen = prox[prox["status"].isin(["partial", "unseen"])].copy()
+    not_seen = prox[prox["status"].isin(["partial", "no_overlap"])].copy()
     not_seen["q"] = pd.qcut(not_seen["proximity"], N_BINS, labels=labels)
     lines += ["", "(a) Quintiles of similarity over NOT-SEEN pairs (as in semantic_proximity.pdf):"]
-    lines += ["  " + l for l in table(not_seen, "q", ["partial", "unseen"])]
+    lines += ["  " + l for l in table(not_seen, "q", ["partial", "no_overlap"])]
 
     known = prox[prox["status"].isin(statuses)].copy()
     known["q"] = pd.qcut(known["proximity"], N_BINS, labels=labels)
@@ -232,7 +232,7 @@ def main():
                 prox.assign(bin=bins).to_csv(OUTPUT_DIR / "proximity_pairs.csv", index=False)
             print(f"\nRecall by proximity bin [{name or 'main'}]:")
             print(recall.pivot_table(index="bin", columns="model", values="recall", sort=False).round(2).to_string())
-            print(recall.drop_duplicates("bin")[["bin", "n", "prox_min", "prox_max", "share_unseen"]]
+            print(recall.drop_duplicates("bin")[["bin", "n", "prox_min", "prox_max", "share_no_overlap"]]
                   .round(2).to_string(index=False))
     lines = []
     for filtered in (False, True):

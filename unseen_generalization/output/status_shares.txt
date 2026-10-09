@@ -3,10 +3,10 @@
 Test pairs with a seen status: 1,487 (excluded: 7 pairs with status ['no_content'])
   seen       858 ( 57.7%)
   partial    511 ( 34.4%)
-  unseen     118 (  7.9%)
+  no_overlap   118 (  7.9%)
 
 (a) Quintiles of similarity over NOT-SEEN pairs (as in semantic_proximity.pdf):
-              N         partial          unseen
+              N         partial      no_overlap
   quintile                                     
   Q1        126     82 ( 65.1%)     44 ( 34.9%)
   Q2        126    105 ( 83.3%)     21 ( 16.7%)
@@ -16,7 +16,7 @@ Test pairs with a seen status: 1,487 (excluded: 7 pairs with status ['no_content
   Total     629    511 ( 81.2%)    118 ( 18.8%)
 
 (b) Quintiles of similarity over ALL pairs (seen included):
-               N            seen         partial          unseen
+               N            seen         partial      no_overlap
   quintile                                                      
   Q1         298     14 (  4.7%)    217 ( 72.8%)     67 ( 22.5%)
   Q2         297     53 ( 17.8%)    202 ( 68.0%)     42 ( 14.1%)
@@ -31,10 +31,10 @@ Test pairs with a seen status: 1,487 (excluded: 7 pairs with status ['no_content
 Test pairs with a seen status: 1,280 (excluded: 7 pairs with status ['no_content'])
   seen       780 ( 60.9%)
   partial    429 ( 33.5%)
-  unseen      71 (  5.5%)
+  no_overlap    71 (  5.5%)
 
 (a) Quintiles of similarity over NOT-SEEN pairs (as in semantic_proximity.pdf):
-              N         partial          unseen
+              N         partial      no_overlap
   quintile                                     
   Q1        100     73 ( 73.0%)     27 ( 27.0%)
   Q2        100     89 ( 89.0%)     11 ( 11.0%)
@@ -44,7 +44,7 @@ Test pairs with a seen status: 1,280 (excluded: 7 pairs with status ['no_content
   Total     500    429 ( 85.8%)     71 ( 14.2%)
 
 (b) Quintiles of similarity over ALL pairs (seen included):
-               N            seen         partial          unseen
+               N            seen         partial      no_overlap
   quintile                                                      
   Q1         256     15 (  5.9%)    201 ( 78.5%)     40 ( 15.6%)
   Q2         256     54 ( 21.1%)    175 ( 68.4%)     27 ( 10.5%)

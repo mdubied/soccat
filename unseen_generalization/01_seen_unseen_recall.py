@@ -30,13 +30,13 @@ SAME label in the other four folds:
              vs seen 'wissenschaftl', 'hotelgast' vs seen 'gast'). 4 rather
              than 5 letters: it also catches short heads (gast, chef, bauer)
              at the cost of a few accidental matches, which can only make
-             the unseen set stricter, never more favorable to SOCCAT.
-    unseen   none of the above
-A pair takes the most-seen status of its mentions (seen > partial > unseen),
-so a pair is "unseen" only if ALL its mentions are -- deliberately strict.
+             the no-overlap set stricter, never more favorable to SOCCAT.
+    no_overlap  none of the above ("no word overlap")
+A pair takes the most-seen status of its mentions (seen > partial > no_overlap),
+so a pair is "no_overlap" only if ALL its mentions are -- deliberately strict.
 Pairs whose mentions are all stopwords (e.g. pronouns) are "no_content";
 gold pairs with no matching annotated span are "no_span". Both are kept in
-the "all" row but excluded from the seen/partial/unseen split.
+the "all" row but excluded from the seen/partial/no_overlap split.
 
 Metric: recall only. Seen status is a property of gold mentions, so false
 positives cannot be assigned to seen/unseen and precision/F1 are undefined
@@ -147,7 +147,7 @@ SPAN_LABEL_OVERRIDES = {
 }
 
 STEMMERS = {"Germany": SnowballStemmer("german"), "France": SnowballStemmer("french")}
-STATUS_ORDER = ["seen", "partial", "unseen"]
+STATUS_ORDER = ["seen", "partial", "no_overlap"]
 COMPOUND_MIN_LEN = 4  # min length of the contained stem for a compound match
 
 
@@ -277,7 +277,7 @@ def mention_status(mention_stems: frozenset, seen_sets: set, seen_stems: set) ->
         return "partial"
     if any(is_compound_match(m, s) for m in mention_stems for s in seen_stems):
         return "partial"
-    return "unseen"
+    return "no_overlap"
 
 
 def is_compound_match(a: str, b: str) -> bool:
