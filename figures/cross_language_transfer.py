@@ -47,16 +47,18 @@ XL_DIR = "../cross-language_transfer"
 STEP_2_DATA_DIR = "../data/model_performance/step_2"
 OUTPUT_DIR = "cross_language"
 
-DIRS = ["fr2de", "de2fr"]
+DIRS = ["de2fr", "fr2de"]   # panel order: French test set, then German
 DIR_TITLE = {
     "fr2de": "Trained on French, tested on German",
     "de2fr": "Trained on German, tested on French",
 }
-DIR_TITLE_2L = {d: t.replace(", ", ",\n") for d, t in DIR_TITLE.items()}  # narrow F1 panels
+# panel titles: both curves of a panel are evaluated on the same test sentences
+# (DIR_TITLE is the cross-language model's direction, used in the summary text)
+PANEL_TITLE = {"fr2de": "German test set", "de2fr": "French test set"}
 CONDITIONS = ["within_matched", "cross_matched"]
 COND_LABEL = {
-    "within_matched": "Within language",
-    "cross_matched": "Cross-language",
+    "within_matched": "Within language (trained on the test language)",
+    "cross_matched": "Cross-language (trained on the other language)",
 }
 # the two colors/markers of the findings_* figures (utils.py)
 COND_STYLE = {
@@ -103,8 +105,8 @@ N_PARTS = 2
 FIG_WIDTH_CM = 14.0
 WRAP_CHARS = 28
 ROW_HEIGHT_CM = 0.45
-TOP_MARGIN_CM = 0.8         # two-line panel titles
-BOTTOM_MARGIN_CM = 1.1      # room for the legend
+TOP_MARGIN_CM = 0.5
+BOTTOM_MARGIN_CM = 1.5      # room for the two-row legend
 GROUP_SPACING_CM = 0.3      # extra gap above each broad class header row
 LBL_WIDTH_FRAC = 0.27
 SIM_FIG_HEIGHT_CM = 5.5
@@ -288,7 +290,7 @@ for part_num, idxs in enumerate(parts, start=1):
                       fontweight="bold" if rk[0] == "header" else "normal")
         style_f1_axis(ax)
         ax.set_ylim(*ylim)
-        ax.set_title(DIR_TITLE_2L[direction])
+        ax.set_title(PANEL_TITLE[direction])
         ax.set_yticks(y)
         if k == 0:
             ticks = []
@@ -307,7 +309,8 @@ for part_num, idxs in enumerate(parts, start=1):
     if SHOW_SIGNIFICANCE:
         handles.append(Line2D([], [], ls="", marker=r"$*$", color="black", ms=4,
                               label="Significant difference (paired 95\% CI)"))
-    fig.legend(handles=handles, loc="lower center", ncol=len(handles), frameon=False,
+    # two columns: the two settings on the first row, the significance key below
+    fig.legend(handles=handles, loc="lower center", ncol=2, frameon=False,
                bbox_to_anchor=(0.5, 0.0))
     out = os.path.join(OUTPUT_DIR, f"cross_language_f1_part{part_num}.pdf")
     fig.savefig(out)
@@ -333,6 +336,49 @@ for c in classes:
             f"{CATEGORY_MAP[c][0]:<55} {direction:<9} {r.microf1_within:>10.3f} {r.microf1_cross:>9.3f} "
             f"{r.microf1_gap:>7.3f} [{r.microf1_gap_lo:>6.3f}, {r.microf1_gap_hi:>6.3f}] {r.retention:>8.0%}"
         )
+
+# Overall F1 per test set and setting: positive-class F1 pooled over all
+# (sentence, label) pairs of all labels and the 5 test folds. Counts are
+# rebuilt per label: TP = recall x positives, FP = errors (1 - accuracy) x
+# sentences - FN (also defined for labels without any true positive).
+# Settings: within_matched / cross_matched (size-matched, shown in the
+# figures), cross_full (cross-language, all sentences of the other language),
+# pooled_cv (regular cross-validation on both languages, the released setup).
+SETTINGS = {"within_matched": "Within language", "cross_matched": "Cross-language",
+            "cross_full": "Cross-language, full training set", "pooled_cv": "Regular CV, both languages"}
+pl_all = pd.read_csv(f"{XL_DIR}/crosslingual_per_label_all.csv")
+pl_all["tp"] = pl_all["recall_binary"] * pl_all["n_pos_entail"]
+pl_all["fn"] = pl_all["n_pos_entail"] - pl_all["tp"]
+pl_all["fp"] = (pl_all["n_sentences_x"] * (1 - pl_all["accuracy"]) - pl_all["fn"]).round()
+
+def pooled_f1(d):
+    tp, fp, fn = d["tp"].sum(), d["fp"].sum(), d["fn"].sum()
+    return pd.Series({"precision": tp / (tp + fp), "recall": tp / (tp + fn), "f1": 2 * tp / (2 * tp + fp + fn)})
+
+overall = pl_all.groupby(["direction", "condition"]).apply(pooled_f1, include_groups=False)
+both = pl_all.groupby("condition").apply(pooled_f1, include_groups=False)
+summary.append("")
+summary.append("OVERALL F1 PER TEST SET (positive class, pooled over all labels and the 5 test folds)")
+summary.append("=" * 84)
+summary.append(f"{'Setting':<36} " + " ".join(f"{PANEL_TITLE[d]:>16}" for d in DIRS) + f" {'Both':>8}")
+for cond, name in SETTINGS.items():
+    summary.append(f"{name:<36} " + " ".join(f"{overall.loc[(d, cond), 'f1']:>16.3f}" for d in DIRS)
+                   + f" {both.loc[cond, 'f1']:>8.3f}")
+
+# Gap by label size (number of positive cases in the test language)
+SIZE_BINS = [0, 20, 50, 100, np.inf]
+SIZE_LABELS = ["< 20", "20-49", "50-99", ">= 100"]
+gs = gaps.assign(size=pd.cut(gaps["n_test_pos"], SIZE_BINS, right=False, labels=SIZE_LABELS))
+by_size = gs.groupby("size", observed=True).agg(
+    n=("f1_gap", "size"), f1_within=("f1_within", "median"), f1_cross=("f1_cross", "median"),
+    median_gap=("f1_gap", "median"), significant=("gap_ci_excludes_0", "mean"))
+summary.append("")
+summary.append("F1 GAP BY LABEL SIZE (label x test set; size = positive cases in the test language)")
+summary.append("=" * 84)
+summary.append(f"{'Positives':<10} {'N':>4} {'Median F1 within':>17} {'Median F1 cross':>16} {'Median gap':>11} {'Significant':>12}")
+for size, r in by_size.iterrows():
+    summary.append(f"{size:<10} {int(r.n):>4} {r.f1_within:>17.2f} {r.f1_cross:>16.2f} {r.median_gap:>11.2f} {r.significant:>11.0%}")
+summary.append(f"Cross-language F1 lower than within-language F1 in {int((gaps.f1_gap > 0).sum())} of {len(gaps)} comparisons.")
 
 # ============================================================
 # FIGURE 2: RECALL BY SIMILARITY TO THE NEAREST TRAINING MENTION
@@ -367,7 +413,7 @@ for ax, direction in zip(axes, DIRS):
     ax.set_yticks([0, 0.25, 0.5, 0.75, 1])
     ax.set_yticklabels(["0", "0.25", "0.5", "0.75", "1"])
     ax.grid(axis="y", linestyle="--", alpha=0.4)
-    ax.set_title(DIR_TITLE[direction])
+    ax.set_title(PANEL_TITLE[direction])
 axes[0].set_ylabel("Recall")
 fig.supxlabel("Similarity to the nearest same-label training mention (quartile)", fontsize=8)
 fig.legend(handles=legend_handles(), loc="upper center", ncol=2, frameon=False, bbox_to_anchor=(0.5, 1.0))

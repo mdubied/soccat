@@ -1,25 +1,42 @@
 F1 PER SPECIFIC GROUP LABEL (within_matched minus cross_matched, positive-class F1)
 ====================================================================================
-Trained on French, tested on German: cross-lingual F1 lower for 47 of 57 labels, paired CI above 0 for 27; median gap 0.119, mean gap 0.164
 Trained on German, tested on French: cross-lingual F1 lower for 51 of 57 labels, paired CI above 0 for 28; median gap 0.112, mean gap 0.171
+Trained on French, tested on German: cross-lingual F1 lower for 47 of 57 labels, paired CI above 0 for 27; median gap 0.119, mean gap 0.164
 
 Broad class                                             Direction  F1 within  F1 cross     Gap       Gap 95% CI  Retained
-Real estate ownership                                   fr2de          0.775     0.495   0.279 [ 0.143,  0.422]      64%
 Real estate ownership                                   de2fr          0.856     0.559   0.297 [ 0.201,  0.399]      65%
-Profession                                              fr2de          0.825     0.779   0.046 [ 0.030,  0.062]      94%
+Real estate ownership                                   fr2de          0.775     0.495   0.279 [ 0.143,  0.422]      64%
 Profession                                              de2fr          0.785     0.723   0.062 [ 0.044,  0.080]      92%
-Age and family status                                   fr2de          0.762     0.677   0.085 [ 0.045,  0.127]      89%
+Profession                                              fr2de          0.825     0.779   0.046 [ 0.030,  0.062]      94%
 Age and family status                                   de2fr          0.820     0.699   0.121 [ 0.091,  0.152]      85%
-Social roles and behavior                               fr2de          0.782     0.737   0.045 [ 0.006,  0.084]      94%
+Age and family status                                   fr2de          0.762     0.677   0.085 [ 0.045,  0.127]      89%
 Social roles and behavior                               de2fr          0.759     0.685   0.075 [ 0.016,  0.135]      90%
-Gender, sexuality, and sociocultural characteristics    fr2de          0.807     0.693   0.115 [ 0.081,  0.146]      86%
+Social roles and behavior                               fr2de          0.782     0.737   0.045 [ 0.006,  0.084]      94%
 Gender, sexuality, and sociocultural characteristics    de2fr          0.752     0.645   0.106 [ 0.068,  0.146]      86%
-Labor market position                                   fr2de          0.806     0.639   0.167 [ 0.137,  0.198]      79%
+Gender, sexuality, and sociocultural characteristics    fr2de          0.807     0.693   0.115 [ 0.081,  0.146]      86%
 Labor market position                                   de2fr          0.772     0.660   0.112 [ 0.084,  0.142]      85%
-Socio-economic position                                 fr2de          0.696     0.621   0.075 [ 0.010,  0.138]      89%
+Labor market position                                   fr2de          0.806     0.639   0.167 [ 0.137,  0.198]      79%
 Socio-economic position                                 de2fr          0.714     0.617   0.097 [ 0.034,  0.163]      86%
-Social deviance                                         fr2de          0.672     0.441   0.231 [ 0.159,  0.306]      66%
+Socio-economic position                                 fr2de          0.696     0.621   0.075 [ 0.010,  0.138]      89%
 Social deviance                                         de2fr          0.519     0.374   0.145 [ 0.064,  0.225]      72%
+Social deviance                                         fr2de          0.672     0.441   0.231 [ 0.159,  0.306]      66%
+
+OVERALL F1 PER TEST SET (positive class, pooled over all labels and the 5 test folds)
+====================================================================================
+Setting                               French test set  German test set     Both
+Within language                                 0.773            0.796    0.786
+Cross-language                                  0.676            0.705    0.691
+Cross-language, full training set               0.691            0.700    0.696
+Regular CV, both languages                      0.789            0.815    0.803
+
+F1 GAP BY LABEL SIZE (label x test set; size = positive cases in the test language)
+====================================================================================
+Positives     N  Median F1 within  Median F1 cross  Median gap  Significant
+< 20         44              0.67             0.45        0.12         32%
+20-49        35              0.74             0.50        0.17         51%
+50-99        10              0.80             0.74        0.09         50%
+>= 100       25              0.79             0.72        0.07         80%
+Cross-language F1 lower than within-language F1 in 98 of 114 comparisons.
 
 RECALL BY SIMILARITY QUARTILE (all labels pooled; quartiles per broad class, direction and condition)
 ====================================================================================
