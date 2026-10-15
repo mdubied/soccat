@@ -6,7 +6,7 @@ Read manual annotation file and compute the top-N most frequent "specific_group_
 separately for France and Germany, then export a side-by-side LaTeX table.
 
 Input:
-- data/manual_annotations/step_2/annotations_all_coders.csv
+- data/manual_annotations/step_2/annotations_ground_truth.csv (target_abroad = 1 sentences removed)
 
 Output:
 - tables/manual_annotation_top_XX.tex   (XX = top_n argument)
@@ -24,7 +24,7 @@ import pandas as pd
 import argparse
 import os
 
-DEFAULT_INPUT_PATH = "../data/manual_annotations/step_2/annotations_all_coders.csv"
+DEFAULT_INPUT_PATH = "../data/manual_annotations/step_2/annotations_ground_truth.csv"
 DEFAULT_OUT_DIR = "../tables"
 DISCARD_CATEGORIES = [
     "others",
@@ -50,7 +50,7 @@ NORMALISE = {
     "small- and middle-size enterprises": "entrepreneurs",
     "specific sector": "entrepreneurs",
     "entrepreneurs (smes)": "entrepreneurs",
-    "entrepreneurs (large enterprises)": "CEOs and corporate leaders",
+    "entrepreneurs (large enterprises)": "entrepreneurs",
     "entrepreneurs in [specific] sector": "entrepreneurs",
     "minors, including children and pupils": "minors",
     "youth, including students and apprentices": "youth",

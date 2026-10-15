@@ -1,16 +1,16 @@
 Outlet,Country,Krippendorff α (MASI),# Sentences
-Figaro,France,0.927,988
-Liberation,France,0.7761,290
-Mediapart,France,0.7182,390
-Monde,France,0.9153,1014
-MondeDiplo,France,0.6944,397
-Parisien,France,0.9333,994
-France (all outlets),France,0.876,4073
-Bild,Germany,0.8299,914
-FAZ,Germany,0.8431,961
-Spiegel,Germany,0.8336,920
-SZ,Germany,0.8321,921
-Welt,Germany,0.8498,924
-Zeit,Germany,0.8211,916
-Germany (all outlets),Germany,0.8359,5556
-Overall,All,0.8534,9629
+Figaro,France,0.9293,922
+Liberation,France,0.7793,289
+Mediapart,France,0.7373,379
+Monde,France,0.9227,825
+MondeDiplo,France,0.7223,378
+Parisien,France,0.9341,989
+France (all outlets),France,0.8817,3782
+Bild,Germany,0.8357,793
+FAZ,Germany,0.841,715
+Spiegel,Germany,0.8375,782
+SZ,Germany,0.8292,815
+Welt,Germany,0.8515,717
+Zeit,Germany,0.815,686
+Germany (all outlets),Germany,0.8361,4508
+Overall,All,0.8574,8290

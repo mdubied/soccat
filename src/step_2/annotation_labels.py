@@ -2,7 +2,8 @@
 annotation_labels.py
 
 Step 2 manual annotations: codebook, label normalisation, span parsing and loading of
-data/manual_annotations/step_2/annotations_all_coders.csv (ground truth + independent coders).
+data/manual_annotations/step_2/annotations_all_coders.csv (ground truth + independent coders),
+restricted to the sentences of annotations_ground_truth.csv.
 
 Shared by tables/icr_step2_krippendorff.ipynb and figures/annotation_confusion_matrix.py.
 """
@@ -12,7 +13,10 @@ from pathlib import Path
 
 import pandas as pd
 
-ANNOTATION_FILE = Path(__file__).resolve().parents[2] / 'data' / 'manual_annotations' / 'step_2' / 'annotations_all_coders.csv'
+ANNOTATION_DIR = Path(__file__).resolve().parents[2] / 'data' / 'manual_annotations' / 'step_2'
+ANNOTATION_FILE = ANNOTATION_DIR / 'annotations_all_coders.csv'
+# Sentences kept for evaluation (target_abroad = 1 removed); ICR is restricted to their ids
+GROUND_TRUTH_FILE = ANNOTATION_DIR / 'annotations_ground_truth.csv'
 
 
 # ── Codebook ─────────────────────────────────────────────────────────────────
@@ -232,14 +236,16 @@ def parse_coder_spans(val) -> frozenset:
 
 
 # ── Loading ──────────────────────────────────────────────────────────────────
-def load_sentences(path=ANNOTATION_FILE) -> pd.DataFrame:
-    """One row per sentence with an outlet and at least one independent coder.
+def load_sentences(path=ANNOTATION_FILE, ground_truth_path=GROUND_TRUTH_FILE) -> pd.DataFrame:
+    """One row per sentence of the ground-truth file with an outlet and at least one independent coder.
 
     Adds: gt_labels (frozenset), coders (list of names), coder_labels (list of frozensets,
     aligned with coders), values (tuple: ground truth followed by each coder's labels).
     """
     df = pd.read_csv(path)
     CODER_COLS = [c for c in df.columns if c.startswith('annotation_') and c != 'annotation_sources']
+
+    df = df[df['id'].isin(pd.read_csv(ground_truth_path, usecols=['id'])['id'])]  # drops target_abroad = 1
 
     df['outlet'] = df['outlet'].astype(str)
     df = df[df['outlet'] != 'nan']

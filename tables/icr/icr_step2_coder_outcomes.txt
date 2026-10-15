@@ -1,13 +1,13 @@
 Independent coder vs ground truth, per ground-truth label
 (units: ground-truth label x sentence x independent coder; residual "Others" class excluded)
 
-Ground-truth label units: 8,959
-Same label used by the coder: 7,972 (89.0%)
-Disagreements: 987 (11.0%), of which:
-  other label, same class        236   23.9%
-  other broad class              230   23.3%
-  other broad class + others      59    6.0%
-  others                         174   17.6%
-  none                           288   29.2%
+Ground-truth label units: 7,739
+Same label used by the coder: 6,919 (89.4%)
+Disagreements: 820 (10.6%), of which:
+  other label, same class        207   25.2%
+  other broad class              196   23.9%
+  other broad class + others      50    6.1%
+  others                         127   15.5%
+  none                           240   29.3%
 
-Coder used the residual "others" (alone or with a label of another broad class): 233 (23.6% of disagreements)
+Coder used the residual "others" (alone or with a label of another broad class): 177 (21.6% of disagreements)
