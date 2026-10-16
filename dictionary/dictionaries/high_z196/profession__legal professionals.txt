@@ -1,3 +1,2 @@
-juges
-anwälte
 richter
+anwälte

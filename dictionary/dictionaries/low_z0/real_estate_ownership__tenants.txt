@@ -1,8 +1,7 @@
-propriétaires
-travaux
 bailleurs
-eau
 logements
+logement
+propriétaires
 wohnungsmieter
 cdu
 locataires

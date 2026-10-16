@@ -1,8 +1,10 @@
 artistes
-künstler
 musiciens
 sänger
+künstler
 autoren
-schauspieler
+künstlern
+percussions
+produzenten
+schriftsteller
 écrivains
-danseurs

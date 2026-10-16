@@ -2,7 +2,8 @@ familles
 eltern
 parents
 familien
-famille
-mütter
 angehörige
+famille
+familie
 angehörigen
+mütter

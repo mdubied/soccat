@@ -1,5 +1,5 @@
-chercheurs
 forscher
 wissenschaftler
-ökonomen
+chercheurs
 économistes
+wissenschaftlern

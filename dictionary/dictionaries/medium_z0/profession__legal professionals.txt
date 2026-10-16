@@ -1,6 +1,8 @@
 richter
 anwälte
-juges
 karlsruher
 magistrats
+juges
+paris
 jeunes
+avocats

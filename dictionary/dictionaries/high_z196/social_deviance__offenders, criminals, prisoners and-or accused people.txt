@@ -1,8 +1,6 @@
-invité
-casseurs
-détenus
-kriminelle
-délinquants
 täter
-anklage
-bandes
+kriminelle
+détenus
+casseurs
+délinquants
+angeklagten

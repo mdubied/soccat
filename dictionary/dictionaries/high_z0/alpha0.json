@@ -1,6 +1,6 @@
 {
   "mode": "high",
-  "alpha0": 96566.0,
+  "alpha0": 69162.0,
   "description": "full train-corpus token count (n in eq. 23; the degenerate/maximal case)",
   "z_threshold": 0.0
 }

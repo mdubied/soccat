@@ -4,8 +4,12 @@
 Prepare train/test data for the dictionary-based baseline
 ===========================================================
 Loads the same ground-truth annotations used by the NLI pipeline
-(src/step_2/convert_annotations.py), applies the same label mapping, and
-splits sentences 80/20 (random, seed=42) into train/test.
+(src/step_2/convert_annotations.py), keeps the sentences with a non-empty
+ground_truth (target_abroad = 1 sentences are already removed from that file),
+applies the same label mapping, and splits sentences 80/20 (random, seed=42)
+into train/test. Sentences of step 1's test set are then removed from train
+(not from test), since the dictionaries are also evaluated on that set; the
+final split is written to data/split_info.json.
 
 train.csv is used by 02_build_dictionary.py to mine word lists per label.
 test.csv  is used by 03_evaluate_dictionary.py to evaluate them.
@@ -16,6 +20,7 @@ executes its conversion at module level). If the taxonomy or label
 mapping changes there, mirror the change here.
 """
 
+import json
 from pathlib import Path
 
 import pandas as pd
@@ -23,6 +28,7 @@ from sklearn.model_selection import train_test_split
 
 ROOT = Path(__file__).resolve().parents[1]
 INPUT_FILE = ROOT / "data" / "manual_annotations" / "step_2" / "annotations_ground_truth.csv"
+STEP1_TEST_FILE = ROOT / "data" / "model_performance" / "step_1" / "test_with_all_outlets.json"
 OUTPUT_DIR = Path(__file__).resolve().parent / "data"
 SEED = 42
 TEST_SIZE = 0.2
@@ -155,11 +161,27 @@ def parse_labels(raw) -> set:
     return mapped
 
 
+def normalise_text(text) -> str:
+    """Collapse whitespace (line endings differ between the step 1 and step 2 files)."""
+    return " ".join(str(text).split())
+
+
+def load_step1_test_texts() -> set:
+    with STEP1_TEST_FILE.open(encoding="utf-8") as f:
+        return {normalise_text(json.loads(line)["text"]) for line in f if line.strip()}
+
+
 def main():
     print("Loading data...")
     df = pd.read_csv(INPUT_FILE)
     df["year"] = pd.to_numeric(df["year"], errors="coerce").astype("Int64")
     print(f"  {len(df):,} sentences")
+
+    # Keep sentences mentioning at least one social group: the same 7,234 sentences
+    # the NLI models are evaluated on (data/model_performance/step_2/*/all_folds_human_vs_model.csv)
+    has_group = ~df["ground_truth"].fillna("").str.strip().isin(["", "[]"])
+    df = df[has_group].copy()
+    print(f"  {len(df):,} with a non-empty ground_truth")
 
     df["labels"] = df["specific_group_new"].apply(parse_labels)
     df["categories"] = df["labels"].apply(lambda labs: {LABEL_TO_CATEGORY[l] for l in labs})
@@ -170,7 +192,25 @@ def main():
     train_df, test_df = train_test_split(df, test_size=TEST_SIZE, random_state=SEED)
     print(f"  train: {len(train_df):,}  test: {len(test_df):,}")
 
+    # The dictionaries are also evaluated on step 1's test set (06_evaluate_step1.py),
+    # so its sentences must not be mined for dictionary words: drop them from train
+    step1_texts = load_step1_test_texts()
+    in_step1 = train_df["text"].map(normalise_text).isin(step1_texts)
+    n_split = len(train_df)
+    train_df = train_df[~in_step1]
+    print(f"  removed {int(in_step1.sum()):,} step 1 test sentences from train -> "
+          f"train: {len(train_df):,}  test: {len(test_df):,}")
+
     OUTPUT_DIR.mkdir(exist_ok=True)
+    split_info = {
+        "n_sentences": len(df),
+        "n_train_before_step1_filter": n_split,
+        "n_removed_step1_test": int(in_step1.sum()),
+        "n_train": len(train_df),
+        "n_test": len(test_df),
+        "step1_test_path": str(STEP1_TEST_FILE.relative_to(ROOT)),
+    }
+    (OUTPUT_DIR / "split_info.json").write_text(json.dumps(split_info, indent=2), encoding="utf-8")
     for name, split in [("train", train_df), ("test", test_df)]:
         out = split[["id", "text", "outlet", "country", "year"]].copy()
         out["labels"] = split["labels"].apply(lambda s: ";".join(sorted(s)))

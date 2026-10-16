@@ -1,6 +1,6 @@
 bauern
-invité
+agriculteurs
 landwirte
 landwirten
-obstbauern
-agriculteurs
+viticulteurs
+paysans

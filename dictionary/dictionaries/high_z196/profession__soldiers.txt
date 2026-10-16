@@ -2,8 +2,3 @@ soldaten
 militaires
 soldats
 troupes
-russes
-armées
-retrait
-streitkräfte
-armee

@@ -1,7 +1,3 @@
-riches
-pauvres
-familien
-grandes
+euros
 pen
-oberschicht
-fortunes
+engelhorn

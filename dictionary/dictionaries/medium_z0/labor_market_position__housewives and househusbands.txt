@@ -2,4 +2,3 @@ foyer
 femmes
 travail
 hausfrau
-hausmänner

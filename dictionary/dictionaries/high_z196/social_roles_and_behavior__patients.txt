@@ -1,4 +1,5 @@
 patienten
-patients
 malades
+schizophrenie
 patient
+patients

@@ -2,4 +2,6 @@ propriétaires
 bailleurs
 vermieter
 privés
-fonciers
+wohnungsvermieter
+occupants
+hauseigentümer

@@ -1,6 +1,3 @@
-ans
-arbeitslose
-ältere
-hält
 nombre
+ans
 femmes

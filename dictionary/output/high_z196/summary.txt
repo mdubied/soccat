@@ -1,10 +1,13 @@
-alpha0-mode: high  (alpha0 = 96566, full train-corpus token count (n in eq. 23; the degenerate/maximal case))
+alpha0-mode: high  (alpha0 = 69162, full train-corpus token count (n in eq. 23; the degenerate/maximal case))
 z-threshold: 1.96
-Test set size: 1,928
 
-Per-specific-category (57)  macro F1 = 0.435
-Per-specific-category (57)  micro P/R/F1 = 0.670 / 0.501 / 0.573
-Per-broad-class (8)         macro F1 = 0.608
+Split (7,234 sentences with a non-empty ground truth, 80/20 random, seed 42):
+  train: 5,787 - 181 step 1 test sentences = 5,606 (79.5%)
+  test:  1,447 (20.5%)
+
+Per-specific-category (57)  macro F1 = 0.433
+Per-specific-category (57)  micro P/R/F1 = 0.715 / 0.528 / 0.608
+Per-broad-class (8)         macro F1 = 0.615
 
 Any-group detection (mirrors step 1's binary task, full test set):
-  precision=0.872  recall=0.644  f1=0.741  (support=1362/1928 sentences have >=1 label)
+  precision=0.930  recall=0.662  f1=0.773  (support=1171/1447 sentences have >=1 label)

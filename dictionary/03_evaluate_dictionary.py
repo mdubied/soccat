@@ -27,6 +27,7 @@ for what these mean) and writes to dictionary/output/<alpha0-mode>_<zsuffix>/:
                                       any label dictionary in that category fires)
   summary.txt               overall micro/macro summary, including the
                              alpha0 value the dictionaries were built with
+                             and the final train/test split (data/split_info.json)
 """
 
 import argparse
@@ -154,11 +155,18 @@ def main():
     any_fn = int((~any_matched & any_truth).sum())
     any_p, any_r, any_f1 = prf1(any_tp, any_fp, any_fn)
 
+    split = json.loads((DATA_DIR / "split_info.json").read_text(encoding="utf-8"))
     lines = [
         f"alpha0-mode: {args.alpha0_mode}  (alpha0 = {alpha0_info['alpha0']:.0f}, "
         f"{alpha0_info['description']})",
         f"z-threshold: {alpha0_info.get('z_threshold', 0.0)}",
-        f"Test set size: {len(test):,}",
+        "",
+        f"Split ({split['n_sentences']:,} sentences with a non-empty ground truth, 80/20 random, seed 42):",
+        f"  train: {split['n_train_before_step1_filter']:,} - {split['n_removed_step1_test']:,} "
+        f"step 1 test sentences = {split['n_train']:,} "
+        f"({100 * split['n_train'] / (split['n_train'] + split['n_test']):.1f}%)",
+        f"  test:  {split['n_test']:,} "
+        f"({100 * split['n_test'] / (split['n_train'] + split['n_test']):.1f}%)",
         "",
         f"Per-specific-category (57)  macro F1 = {macro_f1_label:.3f}",
         f"Per-specific-category (57)  micro P/R/F1 = {micro_p:.3f} / {micro_r:.3f} / {micro_f1:.3f}",

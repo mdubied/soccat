@@ -2,15 +2,8 @@ patrons
 arbeitgeber
 employeurs
 arbeitnehmer
-syndicales
-salaires
 employés
-salariés
-représentants
-conflit
-vie
+emploi
 arbeit
 lundi
-travail
-gouvernement
 heures

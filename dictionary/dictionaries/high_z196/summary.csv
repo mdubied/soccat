@@ -1,58 +1,58 @@
 category,label,n_pos_train,n_words,top_words
-socio_economic_position,lower class,61,4,"mendiants, armen, modestes, pauvres"
-socio_economic_position,middle class,21,2,"moyennes, classes"
-socio_economic_position,upper class,36,1,oberschicht
-socio_economic_position,"capital owners, investors and shareholders",135,12,"actionnaires, investoren, anleger, investisseurs, aktionäre, sponsoren, aktien, aktionären, aktie, hp"
-socio_economic_position,unskilled or unqualified,18,0,
-socio_economic_position,skilled or qualified,36,2,"absolventen, akademiker"
-labor_market_position,wage and salary earners,368,20,"salariés, syndicats, mitarbeiter, cgt, arbeitnehmer, syndicat, gewerkschaft, mitarbeitern, personal, employés"
-labor_market_position,civil servants,37,2,"fonctionnaires, beamten"
-labor_market_position,CEOs and corporate leaders,62,1,dirigeants
-labor_market_position,employers,58,5,"arbeitgeber, patronat, employeurs, patrons, arbeitgebern"
-labor_market_position,entrepreneurs,624,20,"entreprises, unternehmen, banques, banken, commerçants, industrie, firmen, constructeurs, bank, start"
-labor_market_position,self-employed and freelancers,13,0,
-labor_market_position,unemployed,46,6,"chômeurs, arbeitslose, arbeitslos, arbeitslosen, février, résultats"
-labor_market_position,retirees,15,0,
-labor_market_position,housewives and househusbands,17,3,"foyer, hausfrau, hausmänner"
-age_and_family_status,parents and families,171,8,"familles, eltern, parents, familien, famille, mütter, angehörige, angehörigen"
-age_and_family_status,"minors, including children and pupils",310,18,"enfants, kinder, ans, mädchen, élèves, kindern, filles, invité, stage, avril"
-age_and_family_status,"youth, including students and apprentices",289,13,"jeunes, étudiants, jungen, junge, studenten, jugendlichen, jeunesse, jugendliche, jugend, équitation"
-age_and_family_status,middle-aged and pre-retirement age groups,17,0,
-age_and_family_status,elderly,29,1,âgées
-age_and_family_status,couples,30,2,"couples, lebensgemeinschaften"
-age_and_family_status,singles,21,2,"célibataires, singles"
-identities,men,118,6,"männer, männern, hommes, frauen, garçons, jungs"
-identities,women,281,17,"frauen, femmes, mädchen, trans, frau, filles, foyer, mütter, sexarbeiterinnen, männer"
-identities,cisgender and heterosexuals,14,1,cis
-identities,LGBTQIA+,60,3,"trans, personen, frauen"
-identities,disabled people,27,2,"handicapés, behinderte"
-identities,"people with an immigration background, including immigrants",223,13,"flüchtlinge, réfugiés, migranten, ausländer, flüchtlingen, invité, migrants, asylbewerber, flüchtlingspolitik, immigrés"
-identities,Ethnic and racial minorities,27,0,
-identities,Christians,33,2,"chrétiens, evangelikale"
-identities,Jews,31,2,"juifs, juive"
-identities,Muslims,45,3,"musulmans, islamistes, islamique"
-identities,multiple (or other) religious or minority groups,17,1,penang
-profession,athletes,351,20,"joueurs, spieler, trainer, mannschaft, spielern, invité, athleten, spiele, spiel, coureurs"
-profession,authors and artists,157,8,"artistes, künstler, musiciens, sänger, autoren, schauspieler, écrivains, danseurs"
-profession,doctors,48,3,"ärzte, médecins, zahnärzte"
-profession,farmers and fishermen,62,6,"bauern, invité, landwirte, landwirten, obstbauern, agriculteurs"
-profession,health and care professionals,30,1,pflegekräfte
-profession,journalists,41,2,"journalistes, journalisten"
-profession,legal professionals,42,3,"juges, anwälte, richter"
-profession,politicians and high-ranking officials,1175,20,"spd, cdu, csu, parti, grünen, politiker, gauche, partei, ps, rpr"
-profession,sex workers,23,2,"sexarbeiterinnen, prostituées"
-profession,scientists and professors,82,5,"chercheurs, forscher, wissenschaftler, ökonomen, économistes"
-profession,security forces,211,15,"policiers, ermittler, gendarmes, polizisten, invité, police, beamten, gendarmerie, ermittlern, beamte"
-profession,soldiers,135,9,"soldaten, militaires, soldats, troupes, russes, armées, retrait, streitkräfte, armee"
-profession,teachers and educators,52,3,"lehrer, éducateurs, enseignants"
-profession,other professions,265,10,"experten, analystes, piloten, pompiers, experts, analysten, architekten, fachleute, kritiker, spécialistes"
-social_roles_and_behavior,consumers and clients,290,20,"kunden, clients, visiteurs, consommateurs, touristen, gäste, verbraucher, voyageurs, spectateurs, nutzer"
-social_roles_and_behavior,car drivers,20,1,automobilistes
-social_roles_and_behavior,patients,78,4,"patienten, patients, malades, patient"
-social_deviance,extremists,60,1,extrémistes
-social_deviance,"terrorists, rebels, revolutionaries and/or movements of armed resistance",162,13,"hamas, is, al, terroristen, rebelles, qaida, saboteure, milizen, nsu, gazastreifen"
-social_deviance,"offenders, criminals, prisoners and/or accused people",161,8,"invité, casseurs, détenus, kriminelle, délinquants, täter, anklage, bandes"
-social_deviance,drug addicts,20,1,toxicomanes
-real_estate_ownership,real-estate owners,69,5,"propriétaires, bailleurs, vermieter, privés, fonciers"
+socio_economic_position,lower class,39,1,modestes
+socio_economic_position,middle class,18,2,"moyennes, classes"
+socio_economic_position,upper class,27,0,
+socio_economic_position,"capital owners, investors and shareholders",136,16,"actionnaires, investisseurs, anleger, investoren, sponsoren, vivendi, aktie, aktionäre, aktionären, universal"
+socio_economic_position,unskilled or unqualified,23,1,qualifiés
+socio_economic_position,skilled or qualified,29,1,absolventen
+labor_market_position,wage and salary earners,351,20,"salariés, syndicats, mitarbeiter, cgt, arbeitnehmer, personal, syndicat, gewerkschaft, mitarbeitern, employés"
+labor_market_position,civil servants,38,2,"fonctionnaires, beamten"
+labor_market_position,CEOs and corporate leaders,60,1,dirigeants
+labor_market_position,employers,48,5,"arbeitgeber, employeurs, arbeitgebern, patronat, patrons"
+labor_market_position,entrepreneurs,555,20,"entreprises, unternehmen, banques, banken, commerçants, firmen, industrie, hersteller, geschäft, markt"
+labor_market_position,self-employed and freelancers,15,0,
+labor_market_position,unemployed,41,6,"chômeurs, résultats, février, arbeitslose, arbeitslosen, mars"
+labor_market_position,retirees,16,1,retraités
+labor_market_position,housewives and househusbands,19,2,"foyer, hausfrau"
+age_and_family_status,parents and families,149,9,"familles, eltern, parents, familien, angehörige, famille, familie, angehörigen, mütter"
+age_and_family_status,"minors, including children and pupils",272,15,"enfants, kinder, ans, mädchen, kindern, élèves, filles, schüler, avril, stage"
+age_and_family_status,"youth, including students and apprentices",253,13,"jeunes, étudiants, junge, jungen, studenten, jeunesse, jugendlichen, jugend, jugendliche, jugendgewalt"
+age_and_family_status,middle-aged and pre-retirement age groups,11,0,
+age_and_family_status,elderly,27,1,âgées
+age_and_family_status,couples,21,1,couples
+age_and_family_status,singles,22,3,"célibataires, filiation, singles"
+identities,men,112,9,"männer, männern, frauen, jungs, hommes, mädchen, penis, sex, trans"
+identities,women,262,17,"frauen, femmes, frau, mädchen, trans, filles, foyer, cis, männer, hausfrau"
+identities,cisgender and heterosexuals,16,1,cis
+identities,LGBTQIA+,65,6,"trans, personen, schwarzer, geschlecht, braslavsky, villa"
+identities,disabled people,24,2,"behinderten, handicapés"
+identities,"people with an immigration background, including immigrants",171,8,"flüchtlinge, migranten, réfugiés, flüchtlingen, migrants, ausländer, asylbewerber, geflüchteten"
+identities,Ethnic and racial minorities,12,0,
+identities,Christians,27,1,chrétiens
+identities,Jews,30,2,"juifs, juden"
+identities,Muslims,26,2,"musulmans, islamistes"
+identities,multiple (or other) religious or minority groups,13,0,
+profession,athletes,283,17,"joueurs, spieler, trainer, mannschaft, spielern, sportler, coureurs, athleten, spiel, entraîneur"
+profession,authors and artists,141,10,"artistes, musiciens, sänger, künstler, autoren, künstlern, percussions, produzenten, schriftsteller, écrivains"
+profession,doctors,47,4,"ärzte, médecins, zahnärzte, ärzten"
+profession,farmers and fishermen,59,6,"bauern, agriculteurs, landwirte, landwirten, viticulteurs, paysans"
+profession,health and care professionals,23,0,
+profession,journalists,35,2,"journalisten, journalistes"
+profession,legal professionals,37,2,"richter, anwälte"
+profession,politicians and high-ranking officials,984,20,"spd, cdu, csu, grünen, gauche, ps, parti, politiker, rpr, élus"
+profession,sex workers,21,1,prostituées
+profession,scientists and professors,68,5,"forscher, wissenschaftler, chercheurs, économistes, wissenschaftlern"
+profession,security forces,180,14,"policiers, ermittler, polizisten, gendarmes, police, bka, ermittlern, beamten, bundespolizei, enquêteurs"
+profession,soldiers,62,4,"soldaten, militaires, soldats, troupes"
+profession,teachers and educators,46,2,"lehrer, éducateurs"
+profession,other professions,246,10,"experten, analystes, pompiers, piloten, hôtesses, analysten, fachleute, architekten, spécialistes, experts"
+social_roles_and_behavior,consumers and clients,254,19,"kunden, clients, consommateurs, visiteurs, touristen, verbraucher, gäste, spectateurs, nutzer, clientèle"
+social_roles_and_behavior,car drivers,17,2,"autofahrer, automobilistes"
+social_roles_and_behavior,patients,73,5,"patienten, malades, schizophrenie, patient, patients"
+social_deviance,extremists,50,1,extrémistes
+social_deviance,"terrorists, rebels, revolutionaries and/or movements of armed resistance",62,4,"hamas, terroristen, is, saboteure"
+social_deviance,"offenders, criminals, prisoners and/or accused people",152,6,"täter, kriminelle, détenus, casseurs, délinquants, angeklagten"
+social_deviance,drug addicts,18,1,toxicomanes
+real_estate_ownership,real-estate owners,71,7,"propriétaires, bailleurs, vermieter, privés, wohnungsvermieter, occupants, hauseigentümer"
 real_estate_ownership,tenants,33,2,"locataires, mieter"
-real_estate_ownership,homeless,31,2,"sdf, obdachlose"
+real_estate_ownership,homeless,26,2,"sdf, obdachlose"

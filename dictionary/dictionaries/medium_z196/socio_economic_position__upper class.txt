@@ -1,5 +1,2 @@
-riches
-pauvres
-familien
-grandes
+euros
 pen

@@ -1,5 +1,4 @@
 classes
-moyennes
 moyenne
-couches
 classe
+victimes

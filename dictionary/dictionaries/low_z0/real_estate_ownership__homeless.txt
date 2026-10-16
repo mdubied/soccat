@@ -1,6 +1,9 @@
 abri
+festen
 logements
 enfants
 sdf
 obdachlose
+obdachlosen
+wohnsitz
 wohnungslose
