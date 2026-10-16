@@ -1,7 +1,7 @@
 ,real-estate owners,tenants,homeless,Other broad class,Others,None
-real-estate owners,100,0,0,1,0,0
+real-estate owners,100,0,0,0,0,1
 tenants,1,42,0,0,0,0
 homeless,0,0,34,0,0,0
-Other broad class,6,0,2,0,0,0
-Others,1,0,1,0,0,0
-None,3,0,0,0,0,0
+Other broad class,2,0,2,0,0,0
+Others,1,0,0,0,0,0
+None,7,0,0,0,0,0

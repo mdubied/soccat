@@ -1,7 +1,7 @@
 ,consumers and clients,car drivers,patients,Other broad class,Others,None
-consumers and clients,290,0,0,20,32,13
+consumers and clients,290,0,0,10,28,25
 car drivers,0,30,0,0,0,0
-patients,0,0,97,3,6,3
-Other broad class,14,0,3,0,0,0
-Others,17,0,1,0,0,0
-None,2,0,1,0,0,0
+patients,0,0,97,2,5,5
+Other broad class,6,0,1,0,0,0
+Others,16,0,1,0,0,0
+None,7,0,3,0,0,0

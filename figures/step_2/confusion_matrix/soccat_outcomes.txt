@@ -1,0 +1,13 @@
+SOCCAT vs ground truth, per ground-truth label
+(units: ground-truth label x sentence x SOCCAT; residual "Others" class excluded)
+
+Ground-truth label units: 7,531
+Same label used by SOCCAT: 5,903 (78.4%)
+Disagreements: 1,628 (21.6%), of which:
+  other label, same class        151    9.3%
+  other broad class              262   16.1%
+  other broad class + others       0    0.0%
+  others                           0    0.0%
+  none                          1215   74.6%
+
+SOCCAT used the residual "others" (alone or with a label of another broad class): 0 (0.0% of disagreements)
