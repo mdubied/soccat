@@ -87,12 +87,14 @@ def load_and_reshape(filepath, value_col, exclude_outlets=None):
         outlet, {value_col}, year (int), pct (float),
         country_group, ideology_group
     Years 2024 and 2025 are excluded.
-    Underscores in {value_col} are replaced by spaces.
+    Underscores in {value_col} are replaced by spaces and the first letter is
+    capitalised (the rest is kept as is, e.g. "CEOs", "LGBTQIA+").
     """
     df = pd.read_csv(filepath, sep=";", na_values=["", "NA"])
     if exclude_outlets:
         df = df[~df["outlet"].isin(exclude_outlets)]
-    df[value_col] = df[value_col].str.replace("_", " ", regex=False).str.capitalize()
+    df[value_col] = (df[value_col].str.replace("_", " ", regex=False)
+                     .map(lambda s: s[:1].upper() + s[1:]))
 
     pct_cols = [
         c for c in df.columns
