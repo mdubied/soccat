@@ -7,5 +7,5 @@
   "seed": 42,
   "ids_file": "C:\\Users\\mathi\\Documents\\group-identification\\unseen_generalization\\output\\llm\\ids_to_classify.txt",
   "batch_size": 20,
-  "n_available": 9639
+  "n_available": 7234
 }
