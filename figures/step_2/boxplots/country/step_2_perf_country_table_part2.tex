@@ -1,0 +1,55 @@
+\begin{table}[htbp]
+\centering
+\scriptsize
+\begin{threeparttable}
+\caption{Step 2 binary F1 by country, pooled over the 5 cross-validation folds. Part 2/2.}
+\label{tab:step2-country-part2}
+\begin{tabular}{l rr r rr}
+\toprule
+Group & F1 FR & F1 DE & FR $-$ DE [95\% CI] & N FR & N DE \\
+\midrule
+\textbf{Gender, sexuality, and sociocultural characteristics} & \textbf{0.74} & \textbf{0.83} & \textbf{-0.10 [-0.14, -0.05]$^{*}$} & \textbf{324} & \textbf{622} \\
+\quad Cisgender and heterosexuals & 0.80 & 0.91 & -0.11 [-0.44, +0.14] & 8 & 12 \\
+\quad Disabled people & 0.89 & 0.85 & +0.04 [-0.20, +0.23] & 8 & 24 \\
+\quad Women & 0.85 & 0.86 & -0.01 [-0.06, +0.05] & 111 & 215 \\
+\quad People with immigration background & 0.68 & 0.89 & -0.20 [-0.33, -0.11]$^{*}$ & 57 & 163 \\
+\quad Jews & 0.77 & 1.00 & -0.23 [-0.37, -0.12]$^{*}$ & 28 & 6 \\
+\quad LGBTQIA+ & 0.72 & 0.83 & -0.11 [-0.32, +0.06] & 16 & 63 \\
+\quad Muslims & 0.72 & 0.80 & -0.08 [-0.31, +0.21] & 25 & 9 \\
+\quad Men & 0.67 & 0.78 & -0.12 [-0.28, +0.02] & 33 & 102 \\
+\quad Christians & 0.68 & 0.52 & +0.16 [-0.14, +0.49] & 19 & 16 \\
+\quad Ethnic and racial minorities & 0.47 & 0.67 & -0.20 [-0.66, +0.33] & 11 & 6 \\
+\quad Multiple (or other) religious or minority groups & 0.00 & 0.00 & +0.00 [+0.00, +0.00] & 8 & 6 \\
+\addlinespace
+\textbf{Labor market position} & \textbf{0.78} & \textbf{0.79} & \textbf{-0.01 [-0.04, +0.02]} & \textbf{660} & \textbf{757} \\
+\quad Housewives and househusbands & 1.00 & 0.92 & +0.08 [+0.00, +0.25] & 10 & 11 \\
+\quad Employers & 0.82 & 0.86 & -0.05 [-0.18, +0.10] & 38 & 30 \\
+\quad Wage and salary earners & 0.82 & 0.84 & -0.02 [-0.08, +0.03] & 237 & 200 \\
+\quad Entrepreneurs & 0.79 & 0.79 & -0.01 [-0.05, +0.04] & 271 & 409 \\
+\quad Unemployed & 0.82 & 0.67 & +0.15 [-0.05, +0.37] & 27 & 25 \\
+\quad Civil servants & 0.84 & 0.65 & +0.18 [-0.01, +0.39] & 23 & 24 \\
+\quad CEOs and corporate leaders & 0.61 & 0.71 & -0.10 [-0.28, +0.09] & 37 & 35 \\
+\quad Self-employed and freelancers & 0.50 & 0.70 & -0.20 [-0.70, +0.23] & 9 & 10 \\
+\quad Retirees & 0.25 & 0.70 & -0.45 [-0.80, -0.07]$^{*}$ & 8 & 13 \\
+\addlinespace
+\textbf{Socio-economic position} & \textbf{0.73} & \textbf{0.74} & \textbf{-0.01 [-0.09, +0.07]} & \textbf{156} & \textbf{183} \\
+\quad Capital owners, investors and shareholders & 0.89 & 0.85 & +0.04 [-0.03, +0.12] & 61 & 105 \\
+\quad Unskilled or unqualified & 0.80 & 0.78 & +0.02 [-0.28, +0.29] & 11 & 14 \\
+\quad Middle class & 0.88 & 0.55 & +0.33 [-0.03, +0.89] & 16 & 8 \\
+\quad Lower class & 0.64 & 0.52 & +0.12 [-0.13, +0.41] & 39 & 18 \\
+\quad Skilled or qualified & 0.00 & 0.76 & -0.76 [-0.88, -0.59]$^{*}$ & 9 & 27 \\
+\quad Upper class & 0.60 & 0.12 & +0.48 [+0.17, +0.74]$^{*}$ & 20 & 11 \\
+\addlinespace
+\textbf{Social deviance} & \textbf{0.57} & \textbf{0.68} & \textbf{-0.10 [-0.20, -0.01]$^{*}$} & \textbf{146} & \textbf{196} \\
+\quad Drug addicts & 0.95 & 0.83 & +0.12 [-0.07, +0.33] & 10 & 13 \\
+\quad Terrorists, revolutionaries, rebels, armed resistance & 0.43 & 0.77 & -0.34 [-0.54, -0.16]$^{*}$ & 32 & 42 \\
+\quad Extremists & 0.49 & 0.70 & -0.21 [-0.46, +0.01] & 28 & 34 \\
+\quad Offenders, criminals, prisoners, accused people & 0.62 & 0.62 & -0.00 [-0.13, +0.12] & 76 & 107 \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item \textit{Note:} Held-out predictions of the 5 cross-validation folds pooled, so that each sentence is scored once. Bold rows: broad classes (average of their groups' F1, weighted by the number of mentions). CI: 95\% bootstrap interval over sentences (2,000 resamples). $^{*}$: the interval of the difference excludes 0. N: number of mentions of the group per country.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
