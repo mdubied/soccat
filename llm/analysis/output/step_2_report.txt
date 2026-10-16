@@ -1,6 +1,6 @@
 Step 2 LLM classification report -- all runs
 ============================================================
-Generated:  2026-10-08T13:07:29
+Generated:  2026-10-16T09:53:39
 Runs found: 6  (in llm\classification\output\step_2)
 
 SOCCAT baseline for reference (data\model_performance\step_2/*/fold_*_per_label.csv, best fold selected by n_pos-weighted macro F1):
@@ -10,769 +10,767 @@ Summary (all runs)
 ============================================================
 Model              Prompt       N DetectAcc  OverallF1   Cost($)     Time   Rate/1k
 -----------------------------------------------------------------------------------
-sonnet-5-high      long      1927     0.823      0.644    7.1574  54m 25s   28m 14s
-sonnet-5-low       long      1927     0.824      0.632    4.7719  26m 20s   13m 40s
-sonnet-5-high      medium    1927     0.812      0.626    6.4605  48m 45s   25m 18s
-sonnet-5-low       short     1927     0.828      0.624    4.5815   28m 1s   14m 32s
-sonnet-5-low       medium    1927     0.814      0.624    4.5351  25m 16s    13m 7s
-sonnet-5-high      short     1927     0.840      0.622    6.8266   50m 0s   25m 57s
+sonnet-5-high      long      1446     0.886      0.670    6.4729  45m 43s   31m 37s
+sonnet-5-low       long      1446     0.876      0.669    3.5786  20m 58s   14m 30s
+sonnet-5-high      short     1446     0.886      0.652    6.0552   44m 4s   30m 28s
+sonnet-5-low       short     1446     0.885      0.651    4.5788  23m 45s   16m 26s
+sonnet-5-high      medium    1446     0.865      0.650    5.3479  42m 16s   29m 14s
+sonnet-5-low       medium    1446     0.871      0.649    3.5378  20m 42s   14m 19s
 
 Broad category F1 by model (weighted avg of specific-label F1s, weighted by positive-case count)
 ============================================================
-Broad category                                          SOCCAT sonnet-5-high/long sonnet-5-low/long sonnet-5-high/medium sonnet-5-low/short sonnet-5-low/medium sonnet-5-high/short
+Broad category                                          SOCCAT sonnet-5-high/long sonnet-5-low/long sonnet-5-high/short sonnet-5-low/short sonnet-5-high/medium sonnet-5-low/medium
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Socio-economic position                                  0.772              0.601             0.596                0.609              0.626               0.605               0.617
-Labor market position                                    0.804              0.654             0.623                0.581              0.563               0.567               0.595
-Age and family status                                    0.819              0.769             0.751                0.770              0.762               0.747               0.783
-Gender, sexuality, and sociocultural characteristics     0.835              0.726             0.705                0.710              0.700               0.701               0.695
-Profession                                               0.829              0.726             0.711                0.700              0.701               0.709               0.698
-Social roles and behavior                                0.855              0.714             0.626                0.688              0.644               0.611               0.680
-Social deviance                                          0.694              0.635             0.620                0.622              0.683               0.615               0.673
-Real estate ownership                                    0.957              0.913             0.898                0.925              0.932               0.903               0.922
-Others                                                     n/a              0.392             0.419                0.407              0.413               0.427               0.371
+Socio-economic position                                  0.772              0.700             0.738               0.705              0.719                0.746               0.708
+Labor market position                                    0.804              0.708             0.693               0.665              0.599                0.657               0.607
+Age and family status                                    0.819              0.774             0.798               0.772              0.761                0.778               0.776
+Gender, sexuality, and sociocultural characteristics     0.835              0.776             0.780               0.780              0.775                0.781               0.751
+Profession                                               0.829              0.765             0.748               0.752              0.742                0.733               0.730
+Social roles and behavior                                0.855              0.722             0.678               0.690              0.689                0.669               0.724
+Social deviance                                          0.694              0.582             0.578               0.626              0.589                0.586               0.618
+Real estate ownership                                    0.957              0.872             0.866               0.887              0.875                0.870               0.851
+Others                                                     n/a              0.394             0.412               0.355              0.422                0.380               0.425
 
 Category F1 by model (rows = taxonomy categories, columns = SOCCAT baseline then each run)
 ============================================================
-Category                                                                   N_pos_llm    SOCCAT sonnet-5-high/long sonnet-5-low/long sonnet-5-high/medium sonnet-5-low/short sonnet-5-low/medium sonnet-5-high/short
+Category                                                                   N_pos_llm    SOCCAT sonnet-5-high/long sonnet-5-low/long sonnet-5-high/short sonnet-5-low/short sonnet-5-high/medium sonnet-5-low/medium
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Socio-economic position                                                   
-  lower class                                                                     12     0.545              0.432             0.516                0.538              0.583               0.583               0.615
-  middle class                                                                     5     0.667              0.889             0.889                0.800              0.800               0.800               0.800
-  upper class                                                                      8     0.308              0.296             0.370                0.308              0.400               0.364               0.308
-  capital owners, investors and shareholders                                      35     0.923              0.750             0.734                0.750              0.769               0.716               0.741
-  unskilled or unqualified                                                         3     0.889              1.000             0.800                0.857              0.571               0.800               0.800
-  skilled or qualified                                                             7     0.833              0.118             0.000                0.125              0.143               0.143               0.143
+  lower class                                                                     10     0.545              0.643             0.750               0.696              0.818                0.727               0.750
+  middle class                                                                     9     0.667              0.889             0.842               0.941              0.875                0.941               0.824
+  upper class                                                                      6     0.308              0.667             0.667               0.706              0.706                0.750               0.706
+  capital owners, investors and shareholders                                      29     0.923              0.788             0.825               0.758              0.758                0.794               0.788
+  unskilled or unqualified                                                         5     0.889              0.500             0.667               0.500              0.500                0.667               0.500
+  skilled or qualified                                                             6     0.833              0.286             0.267               0.286              0.333                0.316               0.250
 Labor market position                                                     
-  wage and salary earners                                                         97     0.814              0.723             0.713                0.714              0.586               0.691               0.624
-  civil servants                                                                   6     0.750              0.500             0.462                0.387              0.353               0.385               0.353
-  CEOs and corporate leaders                                                      18     0.727              0.400             0.182                0.478              0.478               0.500               0.468
-  employers                                                                       15     0.846              0.778             0.848                0.812              0.788               0.812               0.848
-  entrepreneurs                                                                  151     0.819              0.609             0.571                0.457              0.504               0.451               0.547
-  self-employed and freelancers                                                    6     0.400              0.667             0.769                0.625              0.625               0.588               0.667
-  unemployed                                                                      12     0.824              0.696             0.640                0.667              0.615               0.615               0.640
-  retirees                                                                         9     0.500              0.824             0.824                0.800              0.875               0.706               0.750
-  housewives and househusbands                                                     6     1.000              0.923             0.923                0.923              0.923               0.923               0.923
+  wage and salary earners                                                         85     0.814              0.797             0.752               0.704              0.667                0.743               0.689
+  civil servants                                                                  11     0.750              0.600             0.485               0.390              0.529                0.457               0.500
+  CEOs and corporate leaders                                                      14     0.727              0.462             0.387               0.474              0.318                0.387               0.424
+  employers                                                                       12     0.846              0.786             0.880               0.917              0.800                0.846               0.815
+  entrepreneurs                                                                  146     0.819              0.681             0.684               0.652              0.565                0.622               0.559
+  self-employed and freelancers                                                    3     0.400              0.400             0.364               0.364              0.400                0.400               0.333
+  unemployed                                                                       9     0.824              0.737             0.737               0.737              0.636                0.737               0.667
+  retirees                                                                         4     0.500              0.667             0.750               0.750              0.667                0.750               0.667
+  housewives and househusbands                                                     5     1.000              0.909             0.909               0.909              0.909                0.909               0.833
 Age and family status                                                     
-  parents and families                                                            39     0.800              0.727             0.710                0.719              0.714               0.682               0.727
-  minors, including children and pupils                                           71     0.846              0.769             0.748                0.739              0.755               0.718               0.768
-  youth, including students and apprentices                                       70     0.815              0.820             0.779                0.831              0.803               0.792               0.846
-  middle-aged and pre-retirement age groups                                        5     0.667              0.750             0.667                0.750              0.571               0.750               0.600
-  elderly                                                                         10     0.600              0.621             0.667                0.621              0.643               0.643               0.692
-  couples                                                                         12     0.875              0.727             0.762                0.880              0.833               0.917               0.833
-  singles                                                                          7     1.000              0.800             0.875                0.800              0.875               0.800               0.800
+  parents and families                                                            31     0.800              0.730             0.769               0.737              0.762                0.721               0.721
+  minors, including children and pupils                                           63     0.846              0.786             0.800               0.765              0.776                0.797               0.754
+  youth, including students and apprentices                                       50     0.815              0.785             0.807               0.777              0.752                0.752               0.822
+  middle-aged and pre-retirement age groups                                        6     0.667              0.615             0.727               0.714              0.571                0.769               0.667
+  elderly                                                                          6     0.600              0.571             0.522               0.571              0.364                0.545               0.476
+  couples                                                                          9     0.875              0.941             0.941               0.941              1.000                1.000               1.000
+  singles                                                                          8     1.000              0.857             0.933               0.933              0.857                0.933               0.933
 Gender, sexuality, and sociocultural characteristics                      
-  men                                                                             26     0.652              0.533             0.583                0.553              0.549               0.531               0.600
-  women                                                                           72     0.925              0.785             0.800                0.782              0.797               0.783               0.797
-  cisgender and heterosexuals                                                      5     0.750              1.000             0.889                0.889              0.889               0.889               0.889
-  LGBTQIA+                                                                        13     0.812              0.743             0.625                0.710              0.645               0.688               0.688
-  disabled people                                                                  4     0.800              0.889             0.889                0.889              0.800               0.889               0.800
-  people with an immigration background, including immigrants                     54     0.897              0.783             0.745                0.764              0.727               0.733               0.704
-  ethnic and racial minorities                                                     9     0.400              0.381             0.340                0.391              0.419               0.367               0.367
-  Christians                                                                      12     0.833              0.759             0.667                0.667              0.733               0.687               0.625
-  Jews                                                                             7     0.923              0.737             0.632                0.824              0.750               0.706               0.667
-  Muslims                                                                          9     0.800              0.588             0.500                0.400              0.375               0.571               0.471
-  multiple (or other) religious or minority groups                                 1     0.000              0.000             0.333                0.400              0.286               0.400               0.000
+  men                                                                             26     0.652              0.627             0.694               0.653              0.667                0.694               0.615
+  women                                                                           61     0.925              0.776             0.789               0.793              0.803                0.803               0.748
+  cisgender and heterosexuals                                                      5     0.750              1.000             0.800               1.000              1.000                0.909               0.909
+  LGBTQIA+                                                                        15     0.812              0.833             0.882               0.882              0.909                0.909               0.848
+  disabled people                                                                  7     0.800              0.800             0.714               0.857              0.857                0.625               0.857
+  people with an immigration background, including immigrants                     43     0.897              0.843             0.851               0.815              0.769                0.810               0.840
+  ethnic and racial minorities                                                     1     0.400              0.118             0.143               0.118              0.154                0.111               0.125
+  Christians                                                                       6     0.833              0.857             0.714               0.769              0.800                0.857               0.857
+  Jews                                                                             8     0.923              0.889             0.941               0.889              0.824                0.889               0.778
+  Muslims                                                                          4     0.800              0.667             0.667               0.571              0.500                0.571               0.500
+  multiple (or other) religious or minority groups                                 3     0.000              0.286             0.000               0.286              0.400                0.250               0.000
 Profession                                                                
-  athletes                                                                        80     0.829              0.741             0.752                0.739              0.724               0.733               0.747
-  authors and artists                                                             43     0.844              0.696             0.654                0.692              0.619               0.649               0.617
-  doctors                                                                         20     0.929              0.800             0.789                0.762              0.789               0.829               0.732
-  farmers and fishermen                                                            9     0.897              0.783             0.818                0.800              0.900               0.857               0.727
-  health and care professionals                                                    8     0.500              0.609             0.636                0.636              0.700               0.737               0.700
-  journalists                                                                      7     0.875              0.429             0.500                0.444              0.462               0.500               0.400
-  legal professionals                                                              8     0.600              0.583             0.462                0.522              0.483               0.462               0.538
-  politicians and high-ranking officials                                         317     0.907              0.805             0.792                0.775              0.794               0.783               0.782
-  sex workers                                                                      6     0.889              0.800             0.667                0.857              0.800               0.857               0.800
-  scientists and professors                                                       24     0.774              0.643             0.632                0.618              0.635               0.633               0.610
-  security forces                                                                 58     0.869              0.677             0.631                0.614              0.601               0.620               0.629
-  soldiers                                                                        34     0.710              0.759             0.736                0.738              0.714               0.775               0.744
-  teachers and educators                                                           4     0.720              0.308             0.429                0.429              0.400               0.462               0.462
-  other professions                                                               72     0.563              0.477             0.466                0.437              0.417               0.456               0.429
+  athletes                                                                        64     0.829              0.825             0.800               0.797              0.846                0.835               0.787
+  authors and artists                                                             39     0.844              0.707             0.637               0.606              0.575                0.628               0.619
+  doctors                                                                         13     0.929              0.710             0.786               0.741              0.828                0.759               0.839
+  farmers and fishermen                                                           14     0.897              0.828             0.828               0.828              0.800                0.857               0.857
+  health and care professionals                                                    9     0.500              0.727             0.737               0.609              0.737                0.522               0.737
+  journalists                                                                      4     0.875              0.533             0.533               0.571              0.533                0.571               0.533
+  legal professionals                                                              9     0.600              0.667             0.593               0.667              0.600                0.593               0.533
+  politicians and high-ranking officials                                         279     0.907              0.824             0.815               0.823              0.805                0.778               0.787
+  sex workers                                                                      3     0.889              1.000             1.000               1.000              1.000                1.000               1.000
+  scientists and professors                                                       17     0.774              0.650             0.700               0.615              0.737                0.649               0.667
+  security forces                                                                 49     0.869              0.804             0.722               0.755              0.667                0.729               0.734
+  soldiers                                                                        17     0.710              0.762             0.800               0.821              0.821                0.821               0.789
+  teachers and educators                                                          11     0.720              0.696             0.741               0.783              0.720                0.720               0.667
+  other professions                                                               61     0.563              0.504             0.485               0.507              0.494                0.503               0.462
 Social roles and behavior                                                 
-  consumers and clients                                                           73     0.850              0.687             0.593                0.682              0.606               0.579               0.656
-  car drivers                                                                      8     0.750              0.762             0.600                0.538              0.583               0.609               0.696
-  patients                                                                        21     0.895              0.792             0.750                0.766              0.800               0.723               0.756
+  consumers and clients                                                           65     0.850              0.727             0.660               0.684              0.673                0.667               0.722
+  car drivers                                                                      6     0.750              0.667             0.500               0.615              0.615                0.600               0.615
+  patients                                                                        15     0.895              0.722             0.824               0.743              0.788                0.706               0.778
 Social deviance                                                           
-  extremists                                                                      17     0.632              0.638             0.636                0.583              0.727               0.636               0.744
-  terrorists, rebels, revolutionaries and/or movements of armed resistance        33     0.667              0.727             0.675                0.694              0.711               0.667               0.744
-  offenders, criminals, prisoners and/or accused people                           33     0.704              0.500             0.500                0.512              0.585               0.530               0.530
-  drug addicts                                                                     5     0.889              0.909             1.000                1.000              1.000               0.769               0.909
+  extremists                                                                      12     0.632              0.526             0.450               0.647              0.564                0.513               0.550
+  terrorists, rebels, revolutionaries and/or movements of armed resistance        18     0.667              0.636             0.651               0.682              0.619                0.651               0.682
+  offenders, criminals, prisoners and/or accused people                           28     0.704              0.561             0.568               0.568              0.571                0.545               0.592
+  drug addicts                                                                     3     0.889              0.667             0.750               0.750              0.667                0.857               0.750
 Real estate ownership                                                     
-  real-estate owners                                                              29     0.923              0.935             0.900                0.947              0.915               0.915               0.900
-  tenants                                                                          7     1.000              0.933             0.933                0.933              1.000               0.933               1.000
-  homeless                                                                         7     1.000              0.800             0.857                0.824              0.933               0.824               0.933
+  real-estate owners                                                              22     0.923              0.917             0.917               0.917              0.917                0.917               0.880
+  tenants                                                                          8     1.000              0.933             0.875               0.875              0.824                0.875               0.824
+  homeless                                                                         4     1.000              0.500             0.571               0.750              0.750                0.600               0.750
 Others                                                                    
-  others                                                                         469       n/a              0.392             0.419                0.407              0.413               0.427               0.371
+  others                                                                         402       n/a              0.394             0.412               0.355              0.422                0.380               0.425
 
 Categories where an LLM run beats SOCCAT (* marks the beating cell)
 ============================================================
-Category                                                                   N_pos_llm    SOCCAT sonnet-5-high/long sonnet-5-low/long sonnet-5-high/medium sonnet-5-low/short sonnet-5-low/medium sonnet-5-high/short
+Category                                                                   N_pos_llm    SOCCAT sonnet-5-high/long sonnet-5-low/long sonnet-5-high/short sonnet-5-low/short sonnet-5-high/medium sonnet-5-low/medium
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Socio-economic position                                                   
-  lower class                                                                     12     0.545              0.432             0.516                0.538             0.583*              0.583*              0.615*
-  middle class                                                                     5     0.667             0.889*            0.889*               0.800*             0.800*              0.800*              0.800*
-  upper class                                                                      8     0.308              0.296            0.370*                0.308             0.400*              0.364*               0.308
-  unskilled or unqualified                                                         3     0.889             1.000*             0.800                0.857              0.571               0.800               0.800
+  lower class                                                                     10     0.545             0.643*            0.750*              0.696*             0.818*               0.727*              0.750*
+  middle class                                                                     9     0.667             0.889*            0.842*              0.941*             0.875*               0.941*              0.824*
+  upper class                                                                      6     0.308             0.667*            0.667*              0.706*             0.706*               0.750*              0.706*
 Labor market position                                                     
-  employers                                                                       15     0.846              0.778            0.848*                0.812              0.788               0.812              0.848*
-  self-employed and freelancers                                                    6     0.400             0.667*            0.769*               0.625*             0.625*              0.588*              0.667*
-  retirees                                                                         9     0.500             0.824*            0.824*               0.800*             0.875*              0.706*              0.750*
+  employers                                                                       12     0.846              0.786            0.880*              0.917*              0.800                0.846               0.815
+  retirees                                                                         4     0.500             0.667*            0.750*              0.750*             0.667*               0.750*              0.667*
 Age and family status                                                     
-  youth, including students and apprentices                                       70     0.815             0.820*             0.779               0.831*              0.803               0.792              0.846*
-  middle-aged and pre-retirement age groups                                        5     0.667             0.750*             0.667               0.750*              0.571              0.750*               0.600
-  elderly                                                                         10     0.600             0.621*            0.667*               0.621*             0.643*              0.643*              0.692*
-  couples                                                                         12     0.875              0.727             0.762               0.880*              0.833              0.917*               0.833
+  youth, including students and apprentices                                       50     0.815              0.785             0.807               0.777              0.752                0.752              0.822*
+  middle-aged and pre-retirement age groups                                        6     0.667              0.615            0.727*              0.714*              0.571               0.769*               0.667
+  couples                                                                          9     0.875             0.941*            0.941*              0.941*             1.000*               1.000*              1.000*
 Gender, sexuality, and sociocultural characteristics                      
-  cisgender and heterosexuals                                                      5     0.750             1.000*            0.889*               0.889*             0.889*              0.889*              0.889*
-  disabled people                                                                  4     0.800             0.889*            0.889*               0.889*              0.800              0.889*               0.800
-  ethnic and racial minorities                                                     9     0.400              0.381             0.340                0.391             0.419*               0.367               0.367
-  multiple (or other) religious or minority groups                                 1     0.000              0.000            0.333*               0.400*             0.286*              0.400*               0.000
+  men                                                                             26     0.652              0.627            0.694*              0.653*             0.667*               0.694*               0.615
+  cisgender and heterosexuals                                                      5     0.750             1.000*            0.800*              1.000*             1.000*               0.909*              0.909*
+  LGBTQIA+                                                                        15     0.812             0.833*            0.882*              0.882*             0.909*               0.909*              0.848*
+  disabled people                                                                  7     0.800              0.800             0.714              0.857*             0.857*                0.625              0.857*
+  Christians                                                                       6     0.833             0.857*             0.714               0.769              0.800               0.857*              0.857*
+  Jews                                                                             8     0.923              0.889            0.941*               0.889              0.824                0.889               0.778
+  multiple (or other) religious or minority groups                                 3     0.000             0.286*             0.000              0.286*             0.400*               0.250*               0.000
 Profession                                                                
-  farmers and fishermen                                                            9     0.897              0.783             0.818                0.800             0.900*               0.857               0.727
-  health and care professionals                                                    8     0.500             0.609*            0.636*               0.636*             0.700*              0.737*              0.700*
-  soldiers                                                                        34     0.710             0.759*            0.736*               0.738*             0.714*              0.775*              0.744*
-Social roles and behavior                                                 
-  car drivers                                                                      8     0.750             0.762*             0.600                0.538              0.583               0.609               0.696
+  athletes                                                                        64     0.829              0.825             0.800               0.797             0.846*               0.835*               0.787
+  health and care professionals                                                    9     0.500             0.727*            0.737*              0.609*             0.737*               0.522*              0.737*
+  legal professionals                                                              9     0.600             0.667*             0.593              0.667*              0.600                0.593               0.533
+  sex workers                                                                      3     0.889             1.000*            1.000*              1.000*             1.000*               1.000*              1.000*
+  soldiers                                                                        17     0.710             0.762*            0.800*              0.821*             0.821*               0.821*              0.789*
+  teachers and educators                                                          11     0.720              0.696            0.741*              0.783*             0.720*               0.720*               0.667
 Social deviance                                                           
-  extremists                                                                      17     0.632             0.638*            0.636*                0.583             0.727*              0.636*              0.744*
-  terrorists, rebels, revolutionaries and/or movements of armed resistance        33     0.667             0.727*            0.675*               0.694*             0.711*              0.667*              0.744*
-  drug addicts                                                                     5     0.889             0.909*            1.000*               1.000*             1.000*               0.769              0.909*
-Real estate ownership                                                     
-  real-estate owners                                                              29     0.923             0.935*             0.900               0.947*              0.915               0.915               0.900
+  extremists                                                                      12     0.632              0.526             0.450              0.647*              0.564                0.513               0.550
+  terrorists, rebels, revolutionaries and/or movements of armed resistance        18     0.667              0.636             0.651              0.682*              0.619                0.651              0.682*
 
 Run details
 ============================================================
 Model: sonnet-5-high   Prompt: long
 ------------------------------------------------------------
 Prompt file:     llm\classification\prompts\step_2\step_2_long.md
-Sentences:       1927 sampled / 9639 available (seed=42)
+Sentences:       1446 sampled / 7234 available (seed=42)
 Batch size:      20
 Errors:          0
 
-Detection (has_social_category vs. ground truth): Accuracy=0.823  Precision=0.915  Recall=0.878  F1=0.896  (N=1927)
+Detection (has_social_category vs. ground truth): Accuracy=0.886  Precision=1.000  Recall=0.886  F1=0.939  (N=1446)
 
 Category performance (each specific label scored as its own binary detection problem;
 broad-category and overall scores are the weighted average of specific-label scores,
 weighted by each label's positive-case count)
-OVERALL (all specific labels)                   N_pos=2208  Accuracy=0.936  Precision=0.717  Recall=0.659  F1=0.644
+OVERALL (all specific labels)                   N_pos=1878  Accuracy=0.931  Precision=0.788  Recall=0.657  F1=0.670
 
-Socio-economic position                         N_pos=  70  Accuracy=0.991  Precision=0.537  Recall=0.714  F1=0.601
+Socio-economic position                         N_pos=  65  Accuracy=0.993  Precision=0.629  Recall=0.831  F1=0.700
   SOCCAT baseline: F1=0.772  (best CV fold, weighted across its labels)
-  lower class                                   N_pos=  12  Accuracy=0.989  Precision=0.320  Recall=0.667  F1=0.432  |  SOCCAT F1=0.545
-  middle class                                  N_pos=   5  Accuracy=0.999  Precision=1.000  Recall=0.800  F1=0.889  |  SOCCAT F1=0.667
-  upper class                                   N_pos=   8  Accuracy=0.990  Precision=0.211  Recall=0.500  F1=0.296  |  SOCCAT F1=0.308
-  capital owners, investors and shareholders    N_pos=  35  Accuracy=0.990  Precision=0.667  Recall=0.857  F1=0.750  |  SOCCAT F1=0.923
-  unskilled or unqualified                      N_pos=   3  Accuracy=1.000  Precision=1.000  Recall=1.000  F1=1.000  |  SOCCAT F1=0.889
-  skilled or qualified                          N_pos=   7  Accuracy=0.992  Precision=0.100  Recall=0.143  F1=0.118  |  SOCCAT F1=0.833
+  lower class                                   N_pos=  10  Accuracy=0.993  Precision=0.500  Recall=0.900  F1=0.643  |  SOCCAT F1=0.545
+  middle class                                  N_pos=   9  Accuracy=0.999  Precision=0.889  Recall=0.889  F1=0.889  |  SOCCAT F1=0.667
+  upper class                                   N_pos=   6  Accuracy=0.996  Precision=0.500  Recall=1.000  F1=0.667  |  SOCCAT F1=0.308
+  capital owners, investors and shareholders    N_pos=  29  Accuracy=0.990  Precision=0.703  Recall=0.897  F1=0.788  |  SOCCAT F1=0.923
+  unskilled or unqualified                      N_pos=   5  Accuracy=0.997  Precision=0.667  Recall=0.400  F1=0.500  |  SOCCAT F1=0.889
+  skilled or qualified                          N_pos=   6  Accuracy=0.990  Precision=0.200  Recall=0.500  F1=0.286  |  SOCCAT F1=0.833
 
-Labor market position                           N_pos= 320  Accuracy=0.968  Precision=0.758  Recall=0.600  F1=0.654
+Labor market position                           N_pos= 289  Accuracy=0.966  Precision=0.810  Recall=0.657  F1=0.708
   SOCCAT baseline: F1=0.804  (best CV fold, weighted across its labels)
-  wage and salary earners                       N_pos=  97  Accuracy=0.975  Precision=0.800  Recall=0.660  F1=0.723  |  SOCCAT F1=0.814
-  civil servants                                N_pos=   6  Accuracy=0.994  Precision=0.333  Recall=1.000  F1=0.500  |  SOCCAT F1=0.750
-  CEOs and corporate leaders                    N_pos=  18  Accuracy=0.988  Precision=0.364  Recall=0.444  F1=0.400  |  SOCCAT F1=0.727
-  employers                                     N_pos=  15  Accuracy=0.996  Precision=0.667  Recall=0.933  F1=0.778  |  SOCCAT F1=0.846
-  entrepreneurs                                 N_pos= 151  Accuracy=0.951  Precision=0.804  Recall=0.490  F1=0.609  |  SOCCAT F1=0.819
-  self-employed and freelancers                 N_pos=   6  Accuracy=0.997  Precision=0.556  Recall=0.833  F1=0.667  |  SOCCAT F1=0.400
-  unemployed                                    N_pos=  12  Accuracy=0.996  Precision=0.727  Recall=0.667  F1=0.696  |  SOCCAT F1=0.824
-  retirees                                      N_pos=   9  Accuracy=0.998  Precision=0.875  Recall=0.778  F1=0.824  |  SOCCAT F1=0.500
-  housewives and househusbands                  N_pos=   6  Accuracy=0.999  Precision=0.857  Recall=1.000  F1=0.923  |  SOCCAT F1=1.000
+  wage and salary earners                       N_pos=  85  Accuracy=0.978  Precision=0.863  Recall=0.741  F1=0.797  |  SOCCAT F1=0.814
+  civil servants                                N_pos=  11  Accuracy=0.992  Precision=0.474  Recall=0.818  F1=0.600  |  SOCCAT F1=0.750
+  CEOs and corporate leaders                    N_pos=  14  Accuracy=0.985  Precision=0.360  Recall=0.643  F1=0.462  |  SOCCAT F1=0.727
+  employers                                     N_pos=  12  Accuracy=0.996  Precision=0.688  Recall=0.917  F1=0.786  |  SOCCAT F1=0.846
+  entrepreneurs                                 N_pos= 146  Accuracy=0.947  Precision=0.880  Recall=0.555  F1=0.681  |  SOCCAT F1=0.819
+  self-employed and freelancers                 N_pos=   3  Accuracy=0.996  Precision=0.286  Recall=0.667  F1=0.400  |  SOCCAT F1=0.400
+  unemployed                                    N_pos=   9  Accuracy=0.997  Precision=0.700  Recall=0.778  F1=0.737  |  SOCCAT F1=0.824
+  retirees                                      N_pos=   4  Accuracy=0.998  Precision=0.600  Recall=0.750  F1=0.667  |  SOCCAT F1=0.500
+  housewives and househusbands                  N_pos=   5  Accuracy=0.999  Precision=0.833  Recall=1.000  F1=0.909  |  SOCCAT F1=1.000
 
-Age and family status                           N_pos= 214  Accuracy=0.987  Precision=0.725  Recall=0.836  F1=0.769
+Age and family status                           N_pos= 173  Accuracy=0.987  Precision=0.801  Recall=0.769  F1=0.774
   SOCCAT baseline: F1=0.819  (best CV fold, weighted across its labels)
-  parents and families                          N_pos=  39  Accuracy=0.988  Precision=0.653  Recall=0.821  F1=0.727  |  SOCCAT F1=0.800
-  minors, including children and pupils         N_pos=  71  Accuracy=0.983  Precision=0.764  Recall=0.775  F1=0.769  |  SOCCAT F1=0.846
-  youth, including students and apprentices     N_pos=  70  Accuracy=0.985  Precision=0.725  Recall=0.943  F1=0.820  |  SOCCAT F1=0.815
-  middle-aged and pre-retirement age groups     N_pos=   5  Accuracy=0.999  Precision=1.000  Recall=0.600  F1=0.750  |  SOCCAT F1=0.667
-  elderly                                       N_pos=  10  Accuracy=0.994  Precision=0.474  Recall=0.900  F1=0.621  |  SOCCAT F1=0.600
-  couples                                       N_pos=  12  Accuracy=0.997  Precision=0.800  Recall=0.667  F1=0.727  |  SOCCAT F1=0.875
-  singles                                       N_pos=   7  Accuracy=0.998  Precision=0.750  Recall=0.857  F1=0.800  |  SOCCAT F1=1.000
+  parents and families                          N_pos=  31  Accuracy=0.988  Precision=0.719  Recall=0.742  F1=0.730  |  SOCCAT F1=0.800
+  minors, including children and pupils         N_pos=  63  Accuracy=0.983  Precision=0.898  Recall=0.698  F1=0.786  |  SOCCAT F1=0.846
+  youth, including students and apprentices     N_pos=  50  Accuracy=0.984  Precision=0.737  Recall=0.840  F1=0.785  |  SOCCAT F1=0.815
+  middle-aged and pre-retirement age groups     N_pos=   6  Accuracy=0.997  Precision=0.571  Recall=0.667  F1=0.615  |  SOCCAT F1=0.667
+  elderly                                       N_pos=   6  Accuracy=0.994  Precision=0.400  Recall=1.000  F1=0.571  |  SOCCAT F1=0.600
+  couples                                       N_pos=   9  Accuracy=0.999  Precision=1.000  Recall=0.889  F1=0.941  |  SOCCAT F1=0.875
+  singles                                       N_pos=   8  Accuracy=0.999  Precision=1.000  Recall=0.750  F1=0.857  |  SOCCAT F1=1.000
 
-Gender, sexuality, and sociocultural characteristics N_pos= 212  Accuracy=0.989  Precision=0.719  Recall=0.769  F1=0.726
+Gender, sexuality, and sociocultural characteristics N_pos= 179  Accuracy=0.989  Precision=0.787  Recall=0.782  F1=0.776
   SOCCAT baseline: F1=0.835  (best CV fold, weighted across its labels)
-  men                                           N_pos=  26  Accuracy=0.989  Precision=0.632  Recall=0.462  F1=0.533  |  SOCCAT F1=0.652
-  women                                         N_pos=  72  Accuracy=0.985  Precision=0.841  Recall=0.736  F1=0.785  |  SOCCAT F1=0.925
+  men                                           N_pos=  26  Accuracy=0.987  Precision=0.640  Recall=0.615  F1=0.627  |  SOCCAT F1=0.652
+  women                                         N_pos=  61  Accuracy=0.982  Precision=0.818  Recall=0.738  F1=0.776  |  SOCCAT F1=0.925
   cisgender and heterosexuals                   N_pos=   5  Accuracy=1.000  Precision=1.000  Recall=1.000  F1=1.000  |  SOCCAT F1=0.750
-  LGBTQIA+                                      N_pos=  13  Accuracy=0.995  Precision=0.591  Recall=1.000  F1=0.743  |  SOCCAT F1=0.812
-  disabled people                               N_pos=   4  Accuracy=0.999  Precision=0.800  Recall=1.000  F1=0.889  |  SOCCAT F1=0.800
-  people with an immigration background, including immigrants N_pos=  54  Accuracy=0.987  Precision=0.738  Recall=0.833  F1=0.783  |  SOCCAT F1=0.897
-  ethnic and racial minorities                  N_pos=   9  Accuracy=0.987  Precision=0.242  Recall=0.889  F1=0.381  |  SOCCAT F1=0.400
-  Christians                                    N_pos=  12  Accuracy=0.996  Precision=0.647  Recall=0.917  F1=0.759  |  SOCCAT F1=0.833
-  Jews                                          N_pos=   7  Accuracy=0.997  Precision=0.583  Recall=1.000  F1=0.737  |  SOCCAT F1=0.923
-  Muslims                                       N_pos=   9  Accuracy=0.996  Precision=0.625  Recall=0.556  F1=0.588  |  SOCCAT F1=0.800
-  multiple (or other) religious or minority groups N_pos=   1  Accuracy=0.998  Precision=0.000  Recall=0.000  F1=0.000  |  SOCCAT F1=0.000
+  LGBTQIA+                                      N_pos=  15  Accuracy=0.996  Precision=0.714  Recall=1.000  F1=0.833  |  SOCCAT F1=0.812
+  disabled people                               N_pos=   7  Accuracy=0.998  Precision=0.750  Recall=0.857  F1=0.800  |  SOCCAT F1=0.800
+  people with an immigration background, including immigrants N_pos=  43  Accuracy=0.991  Precision=0.875  Recall=0.814  F1=0.843  |  SOCCAT F1=0.897
+  ethnic and racial minorities                  N_pos=   1  Accuracy=0.990  Precision=0.062  Recall=1.000  F1=0.118  |  SOCCAT F1=0.400
+  Christians                                    N_pos=   6  Accuracy=0.999  Precision=0.750  Recall=1.000  F1=0.857  |  SOCCAT F1=0.833
+  Jews                                          N_pos=   8  Accuracy=0.999  Precision=0.800  Recall=1.000  F1=0.889  |  SOCCAT F1=0.923
+  Muslims                                       N_pos=   4  Accuracy=0.999  Precision=1.000  Recall=0.500  F1=0.667  |  SOCCAT F1=0.800
+  multiple (or other) religious or minority groups N_pos=   3  Accuracy=0.997  Precision=0.250  Recall=0.333  F1=0.286  |  SOCCAT F1=0.000
 
-Profession                                      N_pos= 690  Accuracy=0.957  Precision=0.660  Recall=0.819  F1=0.726
+Profession                                      N_pos= 589  Accuracy=0.957  Precision=0.732  Recall=0.813  F1=0.765
   SOCCAT baseline: F1=0.829  (best CV fold, weighted across its labels)
-  athletes                                      N_pos=  80  Accuracy=0.978  Precision=0.732  Recall=0.750  F1=0.741  |  SOCCAT F1=0.829
-  authors and artists                           N_pos=  43  Accuracy=0.982  Precision=0.556  Recall=0.930  F1=0.696  |  SOCCAT F1=0.844
-  doctors                                       N_pos=  20  Accuracy=0.996  Precision=0.800  Recall=0.800  F1=0.800  |  SOCCAT F1=0.929
-  farmers and fishermen                         N_pos=   9  Accuracy=0.997  Precision=0.643  Recall=1.000  F1=0.783  |  SOCCAT F1=0.897
-  health and care professionals                 N_pos=   8  Accuracy=0.995  Precision=0.467  Recall=0.875  F1=0.609  |  SOCCAT F1=0.500
-  journalists                                   N_pos=   7  Accuracy=0.992  Precision=0.286  Recall=0.857  F1=0.429  |  SOCCAT F1=0.875
-  legal professionals                           N_pos=   8  Accuracy=0.995  Precision=0.438  Recall=0.875  F1=0.583  |  SOCCAT F1=0.600
-  politicians and high-ranking officials        N_pos= 317  Accuracy=0.931  Precision=0.751  Recall=0.868  F1=0.805  |  SOCCAT F1=0.907
-  sex workers                                   N_pos=   6  Accuracy=0.998  Precision=0.667  Recall=1.000  F1=0.800  |  SOCCAT F1=0.889
-  scientists and professors                     N_pos=  24  Accuracy=0.990  Precision=0.562  Recall=0.750  F1=0.643  |  SOCCAT F1=0.774
-  security forces                               N_pos=  58  Accuracy=0.978  Precision=0.600  Recall=0.776  F1=0.677  |  SOCCAT F1=0.869
-  soldiers                                      N_pos=  34  Accuracy=0.989  Precision=0.623  Recall=0.971  F1=0.759  |  SOCCAT F1=0.710
-  teachers and educators                        N_pos=   4  Accuracy=0.995  Precision=0.222  Recall=0.500  F1=0.308  |  SOCCAT F1=0.720
-  other professions                             N_pos=  72  Accuracy=0.953  Precision=0.410  Recall=0.569  F1=0.477  |  SOCCAT F1=0.563
+  athletes                                      N_pos=  64  Accuracy=0.985  Precision=0.839  Recall=0.812  F1=0.825  |  SOCCAT F1=0.829
+  authors and artists                           N_pos=  39  Accuracy=0.980  Precision=0.583  Recall=0.897  F1=0.707  |  SOCCAT F1=0.844
+  doctors                                       N_pos=  13  Accuracy=0.994  Precision=0.611  Recall=0.846  F1=0.710  |  SOCCAT F1=0.929
+  farmers and fishermen                         N_pos=  14  Accuracy=0.997  Precision=0.800  Recall=0.857  F1=0.828  |  SOCCAT F1=0.897
+  health and care professionals                 N_pos=   9  Accuracy=0.996  Precision=0.615  Recall=0.889  F1=0.727  |  SOCCAT F1=0.500
+  journalists                                   N_pos=   4  Accuracy=0.995  Precision=0.364  Recall=1.000  F1=0.533  |  SOCCAT F1=0.875
+  legal professionals                           N_pos=   9  Accuracy=0.994  Precision=0.500  Recall=1.000  F1=0.667  |  SOCCAT F1=0.600
+  politicians and high-ranking officials        N_pos= 279  Accuracy=0.931  Precision=0.810  Recall=0.839  F1=0.824  |  SOCCAT F1=0.907
+  sex workers                                   N_pos=   3  Accuracy=1.000  Precision=1.000  Recall=1.000  F1=1.000  |  SOCCAT F1=0.889
+  scientists and professors                     N_pos=  17  Accuracy=0.990  Precision=0.565  Recall=0.765  F1=0.650  |  SOCCAT F1=0.774
+  security forces                               N_pos=  49  Accuracy=0.987  Precision=0.812  Recall=0.796  F1=0.804  |  SOCCAT F1=0.869
+  soldiers                                      N_pos=  17  Accuracy=0.993  Precision=0.640  Recall=0.941  F1=0.762  |  SOCCAT F1=0.710
+  teachers and educators                        N_pos=  11  Accuracy=0.995  Precision=0.667  Recall=0.727  F1=0.696  |  SOCCAT F1=0.720
+  other professions                             N_pos=  61  Accuracy=0.952  Precision=0.449  Recall=0.574  F1=0.504  |  SOCCAT F1=0.563
 
-Social roles and behavior                       N_pos= 102  Accuracy=0.983  Precision=0.733  Recall=0.716  F1=0.714
+Social roles and behavior                       N_pos=  86  Accuracy=0.983  Precision=0.826  Recall=0.663  F1=0.722
   SOCCAT baseline: F1=0.855  (best CV fold, weighted across its labels)
-  consumers and clients                         N_pos=  73  Accuracy=0.978  Precision=0.754  Recall=0.630  F1=0.687  |  SOCCAT F1=0.850
-  car drivers                                   N_pos=   8  Accuracy=0.997  Precision=0.615  Recall=1.000  F1=0.762  |  SOCCAT F1=0.750
-  patients                                      N_pos=  21  Accuracy=0.995  Precision=0.704  Recall=0.905  F1=0.792  |  SOCCAT F1=0.895
+  consumers and clients                         N_pos=  65  Accuracy=0.979  Precision=0.889  Recall=0.615  F1=0.727  |  SOCCAT F1=0.850
+  car drivers                                   N_pos=   6  Accuracy=0.997  Precision=0.667  Recall=0.667  F1=0.667  |  SOCCAT F1=0.750
+  patients                                      N_pos=  15  Accuracy=0.993  Precision=0.619  Recall=0.867  F1=0.722  |  SOCCAT F1=0.895
 
-Social deviance                                 N_pos=  88  Accuracy=0.986  Precision=0.537  Recall=0.784  F1=0.635
+Social deviance                                 N_pos=  61  Accuracy=0.983  Precision=0.463  Recall=0.803  F1=0.582
   SOCCAT baseline: F1=0.694  (best CV fold, weighted across its labels)
-  extremists                                    N_pos=  17  Accuracy=0.991  Precision=0.500  Recall=0.882  F1=0.638  |  SOCCAT F1=0.632
-  terrorists, rebels, revolutionaries and/or movements of armed resistance N_pos=  33  Accuracy=0.989  Precision=0.636  Recall=0.848  F1=0.727  |  SOCCAT F1=0.667
-  offenders, criminals, prisoners and/or accused people N_pos=  33  Accuracy=0.978  Precision=0.412  Recall=0.636  F1=0.500  |  SOCCAT F1=0.704
-  drug addicts                                  N_pos=   5  Accuracy=0.999  Precision=0.833  Recall=1.000  F1=0.909  |  SOCCAT F1=0.889
+  extremists                                    N_pos=  12  Accuracy=0.988  Precision=0.385  Recall=0.833  F1=0.526  |  SOCCAT F1=0.632
+  terrorists, rebels, revolutionaries and/or movements of armed resistance N_pos=  18  Accuracy=0.989  Precision=0.538  Recall=0.778  F1=0.636  |  SOCCAT F1=0.667
+  offenders, criminals, prisoners and/or accused people N_pos=  28  Accuracy=0.975  Precision=0.426  Recall=0.821  F1=0.561  |  SOCCAT F1=0.704
+  drug addicts                                  N_pos=   3  Accuracy=0.999  Precision=0.667  Recall=0.667  F1=0.667  |  SOCCAT F1=0.889
 
-Real estate ownership                           N_pos=  43  Accuracy=0.998  Precision=0.857  Recall=0.977  F1=0.913
+Real estate ownership                           N_pos=  34  Accuracy=0.998  Precision=0.842  Recall=0.912  F1=0.872
   SOCCAT baseline: F1=0.957  (best CV fold, weighted across its labels)
-  real-estate owners                            N_pos=  29  Accuracy=0.998  Precision=0.879  Recall=1.000  F1=0.935  |  SOCCAT F1=0.923
-  tenants                                       N_pos=   7  Accuracy=0.999  Precision=0.875  Recall=1.000  F1=0.933  |  SOCCAT F1=1.000
-  homeless                                      N_pos=   7  Accuracy=0.998  Precision=0.750  Recall=0.857  F1=0.800  |  SOCCAT F1=1.000
+  real-estate owners                            N_pos=  22  Accuracy=0.997  Precision=0.846  Recall=1.000  F1=0.917  |  SOCCAT F1=0.923
+  tenants                                       N_pos=   8  Accuracy=0.999  Precision=1.000  Recall=0.875  F1=0.933  |  SOCCAT F1=1.000
+  homeless                                      N_pos=   4  Accuracy=0.997  Precision=0.500  Recall=0.500  F1=0.500  |  SOCCAT F1=1.000
 
-Others                                          N_pos= 469  Accuracy=0.805  Precision=0.812  Recall=0.258  F1=0.392
-  others                                        N_pos= 469  Accuracy=0.805  Precision=0.812  Recall=0.258  F1=0.392  |  SOCCAT F1=n/a
+Others                                          N_pos= 402  Accuracy=0.785  Precision=0.910  Recall=0.251  F1=0.394
+  others                                        N_pos= 402  Accuracy=0.785  Precision=0.910  Recall=0.251  F1=0.394  |  SOCCAT F1=n/a
 
-Claude CLI calls:     97
-Total cost (USD):     $7.1574
-Cost per sentence:    $0.00371
-Extrapolated cost for full corpus (N=9639): $35.80
-Total time:           54m 25s
-Rate:                 28m 14s per 1,000 sentences
-Extrapolated time for full corpus (N=9639): 272m 13s
+Claude CLI calls:     73
+Total cost (USD):     $6.4729
+Cost per sentence:    $0.00448
+Extrapolated cost for full corpus (N=7234): $32.38
+Total time:           45m 43s
+Rate:                 31m 37s per 1,000 sentences
+Extrapolated time for full corpus (N=7234): 228m 41s
 
 Model: sonnet-5-high   Prompt: medium
 ------------------------------------------------------------
 Prompt file:     llm\classification\prompts\step_2\step_2_medium.md
-Sentences:       1927 sampled / 9639 available (seed=42)
+Sentences:       1446 sampled / 7234 available (seed=42)
 Batch size:      20
 Errors:          0
 
-Detection (has_social_category vs. ground truth): Accuracy=0.812  Precision=0.914  Recall=0.865  F1=0.889  (N=1927)
+Detection (has_social_category vs. ground truth): Accuracy=0.865  Precision=1.000  Recall=0.865  F1=0.928  (N=1446)
 
 Category performance (each specific label scored as its own binary detection problem;
 broad-category and overall scores are the weighted average of specific-label scores,
 weighted by each label's positive-case count)
-OVERALL (all specific labels)                   N_pos=2208  Accuracy=0.934  Precision=0.708  Recall=0.630  F1=0.626
+OVERALL (all specific labels)                   N_pos=1878  Accuracy=0.927  Precision=0.781  Recall=0.629  F1=0.650
 
-Socio-economic position                         N_pos=  70  Accuracy=0.992  Precision=0.545  Recall=0.700  F1=0.609
+Socio-economic position                         N_pos=  65  Accuracy=0.994  Precision=0.703  Recall=0.815  F1=0.746
   SOCCAT baseline: F1=0.772  (best CV fold, weighted across its labels)
-  lower class                                   N_pos=  12  Accuracy=0.994  Precision=0.500  Recall=0.583  F1=0.538  |  SOCCAT F1=0.545
-  middle class                                  N_pos=   5  Accuracy=0.999  Precision=0.800  Recall=0.800  F1=0.800  |  SOCCAT F1=0.667
-  upper class                                   N_pos=   8  Accuracy=0.991  Precision=0.222  Recall=0.500  F1=0.308  |  SOCCAT F1=0.308
-  capital owners, investors and shareholders    N_pos=  35  Accuracy=0.990  Precision=0.667  Recall=0.857  F1=0.750  |  SOCCAT F1=0.923
-  unskilled or unqualified                      N_pos=   3  Accuracy=0.999  Precision=0.750  Recall=1.000  F1=0.857  |  SOCCAT F1=0.889
-  skilled or qualified                          N_pos=   7  Accuracy=0.993  Precision=0.111  Recall=0.143  F1=0.125  |  SOCCAT F1=0.833
+  lower class                                   N_pos=  10  Accuracy=0.996  Precision=0.667  Recall=0.800  F1=0.727  |  SOCCAT F1=0.545
+  middle class                                  N_pos=   9  Accuracy=0.999  Precision=1.000  Recall=0.889  F1=0.941  |  SOCCAT F1=0.667
+  upper class                                   N_pos=   6  Accuracy=0.997  Precision=0.600  Recall=1.000  F1=0.750  |  SOCCAT F1=0.308
+  capital owners, investors and shareholders    N_pos=  29  Accuracy=0.991  Precision=0.735  Recall=0.862  F1=0.794  |  SOCCAT F1=0.923
+  unskilled or unqualified                      N_pos=   5  Accuracy=0.998  Precision=0.750  Recall=0.600  F1=0.667  |  SOCCAT F1=0.889
+  skilled or qualified                          N_pos=   6  Accuracy=0.991  Precision=0.231  Recall=0.500  F1=0.316  |  SOCCAT F1=0.833
 
-Labor market position                           N_pos= 320  Accuracy=0.962  Precision=0.744  Recall=0.516  F1=0.581
+Labor market position                           N_pos= 289  Accuracy=0.961  Precision=0.816  Recall=0.578  F1=0.657
   SOCCAT baseline: F1=0.804  (best CV fold, weighted across its labels)
-  wage and salary earners                       N_pos=  97  Accuracy=0.975  Precision=0.845  Recall=0.619  F1=0.714  |  SOCCAT F1=0.814
-  civil servants                                N_pos=   6  Accuracy=0.990  Precision=0.240  Recall=1.000  F1=0.387  |  SOCCAT F1=0.750
-  CEOs and corporate leaders                    N_pos=  18  Accuracy=0.988  Precision=0.393  Recall=0.611  F1=0.478  |  SOCCAT F1=0.727
-  employers                                     N_pos=  15  Accuracy=0.997  Precision=0.765  Recall=0.867  F1=0.812  |  SOCCAT F1=0.846
-  entrepreneurs                                 N_pos= 151  Accuracy=0.938  Precision=0.735  Recall=0.331  F1=0.457  |  SOCCAT F1=0.819
-  self-employed and freelancers                 N_pos=   6  Accuracy=0.997  Precision=0.500  Recall=0.833  F1=0.625  |  SOCCAT F1=0.400
-  unemployed                                    N_pos=  12  Accuracy=0.996  Precision=0.667  Recall=0.667  F1=0.667  |  SOCCAT F1=0.824
-  retirees                                      N_pos=   9  Accuracy=0.998  Precision=1.000  Recall=0.667  F1=0.800  |  SOCCAT F1=0.500
-  housewives and househusbands                  N_pos=   6  Accuracy=0.999  Precision=0.857  Recall=1.000  F1=0.923  |  SOCCAT F1=1.000
+  wage and salary earners                       N_pos=  85  Accuracy=0.974  Precision=0.873  Recall=0.647  F1=0.743  |  SOCCAT F1=0.814
+  civil servants                                N_pos=  11  Accuracy=0.987  Precision=0.333  Recall=0.727  F1=0.457  |  SOCCAT F1=0.750
+  CEOs and corporate leaders                    N_pos=  14  Accuracy=0.987  Precision=0.353  Recall=0.429  F1=0.387  |  SOCCAT F1=0.727
+  employers                                     N_pos=  12  Accuracy=0.997  Precision=0.786  Recall=0.917  F1=0.846  |  SOCCAT F1=0.846
+  entrepreneurs                                 N_pos= 146  Accuracy=0.941  Precision=0.886  Recall=0.479  F1=0.622  |  SOCCAT F1=0.819
+  self-employed and freelancers                 N_pos=   3  Accuracy=0.996  Precision=0.286  Recall=0.667  F1=0.400  |  SOCCAT F1=0.400
+  unemployed                                    N_pos=   9  Accuracy=0.997  Precision=0.700  Recall=0.778  F1=0.737  |  SOCCAT F1=0.824
+  retirees                                      N_pos=   4  Accuracy=0.999  Precision=0.750  Recall=0.750  F1=0.750  |  SOCCAT F1=0.500
+  housewives and househusbands                  N_pos=   5  Accuracy=0.999  Precision=0.833  Recall=1.000  F1=0.909  |  SOCCAT F1=1.000
 
-Age and family status                           N_pos= 214  Accuracy=0.987  Precision=0.736  Recall=0.822  F1=0.770
+Age and family status                           N_pos= 173  Accuracy=0.987  Precision=0.794  Recall=0.775  F1=0.778
   SOCCAT baseline: F1=0.819  (best CV fold, weighted across its labels)
-  parents and families                          N_pos=  39  Accuracy=0.987  Precision=0.640  Recall=0.821  F1=0.719  |  SOCCAT F1=0.800
-  minors, including children and pupils         N_pos=  71  Accuracy=0.981  Precision=0.761  Recall=0.718  F1=0.739  |  SOCCAT F1=0.846
-  youth, including students and apprentices     N_pos=  70  Accuracy=0.987  Precision=0.762  Recall=0.914  F1=0.831  |  SOCCAT F1=0.815
-  middle-aged and pre-retirement age groups     N_pos=   5  Accuracy=0.999  Precision=1.000  Recall=0.600  F1=0.750  |  SOCCAT F1=0.667
-  elderly                                       N_pos=  10  Accuracy=0.994  Precision=0.474  Recall=0.900  F1=0.621  |  SOCCAT F1=0.600
-  couples                                       N_pos=  12  Accuracy=0.998  Precision=0.846  Recall=0.917  F1=0.880  |  SOCCAT F1=0.875
-  singles                                       N_pos=   7  Accuracy=0.998  Precision=0.750  Recall=0.857  F1=0.800  |  SOCCAT F1=1.000
+  parents and families                          N_pos=  31  Accuracy=0.988  Precision=0.733  Recall=0.710  F1=0.721  |  SOCCAT F1=0.800
+  minors, including children and pupils         N_pos=  63  Accuracy=0.983  Precision=0.855  Recall=0.746  F1=0.797  |  SOCCAT F1=0.846
+  youth, including students and apprentices     N_pos=  50  Accuracy=0.983  Precision=0.745  Recall=0.760  F1=0.752  |  SOCCAT F1=0.815
+  middle-aged and pre-retirement age groups     N_pos=   6  Accuracy=0.998  Precision=0.714  Recall=0.833  F1=0.769  |  SOCCAT F1=0.667
+  elderly                                       N_pos=   6  Accuracy=0.993  Precision=0.375  Recall=1.000  F1=0.545  |  SOCCAT F1=0.600
+  couples                                       N_pos=   9  Accuracy=1.000  Precision=1.000  Recall=1.000  F1=1.000  |  SOCCAT F1=0.875
+  singles                                       N_pos=   8  Accuracy=0.999  Precision=1.000  Recall=0.875  F1=0.933  |  SOCCAT F1=1.000
 
-Gender, sexuality, and sociocultural characteristics N_pos= 212  Accuracy=0.989  Precision=0.720  Recall=0.736  F1=0.710
+Gender, sexuality, and sociocultural characteristics N_pos= 179  Accuracy=0.990  Precision=0.801  Recall=0.777  F1=0.781
   SOCCAT baseline: F1=0.835  (best CV fold, weighted across its labels)
-  men                                           N_pos=  26  Accuracy=0.989  Precision=0.619  Recall=0.500  F1=0.553  |  SOCCAT F1=0.652
-  women                                         N_pos=  72  Accuracy=0.985  Precision=0.852  Recall=0.722  F1=0.782  |  SOCCAT F1=0.925
-  cisgender and heterosexuals                   N_pos=   5  Accuracy=0.999  Precision=1.000  Recall=0.800  F1=0.889  |  SOCCAT F1=0.750
-  LGBTQIA+                                      N_pos=  13  Accuracy=0.995  Precision=0.611  Recall=0.846  F1=0.710  |  SOCCAT F1=0.812
-  disabled people                               N_pos=   4  Accuracy=0.999  Precision=0.800  Recall=1.000  F1=0.889  |  SOCCAT F1=0.800
-  people with an immigration background, including immigrants N_pos=  54  Accuracy=0.987  Precision=0.750  Recall=0.778  F1=0.764  |  SOCCAT F1=0.897
-  ethnic and racial minorities                  N_pos=   9  Accuracy=0.985  Precision=0.243  Recall=1.000  F1=0.391  |  SOCCAT F1=0.400
-  Christians                                    N_pos=  12  Accuracy=0.995  Precision=0.556  Recall=0.833  F1=0.667  |  SOCCAT F1=0.833
-  Jews                                          N_pos=   7  Accuracy=0.998  Precision=0.700  Recall=1.000  F1=0.824  |  SOCCAT F1=0.923
-  Muslims                                       N_pos=   9  Accuracy=0.995  Precision=0.500  Recall=0.333  F1=0.400  |  SOCCAT F1=0.800
-  multiple (or other) religious or minority groups N_pos=   1  Accuracy=0.998  Precision=0.250  Recall=1.000  F1=0.400  |  SOCCAT F1=0.000
+  men                                           N_pos=  26  Accuracy=0.990  Precision=0.739  Recall=0.654  F1=0.694  |  SOCCAT F1=0.652
+  women                                         N_pos=  61  Accuracy=0.984  Precision=0.839  Recall=0.770  F1=0.803  |  SOCCAT F1=0.925
+  cisgender and heterosexuals                   N_pos=   5  Accuracy=0.999  Precision=0.833  Recall=1.000  F1=0.909  |  SOCCAT F1=0.750
+  LGBTQIA+                                      N_pos=  15  Accuracy=0.998  Precision=0.833  Recall=1.000  F1=0.909  |  SOCCAT F1=0.812
+  disabled people                               N_pos=   7  Accuracy=0.996  Precision=0.556  Recall=0.714  F1=0.625  |  SOCCAT F1=0.800
+  people with an immigration background, including immigrants N_pos=  43  Accuracy=0.990  Precision=0.889  Recall=0.744  F1=0.810  |  SOCCAT F1=0.897
+  ethnic and racial minorities                  N_pos=   1  Accuracy=0.989  Precision=0.059  Recall=1.000  F1=0.111  |  SOCCAT F1=0.400
+  Christians                                    N_pos=   6  Accuracy=0.999  Precision=0.750  Recall=1.000  F1=0.857  |  SOCCAT F1=0.833
+  Jews                                          N_pos=   8  Accuracy=0.999  Precision=0.800  Recall=1.000  F1=0.889  |  SOCCAT F1=0.923
+  Muslims                                       N_pos=   4  Accuracy=0.998  Precision=0.667  Recall=0.500  F1=0.571  |  SOCCAT F1=0.800
+  multiple (or other) religious or minority groups N_pos=   3  Accuracy=0.996  Precision=0.200  Recall=0.333  F1=0.250  |  SOCCAT F1=0.000
 
-Profession                                      N_pos= 690  Accuracy=0.951  Precision=0.640  Recall=0.784  F1=0.700
+Profession                                      N_pos= 589  Accuracy=0.948  Precision=0.700  Recall=0.776  F1=0.733
   SOCCAT baseline: F1=0.829  (best CV fold, weighted across its labels)
-  athletes                                      N_pos=  80  Accuracy=0.979  Precision=0.753  Recall=0.725  F1=0.739  |  SOCCAT F1=0.829
-  authors and artists                           N_pos=  43  Accuracy=0.983  Precision=0.578  Recall=0.860  F1=0.692  |  SOCCAT F1=0.844
-  doctors                                       N_pos=  20  Accuracy=0.995  Precision=0.727  Recall=0.800  F1=0.762  |  SOCCAT F1=0.929
-  farmers and fishermen                         N_pos=   9  Accuracy=0.998  Precision=0.727  Recall=0.889  F1=0.800  |  SOCCAT F1=0.897
-  health and care professionals                 N_pos=   8  Accuracy=0.996  Precision=0.500  Recall=0.875  F1=0.636  |  SOCCAT F1=0.500
-  journalists                                   N_pos=   7  Accuracy=0.992  Precision=0.300  Recall=0.857  F1=0.444  |  SOCCAT F1=0.875
-  legal professionals                           N_pos=   8  Accuracy=0.994  Precision=0.400  Recall=0.750  F1=0.522  |  SOCCAT F1=0.600
-  politicians and high-ranking officials        N_pos= 317  Accuracy=0.920  Precision=0.722  Recall=0.836  F1=0.775  |  SOCCAT F1=0.907
-  sex workers                                   N_pos=   6  Accuracy=0.999  Precision=0.750  Recall=1.000  F1=0.857  |  SOCCAT F1=0.889
-  scientists and professors                     N_pos=  24  Accuracy=0.989  Precision=0.548  Recall=0.708  F1=0.618  |  SOCCAT F1=0.774
-  security forces                               N_pos=  58  Accuracy=0.972  Precision=0.524  Recall=0.741  F1=0.614  |  SOCCAT F1=0.869
-  soldiers                                      N_pos=  34  Accuracy=0.989  Precision=0.620  Recall=0.912  F1=0.738  |  SOCCAT F1=0.710
-  teachers and educators                        N_pos=   4  Accuracy=0.996  Precision=0.300  Recall=0.750  F1=0.429  |  SOCCAT F1=0.720
-  other professions                             N_pos=  72  Accuracy=0.949  Precision=0.373  Recall=0.528  F1=0.437  |  SOCCAT F1=0.563
+  athletes                                      N_pos=  64  Accuracy=0.985  Precision=0.841  Recall=0.828  F1=0.835  |  SOCCAT F1=0.829
+  authors and artists                           N_pos=  39  Accuracy=0.978  Precision=0.574  Recall=0.692  F1=0.628  |  SOCCAT F1=0.844
+  doctors                                       N_pos=  13  Accuracy=0.995  Precision=0.688  Recall=0.846  F1=0.759  |  SOCCAT F1=0.929
+  farmers and fishermen                         N_pos=  14  Accuracy=0.997  Precision=0.857  Recall=0.857  F1=0.857  |  SOCCAT F1=0.897
+  health and care professionals                 N_pos=   9  Accuracy=0.992  Precision=0.429  Recall=0.667  F1=0.522  |  SOCCAT F1=0.500
+  journalists                                   N_pos=   4  Accuracy=0.996  Precision=0.400  Recall=1.000  F1=0.571  |  SOCCAT F1=0.875
+  legal professionals                           N_pos=   9  Accuracy=0.992  Precision=0.444  Recall=0.889  F1=0.593  |  SOCCAT F1=0.600
+  politicians and high-ranking officials        N_pos= 279  Accuracy=0.913  Precision=0.765  Recall=0.792  F1=0.778  |  SOCCAT F1=0.907
+  sex workers                                   N_pos=   3  Accuracy=1.000  Precision=1.000  Recall=1.000  F1=1.000  |  SOCCAT F1=0.889
+  scientists and professors                     N_pos=  17  Accuracy=0.991  Precision=0.600  Recall=0.706  F1=0.649  |  SOCCAT F1=0.774
+  security forces                               N_pos=  49  Accuracy=0.980  Precision=0.672  Recall=0.796  F1=0.729  |  SOCCAT F1=0.869
+  soldiers                                      N_pos=  17  Accuracy=0.995  Precision=0.727  Recall=0.941  F1=0.821  |  SOCCAT F1=0.710
+  teachers and educators                        N_pos=  11  Accuracy=0.995  Precision=0.643  Recall=0.818  F1=0.720  |  SOCCAT F1=0.720
+  other professions                             N_pos=  61  Accuracy=0.951  Precision=0.439  Recall=0.590  F1=0.503  |  SOCCAT F1=0.563
 
-Social roles and behavior                       N_pos= 102  Accuracy=0.983  Precision=0.719  Recall=0.686  F1=0.688
+Social roles and behavior                       N_pos=  86  Accuracy=0.978  Precision=0.712  Recall=0.640  F1=0.669
   SOCCAT baseline: F1=0.855  (best CV fold, weighted across its labels)
-  consumers and clients                         N_pos=  73  Accuracy=0.978  Precision=0.763  Recall=0.616  F1=0.682  |  SOCCAT F1=0.850
-  car drivers                                   N_pos=   8  Accuracy=0.994  Precision=0.389  Recall=0.875  F1=0.538  |  SOCCAT F1=0.750
-  patients                                      N_pos=  21  Accuracy=0.994  Precision=0.692  Recall=0.857  F1=0.766  |  SOCCAT F1=0.895
+  consumers and clients                         N_pos=  65  Accuracy=0.972  Precision=0.727  Recall=0.615  F1=0.667  |  SOCCAT F1=0.850
+  car drivers                                   N_pos=   6  Accuracy=0.997  Precision=0.750  Recall=0.500  F1=0.600  |  SOCCAT F1=0.750
+  patients                                      N_pos=  15  Accuracy=0.993  Precision=0.632  Recall=0.800  F1=0.706  |  SOCCAT F1=0.895
 
-Social deviance                                 N_pos=  88  Accuracy=0.986  Precision=0.540  Recall=0.750  F1=0.622
+Social deviance                                 N_pos=  61  Accuracy=0.983  Precision=0.472  Recall=0.787  F1=0.586
   SOCCAT baseline: F1=0.694  (best CV fold, weighted across its labels)
-  extremists                                    N_pos=  17  Accuracy=0.990  Precision=0.452  Recall=0.824  F1=0.583  |  SOCCAT F1=0.632
-  terrorists, rebels, revolutionaries and/or movements of armed resistance N_pos=  33  Accuracy=0.989  Precision=0.641  Recall=0.758  F1=0.694  |  SOCCAT F1=0.667
-  offenders, criminals, prisoners and/or accused people N_pos=  33  Accuracy=0.978  Precision=0.415  Recall=0.667  F1=0.512  |  SOCCAT F1=0.704
-  drug addicts                                  N_pos=   5  Accuracy=1.000  Precision=1.000  Recall=1.000  F1=1.000  |  SOCCAT F1=0.889
+  extremists                                    N_pos=  12  Accuracy=0.987  Precision=0.370  Recall=0.833  F1=0.513  |  SOCCAT F1=0.632
+  terrorists, rebels, revolutionaries and/or movements of armed resistance N_pos=  18  Accuracy=0.990  Precision=0.560  Recall=0.778  F1=0.651  |  SOCCAT F1=0.667
+  offenders, criminals, prisoners and/or accused people N_pos=  28  Accuracy=0.976  Precision=0.429  Recall=0.750  F1=0.545  |  SOCCAT F1=0.704
+  drug addicts                                  N_pos=   3  Accuracy=0.999  Precision=0.750  Recall=1.000  F1=0.857  |  SOCCAT F1=0.889
 
-Real estate ownership                           N_pos=  43  Accuracy=0.999  Precision=0.907  Recall=0.953  F1=0.925
+Real estate ownership                           N_pos=  34  Accuracy=0.998  Precision=0.812  Recall=0.941  F1=0.870
   SOCCAT baseline: F1=0.957  (best CV fold, weighted across its labels)
-  real-estate owners                            N_pos=  29  Accuracy=0.998  Precision=0.964  Recall=0.931  F1=0.947  |  SOCCAT F1=0.923
-  tenants                                       N_pos=   7  Accuracy=0.999  Precision=0.875  Recall=1.000  F1=0.933  |  SOCCAT F1=1.000
-  homeless                                      N_pos=   7  Accuracy=0.998  Precision=0.700  Recall=1.000  F1=0.824  |  SOCCAT F1=1.000
+  real-estate owners                            N_pos=  22  Accuracy=0.997  Precision=0.846  Recall=1.000  F1=0.917  |  SOCCAT F1=0.923
+  tenants                                       N_pos=   8  Accuracy=0.999  Precision=0.875  Recall=0.875  F1=0.875  |  SOCCAT F1=1.000
+  homeless                                      N_pos=   4  Accuracy=0.997  Precision=0.500  Recall=0.750  F1=0.600  |  SOCCAT F1=1.000
 
-Others                                          N_pos= 469  Accuracy=0.806  Precision=0.800  Recall=0.273  F1=0.407
-  others                                        N_pos= 469  Accuracy=0.806  Precision=0.800  Recall=0.273  F1=0.407  |  SOCCAT F1=n/a
+Others                                          N_pos= 402  Accuracy=0.784  Precision=0.932  Recall=0.239  F1=0.380
+  others                                        N_pos= 402  Accuracy=0.784  Precision=0.932  Recall=0.239  F1=0.380  |  SOCCAT F1=n/a
 
-Claude CLI calls:     97
-Total cost (USD):     $6.4605
-Cost per sentence:    $0.00335
-Extrapolated cost for full corpus (N=9639): $32.32
-Total time:           48m 45s
-Rate:                 25m 18s per 1,000 sentences
-Extrapolated time for full corpus (N=9639): 243m 49s
+Claude CLI calls:     73
+Total cost (USD):     $5.3479
+Cost per sentence:    $0.00370
+Extrapolated cost for full corpus (N=7234): $26.75
+Total time:           42m 16s
+Rate:                 29m 14s per 1,000 sentences
+Extrapolated time for full corpus (N=7234): 211m 29s
 
 Model: sonnet-5-high   Prompt: short
 ------------------------------------------------------------
 Prompt file:     llm\classification\prompts\step_2\step_2_short.md
-Sentences:       1927 sampled / 9639 available (seed=42)
+Sentences:       1446 sampled / 7234 available (seed=42)
 Batch size:      20
 Errors:          0
 
-Detection (has_social_category vs. ground truth): Accuracy=0.840  Precision=0.914  Recall=0.901  F1=0.908  (N=1927)
+Detection (has_social_category vs. ground truth): Accuracy=0.886  Precision=1.000  Recall=0.886  F1=0.939  (N=1446)
 
 Category performance (each specific label scored as its own binary detection problem;
 broad-category and overall scores are the weighted average of specific-label scores,
 weighted by each label's positive-case count)
-OVERALL (all specific labels)                   N_pos=2208  Accuracy=0.932  Precision=0.694  Recall=0.644  F1=0.622
+OVERALL (all specific labels)                   N_pos=1878  Accuracy=0.928  Precision=0.774  Recall=0.643  F1=0.652
 
-Socio-economic position                         N_pos=  70  Accuracy=0.992  Precision=0.564  Recall=0.700  F1=0.617
+Socio-economic position                         N_pos=  65  Accuracy=0.993  Precision=0.655  Recall=0.800  F1=0.705
   SOCCAT baseline: F1=0.772  (best CV fold, weighted across its labels)
-  lower class                                   N_pos=  12  Accuracy=0.995  Precision=0.571  Recall=0.667  F1=0.615  |  SOCCAT F1=0.545
-  middle class                                  N_pos=   5  Accuracy=0.999  Precision=0.800  Recall=0.800  F1=0.800  |  SOCCAT F1=0.667
-  upper class                                   N_pos=   8  Accuracy=0.991  Precision=0.222  Recall=0.500  F1=0.308  |  SOCCAT F1=0.308
-  capital owners, investors and shareholders    N_pos=  35  Accuracy=0.989  Precision=0.652  Recall=0.857  F1=0.741  |  SOCCAT F1=0.923
-  unskilled or unqualified                      N_pos=   3  Accuracy=0.999  Precision=1.000  Recall=0.667  F1=0.800  |  SOCCAT F1=0.889
-  skilled or qualified                          N_pos=   7  Accuracy=0.994  Precision=0.143  Recall=0.143  F1=0.143  |  SOCCAT F1=0.833
+  lower class                                   N_pos=  10  Accuracy=0.995  Precision=0.615  Recall=0.800  F1=0.696  |  SOCCAT F1=0.545
+  middle class                                  N_pos=   9  Accuracy=0.999  Precision=1.000  Recall=0.889  F1=0.941  |  SOCCAT F1=0.667
+  upper class                                   N_pos=   6  Accuracy=0.997  Precision=0.545  Recall=1.000  F1=0.706  |  SOCCAT F1=0.308
+  capital owners, investors and shareholders    N_pos=  29  Accuracy=0.989  Precision=0.676  Recall=0.862  F1=0.758  |  SOCCAT F1=0.923
+  unskilled or unqualified                      N_pos=   5  Accuracy=0.997  Precision=0.667  Recall=0.400  F1=0.500  |  SOCCAT F1=0.889
+  skilled or qualified                          N_pos=   6  Accuracy=0.990  Precision=0.200  Recall=0.500  F1=0.286  |  SOCCAT F1=0.833
 
-Labor market position                           N_pos= 320  Accuracy=0.963  Precision=0.747  Recall=0.528  F1=0.595
+Labor market position                           N_pos= 289  Accuracy=0.962  Precision=0.815  Recall=0.592  F1=0.665
   SOCCAT baseline: F1=0.804  (best CV fold, weighted across its labels)
-  wage and salary earners                       N_pos=  97  Accuracy=0.969  Precision=0.817  Recall=0.505  F1=0.624  |  SOCCAT F1=0.814
-  civil servants                                N_pos=   6  Accuracy=0.989  Precision=0.214  Recall=1.000  F1=0.353  |  SOCCAT F1=0.750
-  CEOs and corporate leaders                    N_pos=  18  Accuracy=0.987  Precision=0.379  Recall=0.611  F1=0.468  |  SOCCAT F1=0.727
-  employers                                     N_pos=  15  Accuracy=0.997  Precision=0.778  Recall=0.933  F1=0.848  |  SOCCAT F1=0.846
-  entrepreneurs                                 N_pos= 151  Accuracy=0.945  Precision=0.771  Recall=0.424  F1=0.547  |  SOCCAT F1=0.819
-  self-employed and freelancers                 N_pos=   6  Accuracy=0.997  Precision=0.556  Recall=0.833  F1=0.667  |  SOCCAT F1=0.400
-  unemployed                                    N_pos=  12  Accuracy=0.995  Precision=0.615  Recall=0.667  F1=0.640  |  SOCCAT F1=0.824
-  retirees                                      N_pos=   9  Accuracy=0.998  Precision=0.857  Recall=0.667  F1=0.750  |  SOCCAT F1=0.500
-  housewives and househusbands                  N_pos=   6  Accuracy=0.999  Precision=0.857  Recall=1.000  F1=0.923  |  SOCCAT F1=1.000
+  wage and salary earners                       N_pos=  85  Accuracy=0.971  Precision=0.877  Recall=0.588  F1=0.704  |  SOCCAT F1=0.814
+  civil servants                                N_pos=  11  Accuracy=0.983  Precision=0.267  Recall=0.727  F1=0.390  |  SOCCAT F1=0.750
+  CEOs and corporate leaders                    N_pos=  14  Accuracy=0.986  Precision=0.375  Recall=0.643  F1=0.474  |  SOCCAT F1=0.727
+  employers                                     N_pos=  12  Accuracy=0.999  Precision=0.917  Recall=0.917  F1=0.917  |  SOCCAT F1=0.846
+  entrepreneurs                                 N_pos= 146  Accuracy=0.944  Precision=0.874  Recall=0.521  F1=0.652  |  SOCCAT F1=0.819
+  self-employed and freelancers                 N_pos=   3  Accuracy=0.995  Precision=0.250  Recall=0.667  F1=0.364  |  SOCCAT F1=0.400
+  unemployed                                    N_pos=   9  Accuracy=0.997  Precision=0.700  Recall=0.778  F1=0.737  |  SOCCAT F1=0.824
+  retirees                                      N_pos=   4  Accuracy=0.999  Precision=0.750  Recall=0.750  F1=0.750  |  SOCCAT F1=0.500
+  housewives and househusbands                  N_pos=   5  Accuracy=0.999  Precision=0.833  Recall=1.000  F1=0.909  |  SOCCAT F1=1.000
 
-Age and family status                           N_pos= 214  Accuracy=0.988  Precision=0.754  Recall=0.822  F1=0.783
+Age and family status                           N_pos= 173  Accuracy=0.986  Precision=0.805  Recall=0.757  F1=0.772
   SOCCAT baseline: F1=0.819  (best CV fold, weighted across its labels)
-  parents and families                          N_pos=  39  Accuracy=0.988  Precision=0.653  Recall=0.821  F1=0.727  |  SOCCAT F1=0.800
-  minors, including children and pupils         N_pos=  71  Accuracy=0.983  Precision=0.791  Recall=0.746  F1=0.768  |  SOCCAT F1=0.846
-  youth, including students and apprentices     N_pos=  70  Accuracy=0.988  Precision=0.797  Recall=0.900  F1=0.846  |  SOCCAT F1=0.815
-  middle-aged and pre-retirement age groups     N_pos=   5  Accuracy=0.998  Precision=0.600  Recall=0.600  F1=0.600  |  SOCCAT F1=0.667
-  elderly                                       N_pos=  10  Accuracy=0.996  Precision=0.562  Recall=0.900  F1=0.692  |  SOCCAT F1=0.600
-  couples                                       N_pos=  12  Accuracy=0.998  Precision=0.833  Recall=0.833  F1=0.833  |  SOCCAT F1=0.875
-  singles                                       N_pos=   7  Accuracy=0.998  Precision=0.750  Recall=0.857  F1=0.800  |  SOCCAT F1=1.000
+  parents and families                          N_pos=  31  Accuracy=0.990  Precision=0.808  Recall=0.677  F1=0.737  |  SOCCAT F1=0.800
+  minors, including children and pupils         N_pos=  63  Accuracy=0.981  Precision=0.846  Recall=0.698  F1=0.765  |  SOCCAT F1=0.846
+  youth, including students and apprentices     N_pos=  50  Accuracy=0.984  Precision=0.755  Recall=0.800  F1=0.777  |  SOCCAT F1=0.815
+  middle-aged and pre-retirement age groups     N_pos=   6  Accuracy=0.997  Precision=0.625  Recall=0.833  F1=0.714  |  SOCCAT F1=0.667
+  elderly                                       N_pos=   6  Accuracy=0.994  Precision=0.400  Recall=1.000  F1=0.571  |  SOCCAT F1=0.600
+  couples                                       N_pos=   9  Accuracy=0.999  Precision=1.000  Recall=0.889  F1=0.941  |  SOCCAT F1=0.875
+  singles                                       N_pos=   8  Accuracy=0.999  Precision=1.000  Recall=0.875  F1=0.933  |  SOCCAT F1=1.000
 
-Gender, sexuality, and sociocultural characteristics N_pos= 212  Accuracy=0.988  Precision=0.688  Recall=0.736  F1=0.695
+Gender, sexuality, and sociocultural characteristics N_pos= 179  Accuracy=0.990  Precision=0.801  Recall=0.771  F1=0.780
   SOCCAT baseline: F1=0.835  (best CV fold, weighted across its labels)
-  men                                           N_pos=  26  Accuracy=0.990  Precision=0.625  Recall=0.577  F1=0.600  |  SOCCAT F1=0.652
-  women                                         N_pos=  72  Accuracy=0.985  Precision=0.833  Recall=0.764  F1=0.797  |  SOCCAT F1=0.925
-  cisgender and heterosexuals                   N_pos=   5  Accuracy=0.999  Precision=1.000  Recall=0.800  F1=0.889  |  SOCCAT F1=0.750
-  LGBTQIA+                                      N_pos=  13  Accuracy=0.995  Precision=0.579  Recall=0.846  F1=0.688  |  SOCCAT F1=0.812
-  disabled people                               N_pos=   4  Accuracy=0.999  Precision=0.667  Recall=1.000  F1=0.800  |  SOCCAT F1=0.800
-  people with an immigration background, including immigrants N_pos=  54  Accuracy=0.983  Precision=0.704  Recall=0.704  F1=0.704  |  SOCCAT F1=0.897
-  ethnic and racial minorities                  N_pos=   9  Accuracy=0.984  Precision=0.225  Recall=1.000  F1=0.367  |  SOCCAT F1=0.400
-  Christians                                    N_pos=  12  Accuracy=0.994  Precision=0.500  Recall=0.833  F1=0.625  |  SOCCAT F1=0.833
-  Jews                                          N_pos=   7  Accuracy=0.997  Precision=0.545  Recall=0.857  F1=0.667  |  SOCCAT F1=0.923
-  Muslims                                       N_pos=   9  Accuracy=0.995  Precision=0.500  Recall=0.444  F1=0.471  |  SOCCAT F1=0.800
-  multiple (or other) religious or minority groups N_pos=   1  Accuracy=0.998  Precision=0.000  Recall=0.000  F1=0.000  |  SOCCAT F1=0.000
+  men                                           N_pos=  26  Accuracy=0.988  Precision=0.696  Recall=0.615  F1=0.653  |  SOCCAT F1=0.652
+  women                                         N_pos=  61  Accuracy=0.983  Precision=0.836  Recall=0.754  F1=0.793  |  SOCCAT F1=0.925
+  cisgender and heterosexuals                   N_pos=   5  Accuracy=1.000  Precision=1.000  Recall=1.000  F1=1.000  |  SOCCAT F1=0.750
+  LGBTQIA+                                      N_pos=  15  Accuracy=0.997  Precision=0.789  Recall=1.000  F1=0.882  |  SOCCAT F1=0.812
+  disabled people                               N_pos=   7  Accuracy=0.999  Precision=0.857  Recall=0.857  F1=0.857  |  SOCCAT F1=0.800
+  people with an immigration background, including immigrants N_pos=  43  Accuracy=0.990  Precision=0.868  Recall=0.767  F1=0.815  |  SOCCAT F1=0.897
+  ethnic and racial minorities                  N_pos=   1  Accuracy=0.990  Precision=0.062  Recall=1.000  F1=0.118  |  SOCCAT F1=0.400
+  Christians                                    N_pos=   6  Accuracy=0.998  Precision=0.714  Recall=0.833  F1=0.769  |  SOCCAT F1=0.833
+  Jews                                          N_pos=   8  Accuracy=0.999  Precision=0.800  Recall=1.000  F1=0.889  |  SOCCAT F1=0.923
+  Muslims                                       N_pos=   4  Accuracy=0.998  Precision=0.667  Recall=0.500  F1=0.571  |  SOCCAT F1=0.800
+  multiple (or other) religious or minority groups N_pos=   3  Accuracy=0.997  Precision=0.250  Recall=0.333  F1=0.286  |  SOCCAT F1=0.000
 
-Profession                                      N_pos= 690  Accuracy=0.948  Precision=0.606  Recall=0.836  F1=0.698
+Profession                                      N_pos= 589  Accuracy=0.954  Precision=0.696  Recall=0.829  F1=0.752
   SOCCAT baseline: F1=0.829  (best CV fold, weighted across its labels)
-  athletes                                      N_pos=  80  Accuracy=0.978  Precision=0.721  Recall=0.775  F1=0.747  |  SOCCAT F1=0.829
-  authors and artists                           N_pos=  43  Accuracy=0.976  Precision=0.481  Recall=0.860  F1=0.617  |  SOCCAT F1=0.844
-  doctors                                       N_pos=  20  Accuracy=0.994  Precision=0.714  Recall=0.750  F1=0.732  |  SOCCAT F1=0.929
-  farmers and fishermen                         N_pos=   9  Accuracy=0.997  Precision=0.615  Recall=0.889  F1=0.727  |  SOCCAT F1=0.897
-  health and care professionals                 N_pos=   8  Accuracy=0.997  Precision=0.583  Recall=0.875  F1=0.700  |  SOCCAT F1=0.500
-  journalists                                   N_pos=   7  Accuracy=0.991  Precision=0.261  Recall=0.857  F1=0.400  |  SOCCAT F1=0.875
-  legal professionals                           N_pos=   8  Accuracy=0.994  Precision=0.389  Recall=0.875  F1=0.538  |  SOCCAT F1=0.600
-  politicians and high-ranking officials        N_pos= 317  Accuracy=0.916  Precision=0.682  Recall=0.915  F1=0.782  |  SOCCAT F1=0.907
-  sex workers                                   N_pos=   6  Accuracy=0.998  Precision=0.667  Recall=1.000  F1=0.800  |  SOCCAT F1=0.889
-  scientists and professors                     N_pos=  24  Accuracy=0.988  Precision=0.514  Recall=0.750  F1=0.610  |  SOCCAT F1=0.774
-  security forces                               N_pos=  58  Accuracy=0.973  Precision=0.537  Recall=0.759  F1=0.629  |  SOCCAT F1=0.869
-  soldiers                                      N_pos=  34  Accuracy=0.989  Precision=0.615  Recall=0.941  F1=0.744  |  SOCCAT F1=0.710
-  teachers and educators                        N_pos=   4  Accuracy=0.996  Precision=0.333  Recall=0.750  F1=0.462  |  SOCCAT F1=0.720
-  other professions                             N_pos=  72  Accuracy=0.942  Precision=0.339  Recall=0.583  F1=0.429  |  SOCCAT F1=0.563
+  athletes                                      N_pos=  64  Accuracy=0.983  Precision=0.831  Recall=0.766  F1=0.797  |  SOCCAT F1=0.829
+  authors and artists                           N_pos=  39  Accuracy=0.973  Precision=0.500  Recall=0.769  F1=0.606  |  SOCCAT F1=0.844
+  doctors                                       N_pos=  13  Accuracy=0.995  Precision=0.714  Recall=0.769  F1=0.741  |  SOCCAT F1=0.929
+  farmers and fishermen                         N_pos=  14  Accuracy=0.997  Precision=0.800  Recall=0.857  F1=0.828  |  SOCCAT F1=0.897
+  health and care professionals                 N_pos=   9  Accuracy=0.994  Precision=0.500  Recall=0.778  F1=0.609  |  SOCCAT F1=0.500
+  journalists                                   N_pos=   4  Accuracy=0.996  Precision=0.400  Recall=1.000  F1=0.571  |  SOCCAT F1=0.875
+  legal professionals                           N_pos=   9  Accuracy=0.994  Precision=0.500  Recall=1.000  F1=0.667  |  SOCCAT F1=0.600
+  politicians and high-ranking officials        N_pos= 279  Accuracy=0.925  Precision=0.758  Recall=0.900  F1=0.823  |  SOCCAT F1=0.907
+  sex workers                                   N_pos=   3  Accuracy=1.000  Precision=1.000  Recall=1.000  F1=1.000  |  SOCCAT F1=0.889
+  scientists and professors                     N_pos=  17  Accuracy=0.990  Precision=0.545  Recall=0.706  F1=0.615  |  SOCCAT F1=0.774
+  security forces                               N_pos=  49  Accuracy=0.982  Precision=0.702  Recall=0.816  F1=0.755  |  SOCCAT F1=0.869
+  soldiers                                      N_pos=  17  Accuracy=0.995  Precision=0.727  Recall=0.941  F1=0.821  |  SOCCAT F1=0.710
+  teachers and educators                        N_pos=  11  Accuracy=0.997  Precision=0.750  Recall=0.818  F1=0.783  |  SOCCAT F1=0.720
+  other professions                             N_pos=  61  Accuracy=0.952  Precision=0.444  Recall=0.590  F1=0.507  |  SOCCAT F1=0.563
 
-Social roles and behavior                       N_pos= 102  Accuracy=0.982  Precision=0.718  Recall=0.667  F1=0.680
+Social roles and behavior                       N_pos=  86  Accuracy=0.980  Precision=0.755  Recall=0.651  F1=0.690
   SOCCAT baseline: F1=0.855  (best CV fold, weighted across its labels)
-  consumers and clients                         N_pos=  73  Accuracy=0.977  Precision=0.741  Recall=0.589  F1=0.656  |  SOCCAT F1=0.850
-  car drivers                                   N_pos=   8  Accuracy=0.996  Precision=0.533  Recall=1.000  F1=0.696  |  SOCCAT F1=0.750
-  patients                                      N_pos=  21  Accuracy=0.994  Precision=0.708  Recall=0.810  F1=0.756  |  SOCCAT F1=0.895
+  consumers and clients                         N_pos=  65  Accuracy=0.975  Precision=0.796  Recall=0.600  F1=0.684  |  SOCCAT F1=0.850
+  car drivers                                   N_pos=   6  Accuracy=0.997  Precision=0.571  Recall=0.667  F1=0.615  |  SOCCAT F1=0.750
+  patients                                      N_pos=  15  Accuracy=0.994  Precision=0.650  Recall=0.867  F1=0.743  |  SOCCAT F1=0.895
 
-Social deviance                                 N_pos=  88  Accuracy=0.987  Precision=0.573  Recall=0.818  F1=0.673
+Social deviance                                 N_pos=  61  Accuracy=0.985  Precision=0.508  Recall=0.820  F1=0.626
   SOCCAT baseline: F1=0.694  (best CV fold, weighted across its labels)
-  extremists                                    N_pos=  17  Accuracy=0.994  Precision=0.615  Recall=0.941  F1=0.744  |  SOCCAT F1=0.632
-  terrorists, rebels, revolutionaries and/or movements of armed resistance N_pos=  33  Accuracy=0.990  Precision=0.644  Recall=0.879  F1=0.744  |  SOCCAT F1=0.667
-  offenders, criminals, prisoners and/or accused people N_pos=  33  Accuracy=0.980  Precision=0.440  Recall=0.667  F1=0.530  |  SOCCAT F1=0.704
-  drug addicts                                  N_pos=   5  Accuracy=0.999  Precision=0.833  Recall=1.000  F1=0.909  |  SOCCAT F1=0.889
+  extremists                                    N_pos=  12  Accuracy=0.992  Precision=0.500  Recall=0.917  F1=0.647  |  SOCCAT F1=0.632
+  terrorists, rebels, revolutionaries and/or movements of armed resistance N_pos=  18  Accuracy=0.990  Precision=0.577  Recall=0.833  F1=0.682  |  SOCCAT F1=0.667
+  offenders, criminals, prisoners and/or accused people N_pos=  28  Accuracy=0.978  Precision=0.457  Recall=0.750  F1=0.568  |  SOCCAT F1=0.704
+  drug addicts                                  N_pos=   3  Accuracy=0.999  Precision=0.600  Recall=1.000  F1=0.750  |  SOCCAT F1=0.889
 
-Real estate ownership                           N_pos=  43  Accuracy=0.998  Precision=0.893  Recall=0.953  F1=0.922
+Real estate ownership                           N_pos=  34  Accuracy=0.998  Precision=0.842  Recall=0.941  F1=0.887
   SOCCAT baseline: F1=0.957  (best CV fold, weighted across its labels)
-  real-estate owners                            N_pos=  29  Accuracy=0.997  Precision=0.871  Recall=0.931  F1=0.900  |  SOCCAT F1=0.923
-  tenants                                       N_pos=   7  Accuracy=1.000  Precision=1.000  Recall=1.000  F1=1.000  |  SOCCAT F1=1.000
-  homeless                                      N_pos=   7  Accuracy=0.999  Precision=0.875  Recall=1.000  F1=0.933  |  SOCCAT F1=1.000
+  real-estate owners                            N_pos=  22  Accuracy=0.997  Precision=0.846  Recall=1.000  F1=0.917  |  SOCCAT F1=0.923
+  tenants                                       N_pos=   8  Accuracy=0.999  Precision=0.875  Recall=0.875  F1=0.875  |  SOCCAT F1=1.000
+  homeless                                      N_pos=   4  Accuracy=0.999  Precision=0.750  Recall=0.750  F1=0.750  |  SOCCAT F1=1.000
 
-Others                                          N_pos= 469  Accuracy=0.799  Precision=0.781  Recall=0.243  F1=0.371
-  others                                        N_pos= 469  Accuracy=0.799  Precision=0.781  Recall=0.243  F1=0.371  |  SOCCAT F1=n/a
+Others                                          N_pos= 402  Accuracy=0.776  Precision=0.890  Recall=0.221  F1=0.355
+  others                                        N_pos= 402  Accuracy=0.776  Precision=0.890  Recall=0.221  F1=0.355  |  SOCCAT F1=n/a
 
-Claude CLI calls:     97
-Total cost (USD):     $6.8266
-Cost per sentence:    $0.00354
-Extrapolated cost for full corpus (N=9639): $34.15
-Total time:           50m 0s
-Rate:                 25m 57s per 1,000 sentences
-Extrapolated time for full corpus (N=9639): 250m 9s
+Claude CLI calls:     73
+Total cost (USD):     $6.0552
+Cost per sentence:    $0.00419
+Extrapolated cost for full corpus (N=7234): $30.29
+Total time:           44m 4s
+Rate:                 30m 28s per 1,000 sentences
+Extrapolated time for full corpus (N=7234): 220m 26s
 
 Model: sonnet-5-low   Prompt: long
 ------------------------------------------------------------
 Prompt file:     llm\classification\prompts\step_2\step_2_long.md
-Sentences:       1927 sampled / 9639 available (seed=42)
+Sentences:       1446 sampled / 7234 available (seed=42)
 Batch size:      20
 Errors:          0
 
-Detection (has_social_category vs. ground truth): Accuracy=0.824  Precision=0.912  Recall=0.883  F1=0.897  (N=1927)
+Detection (has_social_category vs. ground truth): Accuracy=0.876  Precision=1.000  Recall=0.876  F1=0.934  (N=1446)
 
 Category performance (each specific label scored as its own binary detection problem;
 broad-category and overall scores are the weighted average of specific-label scores,
 weighted by each label's positive-case count)
-OVERALL (all specific labels)                   N_pos=2208  Accuracy=0.936  Precision=0.708  Recall=0.631  F1=0.632
+OVERALL (all specific labels)                   N_pos=1878  Accuracy=0.931  Precision=0.780  Recall=0.649  F1=0.669
 
-Socio-economic position                         N_pos=  70  Accuracy=0.992  Precision=0.546  Recall=0.686  F1=0.596
+Socio-economic position                         N_pos=  65  Accuracy=0.994  Precision=0.675  Recall=0.831  F1=0.738
   SOCCAT baseline: F1=0.772  (best CV fold, weighted across its labels)
-  lower class                                   N_pos=  12  Accuracy=0.992  Precision=0.421  Recall=0.667  F1=0.516  |  SOCCAT F1=0.545
-  middle class                                  N_pos=   5  Accuracy=0.999  Precision=1.000  Recall=0.800  F1=0.889  |  SOCCAT F1=0.667
-  upper class                                   N_pos=   8  Accuracy=0.991  Precision=0.263  Recall=0.625  F1=0.370  |  SOCCAT F1=0.308
-  capital owners, investors and shareholders    N_pos=  35  Accuracy=0.989  Precision=0.659  Recall=0.829  F1=0.734  |  SOCCAT F1=0.923
-  unskilled or unqualified                      N_pos=   3  Accuracy=0.999  Precision=1.000  Recall=0.667  F1=0.800  |  SOCCAT F1=0.889
-  skilled or qualified                          N_pos=   7  Accuracy=0.994  Precision=0.000  Recall=0.000  F1=0.000  |  SOCCAT F1=0.833
+  lower class                                   N_pos=  10  Accuracy=0.996  Precision=0.643  Recall=0.900  F1=0.750  |  SOCCAT F1=0.545
+  middle class                                  N_pos=   9  Accuracy=0.998  Precision=0.800  Recall=0.889  F1=0.842  |  SOCCAT F1=0.667
+  upper class                                   N_pos=   6  Accuracy=0.996  Precision=0.500  Recall=1.000  F1=0.667  |  SOCCAT F1=0.308
+  capital owners, investors and shareholders    N_pos=  29  Accuracy=0.992  Precision=0.765  Recall=0.897  F1=0.825  |  SOCCAT F1=0.923
+  unskilled or unqualified                      N_pos=   5  Accuracy=0.998  Precision=0.750  Recall=0.600  F1=0.667  |  SOCCAT F1=0.889
+  skilled or qualified                          N_pos=   6  Accuracy=0.992  Precision=0.222  Recall=0.333  F1=0.267  |  SOCCAT F1=0.833
 
-Labor market position                           N_pos= 320  Accuracy=0.967  Precision=0.764  Recall=0.553  F1=0.623
+Labor market position                           N_pos= 289  Accuracy=0.965  Precision=0.806  Recall=0.630  F1=0.693
   SOCCAT baseline: F1=0.804  (best CV fold, weighted across its labels)
-  wage and salary earners                       N_pos=  97  Accuracy=0.974  Precision=0.805  Recall=0.639  F1=0.713  |  SOCCAT F1=0.814
-  civil servants                                N_pos=   6  Accuracy=0.993  Precision=0.300  Recall=1.000  F1=0.462  |  SOCCAT F1=0.750
-  CEOs and corporate leaders                    N_pos=  18  Accuracy=0.986  Precision=0.200  Recall=0.167  F1=0.182  |  SOCCAT F1=0.727
-  employers                                     N_pos=  15  Accuracy=0.997  Precision=0.778  Recall=0.933  F1=0.848  |  SOCCAT F1=0.846
-  entrepreneurs                                 N_pos= 151  Accuracy=0.949  Precision=0.825  Recall=0.437  F1=0.571  |  SOCCAT F1=0.819
-  self-employed and freelancers                 N_pos=   6  Accuracy=0.998  Precision=0.714  Recall=0.833  F1=0.769  |  SOCCAT F1=0.400
-  unemployed                                    N_pos=  12  Accuracy=0.995  Precision=0.615  Recall=0.667  F1=0.640  |  SOCCAT F1=0.824
-  retirees                                      N_pos=   9  Accuracy=0.998  Precision=0.875  Recall=0.778  F1=0.824  |  SOCCAT F1=0.500
-  housewives and househusbands                  N_pos=   6  Accuracy=0.999  Precision=0.857  Recall=1.000  F1=0.923  |  SOCCAT F1=1.000
+  wage and salary earners                       N_pos=  85  Accuracy=0.973  Precision=0.819  Recall=0.694  F1=0.752  |  SOCCAT F1=0.814
+  civil servants                                N_pos=  11  Accuracy=0.988  Precision=0.364  Recall=0.727  F1=0.485  |  SOCCAT F1=0.750
+  CEOs and corporate leaders                    N_pos=  14  Accuracy=0.987  Precision=0.353  Recall=0.429  F1=0.387  |  SOCCAT F1=0.727
+  employers                                     N_pos=  12  Accuracy=0.998  Precision=0.846  Recall=0.917  F1=0.880  |  SOCCAT F1=0.846
+  entrepreneurs                                 N_pos= 146  Accuracy=0.948  Precision=0.890  Recall=0.555  F1=0.684  |  SOCCAT F1=0.819
+  self-employed and freelancers                 N_pos=   3  Accuracy=0.995  Precision=0.250  Recall=0.667  F1=0.364  |  SOCCAT F1=0.400
+  unemployed                                    N_pos=   9  Accuracy=0.997  Precision=0.700  Recall=0.778  F1=0.737  |  SOCCAT F1=0.824
+  retirees                                      N_pos=   4  Accuracy=0.999  Precision=0.750  Recall=0.750  F1=0.750  |  SOCCAT F1=0.500
+  housewives and househusbands                  N_pos=   5  Accuracy=0.999  Precision=0.833  Recall=1.000  F1=0.909  |  SOCCAT F1=1.000
 
-Age and family status                           N_pos= 214  Accuracy=0.985  Precision=0.716  Recall=0.804  F1=0.751
+Age and family status                           N_pos= 173  Accuracy=0.988  Precision=0.808  Recall=0.809  F1=0.798
   SOCCAT baseline: F1=0.819  (best CV fold, weighted across its labels)
-  parents and families                          N_pos=  39  Accuracy=0.986  Precision=0.611  Recall=0.846  F1=0.710  |  SOCCAT F1=0.800
-  minors, including children and pupils         N_pos=  71  Accuracy=0.982  Precision=0.765  Recall=0.732  F1=0.748  |  SOCCAT F1=0.846
-  youth, including students and apprentices     N_pos=  70  Accuracy=0.982  Precision=0.714  Recall=0.857  F1=0.779  |  SOCCAT F1=0.815
-  middle-aged and pre-retirement age groups     N_pos=   5  Accuracy=0.998  Precision=0.750  Recall=0.600  F1=0.667  |  SOCCAT F1=0.667
-  elderly                                       N_pos=  10  Accuracy=0.995  Precision=0.529  Recall=0.900  F1=0.667  |  SOCCAT F1=0.600
-  couples                                       N_pos=  12  Accuracy=0.997  Precision=0.889  Recall=0.667  F1=0.762  |  SOCCAT F1=0.875
-  singles                                       N_pos=   7  Accuracy=0.999  Precision=0.778  Recall=1.000  F1=0.875  |  SOCCAT F1=1.000
+  parents and families                          N_pos=  31  Accuracy=0.990  Precision=0.735  Recall=0.806  F1=0.769  |  SOCCAT F1=0.800
+  minors, including children and pupils         N_pos=  63  Accuracy=0.984  Precision=0.885  Recall=0.730  F1=0.800  |  SOCCAT F1=0.846
+  youth, including students and apprentices     N_pos=  50  Accuracy=0.985  Precision=0.746  Recall=0.880  F1=0.807  |  SOCCAT F1=0.815
+  middle-aged and pre-retirement age groups     N_pos=   6  Accuracy=0.998  Precision=0.800  Recall=0.667  F1=0.727  |  SOCCAT F1=0.667
+  elderly                                       N_pos=   6  Accuracy=0.992  Precision=0.353  Recall=1.000  F1=0.522  |  SOCCAT F1=0.600
+  couples                                       N_pos=   9  Accuracy=0.999  Precision=1.000  Recall=0.889  F1=0.941  |  SOCCAT F1=0.875
+  singles                                       N_pos=   8  Accuracy=0.999  Precision=1.000  Recall=0.875  F1=0.933  |  SOCCAT F1=1.000
 
-Gender, sexuality, and sociocultural characteristics N_pos= 212  Accuracy=0.989  Precision=0.709  Recall=0.736  F1=0.705
+Gender, sexuality, and sociocultural characteristics N_pos= 179  Accuracy=0.990  Precision=0.799  Recall=0.777  F1=0.780
   SOCCAT baseline: F1=0.835  (best CV fold, weighted across its labels)
-  men                                           N_pos=  26  Accuracy=0.990  Precision=0.636  Recall=0.538  F1=0.583  |  SOCCAT F1=0.652
-  women                                         N_pos=  72  Accuracy=0.986  Precision=0.857  Recall=0.750  F1=0.800  |  SOCCAT F1=0.925
-  cisgender and heterosexuals                   N_pos=   5  Accuracy=0.999  Precision=1.000  Recall=0.800  F1=0.889  |  SOCCAT F1=0.750
-  LGBTQIA+                                      N_pos=  13  Accuracy=0.994  Precision=0.526  Recall=0.769  F1=0.625  |  SOCCAT F1=0.812
-  disabled people                               N_pos=   4  Accuracy=0.999  Precision=0.800  Recall=1.000  F1=0.889  |  SOCCAT F1=0.800
-  people with an immigration background, including immigrants N_pos=  54  Accuracy=0.985  Precision=0.732  Recall=0.759  F1=0.745  |  SOCCAT F1=0.897
-  ethnic and racial minorities                  N_pos=   9  Accuracy=0.984  Precision=0.211  Recall=0.889  F1=0.340  |  SOCCAT F1=0.400
-  Christians                                    N_pos=  12  Accuracy=0.995  Precision=0.556  Recall=0.833  F1=0.667  |  SOCCAT F1=0.833
-  Jews                                          N_pos=   7  Accuracy=0.996  Precision=0.500  Recall=0.857  F1=0.632  |  SOCCAT F1=0.923
-  Muslims                                       N_pos=   9  Accuracy=0.996  Precision=0.571  Recall=0.444  F1=0.500  |  SOCCAT F1=0.800
-  multiple (or other) religious or minority groups N_pos=   1  Accuracy=0.998  Precision=0.200  Recall=1.000  F1=0.333  |  SOCCAT F1=0.000
+  men                                           N_pos=  26  Accuracy=0.990  Precision=0.739  Recall=0.654  F1=0.694  |  SOCCAT F1=0.652
+  women                                         N_pos=  61  Accuracy=0.983  Precision=0.849  Recall=0.738  F1=0.789  |  SOCCAT F1=0.925
+  cisgender and heterosexuals                   N_pos=   5  Accuracy=0.999  Precision=0.800  Recall=0.800  F1=0.800  |  SOCCAT F1=0.750
+  LGBTQIA+                                      N_pos=  15  Accuracy=0.997  Precision=0.789  Recall=1.000  F1=0.882  |  SOCCAT F1=0.812
+  disabled people                               N_pos=   7  Accuracy=0.997  Precision=0.714  Recall=0.714  F1=0.714  |  SOCCAT F1=0.800
+  people with an immigration background, including immigrants N_pos=  43  Accuracy=0.991  Precision=0.841  Recall=0.860  F1=0.851  |  SOCCAT F1=0.897
+  ethnic and racial minorities                  N_pos=   1  Accuracy=0.992  Precision=0.077  Recall=1.000  F1=0.143  |  SOCCAT F1=0.400
+  Christians                                    N_pos=   6  Accuracy=0.997  Precision=0.625  Recall=0.833  F1=0.714  |  SOCCAT F1=0.833
+  Jews                                          N_pos=   8  Accuracy=0.999  Precision=0.889  Recall=1.000  F1=0.941  |  SOCCAT F1=0.923
+  Muslims                                       N_pos=   4  Accuracy=0.999  Precision=1.000  Recall=0.500  F1=0.667  |  SOCCAT F1=0.800
+  multiple (or other) religious or minority groups N_pos=   3  Accuracy=0.993  Precision=0.000  Recall=0.000  F1=0.000  |  SOCCAT F1=0.000
 
-Profession                                      N_pos= 690  Accuracy=0.955  Precision=0.662  Recall=0.781  F1=0.711
+Profession                                      N_pos= 589  Accuracy=0.954  Precision=0.718  Recall=0.789  F1=0.748
   SOCCAT baseline: F1=0.829  (best CV fold, weighted across its labels)
-  athletes                                      N_pos=  80  Accuracy=0.979  Precision=0.729  Recall=0.775  F1=0.752  |  SOCCAT F1=0.829
-  authors and artists                           N_pos=  43  Accuracy=0.981  Precision=0.557  Recall=0.791  F1=0.654  |  SOCCAT F1=0.844
-  doctors                                       N_pos=  20  Accuracy=0.996  Precision=0.833  Recall=0.750  F1=0.789  |  SOCCAT F1=0.929
-  farmers and fishermen                         N_pos=   9  Accuracy=0.998  Precision=0.692  Recall=1.000  F1=0.818  |  SOCCAT F1=0.897
-  health and care professionals                 N_pos=   8  Accuracy=0.996  Precision=0.500  Recall=0.875  F1=0.636  |  SOCCAT F1=0.500
-  journalists                                   N_pos=   7  Accuracy=0.994  Precision=0.353  Recall=0.857  F1=0.500  |  SOCCAT F1=0.875
-  legal professionals                           N_pos=   8  Accuracy=0.993  Precision=0.333  Recall=0.750  F1=0.462  |  SOCCAT F1=0.600
-  politicians and high-ranking officials        N_pos= 317  Accuracy=0.929  Precision=0.763  Recall=0.823  F1=0.792  |  SOCCAT F1=0.907
-  sex workers                                   N_pos=   6  Accuracy=0.998  Precision=0.667  Recall=0.667  F1=0.667  |  SOCCAT F1=0.889
-  scientists and professors                     N_pos=  24  Accuracy=0.989  Precision=0.545  Recall=0.750  F1=0.632  |  SOCCAT F1=0.774
-  security forces                               N_pos=  58  Accuracy=0.975  Precision=0.569  Recall=0.707  F1=0.631  |  SOCCAT F1=0.869
-  soldiers                                      N_pos=  34  Accuracy=0.988  Precision=0.604  Recall=0.941  F1=0.736  |  SOCCAT F1=0.710
-  teachers and educators                        N_pos=   4  Accuracy=0.996  Precision=0.300  Recall=0.750  F1=0.429  |  SOCCAT F1=0.720
-  other professions                             N_pos=  72  Accuracy=0.951  Precision=0.394  Recall=0.569  F1=0.466  |  SOCCAT F1=0.563
+  athletes                                      N_pos=  64  Accuracy=0.983  Precision=0.820  Recall=0.781  F1=0.800  |  SOCCAT F1=0.829
+  authors and artists                           N_pos=  39  Accuracy=0.977  Precision=0.558  Recall=0.744  F1=0.637  |  SOCCAT F1=0.844
+  doctors                                       N_pos=  13  Accuracy=0.996  Precision=0.733  Recall=0.846  F1=0.786  |  SOCCAT F1=0.929
+  farmers and fishermen                         N_pos=  14  Accuracy=0.997  Precision=0.800  Recall=0.857  F1=0.828  |  SOCCAT F1=0.897
+  health and care professionals                 N_pos=   9  Accuracy=0.997  Precision=0.700  Recall=0.778  F1=0.737  |  SOCCAT F1=0.500
+  journalists                                   N_pos=   4  Accuracy=0.995  Precision=0.364  Recall=1.000  F1=0.533  |  SOCCAT F1=0.875
+  legal professionals                           N_pos=   9  Accuracy=0.992  Precision=0.444  Recall=0.889  F1=0.593  |  SOCCAT F1=0.600
+  politicians and high-ranking officials        N_pos= 279  Accuracy=0.927  Precision=0.795  Recall=0.835  F1=0.815  |  SOCCAT F1=0.907
+  sex workers                                   N_pos=   3  Accuracy=1.000  Precision=1.000  Recall=1.000  F1=1.000  |  SOCCAT F1=0.889
+  scientists and professors                     N_pos=  17  Accuracy=0.992  Precision=0.609  Recall=0.824  F1=0.700  |  SOCCAT F1=0.774
+  security forces                               N_pos=  49  Accuracy=0.981  Precision=0.729  Recall=0.714  F1=0.722  |  SOCCAT F1=0.869
+  soldiers                                      N_pos=  17  Accuracy=0.994  Precision=0.696  Recall=0.941  F1=0.800  |  SOCCAT F1=0.710
+  teachers and educators                        N_pos=  11  Accuracy=0.995  Precision=0.625  Recall=0.909  F1=0.741  |  SOCCAT F1=0.720
+  other professions                             N_pos=  61  Accuracy=0.952  Precision=0.440  Recall=0.541  F1=0.485  |  SOCCAT F1=0.563
 
-Social roles and behavior                       N_pos= 102  Accuracy=0.981  Precision=0.733  Recall=0.578  F1=0.626
+Social roles and behavior                       N_pos=  86  Accuracy=0.980  Precision=0.809  Recall=0.605  F1=0.678
   SOCCAT baseline: F1=0.855  (best CV fold, weighted across its labels)
-  consumers and clients                         N_pos=  73  Accuracy=0.975  Precision=0.778  Recall=0.479  F1=0.593  |  SOCCAT F1=0.850
-  car drivers                                   N_pos=   8  Accuracy=0.996  Precision=0.500  Recall=0.750  F1=0.600  |  SOCCAT F1=0.750
-  patients                                      N_pos=  21  Accuracy=0.994  Precision=0.667  Recall=0.857  F1=0.750  |  SOCCAT F1=0.895
+  consumers and clients                         N_pos=  65  Accuracy=0.975  Precision=0.854  Recall=0.538  F1=0.660  |  SOCCAT F1=0.850
+  car drivers                                   N_pos=   6  Accuracy=0.996  Precision=0.500  Recall=0.500  F1=0.500  |  SOCCAT F1=0.750
+  patients                                      N_pos=  15  Accuracy=0.996  Precision=0.737  Recall=0.933  F1=0.824  |  SOCCAT F1=0.895
 
-Social deviance                                 N_pos=  88  Accuracy=0.985  Precision=0.529  Recall=0.761  F1=0.620
+Social deviance                                 N_pos=  61  Accuracy=0.984  Precision=0.468  Recall=0.770  F1=0.578
   SOCCAT baseline: F1=0.694  (best CV fold, weighted across its labels)
-  extremists                                    N_pos=  17  Accuracy=0.992  Precision=0.519  Recall=0.824  F1=0.636  |  SOCCAT F1=0.632
-  terrorists, rebels, revolutionaries and/or movements of armed resistance N_pos=  33  Accuracy=0.987  Precision=0.591  Recall=0.788  F1=0.675  |  SOCCAT F1=0.667
-  offenders, criminals, prisoners and/or accused people N_pos=  33  Accuracy=0.977  Precision=0.400  Recall=0.667  F1=0.500  |  SOCCAT F1=0.704
-  drug addicts                                  N_pos=   5  Accuracy=1.000  Precision=1.000  Recall=1.000  F1=1.000  |  SOCCAT F1=0.889
+  extremists                                    N_pos=  12  Accuracy=0.985  Precision=0.321  Recall=0.750  F1=0.450  |  SOCCAT F1=0.632
+  terrorists, rebels, revolutionaries and/or movements of armed resistance N_pos=  18  Accuracy=0.990  Precision=0.560  Recall=0.778  F1=0.651  |  SOCCAT F1=0.667
+  offenders, criminals, prisoners and/or accused people N_pos=  28  Accuracy=0.978  Precision=0.457  Recall=0.750  F1=0.568  |  SOCCAT F1=0.704
+  drug addicts                                  N_pos=   3  Accuracy=0.999  Precision=0.600  Recall=1.000  F1=0.750  |  SOCCAT F1=0.889
 
-Real estate ownership                           N_pos=  43  Accuracy=0.998  Precision=0.869  Recall=0.930  F1=0.898
+Real estate ownership                           N_pos=  34  Accuracy=0.998  Precision=0.832  Recall=0.912  F1=0.866
   SOCCAT baseline: F1=0.957  (best CV fold, weighted across its labels)
-  real-estate owners                            N_pos=  29  Accuracy=0.997  Precision=0.871  Recall=0.931  F1=0.900  |  SOCCAT F1=0.923
-  tenants                                       N_pos=   7  Accuracy=0.999  Precision=0.875  Recall=1.000  F1=0.933  |  SOCCAT F1=1.000
-  homeless                                      N_pos=   7  Accuracy=0.999  Precision=0.857  Recall=0.857  F1=0.857  |  SOCCAT F1=1.000
+  real-estate owners                            N_pos=  22  Accuracy=0.997  Precision=0.846  Recall=1.000  F1=0.917  |  SOCCAT F1=0.923
+  tenants                                       N_pos=   8  Accuracy=0.999  Precision=0.875  Recall=0.875  F1=0.875  |  SOCCAT F1=1.000
+  homeless                                      N_pos=   4  Accuracy=0.998  Precision=0.667  Recall=0.500  F1=0.571  |  SOCCAT F1=1.000
 
-Others                                          N_pos= 469  Accuracy=0.806  Precision=0.771  Recall=0.288  F1=0.419
-  others                                        N_pos= 469  Accuracy=0.806  Precision=0.771  Recall=0.288  F1=0.419  |  SOCCAT F1=n/a
+Others                                          N_pos= 402  Accuracy=0.787  Precision=0.885  Recall=0.269  F1=0.412
+  others                                        N_pos= 402  Accuracy=0.787  Precision=0.885  Recall=0.269  F1=0.412  |  SOCCAT F1=n/a
 
-Claude CLI calls:     97
-Total cost (USD):     $4.7719
-Cost per sentence:    $0.00248
-Extrapolated cost for full corpus (N=9639): $23.87
-Total time:           26m 20s
-Rate:                 13m 40s per 1,000 sentences
-Extrapolated time for full corpus (N=9639): 131m 42s
+Claude CLI calls:     73
+Total cost (USD):     $3.5786
+Cost per sentence:    $0.00247
+Extrapolated cost for full corpus (N=7234): $17.90
+Total time:           20m 58s
+Rate:                 14m 30s per 1,000 sentences
+Extrapolated time for full corpus (N=7234): 104m 51s
 
 Model: sonnet-5-low   Prompt: medium
 ------------------------------------------------------------
 Prompt file:     llm\classification\prompts\step_2\step_2_medium.md
-Sentences:       1927 sampled / 9639 available (seed=42)
+Sentences:       1446 sampled / 7234 available (seed=42)
 Batch size:      20
 Errors:          0
 
-Detection (has_social_category vs. ground truth): Accuracy=0.814  Precision=0.907  Recall=0.877  F1=0.891  (N=1927)
+Detection (has_social_category vs. ground truth): Accuracy=0.871  Precision=1.000  Recall=0.871  F1=0.931  (N=1446)
 
 Category performance (each specific label scored as its own binary detection problem;
 broad-category and overall scores are the weighted average of specific-label scores,
 weighted by each label's positive-case count)
-OVERALL (all specific labels)                   N_pos=2208  Accuracy=0.933  Precision=0.686  Recall=0.628  F1=0.624
+OVERALL (all specific labels)                   N_pos=1878  Accuracy=0.928  Precision=0.762  Recall=0.628  F1=0.649
 
-Socio-economic position                         N_pos=  70  Accuracy=0.992  Precision=0.562  Recall=0.671  F1=0.605
+Socio-economic position                         N_pos=  65  Accuracy=0.993  Precision=0.654  Recall=0.800  F1=0.708
   SOCCAT baseline: F1=0.772  (best CV fold, weighted across its labels)
-  lower class                                   N_pos=  12  Accuracy=0.995  Precision=0.583  Recall=0.583  F1=0.583  |  SOCCAT F1=0.545
-  middle class                                  N_pos=   5  Accuracy=0.999  Precision=0.800  Recall=0.800  F1=0.800  |  SOCCAT F1=0.667
-  upper class                                   N_pos=   8  Accuracy=0.993  Precision=0.286  Recall=0.500  F1=0.364  |  SOCCAT F1=0.308
-  capital owners, investors and shareholders    N_pos=  35  Accuracy=0.988  Precision=0.630  Recall=0.829  F1=0.716  |  SOCCAT F1=0.923
-  unskilled or unqualified                      N_pos=   3  Accuracy=0.999  Precision=1.000  Recall=0.667  F1=0.800  |  SOCCAT F1=0.889
-  skilled or qualified                          N_pos=   7  Accuracy=0.994  Precision=0.143  Recall=0.143  F1=0.143  |  SOCCAT F1=0.833
+  lower class                                   N_pos=  10  Accuracy=0.996  Precision=0.643  Recall=0.900  F1=0.750  |  SOCCAT F1=0.545
+  middle class                                  N_pos=   9  Accuracy=0.998  Precision=0.875  Recall=0.778  F1=0.824  |  SOCCAT F1=0.667
+  upper class                                   N_pos=   6  Accuracy=0.997  Precision=0.545  Recall=1.000  F1=0.706  |  SOCCAT F1=0.308
+  capital owners, investors and shareholders    N_pos=  29  Accuracy=0.990  Precision=0.703  Recall=0.897  F1=0.788  |  SOCCAT F1=0.923
+  unskilled or unqualified                      N_pos=   5  Accuracy=0.997  Precision=0.667  Recall=0.400  F1=0.500  |  SOCCAT F1=0.889
+  skilled or qualified                          N_pos=   6  Accuracy=0.992  Precision=0.200  Recall=0.333  F1=0.250  |  SOCCAT F1=0.833
 
-Labor market position                           N_pos= 320  Accuracy=0.962  Precision=0.753  Recall=0.494  F1=0.567
+Labor market position                           N_pos= 289  Accuracy=0.957  Precision=0.801  Recall=0.529  F1=0.607
   SOCCAT baseline: F1=0.804  (best CV fold, weighted across its labels)
-  wage and salary earners                       N_pos=  97  Accuracy=0.974  Precision=0.838  Recall=0.588  F1=0.691  |  SOCCAT F1=0.814
-  civil servants                                N_pos=   6  Accuracy=0.992  Precision=0.250  Recall=0.833  F1=0.385  |  SOCCAT F1=0.750
-  CEOs and corporate leaders                    N_pos=  18  Accuracy=0.990  Precision=0.455  Recall=0.556  F1=0.500  |  SOCCAT F1=0.727
-  employers                                     N_pos=  15  Accuracy=0.997  Precision=0.765  Recall=0.867  F1=0.812  |  SOCCAT F1=0.846
-  entrepreneurs                                 N_pos= 151  Accuracy=0.939  Precision=0.774  Recall=0.318  F1=0.451  |  SOCCAT F1=0.819
-  self-employed and freelancers                 N_pos=   6  Accuracy=0.996  Precision=0.455  Recall=0.833  F1=0.588  |  SOCCAT F1=0.400
-  unemployed                                    N_pos=  12  Accuracy=0.995  Precision=0.571  Recall=0.667  F1=0.615  |  SOCCAT F1=0.824
-  retirees                                      N_pos=   9  Accuracy=0.997  Precision=0.750  Recall=0.667  F1=0.706  |  SOCCAT F1=0.500
-  housewives and househusbands                  N_pos=   6  Accuracy=0.999  Precision=0.857  Recall=1.000  F1=0.923  |  SOCCAT F1=1.000
+  wage and salary earners                       N_pos=  85  Accuracy=0.968  Precision=0.810  Recall=0.600  F1=0.689  |  SOCCAT F1=0.814
+  civil servants                                N_pos=  11  Accuracy=0.989  Precision=0.381  Recall=0.727  F1=0.500  |  SOCCAT F1=0.750
+  CEOs and corporate leaders                    N_pos=  14  Accuracy=0.987  Precision=0.368  Recall=0.500  F1=0.424  |  SOCCAT F1=0.727
+  employers                                     N_pos=  12  Accuracy=0.997  Precision=0.733  Recall=0.917  F1=0.815  |  SOCCAT F1=0.846
+  entrepreneurs                                 N_pos= 146  Accuracy=0.936  Precision=0.908  Recall=0.404  F1=0.559  |  SOCCAT F1=0.819
+  self-employed and freelancers                 N_pos=   3  Accuracy=0.994  Precision=0.222  Recall=0.667  F1=0.333  |  SOCCAT F1=0.400
+  unemployed                                    N_pos=   9  Accuracy=0.995  Precision=0.583  Recall=0.778  F1=0.667  |  SOCCAT F1=0.824
+  retirees                                      N_pos=   4  Accuracy=0.998  Precision=0.600  Recall=0.750  F1=0.667  |  SOCCAT F1=0.500
+  housewives and househusbands                  N_pos=   5  Accuracy=0.999  Precision=0.714  Recall=1.000  F1=0.833  |  SOCCAT F1=1.000
 
-Age and family status                           N_pos= 214  Accuracy=0.985  Precision=0.717  Recall=0.790  F1=0.747
+Age and family status                           N_pos= 173  Accuracy=0.987  Precision=0.794  Recall=0.775  F1=0.776
   SOCCAT baseline: F1=0.819  (best CV fold, weighted across its labels)
-  parents and families                          N_pos=  39  Accuracy=0.985  Precision=0.612  Recall=0.769  F1=0.682  |  SOCCAT F1=0.800
-  minors, including children and pupils         N_pos=  71  Accuracy=0.979  Precision=0.718  Recall=0.718  F1=0.718  |  SOCCAT F1=0.846
-  youth, including students and apprentices     N_pos=  70  Accuracy=0.984  Precision=0.747  Recall=0.843  F1=0.792  |  SOCCAT F1=0.815
-  middle-aged and pre-retirement age groups     N_pos=   5  Accuracy=0.999  Precision=1.000  Recall=0.600  F1=0.750  |  SOCCAT F1=0.667
-  elderly                                       N_pos=  10  Accuracy=0.995  Precision=0.500  Recall=0.900  F1=0.643  |  SOCCAT F1=0.600
-  couples                                       N_pos=  12  Accuracy=0.999  Precision=0.917  Recall=0.917  F1=0.917  |  SOCCAT F1=0.875
-  singles                                       N_pos=   7  Accuracy=0.998  Precision=0.750  Recall=0.857  F1=0.800  |  SOCCAT F1=1.000
+  parents and families                          N_pos=  31  Accuracy=0.988  Precision=0.733  Recall=0.710  F1=0.721  |  SOCCAT F1=0.800
+  minors, including children and pupils         N_pos=  63  Accuracy=0.981  Precision=0.843  Recall=0.683  F1=0.754  |  SOCCAT F1=0.846
+  youth, including students and apprentices     N_pos=  50  Accuracy=0.987  Precision=0.772  Recall=0.880  F1=0.822  |  SOCCAT F1=0.815
+  middle-aged and pre-retirement age groups     N_pos=   6  Accuracy=0.997  Precision=0.667  Recall=0.667  F1=0.667  |  SOCCAT F1=0.667
+  elderly                                       N_pos=   6  Accuracy=0.992  Precision=0.333  Recall=0.833  F1=0.476  |  SOCCAT F1=0.600
+  couples                                       N_pos=   9  Accuracy=1.000  Precision=1.000  Recall=1.000  F1=1.000  |  SOCCAT F1=0.875
+  singles                                       N_pos=   8  Accuracy=0.999  Precision=1.000  Recall=0.875  F1=0.933  |  SOCCAT F1=1.000
 
-Gender, sexuality, and sociocultural characteristics N_pos= 212  Accuracy=0.988  Precision=0.718  Recall=0.726  F1=0.701
+Gender, sexuality, and sociocultural characteristics N_pos= 179  Accuracy=0.988  Precision=0.766  Recall=0.749  F1=0.751
   SOCCAT baseline: F1=0.835  (best CV fold, weighted across its labels)
-  men                                           N_pos=  26  Accuracy=0.988  Precision=0.565  Recall=0.500  F1=0.531  |  SOCCAT F1=0.652
-  women                                         N_pos=  72  Accuracy=0.984  Precision=0.818  Recall=0.750  F1=0.783  |  SOCCAT F1=0.925
-  cisgender and heterosexuals                   N_pos=   5  Accuracy=0.999  Precision=1.000  Recall=0.800  F1=0.889  |  SOCCAT F1=0.750
-  LGBTQIA+                                      N_pos=  13  Accuracy=0.995  Precision=0.579  Recall=0.846  F1=0.688  |  SOCCAT F1=0.812
-  disabled people                               N_pos=   4  Accuracy=0.999  Precision=0.800  Recall=1.000  F1=0.889  |  SOCCAT F1=0.800
-  people with an immigration background, including immigrants N_pos=  54  Accuracy=0.986  Precision=0.787  Recall=0.685  F1=0.733  |  SOCCAT F1=0.897
-  ethnic and racial minorities                  N_pos=   9  Accuracy=0.984  Precision=0.225  Recall=1.000  F1=0.367  |  SOCCAT F1=0.400
-  Christians                                    N_pos=  12  Accuracy=0.995  Precision=0.550  Recall=0.917  F1=0.687  |  SOCCAT F1=0.833
-  Jews                                          N_pos=   7  Accuracy=0.997  Precision=0.600  Recall=0.857  F1=0.706  |  SOCCAT F1=0.923
-  Muslims                                       N_pos=   9  Accuracy=0.997  Precision=0.800  Recall=0.444  F1=0.571  |  SOCCAT F1=0.800
-  multiple (or other) religious or minority groups N_pos=   1  Accuracy=0.998  Precision=0.250  Recall=1.000  F1=0.400  |  SOCCAT F1=0.000
+  men                                           N_pos=  26  Accuracy=0.986  Precision=0.615  Recall=0.615  F1=0.615  |  SOCCAT F1=0.652
+  women                                         N_pos=  61  Accuracy=0.980  Precision=0.796  Recall=0.705  F1=0.748  |  SOCCAT F1=0.925
+  cisgender and heterosexuals                   N_pos=   5  Accuracy=0.999  Precision=0.833  Recall=1.000  F1=0.909  |  SOCCAT F1=0.750
+  LGBTQIA+                                      N_pos=  15  Accuracy=0.997  Precision=0.778  Recall=0.933  F1=0.848  |  SOCCAT F1=0.812
+  disabled people                               N_pos=   7  Accuracy=0.999  Precision=0.857  Recall=0.857  F1=0.857  |  SOCCAT F1=0.800
+  people with an immigration background, including immigrants N_pos=  43  Accuracy=0.991  Precision=0.895  Recall=0.791  F1=0.840  |  SOCCAT F1=0.897
+  ethnic and racial minorities                  N_pos=   1  Accuracy=0.990  Precision=0.067  Recall=1.000  F1=0.125  |  SOCCAT F1=0.400
+  Christians                                    N_pos=   6  Accuracy=0.999  Precision=0.750  Recall=1.000  F1=0.857  |  SOCCAT F1=0.833
+  Jews                                          N_pos=   8  Accuracy=0.997  Precision=0.700  Recall=0.875  F1=0.778  |  SOCCAT F1=0.923
+  Muslims                                       N_pos=   4  Accuracy=0.997  Precision=0.500  Recall=0.500  F1=0.500  |  SOCCAT F1=0.800
+  multiple (or other) religious or minority groups N_pos=   3  Accuracy=0.997  Precision=0.000  Recall=0.000  F1=0.000  |  SOCCAT F1=0.000
 
-Profession                                      N_pos= 690  Accuracy=0.952  Precision=0.647  Recall=0.796  F1=0.709
+Profession                                      N_pos= 589  Accuracy=0.949  Precision=0.702  Recall=0.771  F1=0.730
   SOCCAT baseline: F1=0.829  (best CV fold, weighted across its labels)
-  athletes                                      N_pos=  80  Accuracy=0.978  Precision=0.728  Recall=0.738  F1=0.733  |  SOCCAT F1=0.829
-  authors and artists                           N_pos=  43  Accuracy=0.980  Precision=0.529  Recall=0.837  F1=0.649  |  SOCCAT F1=0.844
-  doctors                                       N_pos=  20  Accuracy=0.996  Precision=0.810  Recall=0.850  F1=0.829  |  SOCCAT F1=0.929
-  farmers and fishermen                         N_pos=   9  Accuracy=0.998  Precision=0.750  Recall=1.000  F1=0.857  |  SOCCAT F1=0.897
-  health and care professionals                 N_pos=   8  Accuracy=0.997  Precision=0.636  Recall=0.875  F1=0.737  |  SOCCAT F1=0.500
-  journalists                                   N_pos=   7  Accuracy=0.994  Precision=0.353  Recall=0.857  F1=0.500  |  SOCCAT F1=0.875
-  legal professionals                           N_pos=   8  Accuracy=0.993  Precision=0.333  Recall=0.750  F1=0.462  |  SOCCAT F1=0.600
-  politicians and high-ranking officials        N_pos= 317  Accuracy=0.923  Precision=0.732  Recall=0.842  F1=0.783  |  SOCCAT F1=0.907
-  sex workers                                   N_pos=   6  Accuracy=0.999  Precision=0.750  Recall=1.000  F1=0.857  |  SOCCAT F1=0.889
-  scientists and professors                     N_pos=  24  Accuracy=0.989  Precision=0.528  Recall=0.792  F1=0.633  |  SOCCAT F1=0.774
-  security forces                               N_pos=  58  Accuracy=0.972  Precision=0.524  Recall=0.759  F1=0.620  |  SOCCAT F1=0.869
-  soldiers                                      N_pos=  34  Accuracy=0.991  Precision=0.674  Recall=0.912  F1=0.775  |  SOCCAT F1=0.710
-  teachers and educators                        N_pos=   4  Accuracy=0.996  Precision=0.333  Recall=0.750  F1=0.462  |  SOCCAT F1=0.720
-  other professions                             N_pos=  72  Accuracy=0.952  Precision=0.394  Recall=0.542  F1=0.456  |  SOCCAT F1=0.563
+  athletes                                      N_pos=  64  Accuracy=0.982  Precision=0.828  Recall=0.750  F1=0.787  |  SOCCAT F1=0.829
+  authors and artists                           N_pos=  39  Accuracy=0.978  Precision=0.578  Recall=0.667  F1=0.619  |  SOCCAT F1=0.844
+  doctors                                       N_pos=  13  Accuracy=0.997  Precision=0.722  Recall=1.000  F1=0.839  |  SOCCAT F1=0.929
+  farmers and fishermen                         N_pos=  14  Accuracy=0.997  Precision=0.857  Recall=0.857  F1=0.857  |  SOCCAT F1=0.897
+  health and care professionals                 N_pos=   9  Accuracy=0.997  Precision=0.700  Recall=0.778  F1=0.737  |  SOCCAT F1=0.500
+  journalists                                   N_pos=   4  Accuracy=0.995  Precision=0.364  Recall=1.000  F1=0.533  |  SOCCAT F1=0.875
+  legal professionals                           N_pos=   9  Accuracy=0.990  Precision=0.381  Recall=0.889  F1=0.533  |  SOCCAT F1=0.600
+  politicians and high-ranking officials        N_pos= 279  Accuracy=0.917  Precision=0.779  Recall=0.796  F1=0.787  |  SOCCAT F1=0.907
+  sex workers                                   N_pos=   3  Accuracy=1.000  Precision=1.000  Recall=1.000  F1=1.000  |  SOCCAT F1=0.889
+  scientists and professors                     N_pos=  17  Accuracy=0.990  Precision=0.560  Recall=0.824  F1=0.667  |  SOCCAT F1=0.774
+  security forces                               N_pos=  49  Accuracy=0.980  Precision=0.667  Recall=0.816  F1=0.734  |  SOCCAT F1=0.869
+  soldiers                                      N_pos=  17  Accuracy=0.994  Precision=0.714  Recall=0.882  F1=0.789  |  SOCCAT F1=0.710
+  teachers and educators                        N_pos=  11  Accuracy=0.994  Precision=0.562  Recall=0.818  F1=0.667  |  SOCCAT F1=0.720
+  other professions                             N_pos=  61  Accuracy=0.947  Precision=0.402  Recall=0.541  F1=0.462  |  SOCCAT F1=0.563
 
-Social roles and behavior                       N_pos= 102  Accuracy=0.979  Precision=0.693  Recall=0.578  F1=0.611
+Social roles and behavior                       N_pos=  86  Accuracy=0.983  Precision=0.842  Recall=0.663  F1=0.724
   SOCCAT baseline: F1=0.855  (best CV fold, weighted across its labels)
-  consumers and clients                         N_pos=  73  Accuracy=0.974  Precision=0.729  Recall=0.479  F1=0.579  |  SOCCAT F1=0.850
-  car drivers                                   N_pos=   8  Accuracy=0.995  Precision=0.467  Recall=0.875  F1=0.609  |  SOCCAT F1=0.750
-  patients                                      N_pos=  21  Accuracy=0.993  Precision=0.654  Recall=0.810  F1=0.723  |  SOCCAT F1=0.895
+  consumers and clients                         N_pos=  65  Accuracy=0.979  Precision=0.907  Recall=0.600  F1=0.722  |  SOCCAT F1=0.850
+  car drivers                                   N_pos=   6  Accuracy=0.997  Precision=0.571  Recall=0.667  F1=0.615  |  SOCCAT F1=0.750
+  patients                                      N_pos=  15  Accuracy=0.994  Precision=0.667  Recall=0.933  F1=0.778  |  SOCCAT F1=0.895
 
-Social deviance                                 N_pos=  88  Accuracy=0.986  Precision=0.524  Recall=0.750  F1=0.615
+Social deviance                                 N_pos=  61  Accuracy=0.985  Precision=0.501  Recall=0.820  F1=0.618
   SOCCAT baseline: F1=0.694  (best CV fold, weighted across its labels)
-  extremists                                    N_pos=  17  Accuracy=0.992  Precision=0.519  Recall=0.824  F1=0.636  |  SOCCAT F1=0.632
-  terrorists, rebels, revolutionaries and/or movements of armed resistance N_pos=  33  Accuracy=0.987  Precision=0.595  Recall=0.758  F1=0.667  |  SOCCAT F1=0.667
-  offenders, criminals, prisoners and/or accused people N_pos=  33  Accuracy=0.980  Precision=0.440  Recall=0.667  F1=0.530  |  SOCCAT F1=0.704
-  drug addicts                                  N_pos=   5  Accuracy=0.998  Precision=0.625  Recall=1.000  F1=0.769  |  SOCCAT F1=0.889
+  extremists                                    N_pos=  12  Accuracy=0.988  Precision=0.393  Recall=0.917  F1=0.550  |  SOCCAT F1=0.632
+  terrorists, rebels, revolutionaries and/or movements of armed resistance N_pos=  18  Accuracy=0.990  Precision=0.577  Recall=0.833  F1=0.682  |  SOCCAT F1=0.667
+  offenders, criminals, prisoners and/or accused people N_pos=  28  Accuracy=0.980  Precision=0.488  Recall=0.750  F1=0.592  |  SOCCAT F1=0.704
+  drug addicts                                  N_pos=   3  Accuracy=0.999  Precision=0.600  Recall=1.000  F1=0.750  |  SOCCAT F1=0.889
 
-Real estate ownership                           N_pos=  43  Accuracy=0.998  Precision=0.863  Recall=0.953  F1=0.903
+Real estate ownership                           N_pos=  34  Accuracy=0.997  Precision=0.780  Recall=0.941  F1=0.851
   SOCCAT baseline: F1=0.957  (best CV fold, weighted across its labels)
-  real-estate owners                            N_pos=  29  Accuracy=0.997  Precision=0.900  Recall=0.931  F1=0.915  |  SOCCAT F1=0.923
-  tenants                                       N_pos=   7  Accuracy=0.999  Precision=0.875  Recall=1.000  F1=0.933  |  SOCCAT F1=1.000
-  homeless                                      N_pos=   7  Accuracy=0.998  Precision=0.700  Recall=1.000  F1=0.824  |  SOCCAT F1=1.000
+  real-estate owners                            N_pos=  22  Accuracy=0.996  Precision=0.786  Recall=1.000  F1=0.880  |  SOCCAT F1=0.923
+  tenants                                       N_pos=   8  Accuracy=0.998  Precision=0.778  Recall=0.875  F1=0.824  |  SOCCAT F1=1.000
+  homeless                                      N_pos=   4  Accuracy=0.999  Precision=0.750  Recall=0.750  F1=0.750  |  SOCCAT F1=1.000
 
-Others                                          N_pos= 469  Accuracy=0.799  Precision=0.699  Recall=0.307  F1=0.427
-  others                                        N_pos= 469  Accuracy=0.799  Precision=0.699  Recall=0.307  F1=0.427  |  SOCCAT F1=n/a
+Others                                          N_pos= 402  Accuracy=0.786  Precision=0.844  Recall=0.284  F1=0.425
+  others                                        N_pos= 402  Accuracy=0.786  Precision=0.844  Recall=0.284  F1=0.425  |  SOCCAT F1=n/a
 
-Claude CLI calls:     97
-Total cost (USD):     $4.5351
-Cost per sentence:    $0.00235
-Extrapolated cost for full corpus (N=9639): $22.68
-Total time:           25m 16s
-Rate:                 13m 7s per 1,000 sentences
-Extrapolated time for full corpus (N=9639): 126m 24s
+Claude CLI calls:     73
+Total cost (USD):     $3.5378
+Cost per sentence:    $0.00245
+Extrapolated cost for full corpus (N=7234): $17.70
+Total time:           20m 42s
+Rate:                 14m 19s per 1,000 sentences
+Extrapolated time for full corpus (N=7234): 103m 32s
 
 Model: sonnet-5-low   Prompt: short
 ------------------------------------------------------------
 Prompt file:     llm\classification\prompts\step_2\step_2_short.md
-Sentences:       1927 sampled / 9639 available (seed=42)
+Sentences:       1446 sampled / 7234 available (seed=42)
 Batch size:      20
 Errors:          0
 
-Detection (has_social_category vs. ground truth): Accuracy=0.828  Precision=0.905  Recall=0.896  F1=0.901  (N=1927)
+Detection (has_social_category vs. ground truth): Accuracy=0.885  Precision=1.000  Recall=0.885  F1=0.939  (N=1446)
 
 Category performance (each specific label scored as its own binary detection problem;
 broad-category and overall scores are the weighted average of specific-label scores,
 weighted by each label's positive-case count)
-OVERALL (all specific labels)                   N_pos=2208  Accuracy=0.932  Precision=0.675  Recall=0.645  F1=0.624
+OVERALL (all specific labels)                   N_pos=1878  Accuracy=0.928  Precision=0.756  Recall=0.640  F1=0.651
 
-Socio-economic position                         N_pos=  70  Accuracy=0.993  Precision=0.575  Recall=0.700  F1=0.626
+Socio-economic position                         N_pos=  65  Accuracy=0.993  Precision=0.680  Recall=0.800  F1=0.719
   SOCCAT baseline: F1=0.772  (best CV fold, weighted across its labels)
-  lower class                                   N_pos=  12  Accuracy=0.995  Precision=0.583  Recall=0.583  F1=0.583  |  SOCCAT F1=0.545
-  middle class                                  N_pos=   5  Accuracy=0.999  Precision=0.800  Recall=0.800  F1=0.800  |  SOCCAT F1=0.667
-  upper class                                   N_pos=   8  Accuracy=0.992  Precision=0.294  Recall=0.625  F1=0.400  |  SOCCAT F1=0.308
-  capital owners, investors and shareholders    N_pos=  35  Accuracy=0.991  Precision=0.698  Recall=0.857  F1=0.769  |  SOCCAT F1=0.923
-  unskilled or unqualified                      N_pos=   3  Accuracy=0.998  Precision=0.500  Recall=0.667  F1=0.571  |  SOCCAT F1=0.889
-  skilled or qualified                          N_pos=   7  Accuracy=0.994  Precision=0.143  Recall=0.143  F1=0.143  |  SOCCAT F1=0.833
+  lower class                                   N_pos=  10  Accuracy=0.997  Precision=0.750  Recall=0.900  F1=0.818  |  SOCCAT F1=0.545
+  middle class                                  N_pos=   9  Accuracy=0.999  Precision=1.000  Recall=0.778  F1=0.875  |  SOCCAT F1=0.667
+  upper class                                   N_pos=   6  Accuracy=0.997  Precision=0.545  Recall=1.000  F1=0.706  |  SOCCAT F1=0.308
+  capital owners, investors and shareholders    N_pos=  29  Accuracy=0.989  Precision=0.676  Recall=0.862  F1=0.758  |  SOCCAT F1=0.923
+  unskilled or unqualified                      N_pos=   5  Accuracy=0.997  Precision=0.667  Recall=0.400  F1=0.500  |  SOCCAT F1=0.889
+  skilled or qualified                          N_pos=   6  Accuracy=0.992  Precision=0.250  Recall=0.500  F1=0.333  |  SOCCAT F1=0.833
 
-Labor market position                           N_pos= 320  Accuracy=0.961  Precision=0.726  Recall=0.497  F1=0.563
+Labor market position                           N_pos= 289  Accuracy=0.956  Precision=0.796  Recall=0.519  F1=0.599
   SOCCAT baseline: F1=0.804  (best CV fold, weighted across its labels)
-  wage and salary earners                       N_pos=  97  Accuracy=0.966  Precision=0.767  Recall=0.474  F1=0.586  |  SOCCAT F1=0.814
-  civil servants                                N_pos=   6  Accuracy=0.989  Precision=0.214  Recall=1.000  F1=0.353  |  SOCCAT F1=0.750
-  CEOs and corporate leaders                    N_pos=  18  Accuracy=0.988  Precision=0.393  Recall=0.611  F1=0.478  |  SOCCAT F1=0.727
-  employers                                     N_pos=  15  Accuracy=0.996  Precision=0.722  Recall=0.867  F1=0.788  |  SOCCAT F1=0.846
-  entrepreneurs                                 N_pos= 151  Accuracy=0.942  Precision=0.760  Recall=0.377  F1=0.504  |  SOCCAT F1=0.819
-  self-employed and freelancers                 N_pos=   6  Accuracy=0.997  Precision=0.500  Recall=0.833  F1=0.625  |  SOCCAT F1=0.400
-  unemployed                                    N_pos=  12  Accuracy=0.995  Precision=0.571  Recall=0.667  F1=0.615  |  SOCCAT F1=0.824
-  retirees                                      N_pos=   9  Accuracy=0.999  Precision=1.000  Recall=0.778  F1=0.875  |  SOCCAT F1=0.500
-  housewives and househusbands                  N_pos=   6  Accuracy=0.999  Precision=0.857  Recall=1.000  F1=0.923  |  SOCCAT F1=1.000
+  wage and salary earners                       N_pos=  85  Accuracy=0.968  Precision=0.868  Recall=0.541  F1=0.667  |  SOCCAT F1=0.814
+  civil servants                                N_pos=  11  Accuracy=0.989  Precision=0.391  Recall=0.818  F1=0.529  |  SOCCAT F1=0.750
+  CEOs and corporate leaders                    N_pos=  14  Accuracy=0.979  Precision=0.233  Recall=0.500  F1=0.318  |  SOCCAT F1=0.727
+  employers                                     N_pos=  12  Accuracy=0.997  Precision=0.769  Recall=0.833  F1=0.800  |  SOCCAT F1=0.846
+  entrepreneurs                                 N_pos= 146  Accuracy=0.935  Precision=0.871  Recall=0.418  F1=0.565  |  SOCCAT F1=0.819
+  self-employed and freelancers                 N_pos=   3  Accuracy=0.996  Precision=0.286  Recall=0.667  F1=0.400  |  SOCCAT F1=0.400
+  unemployed                                    N_pos=   9  Accuracy=0.994  Precision=0.538  Recall=0.778  F1=0.636  |  SOCCAT F1=0.824
+  retirees                                      N_pos=   4  Accuracy=0.998  Precision=0.600  Recall=0.750  F1=0.667  |  SOCCAT F1=0.500
+  housewives and househusbands                  N_pos=   5  Accuracy=0.999  Precision=0.833  Recall=1.000  F1=0.909  |  SOCCAT F1=1.000
 
-Age and family status                           N_pos= 214  Accuracy=0.986  Precision=0.733  Recall=0.808  F1=0.762
+Age and family status                           N_pos= 173  Accuracy=0.986  Precision=0.783  Recall=0.751  F1=0.761
   SOCCAT baseline: F1=0.819  (best CV fold, weighted across its labels)
-  parents and families                          N_pos=  39  Accuracy=0.988  Precision=0.667  Recall=0.769  F1=0.714  |  SOCCAT F1=0.800
-  minors, including children and pupils         N_pos=  71  Accuracy=0.982  Precision=0.750  Recall=0.761  F1=0.755  |  SOCCAT F1=0.846
-  youth, including students and apprentices     N_pos=  70  Accuracy=0.984  Precision=0.744  Recall=0.871  F1=0.803  |  SOCCAT F1=0.815
-  middle-aged and pre-retirement age groups     N_pos=   5  Accuracy=0.998  Precision=1.000  Recall=0.400  F1=0.571  |  SOCCAT F1=0.667
-  elderly                                       N_pos=  10  Accuracy=0.995  Precision=0.500  Recall=0.900  F1=0.643  |  SOCCAT F1=0.600
-  couples                                       N_pos=  12  Accuracy=0.998  Precision=0.833  Recall=0.833  F1=0.833  |  SOCCAT F1=0.875
-  singles                                       N_pos=   7  Accuracy=0.999  Precision=0.778  Recall=1.000  F1=0.875  |  SOCCAT F1=1.000
+  parents and families                          N_pos=  31  Accuracy=0.990  Precision=0.750  Recall=0.774  F1=0.762  |  SOCCAT F1=0.800
+  minors, including children and pupils         N_pos=  63  Accuracy=0.982  Precision=0.849  Recall=0.714  F1=0.776  |  SOCCAT F1=0.846
+  youth, including students and apprentices     N_pos=  50  Accuracy=0.983  Precision=0.745  Recall=0.760  F1=0.752  |  SOCCAT F1=0.815
+  middle-aged and pre-retirement age groups     N_pos=   6  Accuracy=0.996  Precision=0.500  Recall=0.667  F1=0.571  |  SOCCAT F1=0.667
+  elderly                                       N_pos=   6  Accuracy=0.990  Precision=0.250  Recall=0.667  F1=0.364  |  SOCCAT F1=0.600
+  couples                                       N_pos=   9  Accuracy=1.000  Precision=1.000  Recall=1.000  F1=1.000  |  SOCCAT F1=0.875
+  singles                                       N_pos=   8  Accuracy=0.999  Precision=1.000  Recall=0.750  F1=0.857  |  SOCCAT F1=1.000
 
-Gender, sexuality, and sociocultural characteristics N_pos= 212  Accuracy=0.988  Precision=0.680  Recall=0.750  F1=0.700
+Gender, sexuality, and sociocultural characteristics N_pos= 179  Accuracy=0.989  Precision=0.799  Recall=0.765  F1=0.775
   SOCCAT baseline: F1=0.835  (best CV fold, weighted across its labels)
-  men                                           N_pos=  26  Accuracy=0.988  Precision=0.560  Recall=0.538  F1=0.549  |  SOCCAT F1=0.652
-  women                                         N_pos=  72  Accuracy=0.985  Precision=0.803  Recall=0.792  F1=0.797  |  SOCCAT F1=0.925
-  cisgender and heterosexuals                   N_pos=   5  Accuracy=0.999  Precision=1.000  Recall=0.800  F1=0.889  |  SOCCAT F1=0.750
-  LGBTQIA+                                      N_pos=  13  Accuracy=0.994  Precision=0.556  Recall=0.769  F1=0.645  |  SOCCAT F1=0.812
-  disabled people                               N_pos=   4  Accuracy=0.999  Precision=0.667  Recall=1.000  F1=0.800  |  SOCCAT F1=0.800
-  people with an immigration background, including immigrants N_pos=  54  Accuracy=0.984  Precision=0.714  Recall=0.741  F1=0.727  |  SOCCAT F1=0.897
-  ethnic and racial minorities                  N_pos=   9  Accuracy=0.987  Precision=0.265  Recall=1.000  F1=0.419  |  SOCCAT F1=0.400
-  Christians                                    N_pos=  12  Accuracy=0.996  Precision=0.611  Recall=0.917  F1=0.733  |  SOCCAT F1=0.833
-  Jews                                          N_pos=   7  Accuracy=0.998  Precision=0.667  Recall=0.857  F1=0.750  |  SOCCAT F1=0.923
-  Muslims                                       N_pos=   9  Accuracy=0.995  Precision=0.429  Recall=0.333  F1=0.375  |  SOCCAT F1=0.800
-  multiple (or other) religious or minority groups N_pos=   1  Accuracy=0.997  Precision=0.167  Recall=1.000  F1=0.286  |  SOCCAT F1=0.000
+  men                                           N_pos=  26  Accuracy=0.988  Precision=0.680  Recall=0.654  F1=0.667  |  SOCCAT F1=0.652
+  women                                         N_pos=  61  Accuracy=0.984  Precision=0.839  Recall=0.770  F1=0.803  |  SOCCAT F1=0.925
+  cisgender and heterosexuals                   N_pos=   5  Accuracy=1.000  Precision=1.000  Recall=1.000  F1=1.000  |  SOCCAT F1=0.750
+  LGBTQIA+                                      N_pos=  15  Accuracy=0.998  Precision=0.833  Recall=1.000  F1=0.909  |  SOCCAT F1=0.812
+  disabled people                               N_pos=   7  Accuracy=0.999  Precision=0.857  Recall=0.857  F1=0.857  |  SOCCAT F1=0.800
+  people with an immigration background, including immigrants N_pos=  43  Accuracy=0.988  Precision=0.857  Recall=0.698  F1=0.769  |  SOCCAT F1=0.897
+  ethnic and racial minorities                  N_pos=   1  Accuracy=0.992  Precision=0.083  Recall=1.000  F1=0.154  |  SOCCAT F1=0.400
+  Christians                                    N_pos=   6  Accuracy=0.998  Precision=0.667  Recall=1.000  F1=0.800  |  SOCCAT F1=0.833
+  Jews                                          N_pos=   8  Accuracy=0.998  Precision=0.778  Recall=0.875  F1=0.824  |  SOCCAT F1=0.923
+  Muslims                                       N_pos=   4  Accuracy=0.997  Precision=0.500  Recall=0.500  F1=0.500  |  SOCCAT F1=0.800
+  multiple (or other) religious or minority groups N_pos=   3  Accuracy=0.998  Precision=0.500  Recall=0.333  F1=0.400  |  SOCCAT F1=0.000
 
-Profession                                      N_pos= 690  Accuracy=0.950  Precision=0.616  Recall=0.826  F1=0.701
+Profession                                      N_pos= 589  Accuracy=0.949  Precision=0.684  Recall=0.823  F1=0.742
   SOCCAT baseline: F1=0.829  (best CV fold, weighted across its labels)
-  athletes                                      N_pos=  80  Accuracy=0.977  Precision=0.711  Recall=0.738  F1=0.724  |  SOCCAT F1=0.829
-  authors and artists                           N_pos=  43  Accuracy=0.978  Precision=0.500  Recall=0.814  F1=0.619  |  SOCCAT F1=0.844
-  doctors                                       N_pos=  20  Accuracy=0.996  Precision=0.833  Recall=0.750  F1=0.789  |  SOCCAT F1=0.929
-  farmers and fishermen                         N_pos=   9  Accuracy=0.999  Precision=0.818  Recall=1.000  F1=0.900  |  SOCCAT F1=0.897
-  health and care professionals                 N_pos=   8  Accuracy=0.997  Precision=0.583  Recall=0.875  F1=0.700  |  SOCCAT F1=0.500
-  journalists                                   N_pos=   7  Accuracy=0.993  Precision=0.316  Recall=0.857  F1=0.462  |  SOCCAT F1=0.875
-  legal professionals                           N_pos=   8  Accuracy=0.992  Precision=0.333  Recall=0.875  F1=0.483  |  SOCCAT F1=0.600
-  politicians and high-ranking officials        N_pos= 317  Accuracy=0.922  Precision=0.700  Recall=0.918  F1=0.794  |  SOCCAT F1=0.907
-  sex workers                                   N_pos=   6  Accuracy=0.998  Precision=0.667  Recall=1.000  F1=0.800  |  SOCCAT F1=0.889
-  scientists and professors                     N_pos=  24  Accuracy=0.988  Precision=0.513  Recall=0.833  F1=0.635  |  SOCCAT F1=0.774
-  security forces                               N_pos=  58  Accuracy=0.970  Precision=0.506  Recall=0.741  F1=0.601  |  SOCCAT F1=0.869
-  soldiers                                      N_pos=  34  Accuracy=0.988  Precision=0.600  Recall=0.882  F1=0.714  |  SOCCAT F1=0.710
-  teachers and educators                        N_pos=   4  Accuracy=0.995  Precision=0.273  Recall=0.750  F1=0.400  |  SOCCAT F1=0.720
-  other professions                             N_pos=  72  Accuracy=0.943  Precision=0.339  Recall=0.542  F1=0.417  |  SOCCAT F1=0.563
+  athletes                                      N_pos=  64  Accuracy=0.987  Precision=0.881  Recall=0.812  F1=0.846  |  SOCCAT F1=0.829
+  authors and artists                           N_pos=  39  Accuracy=0.974  Precision=0.521  Recall=0.641  F1=0.575  |  SOCCAT F1=0.844
+  doctors                                       N_pos=  13  Accuracy=0.997  Precision=0.750  Recall=0.923  F1=0.828  |  SOCCAT F1=0.929
+  farmers and fishermen                         N_pos=  14  Accuracy=0.996  Precision=0.750  Recall=0.857  F1=0.800  |  SOCCAT F1=0.897
+  health and care professionals                 N_pos=   9  Accuracy=0.997  Precision=0.700  Recall=0.778  F1=0.737  |  SOCCAT F1=0.500
+  journalists                                   N_pos=   4  Accuracy=0.995  Precision=0.364  Recall=1.000  F1=0.533  |  SOCCAT F1=0.875
+  legal professionals                           N_pos=   9  Accuracy=0.992  Precision=0.429  Recall=1.000  F1=0.600  |  SOCCAT F1=0.600
+  politicians and high-ranking officials        N_pos= 279  Accuracy=0.918  Precision=0.742  Recall=0.878  F1=0.805  |  SOCCAT F1=0.907
+  sex workers                                   N_pos=   3  Accuracy=1.000  Precision=1.000  Recall=1.000  F1=1.000  |  SOCCAT F1=0.889
+  scientists and professors                     N_pos=  17  Accuracy=0.993  Precision=0.667  Recall=0.824  F1=0.737  |  SOCCAT F1=0.774
+  security forces                               N_pos=  49  Accuracy=0.974  Precision=0.597  Recall=0.755  F1=0.667  |  SOCCAT F1=0.869
+  soldiers                                      N_pos=  17  Accuracy=0.995  Precision=0.727  Recall=0.941  F1=0.821  |  SOCCAT F1=0.710
+  teachers and educators                        N_pos=  11  Accuracy=0.995  Precision=0.643  Recall=0.818  F1=0.720  |  SOCCAT F1=0.720
+  other professions                             N_pos=  61  Accuracy=0.943  Precision=0.396  Recall=0.656  F1=0.494  |  SOCCAT F1=0.563
 
-Social roles and behavior                       N_pos= 102  Accuracy=0.979  Precision=0.674  Recall=0.637  F1=0.644
+Social roles and behavior                       N_pos=  86  Accuracy=0.980  Precision=0.764  Recall=0.640  F1=0.689
   SOCCAT baseline: F1=0.855  (best CV fold, weighted across its labels)
-  consumers and clients                         N_pos=  73  Accuracy=0.973  Precision=0.678  Recall=0.548  F1=0.606  |  SOCCAT F1=0.850
-  car drivers                                   N_pos=   8  Accuracy=0.995  Precision=0.438  Recall=0.875  F1=0.583  |  SOCCAT F1=0.750
-  patients                                      N_pos=  21  Accuracy=0.995  Precision=0.750  Recall=0.857  F1=0.800  |  SOCCAT F1=0.895
+  consumers and clients                         N_pos=  65  Accuracy=0.974  Precision=0.792  Recall=0.585  F1=0.673  |  SOCCAT F1=0.850
+  car drivers                                   N_pos=   6  Accuracy=0.997  Precision=0.571  Recall=0.667  F1=0.615  |  SOCCAT F1=0.750
+  patients                                      N_pos=  15  Accuracy=0.995  Precision=0.722  Recall=0.867  F1=0.788  |  SOCCAT F1=0.895
 
-Social deviance                                 N_pos=  88  Accuracy=0.988  Precision=0.590  Recall=0.818  F1=0.683
+Social deviance                                 N_pos=  61  Accuracy=0.985  Precision=0.483  Recall=0.770  F1=0.589
   SOCCAT baseline: F1=0.694  (best CV fold, weighted across its labels)
-  extremists                                    N_pos=  17  Accuracy=0.994  Precision=0.593  Recall=0.941  F1=0.727  |  SOCCAT F1=0.632
-  terrorists, rebels, revolutionaries and/or movements of armed resistance N_pos=  33  Accuracy=0.989  Precision=0.628  Recall=0.818  F1=0.711  |  SOCCAT F1=0.667
-  offenders, criminals, prisoners and/or accused people N_pos=  33  Accuracy=0.982  Precision=0.490  Recall=0.727  F1=0.585  |  SOCCAT F1=0.704
-  drug addicts                                  N_pos=   5  Accuracy=1.000  Precision=1.000  Recall=1.000  F1=1.000  |  SOCCAT F1=0.889
+  extremists                                    N_pos=  12  Accuracy=0.988  Precision=0.407  Recall=0.917  F1=0.564  |  SOCCAT F1=0.632
+  terrorists, rebels, revolutionaries and/or movements of armed resistance N_pos=  18  Accuracy=0.989  Precision=0.542  Recall=0.722  F1=0.619  |  SOCCAT F1=0.667
+  offenders, criminals, prisoners and/or accused people N_pos=  28  Accuracy=0.979  Precision=0.476  Recall=0.714  F1=0.571  |  SOCCAT F1=0.704
+  drug addicts                                  N_pos=   3  Accuracy=0.998  Precision=0.500  Recall=1.000  F1=0.667  |  SOCCAT F1=0.889
 
-Real estate ownership                           N_pos=  43  Accuracy=0.998  Precision=0.912  Recall=0.953  F1=0.932
+Real estate ownership                           N_pos=  34  Accuracy=0.998  Precision=0.819  Recall=0.941  F1=0.875
   SOCCAT baseline: F1=0.957  (best CV fold, weighted across its labels)
-  real-estate owners                            N_pos=  29  Accuracy=0.997  Precision=0.900  Recall=0.931  F1=0.915  |  SOCCAT F1=0.923
-  tenants                                       N_pos=   7  Accuracy=1.000  Precision=1.000  Recall=1.000  F1=1.000  |  SOCCAT F1=1.000
-  homeless                                      N_pos=   7  Accuracy=0.999  Precision=0.875  Recall=1.000  F1=0.933  |  SOCCAT F1=1.000
+  real-estate owners                            N_pos=  22  Accuracy=0.997  Precision=0.846  Recall=1.000  F1=0.917  |  SOCCAT F1=0.923
+  tenants                                       N_pos=   8  Accuracy=0.998  Precision=0.778  Recall=0.875  F1=0.824  |  SOCCAT F1=1.000
+  homeless                                      N_pos=   4  Accuracy=0.999  Precision=0.750  Recall=0.750  F1=0.750  |  SOCCAT F1=1.000
 
-Others                                          N_pos= 469  Accuracy=0.798  Precision=0.706  Recall=0.292  F1=0.413
-  others                                        N_pos= 469  Accuracy=0.798  Precision=0.706  Recall=0.292  F1=0.413  |  SOCCAT F1=n/a
+Others                                          N_pos= 402  Accuracy=0.786  Precision=0.850  Recall=0.281  F1=0.422
+  others                                        N_pos= 402  Accuracy=0.786  Precision=0.850  Recall=0.281  F1=0.422  |  SOCCAT F1=n/a
 
-Claude CLI calls:     97
-Total cost (USD):     $4.5815
-Cost per sentence:    $0.00238
-Extrapolated cost for full corpus (N=9639): $22.92
-Total time:           28m 1s
-Rate:                 14m 32s per 1,000 sentences
-Extrapolated time for full corpus (N=9639): 140m 6s
+Claude CLI calls:     73
+Total cost (USD):     $4.5788
+Cost per sentence:    $0.00317
+Extrapolated cost for full corpus (N=7234): $22.91
+Total time:           23m 45s
+Rate:                 16m 26s per 1,000 sentences
+Extrapolated time for full corpus (N=7234): 118m 50s

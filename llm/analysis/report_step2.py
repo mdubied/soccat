@@ -44,12 +44,11 @@ OUTPUT_ROOT = REPO_ROOT / "llm" / "classification" / "output" / "step_2"
 STEP_2_DATA_DIR = REPO_ROOT / "data" / "model_performance" / "step_2"
 GROUND_TRUTH_PATH = REPO_ROOT / "data" / "manual_annotations" / "step_2" / "annotations_ground_truth.csv"
 
-# Display names for broad categories in the report. TAXONOMY keys are left as
-# is: they are the labels stored in the runs' predictions.csv (and given to
-# the LLM), so renaming them there would break matching with existing runs.
-BROAD_DISPLAY_NAMES = {
-    "Identities and minority/majority status": "Gender, sexuality, and sociocultural characteristics",
-}
+# Display names for broad categories in the report, for TAXONOMY keys that differ
+# from the paper's names. Currently none: "Identities and minority/majority status"
+# was renamed to "Gender, sexuality, and sociocultural characteristics" in TAXONOMY
+# and the prompts themselves (runs made before the rename are not comparable).
+BROAD_DISPLAY_NAMES = {}
 
 
 def display_broad(broad: str) -> str:
@@ -125,7 +124,7 @@ BROAD_CLASS_FILE_STEM = {
     "Socio-economic position": "socio_economic",
     "Labor market position": "labor_market_w_entrepreneurs",
     "Age and family status": "age_family",
-    "Identities and minority/majority status": "identity",
+    "Gender, sexuality, and sociocultural characteristics": "identity",
     "Profession": "profession",
     "Social roles and behavior": "social_roles",
     "Social deviance": "social_deviance",
@@ -666,7 +665,7 @@ def parse_model_thinking(model: str) -> tuple:
 # page, so it's split across two files at this taxonomy boundary.
 BROAD_SPLIT = [
     ["Socio-economic position", "Labor market position", "Age and family status",
-     "Identities and minority/majority status"],
+     "Gender, sexuality, and sociocultural characteristics"],
     ["Profession", "Social roles and behavior", "Social deviance",
      "Real estate ownership", "Others"],
 ]

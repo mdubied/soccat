@@ -4,7 +4,7 @@ Use one broad and one specific label per category from (verbatim; for "Others" s
 1. Socio-economic position: lower class; middle class; upper class; capital owners, investors and shareholders; unskilled or unqualified; skilled or qualified
 2. Labor market position: wage and salary earners; civil servants; CEOs and corporate leaders; employers; entrepreneurs; self-employed and freelancers; unemployed; retirees; housewives and househusbands
 3. Age and family status: parents and families; minors, including children and pupils; youth, including students and apprentices; middle-aged and pre-retirement age groups; elderly; couples; singles
-4. Identities and minority/majority status: men; women; cisgender and heterosexuals; LGBTQIA+; disabled people; people with an immigration background, including immigrants; ethnic and racial minorities; Christians; Jews; Muslims; multiple (or other) religious or minority groups
+4. Gender, sexuality, and sociocultural characteristics: men; women; cisgender and heterosexuals; LGBTQIA+; disabled people; people with an immigration background, including immigrants; ethnic and racial minorities; Christians; Jews; Muslims; multiple (or other) religious or minority groups
 5. Profession: athletes; authors and artists; doctors; farmers and fishermen; health and care professionals; journalists; legal professionals; politicians and high-ranking officials; sex workers; scientists and professors; security forces; soldiers; teachers and educators; other professions
 6. Social roles and behavior: consumers and clients; car drivers; patients
 7. Social deviance: extremists; terrorists, rebels, revolutionaries and/or movements of armed resistance; offenders, criminals, prisoners and/or accused people; drug addicts

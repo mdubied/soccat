@@ -11,9 +11,11 @@ whichever fold scored best per category as that category's final model --
 so there's no persisted, unified test split to replicate exactly.
 
 Instead this script samples directly from the full annotated corpus,
-data/manual_annotations/step_2/annotations_ground_truth.csv (9,639
-sentences already confirmed to mention a social group, with human-coded
-broad_category/specific_group_new ground truth). By default it samples a
+data/manual_annotations/step_2/annotations_ground_truth.csv (8,300
+sentences, target_abroad = 1 already removed, with human-coded
+broad_category/specific_group_new ground truth), keeping only the 7,234
+with a non-empty ground_truth -- the same sentences mDeBERTa is evaluated
+on (data/model_performance/step_2/*/all_folds_human_vs_model.csv). By default it samples a
 fold-sized slice (~1/5 of the corpus, matching the scale of one CV fold)
 rather than the full corpus, since that is roughly the amount of held-out
 data mDeBERTa's reported per-category metrics are each based on. Ground
@@ -107,8 +109,11 @@ BATCH_SCHEMA = json.dumps({
 
 
 def load_data(path: Path) -> list:
+    """Rows with a non-empty ground_truth, i.e. sentences mentioning at least one
+    social group: the same 7,234 sentences mDeBERTa is evaluated on in
+    data/model_performance/step_2/*/all_folds_human_vs_model.csv."""
     with path.open("r", encoding="utf-8-sig", newline="") as f:
-        return list(csv.DictReader(f))
+        return [r for r in csv.DictReader(f) if (r.get("ground_truth") or "").strip() not in ("", "[]")]
 
 
 def load_prompt(prompt_version: str) -> tuple:
