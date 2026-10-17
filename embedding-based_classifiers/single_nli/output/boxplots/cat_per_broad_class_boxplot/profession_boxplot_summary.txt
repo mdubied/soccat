@@ -1,0 +1,31 @@
+Label                                                         Bin.F1 med  Bin.F1 mean  Bin.F1 best   Macro F1 best   Fold
+-------------------------------------------------------------------------------------------------------------------------
+doctors                                                          0.92308      0.92108      0.83333         0.91597      4
+sex workers                                                      0.90909      0.91325      0.90909         0.95437      4
+politicians and high-ranking officials                           0.90979      0.90583      0.90979         0.94492      4
+security forces                                                  0.80851      0.82234      0.85393         0.92464      4
+journalists                                                      0.82353      0.81621      0.82353         0.91124      4
+farmers and fishermen                                            0.83871      0.81631      0.92857         0.96393      4
+athletes                                                         0.80000      0.80502      0.80556         0.89766      4
+scientists and professors                                        0.75676      0.77410      0.73333         0.86526      4
+teachers and educators                                           0.74074      0.75517      0.78261         0.89043      4
+soldiers                                                         0.75862      0.74870      0.75862         0.87808      4
+authors and artists                                              0.75325      0.74215      0.73529         0.86444      4
+legal professionals                                              0.72727      0.71719      0.75000         0.87395      4
+health and care professionals                                    0.66667      0.60545      0.72727         0.86311      4
+other professions                                                0.57627      0.56548      0.66667         0.82646      4
+-------------------------------------------------------------------------------------------------------------------------
+Whole-class pooled metrics at fold 4 (from fold_4_metrics.json): f1_binary=0.83848, f1_macro=0.91690
+-------------------------------------------------------------------------------------------------------------------------
+Count of individual categories with binary F1 > threshold (out of 14 total):
+ Threshold  Median>thr  Mean>thr  Best>thr
+------------------------------------------
+      0.90           3         3         3
+      0.85           3         3         4
+      0.80           6         7         7
+      0.75          10         9         9
+      0.70          12        12        13
+      0.65          13        12        14
+      0.60          13        13        14
+      0.55          14        14        14
+      0.50          14        14        14

@@ -1,0 +1,8 @@
+Category                                                       n_pairs    n_pos     n_neg     %neg
+--------------------------------------------------------------------------------------------------
+consumers and clients                                           1446.8     67.2    1379.6   95.36%
+patients                                                        1446.8     19.2    1427.6   98.67%
+car drivers                                                     1446.8      4.2    1442.6   99.71%
+--------------------------------------------------------------------------------------------------
+Average %neg across 3 individual categories: 97.91%
+Median  %neg across 3 individual categories: 98.67%

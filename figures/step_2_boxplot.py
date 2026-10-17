@@ -35,6 +35,13 @@ parser.add_argument(
     default=None,    
     help="Broad category name (e.g., 'age_family')"
 )
+# Optional overrides, so other models in the same per-class layout (one folder per
+# broad class with fold_*_per_label.csv / fold_*_metrics.json) get identical figures,
+# e.g. embedding-based_classifiers/single_nli/01_boxplot.py
+parser.add_argument("--data_dir", type=str, default=None,
+                    help="Folder containing one subfolder per broad class (default: ../data/model_performance/step_2)")
+parser.add_argument("--output_dir", type=str, default=None,
+                    help="Output folder (default: step_2/boxplots)")
 args = parser.parse_args()
 
 # ============================================================
@@ -46,7 +53,7 @@ else:
     SETUP_NAME = "cat_per_broad_class_boxplot"
 
 # Setup-specific paths
-STEP_2_DATA_DIR = "../data/model_performance/step_2"
+STEP_2_DATA_DIR = args.data_dir or "../data/model_performance/step_2"
 
 # Each broad class has its own folder directly under STEP_2_DATA_DIR
 # (containing per-fold, per-label CSVs); some were renamed in the process.
@@ -75,6 +82,9 @@ elif SETUP_NAME == "broad_class_boxplot":
     MERGED_LBL_WIDTH_FRAC = 0.27  # merged all-categories figure needs the wider margin (long category names)
 else:
     raise ValueError(f"Unknown SETUP_NAME: {SETUP_NAME}")
+if args.output_dir:
+    OUTPUT_DIR = (os.path.join(args.output_dir, "cat_per_broad_class_boxplot")
+                  if SETUP_NAME == "cat_per_broad_class_boxplot" else args.output_dir)
 
 # Performance metrics to plot
 METRICS      = ["precision_binary", "recall_binary", "f1_binary", "f1_macro"]

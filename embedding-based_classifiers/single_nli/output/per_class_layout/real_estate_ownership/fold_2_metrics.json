@@ -1,0 +1,8 @@
+{
+  "accuracy": 0.9990779160903642,
+  "precision_binary": 1.0,
+  "recall_binary": 0.8823529411764706,
+  "f1_binary": 0.9375,
+  "f1_macro": 0.9685177659080353,
+  "fold": 2
+}

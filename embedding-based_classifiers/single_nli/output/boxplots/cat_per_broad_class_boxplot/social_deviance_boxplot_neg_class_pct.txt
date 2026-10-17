@@ -1,0 +1,9 @@
+Category                                                       n_pairs    n_pos     n_neg     %neg
+--------------------------------------------------------------------------------------------------
+offenders, criminals, prisoners, accused people                 1446.8     36.6    1410.2   97.47%
+terrorists, revolutionaries, rebels, armed resistance           1446.8     14.8    1432.0   98.98%
+extremists                                                      1446.8     12.4    1434.4   99.14%
+drug addicts                                                    1446.8      4.6    1442.2   99.68%
+--------------------------------------------------------------------------------------------------
+Average %neg across 4 individual categories: 98.82%
+Median  %neg across 4 individual categories: 99.06%

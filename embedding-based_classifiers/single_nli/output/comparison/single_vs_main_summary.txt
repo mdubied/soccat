@@ -1,0 +1,62 @@
+Single NLI model - one model per broad class (SOCCAT); paired bootstrap (2,000 resamples, seed 42); * = 95% CI excludes 0
+
+Binary Precision: single better for 36 of 57 labels, significantly for 2; significantly worse for 1
+  Age and family status                                   SOCCAT 0.799  single 0.831  diff +0.032 [+0.004, +0.052]*
+  Gender, sexuality, and sociocultural characteristics    SOCCAT 0.814  single 0.844  diff +0.030 [-0.002, +0.050] 
+  Labor market position                                   SOCCAT 0.816  single 0.823  diff +0.007 [-0.009, +0.025] 
+  Profession                                              SOCCAT 0.836  single 0.848  diff +0.012 [+0.002, +0.022]*
+  Real estate ownership                                   SOCCAT 0.891  single 0.906  diff +0.015 [-0.037, +0.065] 
+  Social deviance                                         SOCCAT 0.715  single 0.749  diff +0.033 [-0.016, +0.081] 
+  Social roles and behavior                               SOCCAT 0.811  single 0.837  diff +0.026 [-0.003, +0.054] 
+  Socio-economic position                                 SOCCAT 0.839  single 0.797  diff -0.043 [-0.082, -0.002]*
+  All labels                                              SOCCAT 0.819  single 0.835  diff +0.015 [+0.007, +0.022]*
+  labels with a significant difference:
+    skilled or qualified                                    SOCCAT 0.89  single 0.70  diff -0.19 [-0.38, -0.02]  N 36
+    minors, including children and pupils                   SOCCAT 0.81  single 0.86  diff +0.05 [+0.02, +0.08]  N 349
+    doctors                                                 SOCCAT 0.91  single 0.97  diff +0.06 [+0.01, +0.12]  N 68
+
+Binary Recall: single better for 23 of 57 labels, significantly for 1; significantly worse for 3
+  Age and family status                                   SOCCAT 0.824  single 0.803  diff -0.021 [-0.042, +0.001] 
+  Gender, sexuality, and sociocultural characteristics    SOCCAT 0.789  single 0.788  diff -0.001 [-0.023, +0.021] 
+  Labor market position                                   SOCCAT 0.766  single 0.770  diff +0.004 [-0.013, +0.021] 
+  Profession                                              SOCCAT 0.808  single 0.796  diff -0.012 [-0.023, -0.001]*
+  Real estate ownership                                   SOCCAT 0.847  single 0.906  diff +0.059 [+0.013, +0.105]*
+  Social deviance                                         SOCCAT 0.573  single 0.564  diff -0.009 [-0.056, +0.037] 
+  Social roles and behavior                               SOCCAT 0.801  single 0.799  diff -0.002 [-0.031, +0.027] 
+  Socio-economic position                                 SOCCAT 0.681  single 0.708  diff +0.027 [-0.012, +0.070] 
+  All labels                                              SOCCAT 0.784  single 0.779  diff -0.005 [-0.012, +0.003] 
+  labels with a significant difference:
+    couples                                                 SOCCAT 0.92  single 0.81  diff -0.11 [-0.23, -0.02]  N 36
+    parents and families                                    SOCCAT 0.85  single 0.78  diff -0.07 [-0.12, -0.03]  N 190
+    politicians and high-ranking officials                  SOCCAT 0.91  single 0.90  diff -0.02 [-0.03, -0.00]  N 1284
+    retirees                                                SOCCAT 0.48  single 0.81  diff +0.33 [+0.13, +0.55]  N 21
+
+Binary F1: single better for 30 of 57 labels, significantly for 2; significantly worse for 1
+  Age and family status                                   SOCCAT 0.807  single 0.810  diff +0.003 [-0.014, +0.019] 
+  Gender, sexuality, and sociocultural characteristics    SOCCAT 0.800  single 0.808  diff +0.008 [-0.010, +0.025] 
+  Labor market position                                   SOCCAT 0.789  single 0.795  diff +0.006 [-0.007, +0.020] 
+  Profession                                              SOCCAT 0.820  single 0.820  diff -0.000 [-0.009, +0.008] 
+  Real estate ownership                                   SOCCAT 0.867  single 0.906  diff +0.038 [+0.001, +0.078]*
+  Social deviance                                         SOCCAT 0.636  single 0.643  diff +0.007 [-0.035, +0.048] 
+  Social roles and behavior                               SOCCAT 0.805  single 0.817  diff +0.012 [-0.010, +0.035] 
+  Socio-economic position                                 SOCCAT 0.743  single 0.747  diff +0.005 [-0.028, +0.040] 
+  All labels                                              SOCCAT 0.798  single 0.803  diff +0.005 [-0.001, +0.010] 
+  labels with a significant difference:
+    Ethnic and racial minorities                            SOCCAT 0.55  single 0.36  diff -0.19 [-0.39, -0.02]  N 17
+    car drivers                                             SOCCAT 0.62  single 0.78  diff +0.17 [+0.02, +0.34]  N 21
+    retirees                                                SOCCAT 0.51  single 0.74  diff +0.23 [+0.07, +0.41]  N 21
+
+Macro F1: single better for 30 of 57 labels, significantly for 2; significantly worse for 1
+  Age and family status                                   SOCCAT 0.900  single 0.902  diff +0.002 [-0.007, +0.010] 
+  Gender, sexuality, and sociocultural characteristics    SOCCAT 0.898  single 0.902  diff +0.004 [-0.005, +0.013] 
+  Labor market position                                   SOCCAT 0.888  single 0.891  diff +0.003 [-0.004, +0.011] 
+  Profession                                              SOCCAT 0.904  single 0.903  diff -0.000 [-0.005, +0.004] 
+  Real estate ownership                                   SOCCAT 0.933  single 0.952  diff +0.019 [+0.000, +0.039]*
+  Social deviance                                         SOCCAT 0.815  single 0.819  diff +0.004 [-0.017, +0.025] 
+  Social roles and behavior                               SOCCAT 0.899  single 0.905  diff +0.006 [-0.005, +0.018] 
+  Socio-economic position                                 SOCCAT 0.870  single 0.873  diff +0.002 [-0.014, +0.020] 
+  All labels                                              SOCCAT 0.894  single 0.897  diff +0.002 [-0.001, +0.005] 
+  labels with a significant difference:
+    Ethnic and racial minorities                            SOCCAT 0.78  single 0.68  diff -0.10 [-0.20, -0.01]  N 17
+    car drivers                                             SOCCAT 0.81  single 0.89  diff +0.08 [+0.01, +0.17]  N 21
+    retirees                                                SOCCAT 0.76  single 0.87  diff +0.11 [+0.04, +0.20]  N 21
