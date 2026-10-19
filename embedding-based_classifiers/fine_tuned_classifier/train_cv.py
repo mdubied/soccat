@@ -11,16 +11,21 @@ one entailment decision per (sentence, hypothesis) pair.
 
 Everything else follows examples/CV_combined_all_dimensions_v4.ipynb (the single
 NLI model), see ../common.py: same 7,234 sentences, gold labels and 5-fold split
-(checked against the single NLI model's), same hyper-parameters by default, the
+(checked against the single NLI model's), same max length and batch size, the
 same model selection within a fold (best epoch by pair-level accuracy on the
 fold's test sentences, as in the NLI notebooks), and the same output files, so
 the results can be read by the single_nli/ scripts. The sigmoid output of a label
 plays the role of P(entailment): prob_entail = P(label present), predicted
 present if > 0.5, written to one row per (sentence, label) pair.
 
-Epochs: the NLI models see each sentence once per hypothesis (57 pairs) and
-epoch, the classifier once per epoch, i.e. about 57 times fewer updates; hence
-the higher default number of epochs (--epochs), still with best-epoch selection.
+Epochs and learning rate differ from the NLI models (3 epochs, 2e-5): the NLI
+models see each sentence once per hypothesis (57 pairs) and epoch, the
+classifier once per epoch, i.e. about 57 times fewer updates, and its 57-label
+head starts from random weights. A first run with 10 epochs at 2e-5 was still
+improving at the last epoch (best epoch = last in 4 of 5 folds, validation loss
+still decreasing) and never predicted any of the 38 labels with <= 83 positives.
+Hence the defaults of 30 epochs at 5e-5 (--epochs, --lr), still with best-epoch
+selection. The 0.5 threshold and the unweighted loss are kept, as for SOCCAT.
 
 Runs on a GPU if one is available (fold by fold; --folds 2 runs fold 2 only, e.g.
 from a Slurm job array, see run_train.sbatch). Finished folds are skipped. Once
@@ -49,8 +54,8 @@ sys.path.insert(0, str(HERE.parent))
 import common  # noqa: E402
 
 MODEL_NAME = "MoritzLaurer/mDeBERTa-v3-base-mnli-xnli"
-MAX_LENGTH, LR = 256, 2e-5
-EPOCHS = 10
+MAX_LENGTH, LR = 256, 5e-5
+EPOCHS = 30
 BATCH_TRAIN, BATCH_EVAL = 16, 32
 
 

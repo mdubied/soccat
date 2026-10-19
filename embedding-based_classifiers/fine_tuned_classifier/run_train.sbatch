@@ -9,7 +9,7 @@
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=32GB
 #SBATCH --gres=gpu:1
-#SBATCH --time=06:00:00
+#SBATCH --time=18:00:00              # 30 epochs: about 3x the run time of the earlier 10-epoch run; adjust
 #SBATCH --account=torch_pr_309_general
 #SBATCH --output=logs/%x_fold%a_%j.out
 #SBATCH --error=logs/%x_fold%a_%j.err
