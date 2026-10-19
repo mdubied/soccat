@@ -29,6 +29,8 @@ stratification_shares.csv, epochs_all_folds.csv (if any) and labels_found.json.
 
 import json
 import random
+import time
+from datetime import datetime
 from pathlib import Path
 from typing import Dict, List
 
@@ -47,6 +49,17 @@ OUT_COLS = ["sentence_id", "premise", "hypothesis", "nli_label", "pred_label", "
             "hypothesis_label", "dimension", "label_orig", "outlet", "country", "date", "year"]
 METRIC_KEYS = ["accuracy", "precision_binary", "recall_binary", "f1_binary", "precision_micro",
                "recall_micro", "f1_micro", "f1_macro", "pr_auc", "roc_auc", "cohen_kappa"]
+
+
+# ── Logging ─────────────────────────────────────────────────────────────────
+def log(msg: str = ""):
+    """Print with a timestamp, flushed at once (so Slurm logs show progress live)."""
+    print(f"[{datetime.now():%Y-%m-%d %H:%M:%S}] {msg}", flush=True)
+
+
+def fmt_duration(seconds: float) -> str:
+    s = int(seconds)
+    return f"{s // 3600}h{s % 3600 // 60:02d}m{s % 60:02d}s" if s >= 3600 else f"{s // 60}m{s % 60:02d}s"
 
 
 # ── Data ────────────────────────────────────────────────────────────────────
@@ -71,7 +84,7 @@ def load_pairs(pairs_dir: Path = PAIRS_DIR):
     if (pairs.groupby("sentence_id")["reference_fold"].nunique() > 1).any():
         raise ValueError("a sentence appears in several reference folds")
     reference = pairs.drop_duplicates("sentence_id").set_index("sentence_id")["reference_fold"]
-    print(f"{len(pairs):,} pairs | {pairs['sentence_id'].nunique():,} sentences | {n_labels} labels")
+    log(f"{len(pairs):,} pairs | {pairs['sentence_id'].nunique():,} sentences | {n_labels} labels")
     return pairs.drop(columns="reference_fold"), reference
 
 
@@ -144,7 +157,7 @@ def get_fold_map(pairs: pd.DataFrame, reference: pd.Series, out_dir: Path) -> pd
     mismatch = (fold_map.set_index("sentence_id")["fold"] != reference.loc[fold_map["sentence_id"]].values).sum()
     if mismatch:
         raise ValueError(f"fold split differs from the single NLI model's for {mismatch} sentences")
-    print("Fold split identical to the single NLI model's (all sentences)")
+    log("Fold split identical to the single NLI model's (all sentences)")
     out_dir = Path(out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
     fold_map.to_csv(out_dir / "cv_sentence_folds.csv", index=False)
@@ -256,11 +269,12 @@ def write_fold_outputs(out_dir: Path, fold: int, test_pairs: pd.DataFrame, prob_
         per_group_metrics(timed, timed["prob_entail"].values, grp).to_csv(d / f"fold_{fold}_per_{name}.csv", index=False)
     # written last: its presence marks the fold as done
     tp[[c for c in OUT_COLS if c in tp.columns]].to_csv(d / f"fold_{fold}_human_vs_model.csv", index=False)
-    print(f"Fold {fold}: f1_binary={overall['f1_binary']:.4f}  f1_macro={overall['f1_macro']:.4f}  -> {d}")
+    log(f"Fold {fold + 1}/{K_FOLDS} written: f1_binary={overall['f1_binary']:.4f}  f1_macro={overall['f1_macro']:.4f}  -> {d}")
 
 
 def finalize(out_dir: Path, pairs: pd.DataFrame, fold_map: pd.DataFrame):
     """Cross-fold files, once all folds are done (as the notebook's output cells)."""
+    log("Writing cross-fold files")
     d = cv_dir(out_dir)
     missing = [k for k in range(K_FOLDS) if not fold_done(out_dir, k)]
     if missing:
@@ -282,7 +296,7 @@ def finalize(out_dir: Path, pairs: pd.DataFrame, fold_map: pd.DataFrame):
     per_label = per_group_metrics(oof, oof["prob_entail"].values, "hypothesis_label").sort_values("f1_binary", ascending=False)
     per_label.to_csv(d / "per_label_pooled_all_folds.csv", index=False)
     pooled = compute_all_metrics(oof["nli_label"].astype(int).values, oof["prob_entail"].values)
-    print(f"Pooled out-of-fold ({len(oof):,} pairs): f1_binary={pooled['f1_binary']:.4f}  "
+    log(f"Pooled out-of-fold ({len(oof):,} pairs): f1_binary={pooled['f1_binary']:.4f}  "
           f"precision={pooled['precision_binary']:.4f}  recall={pooled['recall_binary']:.4f}  "
           f"f1_macro={pooled['f1_macro']:.4f}")
-    print(f"Mean over folds: {json.dumps({k: round(v, 4) for k, v in summary.items()})}")
+    log(f"Mean over folds: {json.dumps({k: round(v, 4) for k, v in summary.items()})}")

@@ -2,12 +2,15 @@
 # Versions as in the repo's main requirements.txt (the full local environment); only what these
 # scripts need, so that the cluster environment stays small.
 #
-# On the cluster (once, on a login node), with the CUDA build of torch for your cluster
-# (see https://pytorch.org/get-started/previous-versions/, e.g. cu126 for CUDA 12.6):
-#     python -m venv ~/venvs/group-identification-gpu
-#     source ~/venvs/group-identification-gpu/bin/activate
-#     pip install torch==2.8.0 --index-url https://download.pytorch.org/whl/cu126
+# On the cluster (once, on a login node). The venv lives on /scratch, not in $HOME:
+#     python -m venv /scratch/md6382/venvs/soccat-gpu
+#     source /scratch/md6382/venvs/soccat-gpu/bin/activate
 #     pip install -r embedding-based_classifiers/requirements.txt
+#
+# The extra index below provides the CUDA 12.8 build of torch (cu128), as in the TikTok_EDA
+# environment. Change cu128 if the cluster's CUDA changes
+# (see https://pytorch.org/get-started/previous-versions/).
+--extra-index-url https://download.pytorch.org/whl/cu128
 torch==2.8.0
 transformers==4.57.6
 accelerate==1.13.0

@@ -1,0 +1,10 @@
+{
+  "out": "/home/md6382/soccat/embedding-based_classifiers/zero_shot_nli/data",
+  "pairs_dir": "/home/md6382/soccat/embedding-based_classifiers/single_nli/data",
+  "folds": "[0, 1, 2, 3, 4]",
+  "finalize": "False",
+  "model": "MoritzLaurer/mDeBERTa-v3-base-mnli-xnli",
+  "max_length": "256",
+  "batch": "128",
+  "fp16": "True"
+}

@@ -29,6 +29,7 @@ Usage (from this folder):
 import argparse
 import json
 import sys
+import time
 from pathlib import Path
 
 import numpy as np
@@ -69,6 +70,7 @@ def score_pairs(premises, hypotheses, model, tokenizer, args, device):
     ent, con = entail_contra_indices(model.config)
     order = np.argsort([len(p) + len(h) for p, h in zip(premises, hypotheses)])
     out = np.empty(len(order))
+    n_batches, t0 = -(-len(order) // args.batch), time.time()
     with torch.inference_mode():
         for start in range(0, len(order), args.batch):
             idx = order[start:start + args.batch]
@@ -77,8 +79,11 @@ def score_pairs(premises, hypotheses, model, tokenizer, args, device):
             with torch.autocast(device_type=device.type, dtype=torch.float16, enabled=args.fp16 and device.type == "cuda"):
                 logits = model(**enc).logits.float()
             out[idx] = torch.softmax(logits[:, [ent, con]], dim=-1)[:, 0].cpu().numpy()
-            if (start // args.batch) % 200 == 0:
-                print(f"  {start + len(idx):,}/{len(order):,} pairs", flush=True)
+            b = start // args.batch + 1
+            if b % 50 == 0 or b == n_batches:
+                done, el = start + len(idx), time.time() - t0
+                common.log(f"  {done:,}/{len(order):,} pairs ({done / len(order):.0%}) | batch {b}/{n_batches} | "
+                           f"elapsed {common.fmt_duration(el)} | ETA {common.fmt_duration(el / done * (len(order) - done))}")
     return out
 
 
@@ -94,29 +99,34 @@ def main():
     if not args.finalize:
         for k in args.folds:
             if common.fold_done(args.out, k):
-                print(f"Fold {k}: already done, skipping")
+                common.log(f"Fold {k + 1}/{common.K_FOLDS}: already done, skipping")
             else:
                 todo.append(k)
     if todo:
         import torch
         from transformers import AutoModelForSequenceClassification, AutoTokenizer
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-        print(f"Device: {torch.cuda.get_device_name(0) if device.type == 'cuda' else 'CPU (slow!)'}")
+        common.log(f"Device: {torch.cuda.get_device_name(0) if device.type == 'cuda' else 'CPU (slow!)'} | folds to run: {[k + 1 for k in todo]}")
+        common.log(f"Loading model {args.model}")
         tokenizer = AutoTokenizer.from_pretrained(args.model, use_fast=True)
         model = AutoModelForSequenceClassification.from_pretrained(args.model).to(device).eval()
+        common.log("Model loaded")
         for fold in todo:
-            print(f"\n========== Fold {fold + 1}/{common.K_FOLDS} ==========")
+            t_fold = time.time()
+            common.log(f"========== Fold {fold + 1}/{common.K_FOLDS} ==========")
             test_ids = set(fold_map.loc[fold_map.fold == fold, "sentence_id"])
             test_pairs = pairs[pairs["sentence_id"].isin(test_ids)].reset_index(drop=True)
+            common.log(f"Scoring {len(test_pairs):,} pairs ({len(test_ids):,} sentences)")
             prob = score_pairs(test_pairs["premise"].astype(str).tolist(), test_pairs["hypothesis"].astype(str).tolist(),
                                model, tokenizer, args, device)
             common.write_fold_outputs(args.out, fold, test_pairs, prob,
                                       extra={"model": args.model, "formulation": "zero-shot NLI"})
+            common.log(f"Fold {fold + 1}/{common.K_FOLDS} done in {common.fmt_duration(time.time() - t_fold)}")
 
     if all(common.fold_done(args.out, k) for k in range(common.K_FOLDS)):
         common.finalize(args.out, pairs, fold_map)
     else:
-        print("Not all folds are done yet; run with --finalize once they are.")
+        common.log("Not all folds are done yet; run with --finalize once they are.")
 
 
 if __name__ == "__main__":

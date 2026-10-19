@@ -38,6 +38,7 @@ import inspect
 import json
 import shutil
 import sys
+import time
 from pathlib import Path
 
 import numpy as np
@@ -88,16 +89,18 @@ def sentence_table(pairs: pd.DataFrame, labels):
 def train_fold(fold, args, pairs, labels, fold_map):
     import torch
     from transformers import (AutoConfig, AutoModelForSequenceClassification, AutoTokenizer,
-                              DataCollatorWithPadding, Trainer, TrainingArguments, set_seed)
+                              DataCollatorWithPadding, Trainer, TrainerCallback, TrainingArguments, set_seed)
 
     set_seed(args.seed)
-    print(f"\n========== Fold {fold + 1}/{common.K_FOLDS} | device: "
-          f"{torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'CPU (slow!)'} ==========")
+    t_fold = time.time()
+    common.log(f"========== Fold {fold + 1}/{common.K_FOLDS} | device: "
+               f"{torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'CPU (slow!)'} ==========")
     sent, y = sentence_table(pairs, labels)
     test_ids = set(fold_map.loc[fold_map.fold == fold, "sentence_id"])
     is_test = sent.index.isin(test_ids)
-    print(f"train sentences: {(~is_test).sum():,} | test sentences: {is_test.sum():,}")
+    common.log(f"train sentences: {(~is_test).sum():,} | test sentences: {is_test.sum():,}")
 
+    common.log(f"Loading model {args.model}")
     tokenizer = AutoTokenizer.from_pretrained(args.model, use_fast=True)
 
     class SentenceDataset(torch.utils.data.Dataset):
@@ -118,6 +121,25 @@ def train_fold(fold, args, pairs, labels, fold_map):
         id2label=dict(enumerate(labels)), label2id={l: i for i, l in enumerate(labels)})
     model = AutoModelForSequenceClassification.from_pretrained(args.model, config=config, ignore_mismatched_sizes=True)
 
+    common.log("Model loaded")
+
+    class ProgressCallback(TrainerCallback):
+        def on_train_begin(self, targs, state, control, **kw):
+            self.t0 = time.time()
+            common.log(f"Training: {state.max_steps} steps, {targs.num_train_epochs:g} epochs")
+
+        def on_log(self, targs, state, control, logs=None, **kw):
+            if logs and "loss" in logs and state.global_step:
+                el = time.time() - self.t0
+                eta = el / state.global_step * (state.max_steps - state.global_step)
+                common.log(f"  step {state.global_step}/{state.max_steps} | epoch {state.epoch:.2f} | loss {logs['loss']:.4f} | "
+                           f"elapsed {common.fmt_duration(el)} | ETA {common.fmt_duration(eta)}")
+
+        def on_evaluate(self, targs, state, control, metrics=None, **kw):
+            m = metrics or {}
+            common.log(f"Epoch {state.epoch:.0f}/{targs.num_train_epochs:g} evaluated | val loss {m.get('eval_loss', float('nan')):.4f} | "
+                       f"accuracy {m.get('eval_accuracy', float('nan')):.4f} | f1_binary {m.get('eval_f1_binary', float('nan')):.4f}")
+
     def to_nli_coding(targets):  # 1 = present -> nli_label 0 (entailment)
         return np.where(np.asarray(targets).ravel() > 0.5, 0, 1)
 
@@ -132,11 +154,11 @@ def train_fold(fold, args, pairs, labels, fold_map):
         per_device_train_batch_size=args.b_train, per_device_eval_batch_size=args.b_eval,
         num_train_epochs=args.epochs, eval_strategy="epoch", save_strategy="epoch", save_total_limit=1,
         load_best_model_at_end=True, metric_for_best_model="eval_accuracy",
-        seed=args.seed, report_to=[], logging_steps=50, bf16=args.bf16, fp16=False)
+        seed=args.seed, report_to=[], logging_steps=50, disable_tqdm=True, bf16=args.bf16, fp16=False)
     tok_kw = "processing_class" if "processing_class" in inspect.signature(Trainer.__init__).parameters else "tokenizer"
     trainer = Trainer(model=model, args=targs, train_dataset=ds_train, eval_dataset=ds_test,
                       data_collator=DataCollatorWithPadding(tokenizer=tokenizer),
-                      compute_metrics=compute_metrics_fn, **{tok_kw: tokenizer})
+                      compute_metrics=compute_metrics_fn, callbacks=[ProgressCallback()], **{tok_kw: tokenizer})
     trainer.train()
 
     logs = pd.DataFrame(trainer.state.log_history)
@@ -150,6 +172,7 @@ def train_fold(fold, args, pairs, labels, fold_map):
     pd.merge(tr, ev, on="epoch", how="outer").assign(fold=fold).to_csv(
         common.cv_dir(args.out) / f"fold_{fold}_epoch_losses.csv", index=False)
 
+    common.log(f"Training finished; predicting the {len(ds_test):,} test sentences")
     pred = trainer.predict(ds_test)
     logits = pred.predictions[0] if isinstance(pred.predictions, (tuple, list)) else pred.predictions
     probs = pd.DataFrame(1 / (1 + np.exp(-logits)), index=sent.index[is_test], columns=labels)
@@ -168,6 +191,7 @@ def train_fold(fold, args, pairs, labels, fold_map):
                               extra={"best_epoch": best_epoch, "model": args.model, "formulation": "multi-label classifier"})
 
     del trainer, model
+    common.log(f"Fold {fold + 1}/{common.K_FOLDS} done in {common.fmt_duration(time.time() - t_fold)}")
     shutil.rmtree(ckpt_dir, ignore_errors=True)
     try:
         ckpt_dir.parent.rmdir()   # only if empty (other folds may still be running)
@@ -190,13 +214,13 @@ def main():
     if not args.finalize:
         for fold in args.folds:
             if common.fold_done(args.out, fold):
-                print(f"Fold {fold}: already done, skipping")
+                common.log(f"Fold {fold + 1}/{common.K_FOLDS}: already done, skipping")
                 continue
             train_fold(fold, args, pairs, labels, fold_map)
     if all(common.fold_done(args.out, k) for k in range(common.K_FOLDS)):
         common.finalize(args.out, pairs, fold_map)
     else:
-        print("Not all folds are done yet; run with --finalize once they are.")
+        common.log("Not all folds are done yet; run with --finalize once they are.")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,15 @@
+{
+  "out": "/home/md6382/soccat/embedding-based_classifiers/fine_tuned_classifier/data",
+  "pairs_dir": "/home/md6382/soccat/embedding-based_classifiers/single_nli/data",
+  "ckpt_dir": "/state/partition1/job-20304609/ft_classifier_fold4",
+  "folds": "[4]",
+  "finalize": "False",
+  "model": "MoritzLaurer/mDeBERTa-v3-base-mnli-xnli",
+  "epochs": "10",
+  "lr": "2e-05",
+  "max_length": "256",
+  "b_train": "16",
+  "b_eval": "32",
+  "seed": "42",
+  "bf16": "False"
+}
