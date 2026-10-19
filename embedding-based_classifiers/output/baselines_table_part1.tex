@@ -1,0 +1,58 @@
+\begin{table}[htb]
+\centering
+\renewcommand{\arraystretch}{0.9}
+\scriptsize
+\begin{threeparttable}
+\caption{Comparison with embedding-based classifiers. Part 1/2.}
+\label{tab:embedding_baselines_part1}
+\begin{tabular}{l c c c c c c c}
+\toprule
+ & \multicolumn{2}{c}{Zero-shot NLI} & \multicolumn{2}{c}{Fine-tuned classifier} & \multicolumn{3}{c}{SOCCAT} \\
+\cmidrule(lr){2-3} \cmidrule(lr){4-5} \cmidrule(lr){6-8}
+Specific category & \multicolumn{1}{c}{mean} & \multicolumn{1}{c}{med} & \multicolumn{1}{c}{mean} & \multicolumn{1}{c}{med} & \multicolumn{1}{c}{best fold} & \multicolumn{1}{c}{mean} & \multicolumn{1}{c}{med} \\
+\midrule
+\rule{0pt}{5pt} &  &  &  &  &  &  &  \\
+\shortstack[l]{\textbf{Socio-economic position}\\[3pt]Lower class} & 0.03 & 0.03 & 0.47 & 0.42 & 0.55 & 0.59 & 0.55 \\
+Middle class & 0.09 & 0.10 & 0.45 & 0.57 & 0.67 & 0.76 & 0.89 \\
+\textit{Upper class} & 0.16 & 0.18 & \textit{0.47} & \textit{0.44} & 0.31 & 0.43 & 0.44 \\
+\shortstack[l]{Capital owners, investors\\[-3pt]and shareholders} & 0.26 & 0.26 & 0.85 & 0.84 & 0.92 & 0.86 & 0.87 \\
+Unskilled or unqualified & 0.08 & 0.08 & 0.53 & 0.57 & 0.89 & 0.78 & 0.75 \\
+Skilled or qualified & 0.03 & 0.03 & 0.45 & 0.46 & 0.83 & 0.58 & 0.67 \\
+\rule{0pt}{5pt} &  &  &  &  &  &  &  \\
+\shortstack[l]{\textbf{Labor market position}\\[3pt]Wage and salary earners} & 0.19 & 0.19 & 0.80 & 0.80 & 0.81 & 0.83 & 0.81 \\
+Civil servants & 0.06 & 0.06 & 0.59 & 0.63 & 0.75 & 0.74 & 0.75 \\
+\shortstack[l]{CEOs and\\[-3pt]corporate leaders} & 0.12 & 0.10 & 0.54 & 0.53 & 0.73 & 0.66 & 0.64 \\
+Employers & 0.09 & 0.09 & 0.75 & 0.69 & 0.85 & 0.84 & 0.85 \\
+\textit{Entrepreneurs} & 0.12 & 0.13 & \textit{0.79} & 0.78 & 0.82 & 0.79 & 0.81 \\
+\shortstack[l]{Self-employed\\[-3pt]and freelancers} & 0.05 & 0.05 & 0.41 & 0.33 & 0.40 & 0.61 & 0.57 \\
+Unemployed & 0.20 & 0.19 & 0.69 & 0.67 & 0.82 & 0.75 & 0.75 \\
+Retirees & 0.22 & 0.21 & 0.28 & 0.33 & 0.50 & 0.45 & 0.50 \\
+\shortstack[l]{Housewives and\\[-3pt]househusbands} & 0.05 & 0.05 & 0.51 & 0.40 & 1.00 & 0.96 & 1.00 \\
+\rule{0pt}{5pt} &  &  &  &  &  &  &  \\
+\shortstack[l]{\textbf{Age and family status}\\[3pt]Parents and families} & 0.13 & 0.13 & 0.78 & 0.77 & 0.80 & 0.82 & 0.82 \\
+\shortstack[l]{\textit{Minors, including}\\[-3pt]\textit{children and pupils}} & 0.54 & 0.55 & \textit{0.83} & \textit{0.85} & 0.85 & 0.82 & 0.82 \\
+\shortstack[l]{Youth, including\\[-3pt]students and apprentices} & 0.32 & 0.36 & 0.83 & 0.82 & 0.82 & 0.84 & 0.84 \\
+\shortstack[l]{Middle-aged and\\[-3pt]pre-retirement age groups} & 0.10 & 0.11 & 0.00 & 0.00 & 0.67 & 0.20 & 0.00 \\
+Elderly & 0.05 & 0.06 & 0.37 & 0.40 & 0.60 & 0.60 & 0.60 \\
+Couples & 0.19 & 0.24 & 0.58 & 0.53 & 0.88 & 0.85 & 0.86 \\
+Singles & 0.41 & 0.50 & 0.68 & 0.67 & 1.00 & 0.87 & 0.86 \\
+\rule{0pt}{5pt} &  &  &  &  &  &  &  \\
+\shortstack[l]{\textbf{Gender, sexuality, and}\\[-3pt]\textbf{sociocultural characteristics}\\[3pt]Men} & 0.28 & 0.27 & 0.71 & 0.72 & 0.65 & 0.75 & 0.77 \\
+Women & 0.70 & 0.71 & 0.81 & 0.81 & 0.93 & 0.85 & 0.85 \\
+\shortstack[l]{Cisgender and\\[-3pt]heterosexuals} & 0.02 & 0.02 & 0.25 & 0.33 & 0.75 & 0.86 & 0.86 \\
+LGBTQIA+ & 0.05 & 0.05 & 0.67 & 0.64 & 0.81 & 0.81 & 0.83 \\
+Disabled people & 0.46 & 0.45 & 0.57 & 0.50 & 0.80 & 0.86 & 0.86 \\
+\shortstack[l]{\textit{People with an immigration}\\[-3pt]\textit{background, including immigrants}} & 0.08 & 0.08 & 0.83 & \textit{0.84} & 0.90 & 0.83 & 0.85 \\
+\shortstack[l]{\textit{Ethnic and racial}\\[-3pt]\textit{minorities}} & 0.01 & 0.00 & \textit{0.49} & \textit{0.50} & 0.40 & 0.47 & 0.40 \\
+\textit{Christians} & 0.39 & 0.45 & 0.60 & \textit{0.71} & 0.83 & 0.63 & 0.55 \\
+Jews & 0.11 & 0.11 & 0.74 & 0.71 & 0.92 & 0.81 & 0.80 \\
+Muslims & 0.38 & 0.38 & 0.57 & 0.62 & 0.80 & 0.75 & 0.77 \\
+\shortstack[l]{\textit{Multiple (or other)}\\[-3pt]\textit{religious or minority groups}} & \textit{0.02} & \textit{0.03} & \textit{0.10} & 0.00 & 0.00 & 0.00 & 0.00 \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item \textit{Note:} Reported scores are the binary, positive-class F1 score. Zero-shot NLI: SOCCAT's base NLI model (mDeBERTa-v3-base-mnli-xnli) without fine-tuning; fine-tuned classifier: the same model fine-tuned as a multi-label classifier (one output per group label). Both are evaluated by 5-fold cross-validation on the same sentences and annotations as SOCCAT; mean / median (med) across the 5 folds. SOCCAT: best cross-validation fold (best, released model), or mean / median across the 5 folds. Italics are used for a label when a baseline beats SOCCAT's mean F1, and it shows the beating F1 values.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}

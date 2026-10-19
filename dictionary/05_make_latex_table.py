@@ -220,13 +220,19 @@ METRIC_NAMES = {"precision": "precision (P)", "recall": "recall (R)", "f1": "F1 
 
 def build_table(categories_subset, part_num, n_parts, metrics,
                  super_groups, dict_lookup, soccat_variants=SOCCAT_VARIANTS,
-                 label_suffix=""):
+                 label_suffix="", caption=None, table_label=None, note=None, highlight_keys=()):
     """
     metrics: subset/order of ["precision", "recall", "f1"] to show per leaf.
     super_groups: list of (super_label, [(key, leaf_label), ...]) -- top
     header groups leaves under super_label; second row shows each leaf_label.
     dict_lookup: {key: {(category, label): row}}. Keys in SOCCAT_VARIANTS
     are read from that category's soccat dict instead of dict_lookup.
+    caption / table_label / note: override this table's caption, \\label and note
+    text (after "Note:"), so other comparisons can reuse the layout
+    (e.g. embedding-based_classifiers/compare_baselines.py).
+    highlight_keys: leaves whose value is set in italics when it beats
+    SOCCAT's mean (F1 only, as in llm/analysis/report_step2.py); the label
+    is then set in italics too.
 
     Third header row (P/R/F1) only added when metrics has more than one entry.
     """
@@ -239,9 +245,9 @@ def build_table(categories_subset, part_num, n_parts, metrics,
     lines.append(rf"\renewcommand{{\arraystretch}}{{{ARRAY_STRETCH}}}")
     lines.append(r"\scriptsize")
     lines.append(r"\begin{threeparttable}")
-    lines.append(rf"\caption{{Comparison with dictionary-based classifiers. "
-                 rf"Part {part_num}/{n_parts}.}}")
-    lines.append(rf"\label{{tab:dictionary_alpha0_sweep{label_suffix}_part{part_num}}}")
+    caption = caption or "Comparison with dictionary-based classifiers."
+    lines.append(rf"\caption{{{caption} Part {part_num}/{n_parts}.}}")
+    lines.append(rf"\label{{{table_label or f'tab:dictionary_alpha0_sweep{label_suffix}'}_part{part_num}}}")
     lines.append(r"\begin{tabular}{l" + (" " + "c" * n_cols) * n_groups + "}")
     lines.append(r"\toprule")
 
@@ -261,11 +267,12 @@ def build_table(categories_subset, part_num, n_parts, metrics,
         header2.append(rf"\multicolumn{{{n_cols}}}{{c}}{{{leaf_label}}}")
     lines.append(" & ".join(header2) + r" \\")
 
-    cmidrules2 = " ".join(
-        rf"\cmidrule(lr){{{2 + n_cols*i}-{1 + n_cols*(i + 1)}}}" for i in range(n_groups))
-    lines.append(cmidrules2)
-
     if len(metrics) > 1:
+        # one rule per leaf, only needed above the P/R/F1 row (with a single metric it
+        # would sit right under the group rule, rendering as a double underline)
+        cmidrules2 = " ".join(
+            rf"\cmidrule(lr){{{2 + n_cols*i}-{1 + n_cols*(i + 1)}}}" for i in range(n_groups))
+        lines.append(cmidrules2)
         header3 = ["Specific category"] + [METRIC_TITLES[m] for m in metrics] * n_groups
         lines.append(" & ".join(header3) + r" \\")
     lines.append(r"\midrule")
@@ -279,7 +286,20 @@ def build_table(categories_subset, part_num, n_parts, metrics,
         blank_row = [rf"\rule{{0pt}}{{{GROUP_GAP_HEIGHT}}}"] + [""] * (total_cols - 1)
         lines.append(" & ".join(blank_row) + r" \\")
         for j, label in enumerate(cat["labels"]):
+            lookup = {key: (soccat.get(label, {}).get(key, {}) if key in soccat_variants
+                            else dict_lookup[key].get((cat["name"], label), {}))
+                      for key, _ in leaves}
+            soccat_mean_f1 = soccat.get(label, {}).get("mean", {}).get("f1", float("nan"))
+            beats = {key for key in highlight_keys
+                     if lookup[key].get("f1", float("nan")) > soccat_mean_f1}
             label_cell = wrap_label(label)
+            if beats:  # label in italics too, line by line (each \shortstack line must be balanced)
+                gap = rf"\\[{LABEL_LINE_GAP}]"
+                if label_cell.startswith(r"\shortstack[l]{"):
+                    inner = label_cell[len(r"\shortstack[l]{"):-1]
+                    label_cell = r"\shortstack[l]{" + gap.join(rf"\textit{{{l}}}" for l in inner.split(gap)) + "}"
+                else:
+                    label_cell = rf"\textit{{{label_cell}}}"
             if j == 0:
                 name_lines = MANUAL_BROAD_CLASS_BREAKS.get(cat["display_name"], [cat["display_name"]])
                 prefix = rf"\\[{LABEL_LINE_GAP}]".join(
@@ -291,11 +311,11 @@ def build_table(categories_subset, part_num, n_parts, metrics,
                     label_cell = rf"\shortstack[l]{{{prefix}\\[{BROAD_CLASS_LINE_GAP}]{label_cell}}}"
             row = [label_cell]
             for key, _ in leaves:
-                if key in soccat_variants:
-                    m = soccat.get(label, {}).get(key, {})
-                else:
-                    m = dict_lookup[key].get((cat["name"], label), {})
-                row += [fmt(m[metric]) if metric in m else "--" for metric in metrics]
+                m = lookup[key]
+                cells = [fmt(m[metric]) if metric in m else "--" for metric in metrics]
+                if key in beats:
+                    cells = [rf"\textit{{{c}}}" for c in cells]
+                row += cells
             lines.append(" & ".join(row) + r" \\")
 
     lines.append(r"\bottomrule")
@@ -306,11 +326,11 @@ def build_table(categories_subset, part_num, n_parts, metrics,
         metric_desc = METRIC_NAMES[metrics[0]]
     else:
         metric_desc = ", ".join(METRIC_NAMES[m] for m in metrics[:-1]) + f", and {METRIC_NAMES[metrics[-1]]}"
-    lines.append(
-        rf"\item \textit{{Note:}} Reported scores are the binary, positive-class {metric_desc}. "
+    lines.append(rf"\item \textit{{Note:}} " + (note or (
+        rf"Reported scores are the binary, positive-class {metric_desc}. "
         r"$\alpha_0$ and $z$ are model parameters that yield different dictionary word lists. "
         r"SOCCAT ``best fold''/``mean''/``median (med)'' are computed across the 5 cross-validation folds."
-    )
+    )))
     lines.append(r"\end{tablenotes}")
     lines.append(r"\end{threeparttable}")
     lines.append(r"\end{table}")
