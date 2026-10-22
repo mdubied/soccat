@@ -1,0 +1,47 @@
+\begin{table}[htb]
+\centering
+\scriptsize
+\begin{tabular}{>{\raggedright\arraybackslash}p{4.2cm} r r r r r r r}
+\toprule
+Model & \multicolumn{6}{c}{Sonnet-5} & SOCCAT \\
+\cmidrule(lr){2-7}
+Thinking & High & High & High & Low & Low & Low &  \\
+Prompt & Short & Medium & Long & Short & Medium & Long &  \\
+\midrule
+Athletes & 0.75 & 0.74 & 0.74 & 0.72 & 0.73 & 0.75 & 0.84 \\
+Authors and artists & 0.62 & 0.69 & 0.70 & 0.62 & 0.65 & 0.65 & 0.81 \\
+Doctors & 0.73 & 0.76 & 0.80 & 0.79 & 0.83 & 0.79 & 0.92 \\
+Farmers and fishermen & 0.73 & 0.80 & 0.78 & 0.90 & 0.86 & 0.82 & 0.97 \\
+\textbf{Health and care professionals} & \textbf{0.70} & \textbf{0.64} & 0.61 & \textbf{0.70} & \textbf{0.74} & \textbf{0.64} & 0.62 \\
+Journalists & 0.40 & 0.44 & 0.43 & 0.46 & 0.50 & 0.50 & 1.00 \\
+Legal professionals & 0.54 & 0.52 & 0.58 & 0.48 & 0.46 & 0.46 & 0.78 \\
+Politicians and high-ranking officials & 0.78 & 0.77 & 0.81 & 0.79 & 0.78 & 0.79 & 0.96 \\
+Sex workers & 0.80 & 0.86 & 0.80 & 0.80 & 0.86 & 0.67 & 1.00 \\
+Scientists and professors & 0.61 & 0.62 & 0.64 & 0.63 & 0.63 & 0.63 & 0.88 \\
+Security forces & 0.63 & 0.61 & 0.68 & 0.60 & 0.62 & 0.63 & 0.85 \\
+Soldiers & 0.74 & 0.74 & 0.76 & 0.71 & 0.78 & 0.74 & 0.81 \\
+Teachers and educators & 0.46 & 0.43 & 0.31 & 0.40 & 0.46 & 0.43 & 0.86 \\
+Other professions & 0.43 & 0.44 & 0.48 & 0.42 & 0.46 & 0.47 & 0.72 \\
+\addlinespace
+Consumers and clients & 0.66 & 0.68 & 0.69 & 0.61 & 0.58 & 0.59 & 0.95 \\
+Car drivers & 0.70 & 0.54 & 0.76 & 0.58 & 0.61 & 0.60 & 0.86 \\
+Patients & 0.76 & 0.77 & 0.79 & 0.80 & 0.72 & 0.75 & 0.91 \\
+\addlinespace
+\textbf{Extremists} & \textbf{0.74} & 0.58 & 0.64 & \textbf{0.73} & 0.64 & 0.64 & 0.70 \\
+Terrorists, rebels, revolutionaries and/or movements of armed resistance & 0.74 & 0.69 & 0.73 & 0.71 & 0.67 & 0.68 & 0.89 \\
+Offenders, criminals, prisoners and/or accused people & 0.53 & 0.51 & 0.50 & 0.59 & 0.53 & 0.50 & 0.71 \\
+Drug addicts & 0.91 & 1.00 & 0.91 & 1.00 & 0.77 & 1.00 & 1.00 \\
+\addlinespace
+\textbf{Real-estate owners} & \textbf{0.90} & \textbf{0.95} & \textbf{0.94} & \textbf{0.92} & \textbf{0.92} & \textbf{0.90} & 0.88 \\
+Tenants & 1.00 & 0.93 & 0.93 & 1.00 & 0.93 & 0.93 & 1.00 \\
+Homeless & 0.93 & 0.82 & 0.80 & 0.93 & 0.82 & 0.86 & 1.00 \\
+\addlinespace
+Others & 0.39 & 0.41 & 0.40 & 0.42 & 0.44 & 0.43 & -- \\
+\bottomrule
+\end{tabular}
+\\
+\vspace{2pt}
+{\footnotesize \textit{Note:} Bold font is used when at least one LLM run beats SOCCAT, and it shows the beating F1 values.\par}
+\caption{Performance comparison with LLMs for Step 2, detailed F1 score by specific categories. Part 2/2.}
+\label{tab:llm-step2-2}
+\end{table}

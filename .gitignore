@@ -14,6 +14,10 @@ nli_pairs_by_category/
 src/step_2/nli_pairs_by_category/
 src/step_2/output/
 
+# LLM outputs
+!llm/classification/output/
+!llm/analysis/output/
+
 # OS
 .DS_Store
 
