@@ -1,0 +1,31 @@
+{
+  "run": "de2fr__cross_matched__fold4",
+  "direction": "de2fr",
+  "condition": "cross_matched",
+  "fold": 4,
+  "seed": 202,
+  "n_train": 1800,
+  "n_train_pos": 498,
+  "n_train_fr": 0,
+  "n_train_de": 1800,
+  "n_test": 899,
+  "base_model": "MoritzLaurer/mDeBERTa-v3-base-mnli-xnli",
+  "epochs": 4,
+  "lr": 2e-05,
+  "batch_train": 8,
+  "max_length": 256,
+  "mixed_precision": false,
+  "final_training_loss": 0.13310938199361164,
+  "test": {
+    "n": 899.0,
+    "n_pos": 250.0,
+    "precision": 0.7205387205387206,
+    "recall": 0.856,
+    "f1": 0.7824497257769653,
+    "f1_weighted": 0.8708309452431345,
+    "accuracy": 0.8676307007786429,
+    "kappa": 0.6883319300923809,
+    "pr_auc": 0.8264455522255302
+  },
+  "hf_repo": null
+}
