@@ -1,0 +1,52 @@
+\begin{table}[htbp]
+\centering
+\scriptsize
+\begin{threeparttable}
+\caption{Step 2 binary F1 of the single NLI model and of one model per broad class (SOCCAT). Part 1/2.}
+\label{tab:single-nli-part1}
+\begin{tabular}{l rr r r}
+\toprule
+Group & SOCCAT & Single & Single $-$ SOCCAT [95\% CI] & N \\
+\midrule
+\textbf{Real estate ownership} & \textbf{0.87} & \textbf{0.90} & \textbf{+0.04 [-0.00, +0.08]} & \textbf{170} \\
+\quad Tenants & 0.88 & 0.88 & +0.01 [-0.07, +0.08] & 41 \\
+\quad Homeless & 0.87 & 0.88 & +0.00 [-0.09, +0.10] & 34 \\
+\quad Real-estate owners & 0.86 & 0.92 & +0.06 [+0.01, +0.11]$^{*}$ & 95 \\
+\addlinespace
+\textbf{Profession} & \textbf{0.82} & \textbf{0.82} & \textbf{-0.00 [-0.01, +0.01]} & \textbf{2,898} \\
+\quad Politicians and high-ranking officials & 0.91 & 0.91 & -0.00 [-0.01, +0.01] & 1,284 \\
+\quad Doctors & 0.88 & 0.92 & +0.04 [-0.01, +0.08] & 68 \\
+\quad Sex workers & 0.88 & 0.89 & +0.01 [-0.07, +0.10] & 27 \\
+\quad Farmers and fishermen & 0.86 & 0.85 & -0.01 [-0.07, +0.05] & 73 \\
+\quad Journalists & 0.84 & 0.86 & +0.02 [-0.03, +0.07] & 41 \\
+\quad Athletes & 0.81 & 0.80 & -0.01 [-0.03, +0.02] & 367 \\
+\quad Security forces & 0.81 & 0.83 & +0.03 [-0.00, +0.06] & 238 \\
+\quad Scientists and professors & 0.76 & 0.78 & +0.03 [-0.02, +0.07] & 83 \\
+\quad Teachers and educators & 0.76 & 0.78 & +0.02 [-0.04, +0.10] & 62 \\
+\quad Authors and artists & 0.76 & 0.72 & -0.04 [-0.08, +0.01] & 178 \\
+\quad Soldiers & 0.74 & 0.74 & +0.00 [-0.06, +0.06] & 77 \\
+\quad Legal professionals & 0.73 & 0.65 & -0.07 [-0.16, +0.01] & 49 \\
+\quad Health and care professionals & 0.57 & 0.59 & +0.02 [-0.16, +0.18] & 34 \\
+\quad Other professions & 0.58 & 0.57 & -0.01 [-0.05, +0.03] & 317 \\
+\addlinespace
+\textbf{Age and family status} & \textbf{0.81} & \textbf{0.81} & \textbf{+0.00 [-0.01, +0.02]} & \textbf{966} \\
+\quad Singles & 0.87 & 0.85 & -0.02 [-0.09, +0.04] & 27 \\
+\quad Couples & 0.85 & 0.83 & -0.02 [-0.11, +0.06] & 36 \\
+\quad Youth, including students and apprentices & 0.84 & 0.84 & -0.00 [-0.02, +0.02] & 310 \\
+\quad Parents and families & 0.82 & 0.81 & -0.01 [-0.04, +0.02] & 190 \\
+\quad Minors, including children and pupils & 0.82 & 0.83 & +0.01 [-0.01, +0.04] & 349 \\
+\quad Elderly & 0.60 & 0.56 & -0.04 [-0.20, +0.11] & 35 \\
+\quad Middle-aged and pre-retirement age groups & 0.26 & 0.35 & +0.09 [-0.22, +0.41] & 19 \\
+\addlinespace
+\textbf{Social roles and behavior} & \textbf{0.81} & \textbf{0.81} & \textbf{+0.01 [-0.02, +0.03]} & \textbf{453} \\
+\quad Patients & 0.81 & 0.82 & +0.01 [-0.05, +0.06] & 96 \\
+\quad Consumers and clients & 0.81 & 0.82 & +0.00 [-0.02, +0.03] & 336 \\
+\quad Car drivers & 0.62 & 0.68 & +0.07 [-0.13, +0.28] & 21 \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item \textit{Note:} Held-out predictions of the 5 cross-validation folds pooled, so that each sentence is scored once; both models are evaluated on the same sentences and gold labels. Bold rows: broad classes and all labels (average of their groups' F1, weighted by the number of mentions). CI: paired 95\% bootstrap interval over sentences (2,000 resamples). $^{*}$: the interval excludes 0. N: number of mentions.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
