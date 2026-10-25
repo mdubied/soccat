@@ -1,10 +1,10 @@
 """
-cross_language_transfer.py
+step_2_cross_language_transfer.py
 
 Description:
 Figures for the cross-lingual transfer analysis of the Step 2 NLI models.
 
-Reads only the summary CSVs in ../cross-language_transfer/, produced by
+Reads only the summary CSVs in ../cross-language_transfer/step_2/, produced by
 CV_cross_lingual_summary.ipynb (which itself combines the per-category
 cross-lingual cross-validation runs). Two conditions are compared, both
 predicting every sentence of the target language exactly once (5 folds):
@@ -25,13 +25,13 @@ Figures:
    same-label training mention (quartiles, computed per broad class,
    direction and condition), pooled over all labels, with Wilson 95% CIs.
 
-Outputs (in "cross_language/"):
-- cross_language_f1_part1.pdf, cross_language_f1_part2.pdf
-- cross_language_similarity.pdf
-- cross_language_summary.txt (numbers behind the figures)
+Outputs (in "step_2/cross_language/"):
+- step_2_cross_language_f1_part1.pdf, step_2_cross_language_f1_part2.pdf
+- step_2_cross_language_similarity.pdf
+- step_2_cross_language_summary.txt (numbers behind the figures)
 
 Usage (from this directory):
-python cross_language_transfer.py
+python step_2_cross_language_transfer.py
 """
 import os, re, glob, textwrap, itertools
 import numpy as np
@@ -43,9 +43,9 @@ from matplotlib.lines import Line2D
 # ============================================================
 # PARAMETERS (edit here)
 # ============================================================
-XL_DIR = "../cross-language_transfer"
+XL_DIR = "../cross-language_transfer/step_2"
 STEP_2_DATA_DIR = "../data/model_performance/step_2"
-OUTPUT_DIR = "cross_language"
+OUTPUT_DIR = "step_2/cross_language"
 
 DIRS = ["de2fr", "fr2de"]   # panel order: French test set, then German
 DIR_TITLE = {
@@ -312,7 +312,7 @@ for part_num, idxs in enumerate(parts, start=1):
     # two columns: the two settings on the first row, the significance key below
     fig.legend(handles=handles, loc="lower center", ncol=2, frameon=False,
                bbox_to_anchor=(0.5, 0.0))
-    out = os.path.join(OUTPUT_DIR, f"cross_language_f1_part{part_num}.pdf")
+    out = os.path.join(OUTPUT_DIR, f"step_2_cross_language_f1_part{part_num}.pdf")
     fig.savefig(out)
     plt.close(fig)
     print(f"Saved file as: {out}")
@@ -418,7 +418,7 @@ axes[0].set_ylabel("Recall")
 fig.supxlabel("Similarity to the nearest same-label training mention (quartile)", fontsize=8)
 fig.legend(handles=legend_handles(), loc="upper center", ncol=2, frameon=False, bbox_to_anchor=(0.5, 1.0))
 fig.tight_layout(rect=(0, 0, 1, 0.92))
-out = os.path.join(OUTPUT_DIR, "cross_language_similarity.pdf")
+out = os.path.join(OUTPUT_DIR, "step_2_cross_language_similarity.pdf")
 fig.savefig(out)
 plt.close(fig)
 print(f"Saved file as: {out}")
@@ -431,7 +431,7 @@ for _, r in binned.iterrows():
     summary.append(f"{r.direction:<9} {r.condition:<15} Q{int(r.bin) + 1:<3} {int(r.n):>6} {r.recall:>7.3f} "
                    f"[{r.lo:>6.3f}, {r.hi:>6.3f}] {r.sim_median:>11.3f}")
 
-out = os.path.join(OUTPUT_DIR, "cross_language_summary.txt")
+out = os.path.join(OUTPUT_DIR, "step_2_cross_language_summary.txt")
 with open(out, "w", encoding="utf-8") as f:
     f.write("\n".join(summary) + "\n")
 print("\n".join(summary))

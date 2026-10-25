@@ -1,0 +1,16 @@
+,,f1,f1,n_pos,n_pos
+condition,,cross_matched,within_matched,cross_matched,within_matched
+direction,paper,,,,
+de2fr,Figaro,0.779,0.785,70.0,70.0
+de2fr,Le Monde,0.792,0.831,91.0,91.0
+de2fr,Le Monde Diplomatique,0.784,0.832,384.0,384.0
+de2fr,Libération,0.674,0.734,262.0,262.0
+de2fr,Médiapart,0.776,0.806,364.0,364.0
+de2fr,Parisien,0.81,0.757,79.0,79.0
+de2fr,Unknown,0.0,1.0,1.0,1.0
+fr2de,Bild,0.434,0.694,55.0,55.0
+fr2de,FAZ,0.651,0.788,84.0,84.0
+fr2de,SZ,0.65,0.789,96.0,96.0
+fr2de,Spiegel,0.736,0.837,106.0,106.0
+fr2de,Welt,0.662,0.69,85.0,85.0
+fr2de,Zeit,0.75,0.773,72.0,72.0
