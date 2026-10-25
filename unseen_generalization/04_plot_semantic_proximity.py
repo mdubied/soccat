@@ -239,7 +239,7 @@ def plot_recall(ax, recall_df, third_line="share", pooled_name="Not seen", compa
     ax.set_ylim(0, 1)
     ax.set_ylabel("Recall")
     ax.set_xlabel(r"Similarity (far $\rightarrow$ close)" if compact
-                  else r"Similarity to the nearest training mention (far $\rightarrow$ close)")
+                  else r"Similarity to the nearest training reference (far $\rightarrow$ close)")
     # centre the axis title under the proximity bins only (it does not describe
     # the reference ticks); set_x keeps matplotlib's automatic vertical position
     x0, x1 = ax.get_xlim()
@@ -265,7 +265,7 @@ def plot_examples(ax, pairs_df, recall_df):
     ax.axis("off")
     ax.set_xlim(0, 1)
     ax.set_ylim(0, 1)
-    ax.set_title(r"\textbf{B.} Test mention $\rightarrow$ nearest training mention",
+    ax.set_title(r"\textbf{B.} Test reference $\rightarrow$ nearest training reference",
                  loc="left", fontsize=9, pad=4)
     headers = recall_df.drop_duplicates("bin").set_index("bin")
     row_h = 1 / (len(bins) * (N_EXAMPLES + 1.2) + 1)
