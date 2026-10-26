@@ -110,7 +110,7 @@ def main():
 
     outcomes = cmu.outcome_table(units, CODEBOOK)
     outcomes.to_csv(OUTPUT_DIR / "soccat_outcomes.csv")
-    summary = cmu.outcome_summary(outcomes, who="SOCCAT")
+    summary = cmu.outcome_summary(outcomes, who="SOCCAT", units=units, codebook=CODEBOOK)
     (OUTPUT_DIR / "soccat_outcomes.txt").write_text(summary + "\n", encoding="utf-8")
     print("\n" + summary)
 

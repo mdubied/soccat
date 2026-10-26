@@ -11,3 +11,23 @@ Disagreements: 820 (10.6%), of which:
   none                           391   47.7%
 
 Coder used the residual "others" (alone or with a label of another broad class): 134 (16.3% of disagreements)
+
+Other broad class (alone or + others), 150 units: broad classes involved
+  Labor market position <-> Profession: 69 (46.0%)
+  Labor market position <-> Socio-economic position: 14 (9.3%)
+  Social roles and behavior <-> Socio-economic position: 9 (6.0%)
+  Profession <-> Social deviance: 8 (5.3%)
+  Age and family status <-> Socio-economic position: 7 (4.7%)
+  Age and family status <-> Labor market position: 6 (4.0%)
+  Age and family status <-> Gender, sexuality, and sociocultural characteristics: 5 (3.3%)
+  Gender, sexuality, and sociocultural characteristics <-> Profession: 5 (3.3%)
+
+Other label, same class, 154 units: most frequent label pairs
+  minors <-> youth: 26 (16.9%)
+  other professions <-> security forces: 25 (16.2%)
+  CEOs and corporate leaders <-> entrepreneurs: 9 (5.8%)
+  offenders, criminals, prisoners and/or accused people <-> terrorists, rebels, revolutionaries and/or movements of armed resistance: 7 (4.5%)
+  elderly <-> middle-aged and pre-retirement age groups: 6 (3.9%)
+  authors and artists <-> other professions: 6 (3.9%)
+  lower class <-> unskilled or unqualified: 5 (3.2%)
+  christians <-> multiple (or other) religious or minority groups: 5 (3.2%)
