@@ -1,11 +1,15 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Step 2 boxplots for the single NLI model
-=========================================
+Step 2 boxplots for a single NLI model
+=======================================
 Same figures as for the main models (figures/step_2_boxplot.py: one model per
-broad class) for the single NLI model trained on all 57 labels at once
+broad class) for a single NLI model trained on all 57 labels at once
 (data/: 5-fold CV, same 7,234 sentences and gold labels as the main models).
+Its hypotheses name the specific label only ("This sentence refers to
+"<label>" as a social group."). The model is named after this script's folder
+(MODEL = "single_nli", see common.py's SINGLE_NLI_MODELS), which also prefixes
+every output file.
 
 step_2_boxplot.py expects one folder per broad class, each with
 fold_*_per_label.csv (plain label names) and fold_*_metrics.json (metrics on
@@ -16,10 +20,9 @@ data/fold_*_human_vs_model.csv with the same definitions as
 src/step_2/step_2_cv_pipeline.py -- and then runs step_2_boxplot.py on it, so
 both sets of figures are drawn by the same code.
 
-Outputs (output/boxplots/):
-    step_2_perf_broad_class_boxplot.pdf        broad classes
-    step_2_perf_boxplot_part1.pdf, _part2.pdf  all labels, grouped by broad class
-    cat_per_broad_class_boxplot/<class>_boxplot.pdf  one figure per broad class
+Outputs (output/boxplots/, <MODEL> = this folder's name):
+    <MODEL>_perf_broad_class_boxplot.pdf        broad classes
+    <MODEL>_perf_boxplot_part1.pdf, _part2.pdf  all labels, grouped by broad class
     (+ the *_summary.txt / *_best_fold_used.txt / *_neg_class_pct.txt logs)
 
 Usage: python 01_boxplot.py   (run from anywhere)
@@ -35,6 +38,7 @@ from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_sc
 
 ROOT = Path(__file__).resolve().parent
 REPO = ROOT.parents[1]
+MODEL = ROOT.name   # output file prefix
 DATA_DIR = ROOT / "data"
 LAYOUT_DIR = ROOT / "output" / "per_class_layout"
 BOXPLOT_DIR = ROOT / "output" / "boxplots"
@@ -53,9 +57,6 @@ CLASS_FOLDER = {
     "Social Roles and Behavior": "social_roles_behavior",
     "Socio-Economic Position": "socio_economic_position",
 }
-# step_2_boxplot.py --broad_class codes (keys of its FOLDER_NAME_MAP)
-BOXPLOT_CLASS_CODES = ["age_family", "identity", "labor_market_position", "profession",
-                       "real_estate", "social_deviance", "social_roles", "socio_economic"]
 
 
 def class_metrics(pairs: pd.DataFrame) -> dict:
@@ -91,7 +92,7 @@ def write_layout():
 
 def run_boxplot(*extra_args):
     cmd = [sys.executable, str(BOXPLOT_SCRIPT), "--data_dir", str(LAYOUT_DIR),
-           "--output_dir", str(BOXPLOT_DIR), *extra_args]
+           "--output_dir", str(BOXPLOT_DIR), "--file_prefix", MODEL, *extra_args]
     # step_2_boxplot.py resolves its other paths relative to figures/
     subprocess.run(cmd, cwd=BOXPLOT_SCRIPT.parent, check=True, stdout=subprocess.DEVNULL)
 
@@ -99,8 +100,6 @@ def run_boxplot(*extra_args):
 def main():
     write_layout()
     run_boxplot()
-    for code in BOXPLOT_CLASS_CODES:
-        run_boxplot("--broad_class", code)
     print(f"Done. Boxplots written to: {BOXPLOT_DIR}")
 
 

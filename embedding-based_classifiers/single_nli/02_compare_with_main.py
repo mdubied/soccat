@@ -3,7 +3,7 @@
 """
 Single NLI model vs main models (one per broad class)
 ======================================================
-Compares the single NLI model trained on all 57 labels at once (data/) with
+Compares a single NLI model trained on all 57 labels at once (data/) with
 the main SOCCAT models, one per broad class
 (data/model_performance/step_2/<class>/). Both are evaluated by 5-fold CV on
 the same 7,234 sentences with the same gold labels (checked below), so the
@@ -19,12 +19,17 @@ difference single - main come from a paired bootstrap over sentences
 Fold-based scores (F1 per fold: mean, median) are added to the CSV for
 reference.
 
-Outputs (output/comparison/):
-    single_vs_main_metrics.csv           all metrics, both models, CIs, differences
-    single_vs_main_broad_class.pdf       broad classes (+ all labels)
-    single_vs_main_part1.pdf, _part2.pdf all labels, grouped by broad class
-    single_vs_main_table_part{1,2}.tex   F1 of both models, difference [CI], N
-    single_vs_main_summary.txt           overall result and significant differences
+The model is named after this script's folder (MODEL; display names in
+common.py's SINGLE_NLI_MODELS), which also prefixes every output file and
+LaTeX label, so they cannot be mixed up with SOCCAT's own figures.
+
+Outputs (output/comparison/, <MODEL> = this folder's name):
+    <MODEL>_vs_main_metrics.csv           all metrics, both models, CIs, differences
+    <MODEL>_vs_main_broad_class.pdf       broad classes (+ all labels)
+    <MODEL>_vs_main_part1.pdf, _part2.pdf all labels, grouped by broad class
+    <MODEL>_vs_main_table_part{1,2}.tex   F1 of both models, difference [CI], N
+                                          (LaTeX labels tab:<MODEL>_vs_main_part1, ...)
+    <MODEL>_vs_main_summary.txt           overall result and significant differences
 
 Usage: python 02_compare_with_main.py   (run from anywhere)
 """
@@ -41,7 +46,12 @@ from matplotlib.lines import Line2D
 ROOT = Path(__file__).resolve().parent
 REPO = ROOT.parents[1]
 sys.path.insert(0, str(REPO / "figures"))
+sys.path.insert(0, str(ROOT.parent))
 import step_2_country as sc  # noqa: E402  (row order, metrics and layout helpers, fonts)
+from common import SINGLE_NLI_MODELS  # noqa: E402
+
+MODEL = ROOT.name   # output file prefix
+MODEL_TITLE = SINGLE_NLI_MODELS[MODEL]["title"]
 
 SINGLE_DIR = ROOT / "data"
 MAIN_DIR = REPO / "data" / "model_performance" / "step_2"
@@ -64,7 +74,7 @@ SINGLE_CLASS_FOLDER = {
 FOLDER_CODE = {folder: code for code, folder in sc.FOLDER_NAME_MAP.items()}
 
 MODELS = ["main", "single"]
-MODEL_LABEL = {"main": "One model per broad class (SOCCAT)", "single": "Single model (all labels)"}
+MODEL_LABEL = {"main": "One model per broad class (SOCCAT)", "single": MODEL_TITLE}
 # the two colours/markers of the other paper comparisons (findings_* and cross-language figures)
 MODEL_STYLE = {"main": dict(color="#C0392B", marker="o"), "single": dict(color="#909090", marker="s")}
 OFFSET = 0.15
@@ -253,8 +263,8 @@ def build_latex_table(res, part_labels, header_labels, part_num, n_parts, with_t
         r"\centering",
         r"\scriptsize",
         r"\begin{threeparttable}",
-        rf"\caption{{Step 2 binary F1 of the single NLI model and of one model per broad class (SOCCAT). Part {part_num}/{n_parts}.}}",
-        rf"\label{{tab:single-nli-part{part_num}}}",
+        rf"\caption{{Step 2 binary F1 of {SINGLE_NLI_MODELS[MODEL]['caption']} and of one model per broad class (SOCCAT). Part {part_num}/{n_parts}.}}",
+        rf"\label{{tab:{MODEL}_vs_main_part{part_num}}}",
         r"\begin{tabular}{l rr r r}",
         r"\toprule",
         r"Group & SOCCAT & Single & Single $-$ SOCCAT [95\% CI] & N \\",
@@ -303,15 +313,15 @@ def build_latex_table(res, part_labels, header_labels, part_num, n_parts, with_t
 def main():
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     res = compute_results()
-    res.to_csv(OUTPUT_DIR / "single_vs_main_metrics.csv", index=False)
-    print(f"Saved file as: {OUTPUT_DIR / 'single_vs_main_metrics.csv'}")
+    res.to_csv(OUTPUT_DIR / f"{MODEL}_vs_main_metrics.csv", index=False)
+    print(f"Saved file as: {OUTPUT_DIR / f'{MODEL}_vs_main_metrics.csv'}")
 
     # same row order and part split as step_2_boxplot.py / step_2_country.py
     broad_order, group_labels = sc.row_order()
     broad_names = [sc.RENAME_DICT[bc] for bc in broad_order]
     render_figure(res, broad_names + [ALL_LABELS],
                   [sc.wrap_and_capitalize(b, sc.WRAP_CHARS) for b in broad_names] + [rf"\textbf{{{ALL_LABELS}}}"],
-                  OUTPUT_DIR / "single_vs_main_broad_class.pdf", sc.BROAD_LBL_WIDTH_FRAC)
+                  OUTPUT_DIR / f"{MODEL}_vs_main_broad_class.pdf", sc.BROAD_LBL_WIDTH_FRAC)
 
     groups = [[sc.RENAME_DICT[bc]] + [sc.RENAME_DICT.get(l, l) for l in group_labels[bc]] for bc in broad_order]
     header_labels = set(broad_names)
@@ -321,16 +331,16 @@ def main():
         wrapped = ["\n".join(rf"\textbf{{{line}}}" for line in sc.wrap_lines(lbl, sc.WRAP_CHARS))
                    if lbl in header_labels else sc.wrap_and_capitalize(lbl, sc.WRAP_CHARS)
                    for lbl in part_labels]
-        render_figure(res, part_labels, wrapped, OUTPUT_DIR / f"single_vs_main_part{part_num}.pdf",
+        render_figure(res, part_labels, wrapped, OUTPUT_DIR / f"{MODEL}_vs_main_part{part_num}.pdf",
                       sc.MERGED_LBL_WIDTH_FRAC, header_labels=header_labels,
                       extra_gap_rows=sc.MERGED_GROUP_SPACING_CM / sc.ROW_HEIGHT_CM)
         tex = build_latex_table(res, part_labels, header_labels, part_num, len(parts),
                                 with_total=part_num == len(parts))
-        (OUTPUT_DIR / f"single_vs_main_table_part{part_num}.tex").write_text(tex, encoding="utf-8")
-        print(f"Saved file as: {OUTPUT_DIR / f'single_vs_main_table_part{part_num}.tex'}")
+        (OUTPUT_DIR / f"{MODEL}_vs_main_table_part{part_num}.tex").write_text(tex, encoding="utf-8")
+        print(f"Saved file as: {OUTPUT_DIR / f'{MODEL}_vs_main_table_part{part_num}.tex'}")
 
     # Summary
-    lines = [f"Single NLI model - one model per broad class (SOCCAT); paired bootstrap "
+    lines = [f"{MODEL_TITLE} - one model per broad class (SOCCAT); paired bootstrap "
              f"({N_BOOT:,} resamples, seed {SEED}); * = 95% CI excludes 0", ""]
     for metric in sc.METRICS:
         sub = res[res["metric"] == metric]
@@ -350,7 +360,7 @@ def main():
                              f"diff {r['diff_single_main']:+.2f} [{r['diff_lo']:+.2f}, {r['diff_hi']:+.2f}]  N {r['n_pos']}")
         lines.append("")
     text = "\n".join(lines)
-    (OUTPUT_DIR / "single_vs_main_summary.txt").write_text(text, encoding="utf-8")
+    (OUTPUT_DIR / f"{MODEL}_vs_main_summary.txt").write_text(text, encoding="utf-8")
     print("\n" + text)
 
 
