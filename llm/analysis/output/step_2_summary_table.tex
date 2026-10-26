@@ -5,21 +5,21 @@
 \toprule
 Model & Thinking & Prompt & Precision & Recall & F1 & Macro F1 & Cost/1k (\$) & Rate/1k \\
 \midrule
-Sonnet-5 & High & Long & 0.75 & 0.77 & 0.75 & 0.86 & 4.48 & 31m 37s \\
-Sonnet-5 & Low & Long & 0.75 & 0.75 & 0.74 & 0.86 & 2.47 & 14m 30s \\
-Sonnet-5 & High & Short & 0.74 & 0.76 & 0.73 & 0.86 & 4.19 & 30m 28s \\
-Sonnet-5 & High & Medium & 0.74 & 0.74 & 0.72 & 0.85 & 3.70 & 29m 14s \\
-Sonnet-5 & Low & Short & 0.73 & 0.74 & 0.71 & 0.85 & 3.17 & 16m 26s \\
-Sonnet-5 & Low & Medium & 0.74 & 0.72 & 0.71 & 0.85 & 2.45 & 14m 19s \\
+Sonnet-5 & High & Long & 0.70 & 0.77 & 0.73 & 0.86 & 4.48 & 31m 37s \\
+Sonnet-5 & Low & Long & 0.71 & 0.75 & 0.73 & 0.86 & 2.47 & 14m 30s \\
+Sonnet-5 & High & Short & 0.69 & 0.76 & 0.72 & 0.86 & 4.19 & 30m 28s \\
+Sonnet-5 & High & Medium & 0.69 & 0.74 & 0.71 & 0.85 & 3.70 & 29m 14s \\
+Sonnet-5 & Low & Short & 0.68 & 0.74 & 0.71 & 0.85 & 3.17 & 16m 26s \\
+Sonnet-5 & Low & Medium & 0.69 & 0.72 & 0.71 & 0.85 & 2.45 & 14m 19s \\
 \midrule
-SOCCAT & \multicolumn{2}{l}{Best fold} & 0.85 & 0.80 & 0.82 & 0.91 & -- & -- \\
-SOCCAT & \multicolumn{2}{l}{Mean} & 0.82 & 0.78 & 0.80 & 0.89 & -- & -- \\
-SOCCAT & \multicolumn{2}{l}{Median} & 0.82 & 0.79 & 0.80 & 0.89 & -- & -- \\
+SOCCAT & \multicolumn{2}{l}{Best fold} & 0.85 & 0.80 & 0.83 & 0.91 & -- & -- \\
+SOCCAT & \multicolumn{2}{l}{Mean} & 0.82 & 0.78 & 0.80 & 0.90 & -- & -- \\
+SOCCAT & \multicolumn{2}{l}{Median} & 0.83 & 0.78 & 0.80 & 0.90 & -- & -- \\
 \bottomrule
 \end{tabular}
 \begin{tablenotes}[flushleft]
 \footnotesize
-\item \textit{Note:} Precision, recall and F1 refer to the positive class of each specific category; macro F1 averages the F1 scores of the positive and negative class. The scores for specific categories are weighted by positive-case count to obtain these average performances; the residual \textit{others} category, which SOCCAT does not predict, is left out. SOCCAT: best cross-validation fold (released model), or mean / median across the 5 folds.
+\item \textit{Note:} Precision, recall and F1 refer to the positive class of each specific category; macro F1 averages the F1 scores of the positive and negative class. Scores are pooled over all (sentence, group label) pairs; the residual \textit{others} category, which SOCCAT does not predict, is left out. Sonnet-5: random sample of 1,446 sentences; SOCCAT: out-of-fold predictions of the 5-fold cross-validation on all 7,234 sentences, best fold of each broad class (released models), or mean / median across the 5 folds. Cost and rate: US\$ and processing time per 1,000 sentences.
 \end{tablenotes}
 \end{threeparttable}
 \caption{Overall performance comparison with LLMs for Step 2.}
