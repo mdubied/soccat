@@ -103,20 +103,24 @@ NORMALISE: dict[str, str | None] = {
     'racial and ethnic minorities': 'ethnic and racial minorities',
     'visible and ethnic minorities': 'ethnic and racial minorities',
     'ethnic minorities': 'ethnic and racial minorities',
-    'minorities': 'ethnic and racial minorities',
-    'east germans': 'ethnic and racial minorities',
-    'west germans': 'ethnic and racial minorities',
-    'ethnic germans': 'ethnic and racial minorities',
-    'expatriates': 'ethnic and racial minorities',
-    'white': 'ethnic and racial minorities',
-    'white people': 'ethnic and racial minorities',
+    # Legacy labels below marked "(as specific_group_new)" are coded as in the curated
+    # specific_group_new column, the ground truth the models are trained and evaluated on
+    # (checked on every ground-truth span carrying them; "white", "ethnic germans",
+    # "lobbyists" and "hunters" never occur there and follow the same rule)
+    'minorities': 'multiple (or other) religious or minority groups',  # (as specific_group_new)
+    'east germans': 'others',    # (as specific_group_new)
+    'west germans': 'others',    # (as specific_group_new)
+    'ethnic germans': 'others',  # (as specific_group_new)
+    'expatriates': 'others',     # (as specific_group_new)
+    'white': 'others',           # (as specific_group_new)
+    'white people': 'others',    # (as specific_group_new)
     'visible minorities': 'ethnic and racial minorities',
     'language and ethnic minorities': 'ethnic and racial minorities',
     'lgbtqi*': 'lgbtqia+', 'lgbtqqia+': 'lgbtqia+',
     'cis & heterosexuals': 'cisgender and heterosexuals',
     'religious groups': 'multiple (or other) religious or minority groups',
     'religious minorities': 'multiple (or other) religious or minority groups',
-    'territorial language minorities': 'multiple (or other) religious or minority groups',
+    'territorial language minorities': 'others',  # (as specific_group_new)
     'other minorities': 'multiple (or other) religious or minority groups',
     'other minorities / religious groups': 'multiple (or other) religious or minority groups',
     'disabled': 'disabled people',
@@ -127,18 +131,18 @@ NORMALISE: dict[str, str | None] = {
     'high-ranking officials': 'politicians and high-ranking officials',
     'politicians': 'politicians and high-ranking officials',
     'prostitutes': 'sex workers',
-    'social professions': 'other professions',
-    'engineers': 'other professions',
-    'lobbyists': 'other professions',
-    'hunters': 'other professions',
+    'social professions': 'others',  # (as specific_group_new)
+    'engineers': 'others',           # (as specific_group_new)
+    'lobbyists': 'others',           # (as specific_group_new)
+    'hunters': 'others',             # (as specific_group_new)
     'people working in the public sector': 'civil servants',
-    'commuters': 'consumers and clients',
-    'cyclists': 'car drivers', 'pedestrians': 'car drivers',
-    'road carriers': 'consumers and clients',
+    'commuters': 'others',                             # (as specific_group_new)
+    'cyclists': 'others', 'pedestrians': 'others',     # (as specific_group_new)
+    'road carriers': 'others',                         # (as specific_group_new)
     'air travellers': 'consumers and clients',
     'users of certain transportation modes': 'consumers and clients',
     'public transport passengers': 'consumers and clients',
-    'insured persons': 'patients',
+    'insured persons': 'others',  # (as specific_group_new)
     'consumers': 'consumers and clients',
     'tax payers': 'others', 'gun owners': 'others',
     'tax evaders and white collar criminals': 'offenders, criminals, prisoners and/or accused people',
@@ -230,6 +234,15 @@ def parse_consensus_label(val) -> frozenset:
     return frozenset(labels - {None})
 
 
+def parse_specific_group_new(val) -> frozenset:
+    """Curated ground truth of annotations_ground_truth.csv ('a ; b ; c'): the labels the
+    Step 2 models are trained and evaluated on (src/step_2/convert_annotations.py)."""
+    if pd.isna(val):
+        return frozenset()
+    labels = {normalise_label(p) for p in str(val).split(';') if p.strip()}
+    return frozenset(labels - {None})
+
+
 def parse_coder_spans(val) -> frozenset:
     """Independent coder span list [[start, end, 'label(s)'], ...]; a span label may hold several comma-separated labels."""
     return parse_ann_label('; '.join(str(s[2]) for s in load_spans(val)))
@@ -245,13 +258,16 @@ def load_sentences(path=ANNOTATION_FILE, ground_truth_path=GROUND_TRUTH_FILE) ->
     df = pd.read_csv(path)
     CODER_COLS = [c for c in df.columns if c.startswith('annotation_') and c != 'annotation_sources']
 
-    df = df[df['id'].isin(pd.read_csv(ground_truth_path, usecols=['id'])['id'])]  # drops target_abroad = 1
+    gt = pd.read_csv(ground_truth_path, usecols=['id', 'specific_group_new']).set_index('id')['specific_group_new']
+    df = df[df['id'].isin(gt.index)]  # drops target_abroad = 1
 
     df['outlet'] = df['outlet'].astype(str)
     df = df[df['outlet'] != 'nan']
     df = df[df[CODER_COLS].notna().any(axis=1)].copy()  # sentences with a ground truth but no independent coder
 
-    df['gt_labels'] = df['ground_truth'].apply(parse_consensus_label)
+    # ground truth = specific_group_new, as for the models (not the raw labels of the
+    # 'ground_truth' spans, a few of which were curated into another label there)
+    df['gt_labels'] = df['id'].map(gt).apply(parse_specific_group_new)
     df['coders'] = df.apply(lambda r: [c.removeprefix('annotation_') for c in CODER_COLS if pd.notna(r[c])], axis=1)
     df['coder_labels'] = df.apply(lambda r: [parse_coder_spans(r[c]) for c in CODER_COLS if pd.notna(r[c])], axis=1)
     df['values'] = df.apply(lambda r: (r['gt_labels'], *r['coder_labels']), axis=1)  # one unit per sentence

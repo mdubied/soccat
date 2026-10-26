@@ -26,9 +26,8 @@ i.e. the gold the models were trained and evaluated on, plus the residual
 label "others" from annotations_ground_truth.csv's specific_group_new column
 (the curated labels the NLI pairs were built from), since no model predicts
 "others". Its "Others" column is therefore empty by construction. The coder
-matrices parse the raw spans instead, which maps a few legacy labels folded
-into "others" in specific_group_new (e.g. "insured persons", "engineers") to
-a specific group, so about 27 sentences have slightly different ground truth.
+matrices (tables/icr_step2_krippendorff.ipynb) use the same ground truth
+(specific_group_new, via src/step_2/annotation_labels.py).
 
 Sentences: the 7,234 sentences of the model files (non-empty ground truth),
 one unit per sentence.
@@ -87,8 +86,7 @@ def load_model_units() -> list:
     pred = pairs[pairs["pred_label"] == 0].groupby("sentence_id")["label"].agg(frozenset)
 
     # "others" from the curated specific_group_new column (the one the NLI pairs were built
-    # from), not from the raw spans: legacy span labels such as "insured persons" or
-    # "engineers" were folded into "others" there, but the ICR parser maps them to a group
+    # from), as for the coder matrices of the ICR notebook
     ann = pd.read_csv(GROUND_TRUTH_FILE, usecols=["id", "specific_group_new"]).set_index("id")["specific_group_new"]
     sentence_ids = per_sentence.index
     assert set(sentence_ids) <= set(ann.index), "model sentences missing from the annotations"

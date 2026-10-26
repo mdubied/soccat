@@ -1,6 +1,6 @@
 Subcategory,Category,France α (MASI),France # Ground-truth mentions,Germany α (MASI),Germany # Ground-truth mentions,All α (MASI),All # Ground-truth mentions
-Socio-economic position,(aggregate),0.8586,147,0.865,177,0.8621,324
-Socio-economic position,lower class,0.7665,40,0.7805,18,0.7707,58
+Socio-economic position,(aggregate),0.8608,147,0.865,177,0.8631,324
+Socio-economic position,lower class,0.7751,39,0.7805,18,0.7771,57
 Socio-economic position,middle class,0.9372,16,0.8887,8,0.9198,24
 Socio-economic position,upper class,0.7541,20,0.8568,11,0.7871,31
 Socio-economic position,"capital owners, investors and shareholders",0.9392,60,0.8847,104,0.9042,164
@@ -24,19 +24,19 @@ Age and family status,middle-aged and pre-retirement age groups,0.5874,10,0.8748
 Age and family status,elderly,0.7484,21,0.7343,14,0.7427,35
 Age and family status,couples,1.0,20,0.8432,16,0.9303,36
 Age and family status,singles,1.0,11,0.9059,16,0.9443,27
-"Gender, sexuality, and sociocultural characteristics",(aggregate),0.8789,298,0.9292,519,0.9104,817
+"Gender, sexuality, and sociocultural characteristics",(aggregate),0.8785,292,0.9291,512,0.9102,804
 "Gender, sexuality, and sociocultural characteristics",men,0.9005,33,0.9202,102,0.9153,135
 "Gender, sexuality, and sociocultural characteristics",women,0.9137,111,0.9484,215,0.9364,326
 "Gender, sexuality, and sociocultural characteristics",cisgender and heterosexuals,1.0,8,0.8568,12,0.9187,20
 "Gender, sexuality, and sociocultural characteristics",lgbtqia+,0.9087,16,0.9169,63,0.9154,79
 "Gender, sexuality, and sociocultural characteristics",disabled people,0.8886,8,0.9345,24,0.9216,32
 "Gender, sexuality, and sociocultural characteristics","people with an immigration background, including immigrants",0.8795,57,0.9484,163,0.9298,220
-"Gender, sexuality, and sociocultural characteristics",ethnic and racial minorities,0.715,22,0.8382,16,0.7607,38
+"Gender, sexuality, and sociocultural characteristics",ethnic and racial minorities,0.5927,11,0.7139,6,0.6263,17
 "Gender, sexuality, and sociocultural characteristics",christians,0.8478,19,0.8143,16,0.8327,35
 "Gender, sexuality, and sociocultural characteristics",jews,0.8843,28,0.8569,6,0.8795,34
 "Gender, sexuality, and sociocultural characteristics",muslims,0.8502,25,0.8418,9,0.8479,34
-"Gender, sexuality, and sociocultural characteristics",multiple (or other) religious or minority groups,0.4987,5,0.727,5,0.5799,10
-Profession,(aggregate),0.926,1283,0.8996,1503,0.9117,2786
+"Gender, sexuality, and sociocultural characteristics",multiple (or other) religious or minority groups,0.4748,8,0.6663,6,0.5446,14
+Profession,(aggregate),0.9284,1278,0.9003,1500,0.9132,2778
 Profession,athletes,0.9776,139,0.9008,228,0.9306,367
 Profession,authors and artists,0.96,92,0.9207,86,0.941,178
 Profession,doctors,0.9028,17,0.9596,51,0.9461,68
@@ -50,11 +50,11 @@ Profession,scientists and professors,0.8705,38,0.9304,45,0.9021,83
 Profession,security forces,0.9317,119,0.7579,119,0.8513,238
 Profession,soldiers,0.8954,42,0.8346,35,0.8689,77
 Profession,teachers and educators,0.952,30,0.9147,32,0.9339,62
-Profession,other professions,0.8487,136,0.7953,191,0.8156,327
-Social roles and behavior,(aggregate),0.8971,167,0.8873,310,0.8909,477
-Social roles and behavior,consumers and clients,0.8933,131,0.8589,212,0.8723,343
-Social roles and behavior,car drivers,1.0,17,1.0,13,1.0,30
-Social roles and behavior,patients,0.8326,19,0.9404,86,0.9217,105
+Profession,other professions,0.8709,130,0.7967,187,0.8245,317
+Social roles and behavior,(aggregate),0.8911,158,0.8949,295,0.8938,453
+Social roles and behavior,consumers and clients,0.8916,129,0.8681,207,0.8773,336
+Social roles and behavior,car drivers,1.0,11,1.0,10,1.0,21
+Social roles and behavior,patients,0.8228,18,0.9538,78,0.9301,96
 Social deviance,(aggregate),0.8967,143,0.8416,186,0.8665,329
 Social deviance,extremists,0.8451,28,0.854,34,0.8502,62
 Social deviance,"terrorists, rebels, revolutionaries and/or movements of armed resistance",0.7787,32,0.832,42,0.8052,74
@@ -64,5 +64,5 @@ Real estate ownership,(aggregate),0.9703,82,0.9461,70,0.9589,152
 Real estate ownership,real-estate owners,0.9716,51,0.9183,44,0.9459,95
 Real estate ownership,tenants,1.0,19,0.9777,22,0.9879,41
 Real estate ownership,homeless,0.9521,20,1.0,14,0.9713,34
-Others,(aggregate),0.8699,1020,0.8352,969,0.8539,1989
-Others,others,0.8699,1020,0.8352,969,0.8539,1989
+Others,(aggregate),0.8706,1040,0.8367,995,0.8548,2035
+Others,others,0.8706,1040,0.8367,995,0.8548,2035

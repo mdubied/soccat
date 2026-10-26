@@ -1,33 +1,33 @@
 Independent coder vs ground truth, per ground-truth label
 (units: ground-truth label x sentence x independent coder; residual "Others" class excluded)
 
-Ground-truth label units: 7,739
-Same label used by the coder: 6,919 (89.4%)
-Disagreements: 820 (10.6%), of which:
-  other label, same class        154   18.8%
-  other broad class              141   17.2%
-  other broad class + others       9    1.1%
-  others                         125   15.2%
-  none                           391   47.7%
+Ground-truth label units: 7,686
+Same label used by the coder: 6,873 (89.4%)
+Disagreements: 813 (10.6%), of which:
+  other label, same class        155   19.1%
+  other broad class              135   16.6%
+  other broad class + others      10    1.2%
+  others                         126   15.5%
+  none                           387   47.6%
 
-Coder used the residual "others" (alone or with a label of another broad class): 134 (16.3% of disagreements)
+Coder used the residual "others" (alone or with a label of another broad class): 136 (16.7% of disagreements)
 
-Other broad class (alone or + others), 150 units: broad classes involved
-  Labor market position <-> Profession: 69 (46.0%)
-  Labor market position <-> Socio-economic position: 14 (9.3%)
-  Social roles and behavior <-> Socio-economic position: 9 (6.0%)
-  Profession <-> Social deviance: 8 (5.3%)
-  Age and family status <-> Socio-economic position: 7 (4.7%)
-  Age and family status <-> Labor market position: 6 (4.0%)
-  Age and family status <-> Gender, sexuality, and sociocultural characteristics: 5 (3.3%)
-  Gender, sexuality, and sociocultural characteristics <-> Profession: 5 (3.3%)
+Other broad class (alone or + others), 145 units: broad classes involved
+  Labor market position <-> Profession: 65 (44.8%)
+  Labor market position <-> Socio-economic position: 14 (9.7%)
+  Social roles and behavior <-> Socio-economic position: 9 (6.2%)
+  Profession <-> Social deviance: 8 (5.5%)
+  Age and family status <-> Socio-economic position: 7 (4.8%)
+  Age and family status <-> Labor market position: 6 (4.1%)
+  Gender, sexuality, and sociocultural characteristics <-> Profession: 6 (4.1%)
+  Profession <-> Socio-economic position: 4 (2.8%)
 
-Other label, same class, 154 units: most frequent label pairs
-  minors <-> youth: 26 (16.9%)
-  other professions <-> security forces: 25 (16.2%)
+Other label, same class, 155 units: most frequent label pairs
+  minors <-> youth: 26 (16.8%)
+  other professions <-> security forces: 25 (16.1%)
   CEOs and corporate leaders <-> entrepreneurs: 9 (5.8%)
   offenders, criminals, prisoners and/or accused people <-> terrorists, rebels, revolutionaries and/or movements of armed resistance: 7 (4.5%)
   elderly <-> middle-aged and pre-retirement age groups: 6 (3.9%)
-  authors and artists <-> other professions: 6 (3.9%)
   lower class <-> unskilled or unqualified: 5 (3.2%)
   christians <-> multiple (or other) religious or minority groups: 5 (3.2%)
+  authors and artists <-> other professions: 5 (3.2%)
