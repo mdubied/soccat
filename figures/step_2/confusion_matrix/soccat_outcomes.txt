@@ -11,3 +11,23 @@ Disagreements: 1,628 (21.6%), of which:
   none                          1215   74.6%
 
 SOCCAT used the residual "others" (alone or with a label of another broad class): 0 (0.0% of disagreements)
+
+Other broad class (alone or + others), 262 units: broad classes involved
+  Labor market position <-> Profession: 64 (24.4%)
+  Gender, sexuality, and sociocultural characteristics <-> Profession: 30 (11.5%)
+  Age and family status <-> Profession: 24 (9.2%)
+  Profession <-> Social deviance: 23 (8.8%)
+  Labor market position <-> Socio-economic position: 21 (8.0%)
+  Age and family status <-> Gender, sexuality, and sociocultural characteristics: 21 (8.0%)
+  Profession <-> Social roles and behavior: 12 (4.6%)
+  Age and family status <-> Labor market position: 10 (3.8%)
+
+Other label, same class, 151 units: most frequent label pairs
+  minors <-> youth: 18 (11.9%)
+  other professions <-> security forces: 11 (7.3%)
+  authors and artists <-> other professions: 10 (6.6%)
+  offenders, criminals, prisoners and/or accused people <-> terrorists, rebels, revolutionaries and/or movements of armed resistance: 8 (5.3%)
+  CEOs and corporate leaders <-> entrepreneurs: 7 (4.6%)
+  athletes <-> authors and artists: 6 (4.0%)
+  athletes <-> politicians and high-ranking officials: 6 (4.0%)
+  entrepreneurs <-> wage and salary earners: 5 (3.3%)

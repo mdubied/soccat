@@ -198,8 +198,43 @@ def outcome_table(units, codebook: dict) -> pd.DataFrame:
     return df
 
 
-def outcome_summary(df: pd.DataFrame, who: str = 'independent coder') -> str:
-    """Text summary of outcome_table's 'All' row; `who` names the compared side."""
+def outcome_details(units, codebook: dict, top: int = 8) -> str:
+    """Which classes / labels are involved in two disagreement outcomes of outcome_table:
+    - other broad class (alone or + others): the unordered pair (broad class of the
+      ground-truth label, broad class of a wrong label used instead);
+    - other label, same class: the unordered pair (ground-truth label, wrong label).
+    Shares are of the units with that outcome; a unit with several wrong labels counts
+    for each pair it involves, so shares can add up to more than 100%."""
+    broad_of = {l: b for b, lbls in codebook.items() if b != 'Others' for l in lbls}
+    cross, within, n_cross, n_within = Counter(), Counter(), 0, 0
+    for broad, lbls in codebook.items():
+        if broad == 'Others':
+            continue
+        in_class = set(lbls)
+        for l in lbls:
+            for gt, coder in units:
+                if l not in gt:
+                    continue
+                outcome = label_outcome(l, in_class, coder, gt)
+                wrong = coder - gt
+                if outcome in ('other broad class', 'other broad class + others'):
+                    n_cross += 1
+                    for b in {broad_of[w] for w in wrong - in_class if w in broad_of}:
+                        cross[tuple(sorted((broad, b)))] += 1
+                elif outcome == 'other label, same class':
+                    n_within += 1
+                    for w in wrong & in_class:
+                        within[tuple(sorted((l, w)))] += 1
+    lines = [f'Other broad class (alone or + others), {n_cross:,} units: broad classes involved']
+    lines += [f'  {a} <-> {b}: {n} ({100 * n / n_cross:.1f}%)' for (a, b), n in cross.most_common(top)]
+    lines += ['', f'Other label, same class, {n_within:,} units: most frequent label pairs']
+    lines += [f'  {a} <-> {b}: {n} ({100 * n / n_within:.1f}%)' for (a, b), n in within.most_common(top)]
+    return '\n'.join(lines)
+
+
+def outcome_summary(df: pd.DataFrame, who: str = 'independent coder', units=None, codebook: dict = None) -> str:
+    """Text summary of outcome_table's 'All' row; `who` names the compared side. With
+    `units` and `codebook`, outcome_details is appended."""
     short = who.split()[-1]  # 'coder' / 'SOCCAT'
     subject = f'the {short}' if short.islower() else short  # 'the coder', but 'SOCCAT'
     tot = df.loc['All']
@@ -216,4 +251,6 @@ def outcome_summary(df: pd.DataFrame, who: str = 'independent coder') -> str:
     lines += ['', f'{short[:1].upper() + short[1:]} used the residual "others" (alone or with a label of another broad class): '
               f'{int(tot["others"] + tot["other broad class + others"]):,} '
               f'({100 * (tot["others"] + tot["other broad class + others"]) / n_dis:.1f}% of disagreements)']
+    if units is not None and codebook is not None:
+        lines += ['', outcome_details(units, codebook)]
     return '\n'.join(lines)

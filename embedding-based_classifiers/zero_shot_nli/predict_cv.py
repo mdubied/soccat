@@ -6,7 +6,10 @@ Zero-shot NLI: SOCCAT's base model without fine-tuning, same data and folds as t
 Shows what fine-tuning on the annotations adds: the starting model of SOCCAT
 (MoritzLaurer/mDeBERTa-v3-base-mnli-xnli), not trained on any annotation, scores
 every (sentence, hypothesis) pair with SOCCAT's own hypotheses ("This sentence
-refers to ... as a social group, specifically ...").
+refers to ... as a social group, specifically ..."). These pairs are read from
+input/ (the five fold files of a single NLI model trained with these hypotheses,
+kept here as this script's input; only the pair columns are used), not from
+../single_nli/, whose hypotheses name the specific label only.
 
 P(entailment) follows the usual zero-shot multi-label convention: softmax over
 the model's entailment and contradiction logits only (neutral ignored); a pair is
@@ -45,8 +48,9 @@ MAX_LENGTH, BATCH = 256, 128
 def parse_args():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--out", type=Path, default=HERE / "data", help="Output folder (default: ./data)")
-    ap.add_argument("--pairs_dir", type=Path, default=common.PAIRS_DIR,
-                    help="Folder with the single NLI model's fold_*_human_vs_model.csv (data and folds)")
+    ap.add_argument("--pairs_dir", type=Path, default=HERE / "input",
+                    help="Folder with the fold_*_human_vs_model.csv giving the pairs (data, hypotheses "
+                         "and folds; default: ./input, SOCCAT's hypotheses naming the broad class)")
     ap.add_argument("--folds", type=int, nargs="+", default=list(range(common.K_FOLDS)))
     ap.add_argument("--finalize", action="store_true", help="Only write the cross-fold files")
     ap.add_argument("--model", default=MODEL_NAME, help="Hugging Face id or local folder of the NLI model")

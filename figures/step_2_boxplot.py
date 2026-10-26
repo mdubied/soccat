@@ -42,6 +42,9 @@ parser.add_argument("--data_dir", type=str, default=None,
                     help="Folder containing one subfolder per broad class (default: ../data/model_performance/step_2)")
 parser.add_argument("--output_dir", type=str, default=None,
                     help="Output folder (default: step_2/boxplots)")
+parser.add_argument("--file_prefix", type=str, default=None,
+                    help="Prefix of the output file names, naming the model (default: step_2 for the "
+                         "broad class figures, none for the per-class figures)")
 args = parser.parse_args()
 
 # ============================================================
@@ -71,12 +74,12 @@ FOLDER_NAME_MAP = {
 if SETUP_NAME == "cat_per_broad_class_boxplot":
     BROAD_CLASS = args.broad_class
     OUTPUT_DIR   = f"step_2/boxplots/cat_per_broad_class_boxplot"
-    OUTPUT_BASE_NAME = f"{BROAD_CLASS}_boxplot"
+    OUTPUT_BASE_NAME = (f"{args.file_prefix}_" if args.file_prefix else "") + f"{BROAD_CLASS}_boxplot"
     NAME_CAT = "hypothesis_label"
     LBL_WIDTH_FRAC  = 0.29   # Fixed fraction of figure width for labels (instead of measuring)
 elif SETUP_NAME == "broad_class_boxplot":
     OUTPUT_DIR   = "step_2/boxplots"
-    OUTPUT_BASE_NAME = "step_2_perf_broad_class_boxplot"
+    OUTPUT_BASE_NAME = f"{args.file_prefix or 'step_2'}_perf_broad_class_boxplot"
     NAME_CAT = "hypothesis_label"
     LBL_WIDTH_FRAC  = 0.24   # Fixed fraction of figure width for labels (instead of measuring)
     MERGED_LBL_WIDTH_FRAC = 0.27  # merged all-categories figure needs the wider margin (long category names)
@@ -215,6 +218,71 @@ MERGED_BBOX_COLOR_OVERRIDE = {
     **AGGREGATE_BBOX_COLOR_OVERRIDE,
     **{k: v for d in CATEGORY_BBOX_COLOR_OVERRIDES.values() for k, v in d.items()},
 }
+
+# Model-specific annotation tuning, selected by --file_prefix: the overrides above
+# were tuned on SOCCAT's own boxes, which differ from another model's. For each
+# label listed in "labels", SOCCAT's overrides are dropped (all metrics) and this
+# model's "score_x" / "bbox" entries apply instead (no entry = default position
+# and white background). Other labels keep SOCCAT's overrides.
+MODEL_ANNOTATION_OVERRIDES = {
+    "single_nli": {
+        "labels": {
+            "Ethnic and racial minorities",
+            "multiple (or other) religious or minority groups",
+            "health and care professionals",
+            "lower class",
+            "upper class",
+            "terrorists, revolutionaries, rebels, armed resistance",
+            "other professions",
+            "middle-aged and pre-retirement age groups",
+            "Christians",
+            "middle class",                    # default position (no override)
+            "self-employed and freelancers",   # default position (no override)
+            "CEOs and corporate leaders",
+        },
+        "score_x": {
+            ("recall_binary", "health and care professionals"): 0.46,  # in the box, right of the median
+            ("f1_binary", "health and care professionals"): 0.56,      # in the box, right of the median
+            ("recall_binary", "Ethnic and racial minorities"): 0.36,   # in the box, right of the median (0.33)
+            ("recall_binary", "lower class"): 0.58,  # right of the box (ends at 0.55)
+            ("f1_binary", "lower class"): 0.0,       # clears the outlier at 0.29
+            ("recall_binary", "upper class"): 0.53,  # right of the box, left of the outlier (0.83)
+            ("f1_binary", "upper class"): 0.0,       # clears the whisker starting at 0.29
+            ("recall_binary", "other professions"): 0.0,  # nearer the outlier at 0.27: transparent below
+            ("recall_binary", "Christians"): 0.0,         # nearer the outlier at 0.29: transparent below
+            ("recall_binary", "CEOs and corporate leaders"): 0.0,  # nearer the outlier at 0.27: transparent below
+            ("recall_binary", "middle-aged and pre-retirement age groups"): 0.27,  # just right of the box (ends at 0.25)
+        },
+        "bbox": {
+            ("recall_binary", "Ethnic and racial minorities"): "lightgray",
+            # boxes starting at 0: the value necessarily sits in the box (as for SOCCAT)
+            ("precision_binary", "middle-aged and pre-retirement age groups"): "lightgray",
+            ("f1_binary", "middle-aged and pre-retirement age groups"): "lightgray",
+            # transparent: the value sits just left of an outlier / whisker
+            ("f1_binary", "lower class"): "none",
+            ("f1_binary", "upper class"): "none",
+            ("recall_binary", "other professions"): "none",
+            ("recall_binary", "Christians"): "none",
+            ("recall_binary", "CEOs and corporate leaders"): "none",
+            # box starts at 0 (folds scoring 0): the value necessarily sits in the box
+            ("precision_binary", "multiple (or other) religious or minority groups"): "lightgray",
+            ("recall_binary", "multiple (or other) religious or minority groups"): "lightgray",
+            ("f1_binary", "multiple (or other) religious or minority groups"): "lightgray",
+            ("recall_binary", "health and care professionals"): "lightgray",
+            ("f1_binary", "health and care professionals"): "none",  # transparent: tight between median and box edge
+        },
+    },
+}
+if args.file_prefix in MODEL_ANNOTATION_OVERRIDES:
+    _m = MODEL_ANNOTATION_OVERRIDES[args.file_prefix]
+
+    def _for_model(overrides, own):
+        return {**{k: v for k, v in overrides.items() if k[1] not in _m["labels"]}, **_m[own]}
+
+    SCORE_X_OVERRIDE = _for_model(SCORE_X_OVERRIDE, "score_x")
+    TEXT_BBOX_COLOR_OVERRIDE = _for_model(TEXT_BBOX_COLOR_OVERRIDE, "bbox")
+    MERGED_SCORE_X_OVERRIDE = _for_model(MERGED_SCORE_X_OVERRIDE, "score_x")
+    MERGED_BBOX_COLOR_OVERRIDE = _for_model(MERGED_BBOX_COLOR_OVERRIDE, "bbox")
 
 
 
@@ -938,7 +1006,7 @@ if SETUP_NAME == "broad_class_boxplot":
             else:
                 part_wrapped.append(wrap_and_capitalize([lbl], wrap_w)[0])
 
-        output_path = os.path.join(OUTPUT_DIR, f"step_2_perf_boxplot_part{part_num}.pdf")
+        output_path = os.path.join(OUTPUT_DIR, f"{args.file_prefix or 'step_2'}_perf_boxplot_part{part_num}.pdf")
         render_boxplot_figure(
             df_cats_full, part_raw_labels, part_wrapped, fixed_fold_map, output_path,
             label_col="hypothesis_label", header_labels=header_labels,

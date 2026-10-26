@@ -5,45 +5,45 @@
 \begin{threeparttable}
 \caption{Comparison with embedding-based classifiers. Part 2/2.}
 \label{tab:embedding_baselines_part2}
-\begin{tabular}{l c c c c c c c}
+\begin{tabular}{l c c c c c c c c c}
 \toprule
- & \multicolumn{2}{c}{Zero-shot NLI} & \multicolumn{2}{c}{Fine-tuned classifier} & \multicolumn{3}{c}{SOCCAT} \\
-\cmidrule(lr){2-3} \cmidrule(lr){4-5} \cmidrule(lr){6-8}
-Specific category & \multicolumn{1}{c}{mean} & \multicolumn{1}{c}{med} & \multicolumn{1}{c}{mean} & \multicolumn{1}{c}{med} & \multicolumn{1}{c}{best fold} & \multicolumn{1}{c}{mean} & \multicolumn{1}{c}{med} \\
+ & \multicolumn{2}{c}{Zero-shot NLI} & \multicolumn{2}{c}{Fine-tuned classifier} & \multicolumn{2}{c}{Single NLI model} & \multicolumn{3}{c}{SOCCAT} \\
+\cmidrule(lr){2-3} \cmidrule(lr){4-5} \cmidrule(lr){6-7} \cmidrule(lr){8-10}
+Specific category & \multicolumn{1}{c}{mean} & \multicolumn{1}{c}{med} & \multicolumn{1}{c}{mean} & \multicolumn{1}{c}{med} & \multicolumn{1}{c}{mean} & \multicolumn{1}{c}{med} & \multicolumn{1}{c}{best fold} & \multicolumn{1}{c}{mean} & \multicolumn{1}{c}{med} \\
 \midrule
-\rule{0pt}{5pt} &  &  &  &  &  &  &  \\
-\shortstack[l]{\textbf{Profession}\\[3pt]Athletes} & 0.54 & 0.54 & 0.79 & 0.79 & 0.83 & 0.81 & 0.79 \\
-\textit{Authors and artists} & 0.21 & 0.19 & \textit{0.77} & \textit{0.78} & 0.84 & 0.76 & 0.75 \\
-\textit{Doctors} & 0.60 & 0.56 & 0.87 & \textit{0.88} & 0.93 & 0.88 & 0.86 \\
-Farmers and fishermen & 0.23 & 0.24 & 0.79 & 0.78 & 0.90 & 0.86 & 0.87 \\
-\shortstack[l]{Health and care\\[-3pt]professionals} & 0.11 & 0.12 & 0.49 & 0.50 & 0.50 & 0.57 & 0.55 \\
-\textit{Journalists} & 0.35 & 0.32 & \textit{0.85} & \textit{0.86} & 0.88 & 0.84 & 0.88 \\
-Legal professionals & 0.16 & 0.17 & 0.57 & 0.59 & 0.60 & 0.73 & 0.73 \\
-\shortstack[l]{Politicians and\\[-3pt]high-ranking officials} & 0.25 & 0.27 & 0.90 & 0.91 & 0.91 & 0.91 & 0.91 \\
-Sex workers & 0.33 & 0.38 & 0.76 & 0.75 & 0.89 & 0.88 & 0.89 \\
-\shortstack[l]{Scientists and\\[-3pt]professors} & 0.19 & 0.19 & 0.72 & 0.69 & 0.77 & 0.76 & 0.77 \\
-Security forces & 0.37 & 0.35 & 0.80 & 0.78 & 0.87 & 0.81 & 0.82 \\
-Soldiers & 0.28 & 0.25 & 0.69 & 0.69 & 0.71 & 0.74 & 0.75 \\
-\textit{Teachers and educators} & 0.15 & 0.15 & \textit{0.79} & \textit{0.83} & 0.72 & 0.75 & 0.76 \\
-Other professions & 0.08 & 0.09 & 0.57 & 0.57 & 0.56 & 0.57 & 0.59 \\
-\rule{0pt}{5pt} &  &  &  &  &  &  &  \\
-\shortstack[l]{\textbf{Social roles and behavior}\\[3pt]\textit{Consumers and clients}} & 0.22 & 0.22 & 0.80 & \textit{0.82} & 0.85 & 0.82 & 0.82 \\
-\textit{Car drivers} & 0.15 & 0.15 & \textit{0.73} & \textit{0.67} & 0.75 & 0.54 & 0.60 \\
-\textit{Patients} & 0.17 & 0.16 & \textit{0.82} & 0.81 & 0.89 & 0.81 & 0.85 \\
-\rule{0pt}{5pt} &  &  &  &  &  &  &  \\
-\shortstack[l]{\textbf{Social deviance}\\[3pt]Extremists} & 0.03 & 0.03 & 0.44 & 0.38 & 0.63 & 0.61 & 0.63 \\
-\shortstack[l]{Terrorists, rebels,\\[-3pt]revolutionaries and/or\\[-3pt]movements of armed resistance} & 0.06 & 0.07 & 0.56 & 0.53 & 0.67 & 0.61 & 0.67 \\
-\shortstack[l]{\textit{Offenders, criminals, prisoners}\\[-3pt]\textit{and/or accused people}} & 0.10 & 0.10 & \textit{0.64} & \textit{0.68} & 0.70 & 0.61 & 0.58 \\
-Drug addicts & 0.29 & 0.29 & 0.68 & 0.57 & 0.89 & 0.87 & 0.89 \\
-\rule{0pt}{5pt} &  &  &  &  &  &  &  \\
-\shortstack[l]{\textbf{Real estate ownership}\\[3pt]\textit{Real-estate owners}} & 0.03 & 0.03 & \textit{0.87} & \textit{0.89} & 0.92 & 0.86 & 0.86 \\
-Tenants & 0.07 & 0.07 & 0.77 & 0.77 & 1.00 & 0.88 & 0.89 \\
-Homeless & 0.20 & 0.19 & 0.69 & 0.67 & 1.00 & 0.86 & 0.91 \\
+\rule{0pt}{5pt} &  &  &  &  &  &  &  &  &  \\
+\shortstack[l]{\textbf{Profession}\\[3pt]Athletes} & 0.54 & 0.54 & 0.79 & 0.79 & 0.81 & 0.79 & 0.83 & 0.81 & 0.79 \\
+\textit{Authors and artists} & 0.21 & 0.19 & \textit{0.77} & \textit{0.78} & 0.71 & 0.71 & 0.84 & 0.76 & 0.75 \\
+\textit{Doctors} & 0.60 & 0.56 & 0.87 & \textit{0.88} & \textit{0.92} & \textit{0.92} & 0.93 & 0.88 & 0.86 \\
+\textit{Farmers and fishermen} & 0.23 & 0.24 & 0.79 & 0.78 & 0.84 & \textit{0.93} & 0.90 & 0.86 & 0.87 \\
+\shortstack[l]{Health and care\\[-3pt]professionals} & 0.11 & 0.12 & 0.49 & 0.50 & 0.56 & 0.55 & 0.50 & 0.57 & 0.55 \\
+\textit{Journalists} & 0.35 & 0.32 & \textit{0.85} & \textit{0.86} & \textit{0.84} & \textit{0.88} & 0.88 & 0.84 & 0.88 \\
+Legal professionals & 0.16 & 0.17 & 0.57 & 0.59 & 0.66 & 0.64 & 0.60 & 0.73 & 0.73 \\
+\shortstack[l]{\textit{Politicians and}\\[-3pt]\textit{high-ranking officials}} & 0.25 & 0.27 & 0.90 & 0.91 & 0.91 & \textit{0.91} & 0.91 & 0.91 & 0.91 \\
+\textit{Sex workers} & 0.33 & 0.38 & 0.76 & 0.75 & \textit{0.90} & \textit{0.91} & 0.89 & 0.88 & 0.89 \\
+\shortstack[l]{\textit{Scientists and}\\[-3pt]\textit{professors}} & 0.19 & 0.19 & 0.72 & 0.69 & \textit{0.78} & \textit{0.76} & 0.77 & 0.76 & 0.77 \\
+\textit{Security forces} & 0.37 & 0.35 & 0.80 & 0.78 & \textit{0.83} & \textit{0.82} & 0.87 & 0.81 & 0.82 \\
+\textit{Soldiers} & 0.28 & 0.25 & 0.69 & 0.69 & \textit{0.75} & \textit{0.76} & 0.71 & 0.74 & 0.75 \\
+\textit{Teachers and educators} & 0.15 & 0.15 & \textit{0.79} & \textit{0.83} & \textit{0.77} & \textit{0.83} & 0.72 & 0.75 & 0.76 \\
+\textit{Other professions} & 0.08 & 0.09 & 0.57 & 0.57 & 0.56 & \textit{0.60} & 0.56 & 0.57 & 0.59 \\
+\rule{0pt}{5pt} &  &  &  &  &  &  &  &  &  \\
+\shortstack[l]{\textbf{Social roles and behavior}\\[3pt]\textit{Consumers and clients}} & 0.22 & 0.22 & 0.80 & \textit{0.82} & \textit{0.82} & \textit{0.84} & 0.85 & 0.82 & 0.82 \\
+\textit{Car drivers} & 0.15 & 0.15 & \textit{0.73} & \textit{0.67} & \textit{0.70} & \textit{0.67} & 0.75 & 0.54 & 0.60 \\
+\textit{Patients} & 0.17 & 0.16 & \textit{0.82} & 0.81 & \textit{0.82} & 0.79 & 0.89 & 0.81 & 0.85 \\
+\rule{0pt}{5pt} &  &  &  &  &  &  &  &  &  \\
+\shortstack[l]{\textbf{Social deviance}\\[3pt]\textit{Extremists}} & 0.03 & 0.03 & 0.44 & 0.38 & \textit{0.64} & 0.60 & 0.63 & 0.61 & 0.63 \\
+\shortstack[l]{Terrorists, rebels,\\[-3pt]revolutionaries and/or\\[-3pt]movements of armed resistance} & 0.06 & 0.07 & 0.56 & 0.53 & 0.61 & 0.58 & 0.67 & 0.61 & 0.67 \\
+\shortstack[l]{\textit{Offenders, criminals, prisoners}\\[-3pt]\textit{and/or accused people}} & 0.10 & 0.10 & \textit{0.64} & \textit{0.68} & \textit{0.67} & \textit{0.67} & 0.70 & 0.61 & 0.58 \\
+\textit{Drug addicts} & 0.29 & 0.29 & 0.68 & 0.57 & \textit{0.91} & \textit{0.91} & 0.89 & 0.87 & 0.89 \\
+\rule{0pt}{5pt} &  &  &  &  &  &  &  &  &  \\
+\shortstack[l]{\textbf{Real estate ownership}\\[3pt]\textit{Real-estate owners}} & 0.03 & 0.03 & \textit{0.87} & \textit{0.89} & \textit{0.93} & \textit{0.92} & 0.92 & 0.86 & 0.86 \\
+\textit{Tenants} & 0.07 & 0.07 & 0.77 & 0.77 & 0.87 & \textit{0.93} & 1.00 & 0.88 & 0.89 \\
+\textit{Homeless} & 0.20 & 0.19 & 0.69 & 0.67 & \textit{0.87} & 0.83 & 1.00 & 0.86 & 0.91 \\
 \bottomrule
 \end{tabular}
 \begin{tablenotes}[flushleft]
 \footnotesize
-\item \textit{Note:} Reported scores are the binary, positive-class F1 score. Zero-shot NLI: SOCCAT's base NLI model (mDeBERTa-v3-base-mnli-xnli) without fine-tuning; fine-tuned classifier: the same model fine-tuned as a multi-label classifier (one output per group label). Both are evaluated by 5-fold cross-validation on the same sentences and annotations as SOCCAT; mean / median (med) across the 5 folds. SOCCAT: best cross-validation fold (best, released model), or mean / median across the 5 folds. Italics are used for a label when a baseline beats SOCCAT's mean F1, and it shows the beating F1 values.
+\item \textit{Note:} Reported scores are the binary, positive-class F1 score. Zero-shot NLI: SOCCAT's base NLI model (mDeBERTa-v3-base-mnli-xnli) without fine-tuning; fine-tuned classifier: the same model fine-tuned as a multi-label classifier (one output per group label); single NLI model: one NLI model for all group labels instead of one per broad class, its hypotheses naming the group label only. All are evaluated by 5-fold cross-validation on the same sentences and annotations as SOCCAT; mean / median (med) across the 5 folds. SOCCAT: best cross-validation fold (best, released model), or mean / median across the 5 folds. Italics are used for a label when a baseline beats SOCCAT's mean F1, and it shows the beating F1 values.
 \end{tablenotes}
 \end{threeparttable}
 \end{table}

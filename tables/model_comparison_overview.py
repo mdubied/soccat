@@ -10,11 +10,14 @@ One row per method, all scored the same way, so the rows are comparable:
   the residual "others" category, which only the LLM predicts, is left out;
 - precision, recall and F1: pooled over all (sentence, label) pairs of the
   method's test sentences (one prediction per pair, P > 0.5 for the models);
-- macro F1 (column "Macro F1"): each label's F1 on those sentences, averaged over the
-  labels with at least one mention among them.
+- mean group F1 (column "Mean group F1"; named so to avoid confusion with the
+  macro F1 of the other tables, the mean of positive- and negative-class F1):
+  each label's F1 on those sentences, averaged over the labels with at least one
+  mention among them, every label weighted equally.
 
 Methods and test sentences:
-- SOCCAT (one NLI model per broad class), single NLI model, fine-tuned classifier,
+- SOCCAT (one NLI model per broad class), the single NLI model (all groups, its
+  hypotheses naming the specific label only), fine-tuned classifier,
   zero-shot NLI: pooled out-of-fold predictions of the 5-fold CV, all 7,234 sentences;
 - Claude Sonnet-5 (high thinking effort, long prompt, the best LLM configuration):
   its random sample of 1,446 sentences (llm/classification/output/step_2/);
@@ -116,7 +119,7 @@ def main():
     P_soccat = matrix(main_pairs, "pred_label", sentences, labels)
     pos = {sid: i for i, sid in enumerate(sentences)}
 
-    # rows named by formulation: the first four all use mDeBERTa-v3-base (see the note)
+    # rows named by formulation: the first four all use mDeBERTa-v3-base
     methods = [("SOCCAT (NLI, one model per broad class)", P_soccat, sentences)]
     for title, folder in [("NLI, single model (all groups)", "single_nli"),
                           ("Multi-label classifier (fine-tuned)", "fine_tuned_classifier"),
@@ -150,7 +153,7 @@ def main():
         r"\label{tab:model-comparison-overview}",
         r"\begin{tabular}{l r r r r r}",
         r"\toprule",
-        r"Method & Sentences & Precision & Recall & F1 & Macro F1 \\",
+        r"Method & Sentences & Precision & Recall & F1 & Mean group F1 \\",
         r"\midrule",
     ]
     for i, r in df.iterrows():
@@ -164,8 +167,8 @@ def main():
         r"\begin{tablenotes}[flushleft]",
         r"\footnotesize",
         r"\item \textit{Note:} Positive-class scores over the 57 group labels (\textit{others} excluded), pooled "
-        r"over all (sentence, group label) pairs; macro F1: unweighted mean of the groups' F1. SOCCAT, the "
-        r"single NLI model, the multi-label classifier and zero-shot NLI all use mDeBERTa-v3-base. Held-out "
+        r"over all (sentence, group label) pairs. Mean group F1 is the unweighted mean of the 57 groups' F1 "
+        r"(each group's F1 computed over all its test sentences). Held-out "
         r"predictions of 5-fold cross-validation, except for Claude Sonnet-5 (random sample) and the "
         r"dictionary (held-out split).",
         r"\end{tablenotes}",

@@ -7,15 +7,17 @@ Used by fine_tuned_classifier/train_cv.py and zero_shot_nli/predict_cv.py so tha
 both are evaluated exactly like the single NLI model (single_nli/, notebook
 examples/CV_combined_all_dimensions_v4.ipynb):
 
-- Data: the (sentence, hypothesis) pairs of all 57 labels stacked, read from the
-  single NLI model's fold_*_human_vs_model.csv files (PAIRS_DIR). These are the 8
+- Data: the (sentence, hypothesis) pairs of all 57 labels stacked, read from a
+  model's fold_*_human_vs_model.csv files (PAIRS_DIR = single_nli/data by default;
+  zero_shot_nli/predict_cv.py reads its own copy in zero_shot_nli/input/, whose
+  hypotheses name the broad class, as in the main models). They hold the 8
   nli_dataset_full.csv files of the main models stacked: the 7,234 sentences with a
   non-empty ground truth (target_abroad = 1 removed), each paired with the 57
   hypotheses, with the same gold labels (nli_label: 0 = entailment / group present).
 - Folds: the notebook's 5-fold split, stratified on the positives of all 57 labels
   jointly (seed 42), sentences without any positive dealt round-robin after a seeded
   shuffle. It is recomputed here and checked against the fold each sentence was
-  tested in by the single NLI model, so all three models share the same split.
+  tested in by the single NLI model, so all models share the same split.
 - Metrics and output files: as in the notebook (prediction = P(entailment) > 0.5).
 
 Per-fold outputs (directly in OUT_DIR, as in single_nli/data/; same names and columns as
@@ -41,6 +43,15 @@ from sklearn.metrics import (accuracy_score, average_precision_score, cohen_kapp
 
 ROOT = Path(__file__).resolve().parent
 PAIRS_DIR = ROOT / "single_nli" / "data"
+# the single NLI model (one model for all 57 labels instead of one per broad class;
+# its hypotheses name the specific label only): folder -> display names (title:
+# figure legends; caption: in a sentence; header: table columns)
+SINGLE_NLI_MODELS = {
+    "single_nli": {
+        "title": "Single NLI model (all labels)",
+        "caption": "the single NLI model",
+        "header": "Single NLI model"},
+}
 K_FOLDS = 5
 SEED = 42
 PAIR_COLS = ["sentence_id", "premise", "hypothesis", "nli_label", "hypothesis_label", "dimension",

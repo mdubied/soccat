@@ -1,19 +1,21 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Per-label F1 table: zero-shot NLI and fine-tuned classifier vs SOCCAT
-======================================================================
-Appendix table comparing SOCCAT (one NLI model per broad class) with two
-embedding-based baselines, in the same layout as the LLM and dictionary
+Per-label F1 table: zero-shot NLI, fine-tuned classifier and single NLI model vs SOCCAT
+========================================================================================
+Appendix table comparing SOCCAT (one NLI model per broad class) with three
+classifiers built on the same base model, in the same layout as the LLM and dictionary
 comparisons (dictionary/05_make_latex_table.py's build_table is reused, so the
 rows, label wrapping, split into two parts and SOCCAT columns are identical):
 
 - Zero-shot NLI (zero_shot_nli/): SOCCAT's base model without fine-tuning.
 - Fine-tuned classifier (fine_tuned_classifier/): the same base model fine-tuned
   as a 57-label multi-label classifier.
+- Single NLI model (single_nli/): one NLI model for all 57 labels instead of
+  one per broad class, its hypotheses naming the specific label only.
 
-Both use the same 7,234 sentences, gold labels and 5-fold CV split as the single
-NLI model (see common.py). Like SOCCAT's "mean"/"med" columns, their scores are
+All use the same 7,234 sentences, gold labels and 5-fold CV split
+(see common.py). Like SOCCAT's "mean"/"med" columns, their scores are
 the mean / median over the 5 folds of each label's positive-class F1
 (data/fold_*_per_label.csv). They have no "best fold" column: no fold of theirs
 is a released model. As in the LLM table, a value is set in italics when it
@@ -33,6 +35,8 @@ from pathlib import Path
 
 import pandas as pd
 
+from common import SINGLE_NLI_MODELS
+
 ROOT = Path(__file__).resolve().parent
 REPO = ROOT.parent
 OUTPUT_DIR = ROOT / "output"
@@ -41,9 +45,10 @@ N_FOLDS = 5
 sys.path.insert(0, str(REPO / "dictionary"))
 dt = import_module("05_make_latex_table")   # build_table, load_soccat_metrics, categories
 
-MODELS = {   # key -> (folder with fold_*_per_label.csv, column title)
-    "zero_shot": (ROOT / "zero_shot_nli" / "data", "Zero-shot NLI"),
-    "fine_tuned": (ROOT / "fine_tuned_classifier" / "data", "Fine-tuned classifier"),
+MODELS = {   # key -> (folder with fold_*_per_label.csv, column title, name in printed output)
+    "zero_shot": (ROOT / "zero_shot_nli" / "data", "Zero-shot NLI", "Zero-shot NLI"),
+    "fine_tuned": (ROOT / "fine_tuned_classifier" / "data", "Fine-tuned classifier", "Fine-tuned classifier"),
+    **{folder: (ROOT / folder / "data", m["header"], m["title"]) for folder, m in SINGLE_NLI_MODELS.items()},
 }
 # broad class as in the models' hypothesis_label ("Dimension | label") -> categories.json name
 DIMENSION_TO_CATEGORY = {
@@ -72,7 +77,7 @@ def main():
     categories = json.loads(dt.CATEGORIES_FILE.read_text(encoding="utf-8"))
 
     lookup, rows = {}, []
-    for key, (folder, _) in MODELS.items():
+    for key, (folder, _, _) in MODELS.items():
         stats = fold_f1(folder)
         expected = {(c["name"], l) for c in categories for l in c["labels"]}
         assert set(stats.index) == expected, f"{key}: labels differ from categories.json"
@@ -87,12 +92,14 @@ def main():
     pd.DataFrame(rows).to_csv(OUTPUT_DIR / "baselines_per_label_f1.csv", index=False)
 
     super_groups = [(title, [(f"{key}_mean", "mean"), (f"{key}_median", "med")])
-                    for key, (_, title) in MODELS.items()]
+                    for key, (_, title, _) in MODELS.items()]
     super_groups.append(("SOCCAT", [(v, dt.SOCCAT_VARIANT_TITLES[v]) for v in dt.SOCCAT_VARIANTS]))
     highlight = [f"{key}_{stat}" for key in MODELS for stat in ("mean", "median")]
     note = (r"Reported scores are the binary, positive-class F1 score. Zero-shot NLI: SOCCAT's base "
             r"NLI model (mDeBERTa-v3-base-mnli-xnli) without fine-tuning; fine-tuned classifier: the "
-            r"same model fine-tuned as a multi-label classifier (one output per group label). Both "
+            r"same model fine-tuned as a multi-label classifier (one output per group label); single "
+            r"NLI model: one NLI model for all group labels instead of one per broad class, its "
+            r"hypotheses naming the group label only. All "
             r"are evaluated by 5-fold cross-validation on the same sentences and annotations as "
             r"SOCCAT; mean / median (med) across the 5 folds. SOCCAT: best cross-validation fold "
             r"(best, released model), or mean / median across the 5 folds. Italics are used for a "
@@ -111,10 +118,10 @@ def main():
     df = pd.DataFrame(rows)
     n = len(df)
     print(f"\nLabels where a baseline beats SOCCAT's mean F1 (of {n}):")
-    for key, (_, title) in MODELS.items():
-        print(f"  {title:<22} mean {int((df[f'{key}_mean'] > df['soccat_mean']).sum()):>2}  "
+    for key, (_, _, title) in MODELS.items():
+        print(f"  {title:<46} mean {int((df[f'{key}_mean'] > df['soccat_mean']).sum()):>2}  "
               f"| average over labels of the fold-mean F1: {df[f'{key}_mean'].mean():.3f}")
-    print(f"  {'SOCCAT':<22}         | average over labels of the fold-mean F1: {df['soccat_mean'].mean():.3f}")
+    print(f"  {'SOCCAT':<46}         | average over labels of the fold-mean F1: {df['soccat_mean'].mean():.3f}")
 
 
 if __name__ == "__main__":
