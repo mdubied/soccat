@@ -1,6 +1,6 @@
 Step 2 LLM classification report -- all runs
 ============================================================
-Generated:  2026-10-16T09:53:39
+Generated:  2026-10-26T12:24:16
 Runs found: 6  (in llm\classification\output\step_2)
 
 SOCCAT baseline for reference (data\model_performance\step_2/*/fold_*_per_label.csv, best fold selected by n_pos-weighted macro F1):
@@ -10,132 +10,132 @@ Summary (all runs)
 ============================================================
 Model              Prompt       N DetectAcc  OverallF1   Cost($)     Time   Rate/1k
 -----------------------------------------------------------------------------------
-sonnet-5-high      long      1446     0.886      0.670    6.4729  45m 43s   31m 37s
-sonnet-5-low       long      1446     0.876      0.669    3.5786  20m 58s   14m 30s
-sonnet-5-high      short     1446     0.886      0.652    6.0552   44m 4s   30m 28s
-sonnet-5-low       short     1446     0.885      0.651    4.5788  23m 45s   16m 26s
-sonnet-5-high      medium    1446     0.865      0.650    5.3479  42m 16s   29m 14s
-sonnet-5-low       medium    1446     0.871      0.649    3.5378  20m 42s   14m 19s
+sonnet-5-high      long      1446     0.886      0.746    6.4729  45m 43s   31m 37s
+sonnet-5-low       long      1446     0.876      0.738    3.5786  20m 58s   14m 30s
+sonnet-5-high      short     1446     0.886      0.733    6.0552   44m 4s   30m 28s
+sonnet-5-high      medium    1446     0.865      0.723    5.3479  42m 16s   29m 14s
+sonnet-5-low       short     1446     0.885      0.713    4.5788  23m 45s   16m 26s
+sonnet-5-low       medium    1446     0.871      0.711    3.5378  20m 42s   14m 19s
 
 Broad category F1 by model (weighted avg of specific-label F1s, weighted by positive-case count)
 ============================================================
-Broad category                                          SOCCAT sonnet-5-high/long sonnet-5-low/long sonnet-5-high/short sonnet-5-low/short sonnet-5-high/medium sonnet-5-low/medium
+Broad category                                          SOCCAT sonnet-5-high/long sonnet-5-low/long sonnet-5-high/short sonnet-5-high/medium sonnet-5-low/short sonnet-5-low/medium
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Socio-economic position                                  0.772              0.700             0.738               0.705              0.719                0.746               0.708
-Labor market position                                    0.804              0.708             0.693               0.665              0.599                0.657               0.607
-Age and family status                                    0.819              0.774             0.798               0.772              0.761                0.778               0.776
-Gender, sexuality, and sociocultural characteristics     0.835              0.776             0.780               0.780              0.775                0.781               0.751
-Profession                                               0.829              0.765             0.748               0.752              0.742                0.733               0.730
-Social roles and behavior                                0.855              0.722             0.678               0.690              0.689                0.669               0.724
-Social deviance                                          0.694              0.582             0.578               0.626              0.589                0.586               0.618
-Real estate ownership                                    0.957              0.872             0.866               0.887              0.875                0.870               0.851
-Others                                                     n/a              0.394             0.412               0.355              0.422                0.380               0.425
+Socio-economic position                                  0.772              0.700             0.738               0.705                0.746              0.719               0.708
+Labor market position                                    0.804              0.708             0.693               0.665                0.657              0.599               0.607
+Age and family status                                    0.819              0.774             0.798               0.772                0.778              0.761               0.776
+Gender, sexuality, and sociocultural characteristics     0.835              0.776             0.780               0.780                0.781              0.775               0.751
+Profession                                               0.829              0.765             0.748               0.752                0.733              0.742               0.730
+Social roles and behavior                                0.855              0.722             0.678               0.690                0.669              0.689               0.724
+Social deviance                                          0.694              0.582             0.578               0.626                0.586              0.589               0.618
+Real estate ownership                                    0.957              0.872             0.866               0.887                0.870              0.875               0.851
+Others                                                     n/a              0.394             0.412               0.355                0.380              0.422               0.425
 
 Category F1 by model (rows = taxonomy categories, columns = SOCCAT baseline then each run)
 ============================================================
-Category                                                                   N_pos_llm    SOCCAT sonnet-5-high/long sonnet-5-low/long sonnet-5-high/short sonnet-5-low/short sonnet-5-high/medium sonnet-5-low/medium
+Category                                                                   N_pos_llm    SOCCAT sonnet-5-high/long sonnet-5-low/long sonnet-5-high/short sonnet-5-high/medium sonnet-5-low/short sonnet-5-low/medium
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Socio-economic position                                                   
-  lower class                                                                     10     0.545              0.643             0.750               0.696              0.818                0.727               0.750
-  middle class                                                                     9     0.667              0.889             0.842               0.941              0.875                0.941               0.824
-  upper class                                                                      6     0.308              0.667             0.667               0.706              0.706                0.750               0.706
-  capital owners, investors and shareholders                                      29     0.923              0.788             0.825               0.758              0.758                0.794               0.788
-  unskilled or unqualified                                                         5     0.889              0.500             0.667               0.500              0.500                0.667               0.500
-  skilled or qualified                                                             6     0.833              0.286             0.267               0.286              0.333                0.316               0.250
+  lower class                                                                     10     0.545              0.643             0.750               0.696                0.727              0.818               0.750
+  middle class                                                                     9     0.667              0.889             0.842               0.941                0.941              0.875               0.824
+  upper class                                                                      6     0.308              0.667             0.667               0.706                0.750              0.706               0.706
+  capital owners, investors and shareholders                                      29     0.923              0.788             0.825               0.758                0.794              0.758               0.788
+  unskilled or unqualified                                                         5     0.889              0.500             0.667               0.500                0.667              0.500               0.500
+  skilled or qualified                                                             6     0.833              0.286             0.267               0.286                0.316              0.333               0.250
 Labor market position                                                     
-  wage and salary earners                                                         85     0.814              0.797             0.752               0.704              0.667                0.743               0.689
-  civil servants                                                                  11     0.750              0.600             0.485               0.390              0.529                0.457               0.500
-  CEOs and corporate leaders                                                      14     0.727              0.462             0.387               0.474              0.318                0.387               0.424
-  employers                                                                       12     0.846              0.786             0.880               0.917              0.800                0.846               0.815
-  entrepreneurs                                                                  146     0.819              0.681             0.684               0.652              0.565                0.622               0.559
-  self-employed and freelancers                                                    3     0.400              0.400             0.364               0.364              0.400                0.400               0.333
-  unemployed                                                                       9     0.824              0.737             0.737               0.737              0.636                0.737               0.667
-  retirees                                                                         4     0.500              0.667             0.750               0.750              0.667                0.750               0.667
-  housewives and househusbands                                                     5     1.000              0.909             0.909               0.909              0.909                0.909               0.833
+  wage and salary earners                                                         85     0.814              0.797             0.752               0.704                0.743              0.667               0.689
+  civil servants                                                                  11     0.750              0.600             0.485               0.390                0.457              0.529               0.500
+  CEOs and corporate leaders                                                      14     0.727              0.462             0.387               0.474                0.387              0.318               0.424
+  employers                                                                       12     0.846              0.786             0.880               0.917                0.846              0.800               0.815
+  entrepreneurs                                                                  146     0.819              0.681             0.684               0.652                0.622              0.565               0.559
+  self-employed and freelancers                                                    3     0.400              0.400             0.364               0.364                0.400              0.400               0.333
+  unemployed                                                                       9     0.824              0.737             0.737               0.737                0.737              0.636               0.667
+  retirees                                                                         4     0.500              0.667             0.750               0.750                0.750              0.667               0.667
+  housewives and househusbands                                                     5     1.000              0.909             0.909               0.909                0.909              0.909               0.833
 Age and family status                                                     
-  parents and families                                                            31     0.800              0.730             0.769               0.737              0.762                0.721               0.721
-  minors, including children and pupils                                           63     0.846              0.786             0.800               0.765              0.776                0.797               0.754
-  youth, including students and apprentices                                       50     0.815              0.785             0.807               0.777              0.752                0.752               0.822
-  middle-aged and pre-retirement age groups                                        6     0.667              0.615             0.727               0.714              0.571                0.769               0.667
-  elderly                                                                          6     0.600              0.571             0.522               0.571              0.364                0.545               0.476
-  couples                                                                          9     0.875              0.941             0.941               0.941              1.000                1.000               1.000
-  singles                                                                          8     1.000              0.857             0.933               0.933              0.857                0.933               0.933
+  parents and families                                                            31     0.800              0.730             0.769               0.737                0.721              0.762               0.721
+  minors, including children and pupils                                           63     0.846              0.786             0.800               0.765                0.797              0.776               0.754
+  youth, including students and apprentices                                       50     0.815              0.785             0.807               0.777                0.752              0.752               0.822
+  middle-aged and pre-retirement age groups                                        6     0.667              0.615             0.727               0.714                0.769              0.571               0.667
+  elderly                                                                          6     0.600              0.571             0.522               0.571                0.545              0.364               0.476
+  couples                                                                          9     0.875              0.941             0.941               0.941                1.000              1.000               1.000
+  singles                                                                          8     1.000              0.857             0.933               0.933                0.933              0.857               0.933
 Gender, sexuality, and sociocultural characteristics                      
-  men                                                                             26     0.652              0.627             0.694               0.653              0.667                0.694               0.615
-  women                                                                           61     0.925              0.776             0.789               0.793              0.803                0.803               0.748
-  cisgender and heterosexuals                                                      5     0.750              1.000             0.800               1.000              1.000                0.909               0.909
-  LGBTQIA+                                                                        15     0.812              0.833             0.882               0.882              0.909                0.909               0.848
-  disabled people                                                                  7     0.800              0.800             0.714               0.857              0.857                0.625               0.857
-  people with an immigration background, including immigrants                     43     0.897              0.843             0.851               0.815              0.769                0.810               0.840
-  ethnic and racial minorities                                                     1     0.400              0.118             0.143               0.118              0.154                0.111               0.125
-  Christians                                                                       6     0.833              0.857             0.714               0.769              0.800                0.857               0.857
-  Jews                                                                             8     0.923              0.889             0.941               0.889              0.824                0.889               0.778
-  Muslims                                                                          4     0.800              0.667             0.667               0.571              0.500                0.571               0.500
-  multiple (or other) religious or minority groups                                 3     0.000              0.286             0.000               0.286              0.400                0.250               0.000
+  men                                                                             26     0.652              0.627             0.694               0.653                0.694              0.667               0.615
+  women                                                                           61     0.925              0.776             0.789               0.793                0.803              0.803               0.748
+  cisgender and heterosexuals                                                      5     0.750              1.000             0.800               1.000                0.909              1.000               0.909
+  LGBTQIA+                                                                        15     0.812              0.833             0.882               0.882                0.909              0.909               0.848
+  disabled people                                                                  7     0.800              0.800             0.714               0.857                0.625              0.857               0.857
+  people with an immigration background, including immigrants                     43     0.897              0.843             0.851               0.815                0.810              0.769               0.840
+  ethnic and racial minorities                                                     1     0.400              0.118             0.143               0.118                0.111              0.154               0.125
+  Christians                                                                       6     0.833              0.857             0.714               0.769                0.857              0.800               0.857
+  Jews                                                                             8     0.923              0.889             0.941               0.889                0.889              0.824               0.778
+  Muslims                                                                          4     0.800              0.667             0.667               0.571                0.571              0.500               0.500
+  multiple (or other) religious or minority groups                                 3     0.000              0.286             0.000               0.286                0.250              0.400               0.000
 Profession                                                                
-  athletes                                                                        64     0.829              0.825             0.800               0.797              0.846                0.835               0.787
-  authors and artists                                                             39     0.844              0.707             0.637               0.606              0.575                0.628               0.619
-  doctors                                                                         13     0.929              0.710             0.786               0.741              0.828                0.759               0.839
-  farmers and fishermen                                                           14     0.897              0.828             0.828               0.828              0.800                0.857               0.857
-  health and care professionals                                                    9     0.500              0.727             0.737               0.609              0.737                0.522               0.737
-  journalists                                                                      4     0.875              0.533             0.533               0.571              0.533                0.571               0.533
-  legal professionals                                                              9     0.600              0.667             0.593               0.667              0.600                0.593               0.533
-  politicians and high-ranking officials                                         279     0.907              0.824             0.815               0.823              0.805                0.778               0.787
-  sex workers                                                                      3     0.889              1.000             1.000               1.000              1.000                1.000               1.000
-  scientists and professors                                                       17     0.774              0.650             0.700               0.615              0.737                0.649               0.667
-  security forces                                                                 49     0.869              0.804             0.722               0.755              0.667                0.729               0.734
-  soldiers                                                                        17     0.710              0.762             0.800               0.821              0.821                0.821               0.789
-  teachers and educators                                                          11     0.720              0.696             0.741               0.783              0.720                0.720               0.667
-  other professions                                                               61     0.563              0.504             0.485               0.507              0.494                0.503               0.462
+  athletes                                                                        64     0.829              0.825             0.800               0.797                0.835              0.846               0.787
+  authors and artists                                                             39     0.844              0.707             0.637               0.606                0.628              0.575               0.619
+  doctors                                                                         13     0.929              0.710             0.786               0.741                0.759              0.828               0.839
+  farmers and fishermen                                                           14     0.897              0.828             0.828               0.828                0.857              0.800               0.857
+  health and care professionals                                                    9     0.500              0.727             0.737               0.609                0.522              0.737               0.737
+  journalists                                                                      4     0.875              0.533             0.533               0.571                0.571              0.533               0.533
+  legal professionals                                                              9     0.600              0.667             0.593               0.667                0.593              0.600               0.533
+  politicians and high-ranking officials                                         279     0.907              0.824             0.815               0.823                0.778              0.805               0.787
+  sex workers                                                                      3     0.889              1.000             1.000               1.000                1.000              1.000               1.000
+  scientists and professors                                                       17     0.774              0.650             0.700               0.615                0.649              0.737               0.667
+  security forces                                                                 49     0.869              0.804             0.722               0.755                0.729              0.667               0.734
+  soldiers                                                                        17     0.710              0.762             0.800               0.821                0.821              0.821               0.789
+  teachers and educators                                                          11     0.720              0.696             0.741               0.783                0.720              0.720               0.667
+  other professions                                                               61     0.563              0.504             0.485               0.507                0.503              0.494               0.462
 Social roles and behavior                                                 
-  consumers and clients                                                           65     0.850              0.727             0.660               0.684              0.673                0.667               0.722
-  car drivers                                                                      6     0.750              0.667             0.500               0.615              0.615                0.600               0.615
-  patients                                                                        15     0.895              0.722             0.824               0.743              0.788                0.706               0.778
+  consumers and clients                                                           65     0.850              0.727             0.660               0.684                0.667              0.673               0.722
+  car drivers                                                                      6     0.750              0.667             0.500               0.615                0.600              0.615               0.615
+  patients                                                                        15     0.895              0.722             0.824               0.743                0.706              0.788               0.778
 Social deviance                                                           
-  extremists                                                                      12     0.632              0.526             0.450               0.647              0.564                0.513               0.550
-  terrorists, rebels, revolutionaries and/or movements of armed resistance        18     0.667              0.636             0.651               0.682              0.619                0.651               0.682
-  offenders, criminals, prisoners and/or accused people                           28     0.704              0.561             0.568               0.568              0.571                0.545               0.592
-  drug addicts                                                                     3     0.889              0.667             0.750               0.750              0.667                0.857               0.750
+  extremists                                                                      12     0.632              0.526             0.450               0.647                0.513              0.564               0.550
+  terrorists, rebels, revolutionaries and/or movements of armed resistance        18     0.667              0.636             0.651               0.682                0.651              0.619               0.682
+  offenders, criminals, prisoners and/or accused people                           28     0.704              0.561             0.568               0.568                0.545              0.571               0.592
+  drug addicts                                                                     3     0.889              0.667             0.750               0.750                0.857              0.667               0.750
 Real estate ownership                                                     
-  real-estate owners                                                              22     0.923              0.917             0.917               0.917              0.917                0.917               0.880
-  tenants                                                                          8     1.000              0.933             0.875               0.875              0.824                0.875               0.824
-  homeless                                                                         4     1.000              0.500             0.571               0.750              0.750                0.600               0.750
+  real-estate owners                                                              22     0.923              0.917             0.917               0.917                0.917              0.917               0.880
+  tenants                                                                          8     1.000              0.933             0.875               0.875                0.875              0.824               0.824
+  homeless                                                                         4     1.000              0.500             0.571               0.750                0.600              0.750               0.750
 Others                                                                    
-  others                                                                         402       n/a              0.394             0.412               0.355              0.422                0.380               0.425
+  others                                                                         402       n/a              0.394             0.412               0.355                0.380              0.422               0.425
 
 Categories where an LLM run beats SOCCAT (* marks the beating cell)
 ============================================================
-Category                                                                   N_pos_llm    SOCCAT sonnet-5-high/long sonnet-5-low/long sonnet-5-high/short sonnet-5-low/short sonnet-5-high/medium sonnet-5-low/medium
+Category                                                                   N_pos_llm    SOCCAT sonnet-5-high/long sonnet-5-low/long sonnet-5-high/short sonnet-5-high/medium sonnet-5-low/short sonnet-5-low/medium
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Socio-economic position                                                   
-  lower class                                                                     10     0.545             0.643*            0.750*              0.696*             0.818*               0.727*              0.750*
-  middle class                                                                     9     0.667             0.889*            0.842*              0.941*             0.875*               0.941*              0.824*
-  upper class                                                                      6     0.308             0.667*            0.667*              0.706*             0.706*               0.750*              0.706*
+  lower class                                                                     10     0.545             0.643*            0.750*              0.696*               0.727*             0.818*              0.750*
+  middle class                                                                     9     0.667             0.889*            0.842*              0.941*               0.941*             0.875*              0.824*
+  upper class                                                                      6     0.308             0.667*            0.667*              0.706*               0.750*             0.706*              0.706*
 Labor market position                                                     
-  employers                                                                       12     0.846              0.786            0.880*              0.917*              0.800                0.846               0.815
-  retirees                                                                         4     0.500             0.667*            0.750*              0.750*             0.667*               0.750*              0.667*
+  employers                                                                       12     0.846              0.786            0.880*              0.917*                0.846              0.800               0.815
+  retirees                                                                         4     0.500             0.667*            0.750*              0.750*               0.750*             0.667*              0.667*
 Age and family status                                                     
-  youth, including students and apprentices                                       50     0.815              0.785             0.807               0.777              0.752                0.752              0.822*
-  middle-aged and pre-retirement age groups                                        6     0.667              0.615            0.727*              0.714*              0.571               0.769*               0.667
-  couples                                                                          9     0.875             0.941*            0.941*              0.941*             1.000*               1.000*              1.000*
+  youth, including students and apprentices                                       50     0.815              0.785             0.807               0.777                0.752              0.752              0.822*
+  middle-aged and pre-retirement age groups                                        6     0.667              0.615            0.727*              0.714*               0.769*              0.571               0.667
+  couples                                                                          9     0.875             0.941*            0.941*              0.941*               1.000*             1.000*              1.000*
 Gender, sexuality, and sociocultural characteristics                      
-  men                                                                             26     0.652              0.627            0.694*              0.653*             0.667*               0.694*               0.615
-  cisgender and heterosexuals                                                      5     0.750             1.000*            0.800*              1.000*             1.000*               0.909*              0.909*
-  LGBTQIA+                                                                        15     0.812             0.833*            0.882*              0.882*             0.909*               0.909*              0.848*
-  disabled people                                                                  7     0.800              0.800             0.714              0.857*             0.857*                0.625              0.857*
-  Christians                                                                       6     0.833             0.857*             0.714               0.769              0.800               0.857*              0.857*
-  Jews                                                                             8     0.923              0.889            0.941*               0.889              0.824                0.889               0.778
-  multiple (or other) religious or minority groups                                 3     0.000             0.286*             0.000              0.286*             0.400*               0.250*               0.000
+  men                                                                             26     0.652              0.627            0.694*              0.653*               0.694*             0.667*               0.615
+  cisgender and heterosexuals                                                      5     0.750             1.000*            0.800*              1.000*               0.909*             1.000*              0.909*
+  LGBTQIA+                                                                        15     0.812             0.833*            0.882*              0.882*               0.909*             0.909*              0.848*
+  disabled people                                                                  7     0.800              0.800             0.714              0.857*                0.625             0.857*              0.857*
+  Christians                                                                       6     0.833             0.857*             0.714               0.769               0.857*              0.800              0.857*
+  Jews                                                                             8     0.923              0.889            0.941*               0.889                0.889              0.824               0.778
+  multiple (or other) religious or minority groups                                 3     0.000             0.286*             0.000              0.286*               0.250*             0.400*               0.000
 Profession                                                                
-  athletes                                                                        64     0.829              0.825             0.800               0.797             0.846*               0.835*               0.787
-  health and care professionals                                                    9     0.500             0.727*            0.737*              0.609*             0.737*               0.522*              0.737*
-  legal professionals                                                              9     0.600             0.667*             0.593              0.667*              0.600                0.593               0.533
-  sex workers                                                                      3     0.889             1.000*            1.000*              1.000*             1.000*               1.000*              1.000*
-  soldiers                                                                        17     0.710             0.762*            0.800*              0.821*             0.821*               0.821*              0.789*
-  teachers and educators                                                          11     0.720              0.696            0.741*              0.783*             0.720*               0.720*               0.667
+  athletes                                                                        64     0.829              0.825             0.800               0.797               0.835*             0.846*               0.787
+  health and care professionals                                                    9     0.500             0.727*            0.737*              0.609*               0.522*             0.737*              0.737*
+  legal professionals                                                              9     0.600             0.667*             0.593              0.667*                0.593              0.600               0.533
+  sex workers                                                                      3     0.889             1.000*            1.000*              1.000*               1.000*             1.000*              1.000*
+  soldiers                                                                        17     0.710             0.762*            0.800*              0.821*               0.821*             0.821*              0.789*
+  teachers and educators                                                          11     0.720              0.696            0.741*              0.783*               0.720*             0.720*               0.667
 Social deviance                                                           
-  extremists                                                                      12     0.632              0.526             0.450              0.647*              0.564                0.513               0.550
-  terrorists, rebels, revolutionaries and/or movements of armed resistance        18     0.667              0.636             0.651              0.682*              0.619                0.651              0.682*
+  extremists                                                                      12     0.632              0.526             0.450              0.647*                0.513              0.564               0.550
+  terrorists, rebels, revolutionaries and/or movements of armed resistance        18     0.667              0.636             0.651              0.682*                0.651              0.619              0.682*
 
 Run details
 ============================================================
@@ -151,7 +151,7 @@ Detection (has_social_category vs. ground truth): Accuracy=0.886  Precision=1.00
 Category performance (each specific label scored as its own binary detection problem;
 broad-category and overall scores are the weighted average of specific-label scores,
 weighted by each label's positive-case count)
-OVERALL (all specific labels)                   N_pos=1878  Accuracy=0.931  Precision=0.788  Recall=0.657  F1=0.670
+OVERALL (all specific labels but "others")      N_pos=1476  Accuracy=0.971  Precision=0.754  Recall=0.768  F1=0.746
 
 Socio-economic position                         N_pos=  65  Accuracy=0.993  Precision=0.629  Recall=0.831  F1=0.700
   SOCCAT baseline: F1=0.772  (best CV fold, weighted across its labels)
@@ -257,7 +257,7 @@ Detection (has_social_category vs. ground truth): Accuracy=0.865  Precision=1.00
 Category performance (each specific label scored as its own binary detection problem;
 broad-category and overall scores are the weighted average of specific-label scores,
 weighted by each label's positive-case count)
-OVERALL (all specific labels)                   N_pos=1878  Accuracy=0.927  Precision=0.781  Recall=0.629  F1=0.650
+OVERALL (all specific labels but "others")      N_pos=1476  Accuracy=0.967  Precision=0.740  Recall=0.735  F1=0.723
 
 Socio-economic position                         N_pos=  65  Accuracy=0.994  Precision=0.703  Recall=0.815  F1=0.746
   SOCCAT baseline: F1=0.772  (best CV fold, weighted across its labels)
@@ -363,7 +363,7 @@ Detection (has_social_category vs. ground truth): Accuracy=0.886  Precision=1.00
 Category performance (each specific label scored as its own binary detection problem;
 broad-category and overall scores are the weighted average of specific-label scores,
 weighted by each label's positive-case count)
-OVERALL (all specific labels)                   N_pos=1878  Accuracy=0.928  Precision=0.774  Recall=0.643  F1=0.652
+OVERALL (all specific labels but "others")      N_pos=1476  Accuracy=0.969  Precision=0.742  Recall=0.757  F1=0.733
 
 Socio-economic position                         N_pos=  65  Accuracy=0.993  Precision=0.655  Recall=0.800  F1=0.705
   SOCCAT baseline: F1=0.772  (best CV fold, weighted across its labels)
@@ -469,7 +469,7 @@ Detection (has_social_category vs. ground truth): Accuracy=0.876  Precision=1.00
 Category performance (each specific label scored as its own binary detection problem;
 broad-category and overall scores are the weighted average of specific-label scores,
 weighted by each label's positive-case count)
-OVERALL (all specific labels)                   N_pos=1878  Accuracy=0.931  Precision=0.780  Recall=0.649  F1=0.669
+OVERALL (all specific labels but "others")      N_pos=1476  Accuracy=0.970  Precision=0.751  Recall=0.752  F1=0.738
 
 Socio-economic position                         N_pos=  65  Accuracy=0.994  Precision=0.675  Recall=0.831  F1=0.738
   SOCCAT baseline: F1=0.772  (best CV fold, weighted across its labels)
@@ -575,7 +575,7 @@ Detection (has_social_category vs. ground truth): Accuracy=0.871  Precision=1.00
 Category performance (each specific label scored as its own binary detection problem;
 broad-category and overall scores are the weighted average of specific-label scores,
 weighted by each label's positive-case count)
-OVERALL (all specific labels)                   N_pos=1878  Accuracy=0.928  Precision=0.762  Recall=0.628  F1=0.649
+OVERALL (all specific labels but "others")      N_pos=1476  Accuracy=0.966  Precision=0.739  Recall=0.722  F1=0.711
 
 Socio-economic position                         N_pos=  65  Accuracy=0.993  Precision=0.654  Recall=0.800  F1=0.708
   SOCCAT baseline: F1=0.772  (best CV fold, weighted across its labels)
@@ -681,7 +681,7 @@ Detection (has_social_category vs. ground truth): Accuracy=0.885  Precision=1.00
 Category performance (each specific label scored as its own binary detection problem;
 broad-category and overall scores are the weighted average of specific-label scores,
 weighted by each label's positive-case count)
-OVERALL (all specific labels)                   N_pos=1878  Accuracy=0.928  Precision=0.756  Recall=0.640  F1=0.651
+OVERALL (all specific labels but "others")      N_pos=1476  Accuracy=0.966  Precision=0.731  Recall=0.737  F1=0.713
 
 Socio-economic position                         N_pos=  65  Accuracy=0.993  Precision=0.680  Recall=0.800  F1=0.719
   SOCCAT baseline: F1=0.772  (best CV fold, weighted across its labels)

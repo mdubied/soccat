@@ -14,7 +14,9 @@ own binary detection problem (present vs. absent in that sentence), then:
   - broad-category scores are the weighted average of their specific-label
     scores, weighted by each label's number of positive (true) cases;
   - an overall score is the same weighted average across every specific
-    label in the taxonomy.
+    label in the taxonomy except the residual "others" category, which
+    SOCCAT does not predict (so LLM and SOCCAT overall scores cover the same
+    57 labels).
 This mirrors how SOCCAT (our step 2 pipeline, src/step_2/step_2_cv_pipeline.py)
 scores each specific label as an independent NLI entailment problem, and the
 report compares against SOCCAT's own performance throughout (see
@@ -378,7 +380,9 @@ def compute_metrics(rows: list) -> dict:
             stats_for_broad.append(stats)
         broad_metrics[broad] = _weighted_avg(stats_for_broad)
 
-    overall = _weighted_avg(list(label_metrics.values()))
+    # the residual "Others" category is left out: SOCCAT has no such label, so including
+    # it would make the LLM's overall score incomparable with SOCCAT's
+    overall = _weighted_avg([s for (broad, _), s in label_metrics.items() if broad != "Others"])
 
     return {"n": n, "detection": detection, "label_metrics": label_metrics,
             "broad_metrics": broad_metrics, "overall": overall}
@@ -420,7 +424,7 @@ def build_run_section(model: str, prompt: str, meta: dict, rows: list, usage: di
         lines.append("Category performance (each specific label scored as its own binary detection problem;")
         lines.append("broad-category and overall scores are the weighted average of specific-label scores,")
         lines.append("weighted by each label's positive-case count)")
-        lines.append(_format_metric_line("OVERALL (all specific labels)", metrics["overall"]))
+        lines.append(_format_metric_line('OVERALL (all specific labels but "others")', metrics["overall"]))
         lines.append("")
         for broad, labels in TAXONOMY.items():
             lines.append(_format_metric_line(display_broad(broad), metrics["broad_metrics"][broad]))
@@ -829,7 +833,8 @@ def build_latex_summary_table(summary_rows: list, baseline: dict) -> list:
         r"\footnotesize",
         r"\item \textit{Note:} Precision, recall and F1 refer to the positive class of each specific "
         r"category; macro F1 averages the F1 scores of the positive and negative class. The scores for "
-        r"specific categories are weighted by positive-case count to obtain these average performances. "
+        r"specific categories are weighted by positive-case count to obtain these average performances; "
+        r"the residual \textit{others} category, which SOCCAT does not predict, is left out. "
         r"SOCCAT: best cross-validation fold (released model), or mean / median across the 5 folds.",
         r"\end{tablenotes}",
         r"\end{threeparttable}",
