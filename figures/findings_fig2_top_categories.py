@@ -11,7 +11,7 @@ Outputs:
   figures/application_to_newspaper_corpus/fig2_top20_medians_iqr.pdf
 
 Data:
-  data/annotated_corpus/specific_categories_aggregate_results.csv
+  data/annotated_corpus/specific_labels_aggregate_results.csv
 
 Usage (from the figures/ directory):
   python findings_fig2_top_categories.py
@@ -20,7 +20,7 @@ import pandas as pd
 import utils as su
 
 
-DATA_PATH = "../data/annotated_corpus/specific_categories_aggregate_results.csv"
+DATA_PATH = "../data/annotated_corpus/specific_labels_aggregate_results.csv"
 SAVE_PATH = "application_to_newspaper_corpus/fig2_top20_medians_iqr.pdf"
 FIGURE_CM = (15, 14)
 
@@ -62,10 +62,13 @@ def build_summary(long_df):
     )
 
     display = {
-        "Politicians and high ranking officials":             "Politicians",
-        "People with an immigration background including immigrants": "Immigrants",
-        "Offenders criminals prisoners and or accused people":        "Criminals",
-        "Capital owners investors and shareholders":                  "Capital owners",
+        "Politicians and high-ranking officials":                     "Politicians",
+        "People with an immigration background, including immigrants": "Immigrants",
+        "Offenders, criminals, prisoners and/or accused people":      "Criminals",
+        "Capital owners, investors and shareholders":                 "Capital owners",
+        "Terrorists, rebels, revolutionaries and/or movements of armed resistance": "Terrorists",
+        "Minors, including children and pupils":                      "Minors",
+        "Youth, including students and apprentices":                  "Youth",
     }
     summary["label"] = summary["label"].replace(display)
     order = [display.get(l, l) for l in order]

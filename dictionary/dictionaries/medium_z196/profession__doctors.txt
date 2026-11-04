@@ -1,0 +1,6 @@
+patienten
+grève
+ärzte
+part
+médecins
+zahnärzte

@@ -1,0 +1,25 @@
+\begin{table}[htb]
+\centering
+\begin{threeparttable}
+\begin{tabular}{llrrrrrr}
+\toprule
+Model & $\alpha_0$ & $z$ & Accuracy & Precision & Recall & F1 & Macro F1 \\
+\midrule
+Dictionary & Low & $z>0$ & 0.63 & 0.41 & 0.73 & 0.53 & 0.61 \\
+Dictionary & Low & $z>1.96$ & 0.64 & 0.41 & 0.70 & 0.52 & 0.62 \\
+Dictionary & Medium & $z>0$ & 0.64 & 0.41 & 0.73 & 0.53 & 0.62 \\
+Dictionary & Medium & $z>1.96$ & 0.65 & 0.42 & 0.71 & 0.53 & 0.62 \\
+Dictionary & High & $z>0$ & 0.68 & 0.45 & 0.69 & 0.55 & 0.65 \\
+Dictionary & High & $z>1.96$ & 0.77 & 0.60 & 0.48 & 0.54 & 0.69 \\
+\midrule
+SOCCAT & -- & -- & 0.90 & 0.77 & 0.89 & 0.83 & 0.88 \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item \textit{Note:} A sentence is classified as mentioning a social group if any word of any of the 57 label dictionaries occurs in it. $\alpha_0$ and $z$ are model parameters that yield different dictionary word lists. Precision, recall and F1 refer to the positive class (sentence mentions a social group); macro F1 averages the F1 scores of both classes. Held-out test set, N = 1,260 sentences.
+\end{tablenotes}
+\end{threeparttable}
+\caption{Step 1 classification performance of the dictionary baseline and the SOCCAT mDeBERTa baseline.}
+\label{tab:dictionary-step1}
+\end{table}

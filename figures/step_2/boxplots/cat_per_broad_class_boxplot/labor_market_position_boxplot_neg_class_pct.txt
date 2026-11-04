@@ -1,0 +1,14 @@
+Category                                                       n_pairs    n_pos     n_neg     %neg
+--------------------------------------------------------------------------------------------------
+entrepreneurs                                                   1446.8    136.0    1310.8   90.60%
+wage and salary earners                                         1446.8     87.4    1359.4   93.96%
+CEOs and corporate leaders                                      1446.8     14.4    1432.4   99.00%
+employers                                                       1446.8     13.6    1433.2   99.06%
+unemployed                                                      1446.8     10.4    1436.4   99.28%
+civil servants                                                  1446.8      9.4    1437.4   99.35%
+housewives and househusbands                                    1446.8      4.2    1442.6   99.71%
+retirees                                                        1446.8      4.2    1442.6   99.71%
+self-employed and freelancers                                   1446.8      3.8    1443.0   99.74%
+--------------------------------------------------------------------------------------------------
+Average %neg across 9 individual categories: 97.82%
+Median  %neg across 9 individual categories: 99.28%

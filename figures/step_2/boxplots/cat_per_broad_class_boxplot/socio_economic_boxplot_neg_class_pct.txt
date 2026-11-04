@@ -1,0 +1,11 @@
+Category                                                       n_pairs    n_pos     n_neg     %neg
+--------------------------------------------------------------------------------------------------
+capital owners, investors and shareholders                      1446.8     33.2    1413.6   97.71%
+lower class                                                     1446.8     11.4    1435.4   99.21%
+skilled or qualified                                            1446.8      7.2    1439.6   99.50%
+upper class                                                     1446.8      6.2    1440.6   99.57%
+unskilled or unqualified                                        1446.8      5.0    1441.8   99.65%
+middle class                                                    1446.8      4.8    1442.0   99.67%
+--------------------------------------------------------------------------------------------------
+Average %neg across 6 individual categories: 99.22%
+Median  %neg across 6 individual categories: 99.54%

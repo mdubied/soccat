@@ -4,6 +4,19 @@
 SOCCAT: Social Group Mention Detection
 mDeBERTa-v3 Fine-Tuning & Evaluation Pipeline
 
+Evaluation metrics, computed overall and per outlet / country / decade:
+  - accuracy
+  - positive-class (sentence mentions a social group) precision / recall / F1
+  - specificity (TNR), balanced accuracy, MCC, Cohen's kappa
+  - ROC-AUC and PR-AUC (average precision) from the positive-class probability
+  - macro F1 and support-weighted precision / recall / F1. With imbalanced
+    classes (910/1260 test sentences have no group mention), the weighted
+    scores are dominated by the negative class and weighted recall always
+    equals accuracy; report the positive-class scores instead.
+  - confusion-matrix counts (TP, FN, FP, TN), N_pos and prevalence
+All slices are also written to one long-format CSV (--all_levels_csv,
+default data/model_performance/step_1/performance_all_levels.csv).
+
 Usage
 -----
 # Full training + evaluation:
@@ -40,6 +53,11 @@ from sklearn.metrics import (
     precision_recall_curve,
     auc,
     cohen_kappa_score,
+    balanced_accuracy_score,
+    matthews_corrcoef,
+    confusion_matrix,
+    roc_auc_score,
+    average_precision_score,
 )
 
 
@@ -120,15 +138,40 @@ def compute_metrics_trainer(p):
 
 
 # ── Sliced evaluation helpers ─────────────────────────────────────────────────
+def _safe(fn, *args):
+    """Threshold-free scores are undefined when a slice has only one class."""
+    try:
+        return fn(*args)
+    except ValueError:
+        return float("nan")
+
+
 def metrics_for_group(df):
     y_true = df["true"].astype(int)
     y_pred = df["pred"].astype(int)
+    tn, fp, fn, tp = confusion_matrix(y_true, y_pred, labels=[0, 1]).ravel()
     return {
         "Accuracy":           accuracy_score(y_true, y_pred),
+        # Positive class = sentence mentions a social group
+        "Precision_binary":   precision_score(y_true, y_pred, pos_label=1, zero_division=0),
+        "Recall_binary":      recall_score(y_true, y_pred, pos_label=1, zero_division=0),
+        "F1_binary":          f1_score(y_true, y_pred, pos_label=1, zero_division=0),
+        "Specificity":        tn / (tn + fp) if (tn + fp) else float("nan"),
+        "Balanced_accuracy":  balanced_accuracy_score(y_true, y_pred) if y_true.nunique() > 1 else float("nan"),
+        "MCC":                matthews_corrcoef(y_true, y_pred),
+        "Cohen_kappa":        cohen_kappa_score(y_true, y_pred),
+        "ROC_AUC":            _safe(roc_auc_score, y_true, df["prob_pos"]),
+        "PR_AUC":             _safe(average_precision_score, y_true, df["prob_pos"]),
         "Precision_weighted": precision_score(y_true, y_pred, average="weighted", zero_division=0),
         "Recall_weighted":    recall_score(y_true, y_pred, average="weighted", zero_division=0),
         "F1_weighted":        f1_score(y_true, y_pred, average="weighted", zero_division=0),
         "F1_macro":           f1_score(y_true, y_pred, average="macro", zero_division=0),
+        "TP":                 int(tp),
+        "FN":                 int(fn),
+        "FP":                 int(fp),
+        "TN":                 int(tn),
+        "N_pos":              int(tp + fn),
+        "Prevalence":         (tp + fn) / len(df),
         "N":                  len(df),
     }
 
@@ -206,6 +249,10 @@ def main():
     parser.add_argument("--lr",             type=float, default=LEARNING_RATE)
     parser.add_argument("--no_plots",       action="store_true",
                         help="Skip saving visualisation figures")
+    parser.add_argument("--all_levels_csv", type=Path,
+                        default=Path(__file__).resolve().parents[2] / "data" / "model_performance"
+                                / "step_1" / "performance_all_levels.csv",
+                        help="Long-format CSV with all slices (overall/outlet/country/decade)")
     args = parser.parse_args()
 
     if args.inference_only and args.model_name == DEFAULT_BASE_MODEL:
@@ -296,9 +343,11 @@ def main():
     print("Running inference on test set...")
     pred_output = trainer.predict(tokenized["test"])
     preds = np.argmax(pred_output.predictions, axis=1)
+    probs = torch.softmax(torch.tensor(pred_output.predictions), dim=1)[:, 1].numpy()
 
     results_df = pd.DataFrame(raw_test)
     results_df["pred"]       = preds
+    results_df["prob_pos"]   = probs
     results_df["true"]       = test_dataset["label"]
     results_df["language"]   = results_df.get("language", pd.Series(dtype=str)).fillna("Unknown")
     results_df["country"]    = results_df["language"].map(map_country)
@@ -326,6 +375,16 @@ def main():
     country_df.to_csv(args.output_dir / "performance_per_country.csv", index=False)
     decade_df.to_csv(args.output_dir / "performance_per_decade.csv", index=False)
     outlet_decade_df.to_csv(args.output_dir / "performance_outlet_x_decade.csv", index=False)
+
+    all_levels_df = pd.concat([
+        overall_df.assign(group_type="overall", group="ALL"),
+        outlet_df.rename(columns={"paper": "group"}).assign(group_type="outlet"),
+        country_df.rename(columns={"country": "group"}).assign(group_type="country"),
+        decade_df.rename(columns={"decade": "group"}).assign(group_type="decade"),
+    ], ignore_index=True)
+    args.all_levels_csv.parent.mkdir(parents=True, exist_ok=True)
+    all_levels_df.to_csv(args.all_levels_csv, index=False)
+    print(f"All-levels table saved to: {args.all_levels_csv}")
 
     with pd.ExcelWriter(args.output_dir / "model_performance_summary.xlsx") as writer:
         overall_df.to_excel(writer, sheet_name="Overall", index=False)

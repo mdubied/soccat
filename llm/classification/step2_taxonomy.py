@@ -31,7 +31,7 @@ TAXONOMY = {
         "youth, including students and apprentices",
         "middle-aged and pre-retirement age groups", "elderly", "couples", "singles",
     ],
-    "Identities and minority/majority status": [
+    "Gender, sexuality, and sociocultural characteristics": [
         "men", "women", "cisgender and heterosexuals", "LGBTQIA+", "disabled people",
         "people with an immigration background, including immigrants",
         "ethnic and racial minorities", "Christians", "Jews", "Muslims",

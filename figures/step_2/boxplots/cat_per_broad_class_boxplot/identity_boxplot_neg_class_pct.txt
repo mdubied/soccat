@@ -1,0 +1,16 @@
+Category                                                       n_pairs    n_pos     n_neg     %neg
+--------------------------------------------------------------------------------------------------
+women                                                           1446.8     65.2    1381.6   95.49%
+people with immigration background                              1446.8     44.0    1402.8   96.96%
+men                                                             1446.8     27.0    1419.8   98.13%
+LGBTQIA+                                                        1446.8     15.8    1431.0   98.91%
+Christians                                                      1446.8      7.0    1439.8   99.52%
+Jews                                                            1446.8      6.8    1440.0   99.53%
+Muslims                                                         1446.8      6.8    1440.0   99.53%
+disabled people                                                 1446.8      6.4    1440.4   99.56%
+cisgender and heterosexuals                                     1446.8      4.0    1442.8   99.72%
+Ethnic and racial minorities                                    1446.8      3.4    1443.4   99.76%
+multiple (or other) religious or minority groups                1446.8      2.8    1444.0   99.81%
+--------------------------------------------------------------------------------------------------
+Average %neg across 11 individual categories: 98.81%
+Median  %neg across 11 individual categories: 99.53%

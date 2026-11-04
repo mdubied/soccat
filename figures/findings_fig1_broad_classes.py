@@ -57,8 +57,16 @@ def build_summary(long_df):
     return summary
 
 
+# Broad class names as in the rest of the paper (the data use older/underscored names)
+DISPLAY = {
+    "Identities": "Gender, sexuality, and\nsociocultural characteristics",  # two lines, as in the boxplots
+    "Socio economic position": "Socio-economic position",
+}
+
+
 def main():
     long_df = su.load_and_reshape(DATA_PATH, value_col="category")
+    long_df["category"] = long_df["category"].replace(DISPLAY)
     summary  = build_summary(long_df)
 
     su.plot_dot_iqr(

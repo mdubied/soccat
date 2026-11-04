@@ -1,0 +1,36 @@
+lab,test,train,total,test_share,fold
+couples,8,28,36,0.2222222222222222,0
+elderly,7,28,35,0.2,0
+middle-aged and pre-retirement age groups,4,15,19,0.21052631578947367,0
+"minors, including children and pupils",70,279,349,0.20057306590257878,0
+parents and families,38,152,190,0.2,0
+singles,6,21,27,0.2222222222222222,0
+"youth, including students and apprentices",62,248,310,0.2,0
+couples,7,29,36,0.19444444444444445,1
+elderly,7,28,35,0.2,1
+middle-aged and pre-retirement age groups,4,15,19,0.21052631578947367,1
+"minors, including children and pupils",70,279,349,0.20057306590257878,1
+parents and families,38,152,190,0.2,1
+singles,6,21,27,0.2222222222222222,1
+"youth, including students and apprentices",62,248,310,0.2,1
+couples,7,29,36,0.19444444444444445,2
+elderly,7,28,35,0.2,2
+middle-aged and pre-retirement age groups,4,15,19,0.21052631578947367,2
+"minors, including children and pupils",70,279,349,0.20057306590257878,2
+parents and families,38,152,190,0.2,2
+singles,5,22,27,0.18518518518518517,2
+"youth, including students and apprentices",62,248,310,0.2,2
+couples,7,29,36,0.19444444444444445,3
+elderly,7,28,35,0.2,3
+middle-aged and pre-retirement age groups,4,15,19,0.21052631578947367,3
+"minors, including children and pupils",70,279,349,0.20057306590257878,3
+parents and families,38,152,190,0.2,3
+singles,5,22,27,0.18518518518518517,3
+"youth, including students and apprentices",62,248,310,0.2,3
+couples,7,29,36,0.19444444444444445,4
+elderly,7,28,35,0.2,4
+middle-aged and pre-retirement age groups,3,16,19,0.15789473684210525,4
+"minors, including children and pupils",69,280,349,0.1977077363896848,4
+parents and families,38,152,190,0.2,4
+singles,5,22,27,0.18518518518518517,4
+"youth, including students and apprentices",62,248,310,0.2,4

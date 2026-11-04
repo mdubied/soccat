@@ -1,0 +1,62 @@
+Category                                                       n_pairs    n_pos     n_neg     %neg
+--------------------------------------------------------------------------------------------------
+politicians and high-ranking officials                          1446.8    256.8    1190.0   82.25%
+entrepreneurs                                                   1446.8    136.0    1310.8   90.60%
+wage and salary earners                                         1446.8     87.4    1359.4   93.96%
+athletes                                                        1446.8     73.4    1373.4   94.93%
+minors, including children and pupils                           1446.8     69.8    1377.0   95.18%
+consumers and clients                                           1446.8     67.2    1379.6   95.36%
+women                                                           1446.8     65.2    1381.6   95.49%
+other professions                                               1446.8     63.4    1383.4   95.62%
+youth, including students and apprentices                       1446.8     62.0    1384.8   95.71%
+security forces                                                 1446.8     47.6    1399.2   96.71%
+people with immigration background                              1446.8     44.0    1402.8   96.96%
+parents and families                                            1446.8     38.0    1408.8   97.37%
+offenders, criminals, prisoners, accused people                 1446.8     36.6    1410.2   97.47%
+authors and artists                                             1446.8     35.6    1411.2   97.54%
+capital owners, investors and shareholders                      1446.8     33.2    1413.6   97.71%
+men                                                             1446.8     27.0    1419.8   98.13%
+patients                                                        1446.8     19.2    1427.6   98.67%
+real-estate owners                                              1446.8     19.0    1427.8   98.69%
+scientists and professors                                       1446.8     16.6    1430.2   98.85%
+LGBTQIA+                                                        1446.8     15.8    1431.0   98.91%
+soldiers                                                        1446.8     15.4    1431.4   98.94%
+terrorists, revolutionaries, rebels, armed resistance           1446.8     14.8    1432.0   98.98%
+farmers and fishermen                                           1446.8     14.6    1432.2   98.99%
+CEOs and corporate leaders                                      1446.8     14.4    1432.4   99.00%
+doctors                                                         1446.8     13.6    1433.2   99.06%
+employers                                                       1446.8     13.6    1433.2   99.06%
+extremists                                                      1446.8     12.4    1434.4   99.14%
+teachers and educators                                          1446.8     12.4    1434.4   99.14%
+lower class                                                     1446.8     11.4    1435.4   99.21%
+unemployed                                                      1446.8     10.4    1436.4   99.28%
+legal professionals                                             1446.8      9.8    1437.0   99.32%
+civil servants                                                  1446.8      9.4    1437.4   99.35%
+journalists                                                     1446.8      8.2    1438.6   99.43%
+tenants                                                         1446.8      8.2    1438.6   99.43%
+couples                                                         1446.8      7.2    1439.6   99.50%
+skilled or qualified                                            1446.8      7.2    1439.6   99.50%
+Christians                                                      1446.8      7.0    1439.8   99.52%
+elderly                                                         1446.8      7.0    1439.8   99.52%
+Jews                                                            1446.8      6.8    1440.0   99.53%
+Muslims                                                         1446.8      6.8    1440.0   99.53%
+health and care professionals                                   1446.8      6.8    1440.0   99.53%
+homeless                                                        1446.8      6.8    1440.0   99.53%
+disabled people                                                 1446.8      6.4    1440.4   99.56%
+upper class                                                     1446.8      6.2    1440.6   99.57%
+sex workers                                                     1446.8      5.4    1441.4   99.63%
+singles                                                         1446.8      5.4    1441.4   99.63%
+unskilled or unqualified                                        1446.8      5.0    1441.8   99.65%
+middle class                                                    1446.8      4.8    1442.0   99.67%
+drug addicts                                                    1446.8      4.6    1442.2   99.68%
+car drivers                                                     1446.8      4.2    1442.6   99.71%
+housewives and househusbands                                    1446.8      4.2    1442.6   99.71%
+retirees                                                        1446.8      4.2    1442.6   99.71%
+cisgender and heterosexuals                                     1446.8      4.0    1442.8   99.72%
+middle-aged and pre-retirement age groups                       1446.8      3.8    1443.0   99.74%
+self-employed and freelancers                                   1446.8      3.8    1443.0   99.74%
+Ethnic and racial minorities                                    1446.8      3.4    1443.4   99.76%
+multiple (or other) religious or minority groups                1446.8      2.8    1444.0   99.81%
+--------------------------------------------------------------------------------------------------
+Average %neg across 57 individual categories: 98.17%
+Median  %neg across 57 individual categories: 99.21%

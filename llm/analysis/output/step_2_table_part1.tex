@@ -1,54 +1,59 @@
 \begin{table}[htb]
 \centering
+\renewcommand{\arraystretch}{0.9}
 \scriptsize
-\begin{tabular}{>{\raggedright\arraybackslash}p{4.2cm} r r r r r r r}
+\begin{threeparttable}
+\begin{tabular}{l c c c c c c c c c}
 \toprule
-Model & \multicolumn{6}{c}{Sonnet-5} & SOCCAT \\
-\cmidrule(lr){2-7}
-Thinking & High & High & High & Low & Low & Low &  \\
-Prompt & Short & Medium & Long & Short & Medium & Long &  \\
+Model & \multicolumn{6}{c}{Sonnet-5} & \multicolumn{3}{c}{SOCCAT} \\
+\cmidrule(lr){2-7} \cmidrule(lr){8-10}
+Thinking & High & High & High & Low & Low & Low &  &  &  \\
+Prompt & Short & Medium & Long & Short & Medium & Long & best & mean & med \\
 \midrule
-Lower class & 0.62 & 0.54 & 0.43 & 0.58 & 0.58 & 0.52 & 0.67 \\
-Middle class & 0.80 & 0.80 & 0.89 & 0.80 & 0.80 & 0.89 & 1.00 \\
-Upper class & 0.31 & 0.31 & 0.30 & 0.40 & 0.36 & 0.37 & 1.00 \\
-Capital owners, investors and shareholders & 0.74 & 0.75 & 0.75 & 0.77 & 0.72 & 0.73 & 0.86 \\
-Unskilled or unqualified & 0.80 & 0.86 & 1.00 & 0.57 & 0.80 & 0.80 & 1.00 \\
-Skilled or qualified & 0.14 & 0.12 & 0.12 & 0.14 & 0.14 & 0.00 & 0.83 \\
-\addlinespace
-Wage and salary earners & 0.62 & 0.71 & 0.72 & 0.59 & 0.69 & 0.71 & 0.90 \\
-Civil servants & 0.35 & 0.39 & 0.50 & 0.35 & 0.38 & 0.46 & 1.00 \\
-CEOs and corporate leaders & 0.32 & 0.32 & 0.26 & 0.38 & 0.32 & 0.13 & 0.78 \\
-Employers & 0.85 & 0.81 & 0.78 & 0.79 & 0.81 & 0.85 & 0.89 \\
-Entrepreneurs & 0.44 & 0.45 & 0.49 & 0.43 & 0.36 & 0.43 & 0.85 \\
-\textbf{Self-employed and freelancers} & \textbf{0.67} & \textbf{0.62} & \textbf{0.67} & \textbf{0.62} & \textbf{0.59} & \textbf{0.77} & 0.50 \\
-\textbf{Unemployed} & 0.64 & 0.67 & \textbf{0.70} & 0.62 & 0.62 & 0.64 & 0.67 \\
-\textbf{Retirees} & \textbf{0.75} & \textbf{0.80} & \textbf{0.82} & \textbf{0.88} & \textbf{0.71} & \textbf{0.82} & 0.50 \\
-Housewives and househusbands & 0.92 & 0.92 & 0.92 & 0.92 & 0.92 & 0.92 & 1.00 \\
-\addlinespace
-Parents and families & 0.73 & 0.72 & 0.73 & 0.71 & 0.68 & 0.71 & 0.88 \\
-Minors, including children and pupils & 0.77 & 0.74 & 0.77 & 0.76 & 0.72 & 0.75 & 0.90 \\
-Youth, including students and apprentices & 0.85 & 0.83 & 0.82 & 0.80 & 0.79 & 0.78 & 0.93 \\
-\textbf{Middle-aged and pre-retirement age groups} & \textbf{0.60} & \textbf{0.75} & \textbf{0.75} & \textbf{0.57} & \textbf{0.75} & \textbf{0.67} & 0.57 \\
-\textbf{Elderly} & \textbf{0.69} & \textbf{0.62} & \textbf{0.62} & \textbf{0.64} & \textbf{0.64} & \textbf{0.67} & 0.55 \\
-\textbf{Couples} & \textbf{0.83} & \textbf{0.88} & \textbf{0.73} & \textbf{0.83} & \textbf{0.92} & \textbf{0.76} & 0.67 \\
-Singles & 0.80 & 0.80 & 0.80 & 0.88 & 0.80 & 0.88 & 0.89 \\
-\addlinespace
-Men & 0.60 & 0.55 & 0.53 & 0.55 & 0.53 & 0.58 & 0.88 \\
-Women & 0.80 & 0.78 & 0.79 & 0.80 & 0.78 & 0.80 & 0.89 \\
-\textbf{Cisgender and heterosexuals} & \textbf{0.89} & \textbf{0.89} & \textbf{1.00} & \textbf{0.89} & \textbf{0.89} & \textbf{0.89} & 0.75 \\
-LGBTQIA+ & 0.69 & 0.71 & 0.74 & 0.65 & 0.69 & 0.62 & 0.93 \\
-Disabled people & 0.80 & 0.89 & 0.89 & 0.80 & 0.89 & 0.89 & 0.92 \\
-People with an immigration background, including immigrants & 0.70 & 0.76 & 0.78 & 0.73 & 0.73 & 0.75 & 0.95 \\
-Ethnic and racial minorities & 0.37 & 0.39 & 0.38 & 0.42 & 0.37 & 0.34 & 0.50 \\
-\textbf{Christians} & \textbf{0.62} & \textbf{0.67} & \textbf{0.76} & \textbf{0.73} & \textbf{0.69} & \textbf{0.67} & 0.50 \\
-\textbf{Jews} & 0.67 & \textbf{0.82} & \textbf{0.74} & \textbf{0.75} & \textbf{0.71} & 0.63 & 0.67 \\
-Muslims & 0.47 & 0.40 & 0.59 & 0.38 & 0.57 & 0.50 & 0.91 \\
-Multiple (or other) religious or minority groups & 0.00 & 0.40 & 0.00 & 0.29 & 0.40 & 0.33 & 0.67 \\
+\rule{0pt}{5pt} &  &  &  &  &  &  &  &  &  \\
+\shortstack[l]{\textbf{Socio-economic position}\\[3pt]\textit{Lower class}} & \textit{0.70} & \textit{0.73} & \textit{0.64} & \textit{0.82} & \textit{0.75} & \textit{0.75} & 0.55 & 0.59 & 0.55 \\
+\textit{Middle class} & \textit{0.94} & \textit{0.94} & \textit{0.89} & \textit{0.88} & \textit{0.82} & \textit{0.84} & 0.67 & 0.76 & 0.89 \\
+\textit{Upper class} & \textit{0.71} & \textit{0.75} & \textit{0.67} & \textit{0.71} & \textit{0.71} & \textit{0.67} & 0.31 & 0.43 & 0.44 \\
+\shortstack[l]{Capital owners, investors\\[-3pt]and shareholders} & 0.76 & 0.79 & 0.79 & 0.76 & 0.79 & 0.83 & 0.92 & 0.86 & 0.87 \\
+Unskilled or unqualified & 0.50 & 0.67 & 0.50 & 0.50 & 0.50 & 0.67 & 0.89 & 0.78 & 0.75 \\
+Skilled or qualified & 0.29 & 0.32 & 0.29 & 0.33 & 0.25 & 0.27 & 0.83 & 0.58 & 0.67 \\
+\rule{0pt}{5pt} &  &  &  &  &  &  &  &  &  \\
+\shortstack[l]{\textbf{Labor market position}\\[3pt]Wage and salary earners} & 0.70 & 0.74 & 0.80 & 0.67 & 0.69 & 0.75 & 0.81 & 0.83 & 0.81 \\
+Civil servants & 0.39 & 0.46 & 0.60 & 0.53 & 0.50 & 0.48 & 0.75 & 0.74 & 0.75 \\
+\shortstack[l]{CEOs and\\[-3pt]corporate leaders} & 0.47 & 0.39 & 0.46 & 0.32 & 0.42 & 0.39 & 0.73 & 0.66 & 0.64 \\
+\textit{Employers} & \textit{0.92} & \textit{0.85} & 0.79 & 0.80 & 0.81 & \textit{0.88} & 0.85 & 0.84 & 0.85 \\
+Entrepreneurs & 0.65 & 0.62 & 0.68 & 0.56 & 0.56 & 0.68 & 0.82 & 0.79 & 0.81 \\
+\shortstack[l]{Self-employed\\[-3pt]and freelancers} & 0.36 & 0.40 & 0.40 & 0.40 & 0.33 & 0.36 & 0.40 & 0.61 & 0.57 \\
+Unemployed & 0.74 & 0.74 & 0.74 & 0.64 & 0.67 & 0.74 & 0.82 & 0.75 & 0.75 \\
+\textit{Retirees} & \textit{0.75} & \textit{0.75} & \textit{0.67} & \textit{0.67} & \textit{0.67} & \textit{0.75} & 0.50 & 0.45 & 0.50 \\
+\shortstack[l]{Housewives and\\[-3pt]househusbands} & 0.91 & 0.91 & 0.91 & 0.91 & 0.83 & 0.91 & 1.00 & 0.96 & 1.00 \\
+\rule{0pt}{5pt} &  &  &  &  &  &  &  &  &  \\
+\shortstack[l]{\textbf{Age and family status}\\[3pt]Parents and families} & 0.74 & 0.72 & 0.73 & 0.76 & 0.72 & 0.77 & 0.80 & 0.82 & 0.82 \\
+\shortstack[l]{Minors, including\\[-3pt]children and pupils} & 0.77 & 0.80 & 0.79 & 0.78 & 0.75 & 0.80 & 0.85 & 0.82 & 0.82 \\
+\shortstack[l]{Youth, including\\[-3pt]students and apprentices} & 0.78 & 0.75 & 0.79 & 0.75 & 0.82 & 0.81 & 0.82 & 0.84 & 0.84 \\
+\shortstack[l]{\textit{Middle-aged and}\\[-3pt]\textit{pre-retirement age groups}} & \textit{0.71} & \textit{0.77} & \textit{0.62} & \textit{0.57} & \textit{0.67} & \textit{0.73} & 0.67 & 0.20 & 0.00 \\
+Elderly & 0.57 & 0.55 & 0.57 & 0.36 & 0.48 & 0.52 & 0.60 & 0.60 & 0.60 \\
+\textit{Couples} & \textit{0.94} & \textit{1.00} & \textit{0.94} & \textit{1.00} & \textit{1.00} & \textit{0.94} & 0.88 & 0.85 & 0.86 \\
+\textit{Singles} & \textit{0.93} & \textit{0.93} & 0.86 & 0.86 & \textit{0.93} & \textit{0.93} & 1.00 & 0.87 & 0.86 \\
+\rule{0pt}{5pt} &  &  &  &  &  &  &  &  &  \\
+\shortstack[l]{\textbf{Gender, sexuality, and}\\[-3pt]\textbf{sociocultural characteristics}\\[3pt]Men} & 0.65 & 0.69 & 0.63 & 0.67 & 0.62 & 0.69 & 0.65 & 0.75 & 0.77 \\
+Women & 0.79 & 0.80 & 0.78 & 0.80 & 0.75 & 0.79 & 0.93 & 0.85 & 0.85 \\
+\shortstack[l]{\textit{Cisgender and}\\[-3pt]\textit{heterosexuals}} & \textit{1.00} & \textit{0.91} & \textit{1.00} & \textit{1.00} & \textit{0.91} & 0.80 & 0.75 & 0.86 & 0.86 \\
+\textit{LGBTQIA+} & \textit{0.88} & \textit{0.91} & \textit{0.83} & \textit{0.91} & \textit{0.85} & \textit{0.88} & 0.81 & 0.81 & 0.83 \\
+Disabled people & 0.86 & 0.63 & 0.80 & 0.86 & 0.86 & 0.71 & 0.80 & 0.86 & 0.86 \\
+\shortstack[l]{\textit{People with an immigration}\\[-3pt]\textit{background, including immigrants}} & 0.81 & 0.81 & \textit{0.84} & 0.77 & \textit{0.84} & \textit{0.85} & 0.90 & 0.83 & 0.85 \\
+\shortstack[l]{Ethnic and racial\\[-3pt]minorities} & 0.12 & 0.11 & 0.12 & 0.15 & 0.12 & 0.14 & 0.40 & 0.47 & 0.40 \\
+\textit{Christians} & \textit{0.77} & \textit{0.86} & \textit{0.86} & \textit{0.80} & \textit{0.86} & \textit{0.71} & 0.83 & 0.63 & 0.55 \\
+\textit{Jews} & \textit{0.89} & \textit{0.89} & \textit{0.89} & \textit{0.82} & 0.78 & \textit{0.94} & 0.92 & 0.81 & 0.80 \\
+Muslims & 0.57 & 0.57 & 0.67 & 0.50 & 0.50 & 0.67 & 0.80 & 0.75 & 0.77 \\
+\shortstack[l]{\textit{Multiple (or other)}\\[-3pt]\textit{religious or minority groups}} & \textit{0.29} & \textit{0.25} & \textit{0.29} & \textit{0.40} & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 \\
 \bottomrule
 \end{tabular}
-\\
-\vspace{2pt}
-{\footnotesize \textit{Note:} Bold font is used when at least one LLM run beats SOCCAT, and it shows the beating F1 values.\par}
-\caption{Performance comparison with LLMs for Step 2, detailed F1 score by specific categories. Part 1/2.}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item \textit{Note:} Specific group labels are listed under the name of their broad class. Scores are positive-class F1. SOCCAT: best cross-validation fold (best, released model), or mean / median (med) across the 5 folds. Italics are used for a label when at least one LLM run beats SOCCAT's mean F1, and it shows the beating F1 values.
+\end{tablenotes}
+\end{threeparttable}
+\caption{Performance comparison with LLMs for Step 2, detailed F1 score by specific group labels. Part 1/2.}
 \label{tab:llm-step2-1}
 \end{table}

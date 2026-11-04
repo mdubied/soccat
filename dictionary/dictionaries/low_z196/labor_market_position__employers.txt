@@ -1,0 +1,9 @@
+patrons
+arbeitgeber
+employeurs
+arbeitnehmer
+employés
+emploi
+arbeit
+lundi
+heures

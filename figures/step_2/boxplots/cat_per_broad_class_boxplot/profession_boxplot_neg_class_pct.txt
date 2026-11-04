@@ -1,0 +1,19 @@
+Category                                                       n_pairs    n_pos     n_neg     %neg
+--------------------------------------------------------------------------------------------------
+politicians and high-ranking officials                          1446.8    256.8    1190.0   82.25%
+athletes                                                        1446.8     73.4    1373.4   94.93%
+other professions                                               1446.8     63.4    1383.4   95.62%
+security forces                                                 1446.8     47.6    1399.2   96.71%
+authors and artists                                             1446.8     35.6    1411.2   97.54%
+scientists and professors                                       1446.8     16.6    1430.2   98.85%
+soldiers                                                        1446.8     15.4    1431.4   98.94%
+farmers and fishermen                                           1446.8     14.6    1432.2   98.99%
+doctors                                                         1446.8     13.6    1433.2   99.06%
+teachers and educators                                          1446.8     12.4    1434.4   99.14%
+legal professionals                                             1446.8      9.8    1437.0   99.32%
+journalists                                                     1446.8      8.2    1438.6   99.43%
+health and care professionals                                   1446.8      6.8    1440.0   99.53%
+sex workers                                                     1446.8      5.4    1441.4   99.63%
+--------------------------------------------------------------------------------------------------
+Average %neg across 14 individual categories: 97.14%
+Median  %neg across 14 individual categories: 98.96%

@@ -12,7 +12,7 @@ Outputs:
   figures/application_to_newspaper_corpus/fig3_selected_groups.pdf
 
 Data:
-  data/annotated_corpus/specific_categories_aggregate_results.csv
+  data/annotated_corpus/specific_labels_aggregate_results.csv
 
 Usage (from the figures/ directory):
   python findings_fig3_selected_groups_trends.py
@@ -25,18 +25,18 @@ from matplotlib.ticker import FuncFormatter
 import utils as su
 
 
-DATA_PATH = "../data/annotated_corpus/specific_categories_aggregate_results.csv"
+DATA_PATH = "../data/annotated_corpus/specific_labels_aggregate_results.csv"
 SAVE_PATH = "application_to_newspaper_corpus/fig3_selected_groups.pdf"
 FIGURE_CM = (14, 14)
 SHOW_OUTLET_LINES = True
 
 TITLE_DISPLAY = {
-    "People with an immigration background including immigrants":
+    "People with an immigration background, including immigrants":
         r"Immigrants",
 }
 
 LABELS_FOCUS = [
-    "People with an immigration background including immigrants",
+    "People with an immigration background, including immigrants",
     "Muslims",
     "Patients",
     "Health and care professionals",
@@ -52,11 +52,11 @@ PANEL_LABELS = ["A", "B", "C", "D"]
 ANNOTATIONS = [
     ("Patients",                          2020, "Covid outbreak",              "left",  None, 0.0),
     ("Health and care professionals",     2020, "Covid outbreak",              "left",  None, 0.0),
-    ("People with an immigration background including immigrants", 2015, "Refugee crisis",             "right", None, 0.1),
-    ("People with an immigration background including immigrants", 2010, r"\shortstack[c]{Sarrazin debate\\in Germany}", "left",   None, 0.5),
+    ("People with an immigration background, including immigrants", 2015, "Refugee crisis",             "right", None, 0.1),
+    ("People with an immigration background, including immigrants", 2010, r"\shortstack[c]{Sarrazin debate\\in Germany}", "left",   None, 0.5),
     ("Muslims",                           2015, "Refugee crisis",              "right", None, 0),
     ("Muslims",                           2004, "Veil ban in France",          "right", None, 0.03),
-    ("Muslims",                           2010, r"\shortstack[l]{Sarrazin debate\\in Germany}",  "right", None, -0.17),
+    ("Muslims",                           2010, r"\shortstack[l]{Sarrazin debate\\in Germany}",  "right", None, -0.15),
 ]
 
 

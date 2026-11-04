@@ -13,8 +13,13 @@ Step 2 has no single label: each specific taxonomy label is scored as its
 own binary detection problem (present vs. absent in that sentence), then:
   - broad-category scores are the weighted average of their specific-label
     scores, weighted by each label's number of positive (true) cases;
-  - an overall score is the same weighted average across every specific
-    label in the taxonomy.
+  - an overall score is pooled over all (sentence, label) pairs of every
+    specific label in the taxonomy except the residual "others" category,
+    which SOCCAT does not predict (so LLM and SOCCAT overall scores cover the
+    same 57 labels): confusion counts are summed over the labels, then scored
+    once, as in tables/model_comparison_overview.py. Unlike a weighted
+    average of label scores, this counts every false positive, including
+    those on rare labels.
 This mirrors how SOCCAT (our step 2 pipeline, src/step_2/step_2_cv_pipeline.py)
 scores each specific label as an independent NLI entailment problem, and the
 report compares against SOCCAT's own performance throughout (see
@@ -26,6 +31,8 @@ Usage:
 
 import csv
 import json
+import re
+import statistics
 import sys
 from datetime import datetime
 from pathlib import Path
@@ -36,10 +43,83 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 REPO_ROOT = SCRIPT_DIR.parent.parent
 
 sys.path.insert(0, str(REPO_ROOT / "llm" / "classification"))
-from step2_taxonomy import LABEL_MAP, TAXONOMY  # noqa: E402
+from step2_taxonomy import LABEL_MAP, TAXONOMY, parse_true_categories  # noqa: E402
 
 OUTPUT_ROOT = REPO_ROOT / "llm" / "classification" / "output" / "step_2"
-PER_FOLD_DIR = REPO_ROOT / "data" / "model_performance" / "step_2" / "model_performance"
+STEP_2_DATA_DIR = REPO_ROOT / "data" / "model_performance" / "step_2"
+GROUND_TRUTH_PATH = REPO_ROOT / "data" / "manual_annotations" / "step_2" / "annotations_ground_truth.csv"
+
+# Display names for broad categories in the report, for TAXONOMY keys that differ
+# from the paper's names. Currently none: "Identities and minority/majority status"
+# was renamed to "Gender, sexuality, and sociocultural characteristics" in TAXONOMY
+# and the prompts themselves (runs made before the rename are not comparable).
+BROAD_DISPLAY_NAMES = {}
+
+
+def display_broad(broad: str) -> str:
+    return BROAD_DISPLAY_NAMES.get(broad, broad)
+
+# broad-class file stem -> its own folder directly under STEP_2_DATA_DIR,
+# containing fold_*_per_label.csv (one file per fold, no "fold" column).
+# Matches figures/step_2_boxplot.py's FOLDER_NAME_MAP. All 8 broad classes
+# are migrated to this layout; the old model_performance/{stem}_per_fold.csv
+# files are stale (pre-retrain) and will eventually be removed.
+FOLDER_NAME_MAP = {
+    "age_family": "age_family_status",
+    "identity": "identities_minority_majority_status",
+    "labor_market_w_entrepreneurs": "labor_market_position",
+    "profession": "profession",
+    "real_estate": "real_estate_ownership",
+    "social_deviance": "social_deviance",
+    "social_roles": "social_roles_behavior",
+    "socio_economic": "socio_economic_position",
+}
+
+# fold-selection metric for "which fold's model is the deployed one" --
+# n_pos_entail-weighted macro F1, matching figures/step_2_boxplot.py and
+# tables/step_2_best_fold_table.py (chosen there for robustness to the
+# heavy class imbalance in the current test sets; see conversation history).
+# The score actually reported/compared against LLM runs stays f1_binary.
+BEST_FOLD_METRIC = "f1_macro"
+
+# SOCCAT columns/rows in the LaTeX tables: the released model (each broad
+# category's best fold) and the mean / median across its 5 CV folds
+SOCCAT_VARIANTS = ["best", "mean", "median"]
+SOCCAT_VARIANT_NAMES = {"best": "Best fold", "mean": "Mean", "median": "Median"}
+SOCCAT_VARIANT_SHORT = {"best": "best", "mean": "mean", "median": "med"}  # narrow table columns
+
+# Per-label table layout, same as dictionary/05_make_latex_table.py
+LABEL_LINE_WRAP_THRESHOLD = 24  # chars; longer labels are split onto 2 balanced lines
+LABEL_LINE_GAP = "-3pt"         # tighten \shortstack's default inter-line gap
+BROAD_CLASS_LINE_GAP = "3pt"    # gap between a broad-class name and its first label
+GROUP_GAP_HEIGHT = "5pt"        # height of the blank spacer row before each broad class
+ARRAY_STRETCH = "0.9"           # \arraystretch factor, < 1 tightens row spacing
+MANUAL_LINE_BREAKS = {          # labels/headings still too wide on 2 auto-split lines
+    "Terrorists, rebels, revolutionaries and/or movements of armed resistance":
+        ["Terrorists, rebels,", "revolutionaries and/or", "movements of armed resistance"],
+    "Gender, sexuality, and sociocultural characteristics":
+        ["Gender, sexuality, and", "sociocultural characteristics"],
+}
+
+
+def label_lines(text: str) -> list:
+    """Capitalised, LaTeX-escaped label split onto lines (manual break, or 2
+    balanced lines above LABEL_LINE_WRAP_THRESHOLD characters)."""
+    text = text[:1].upper() + text[1:]
+    if text in MANUAL_LINE_BREAKS:
+        return [escape_latex(p) for p in MANUAL_LINE_BREAKS[text]]
+    text = escape_latex(text)
+    spaces = [i for i, c in enumerate(text) if c == " "]
+    if len(text) <= LABEL_LINE_WRAP_THRESHOLD or not spaces:
+        return [text]
+    split_at = min(spaces, key=lambda i: abs(i - len(text) / 2))
+    return [text[:split_at].strip(), text[split_at:].strip()]
+
+
+def broad_heading_lines(name: str) -> list:
+    return [escape_latex(p) for p in MANUAL_LINE_BREAKS.get(name, [name])]
+SOCCAT_METRIC_COLS = {"precision": "precision_binary", "recall": "recall_binary",
+                      "f1": "f1_binary", "f1_macro": "f1_macro"}
 
 # {broad_display_name: filename stem for {stem}_per_fold.csv}. Matches
 # figures/step_2_boxplot.py's BROAD_CLASS_LIST (note "identity" is singular in the
@@ -49,7 +129,7 @@ BROAD_CLASS_FILE_STEM = {
     "Socio-economic position": "socio_economic",
     "Labor market position": "labor_market_w_entrepreneurs",
     "Age and family status": "age_family",
-    "Identities and minority/majority status": "identity",
+    "Gender, sexuality, and sociocultural characteristics": "identity",
     "Profession": "profession",
     "Social roles and behavior": "social_roles",
     "Social deviance": "social_deviance",
@@ -89,34 +169,59 @@ def format_duration(ms: float) -> str:
     return f"{int(minutes)}m {secs:.0f}s"
 
 
+def _load_broad_class_rows(stem: str) -> list:
+    """Per-fold, per-label rows (each dict gets a "fold" key) for one broad
+    class, read from its own folder directly under STEP_2_DATA_DIR (one
+    fold_*_per_label.csv per fold, no "fold" column in the file itself).
+    Mirrors figures/step_2_boxplot.py's load_broad_class_df."""
+    folder = FOLDER_NAME_MAP.get(stem, stem)
+    fold_files = sorted(
+        (STEP_2_DATA_DIR / folder).glob("fold_*_per_label.csv"),
+        key=lambda p: int(re.search(r"fold_(\d+)_per_label", p.name).group(1)),
+    )
+    rows = []
+    for f in fold_files:
+        fold_num = re.search(r"fold_(\d+)_per_label", f.name).group(1)
+        with f.open("r", encoding="utf-8-sig", newline="") as fh:
+            for row in csv.DictReader(fh):
+                row["fold"] = fold_num
+                rows.append(row)
+    return rows
+
+
 def load_soccat_baseline() -> dict:
     """The actual SOCCAT pipeline's performance, for comparison. SOCCAT trains one
     NLI model per broad category (covering every specific label within it) via
     5-fold CV (src/step_2/step_2_cv_pipeline.py); the single best-performing fold
     becomes that category's deployed model, so its specific labels' reported scores
     all come from that one fold -- not a per-label best fold, and not a cross-fold
-    average. This mirrors exactly how figures/step_2_boxplot.py selects and
-    annotates one "best fold" per broad category (weighted by n_pos_entail, i.e.
-    positive-case count, matching --sel_metric f1_binary's own default).
+    average. This mirrors exactly how figures/step_2_boxplot.py and
+    tables/step_2_best_fold_table.py select and annotate one "best fold" per broad
+    category: n_pos_entail-weighted BEST_FOLD_METRIC (macro F1, for robustness to
+    the heavy class imbalance in the current test sets), while the score actually
+    reported/compared against LLM runs stays f1_binary.
 
-    Reads {broad}_per_fold.csv (raw per-fold, per-label data -- NOT the pre-averaged
-    *_mean_ci.csv files, which report the cross-fold mean rather than the deployed
-    best-fold score). hypothesis_label spellings in these files sometimes differ
-    from our taxonomy (older run, case/wording drift) -- normalise them through the
-    same LABEL_MAP used to build SOCCAT's own training pairs
+    Reads fold_*_per_label.csv via _load_broad_class_rows -- raw per-fold,
+    per-label data, NOT the pre-averaged *_mean_ci.csv files, which report the
+    cross-fold mean rather than the deployed best-fold score. hypothesis_label
+    spellings in these files
+    sometimes differ from our taxonomy (case/wording drift) -- normalise them
+    through the same LABEL_MAP used to build SOCCAT's own training pairs
     (src/step_2/convert_annotations.py), so labels match ours exactly.
 
     Returns {"broad_f1": {broad: f1}, "broad_weight": {broad: total n_pos at best fold},
-    "specific_f1": {(broad, specific): f1}}.
+    "specific_f1": {(broad, specific): f1} (best fold), "specific_stats": {variant:
+    {(broad, specific): {n_pos, precision, recall, f1, f1_macro}}}} with variant in
+    SOCCAT_VARIANTS: "best" = the broad category's best fold; "mean"/"median" =
+    across its 5 folds, per label (n_pos = mean positive count across folds).
     """
-    broad_f1, broad_weight, specific_f1 = {}, {}, {}
+    broad_f1, broad_weight, specific_f1, best_folds = {}, {}, {}, {}
+    specific_stats = {v: {} for v in SOCCAT_VARIANTS}
 
     for broad, stem in BROAD_CLASS_FILE_STEM.items():
-        path = PER_FOLD_DIR / f"{stem}_per_fold.csv"
-        if not path.exists():
+        rows = _load_broad_class_rows(stem)
+        if not rows:
             continue
-        with path.open("r", encoding="utf-8-sig", newline="") as f:
-            rows = list(csv.DictReader(f))
 
         by_fold = {}
         for row in rows:
@@ -125,41 +230,87 @@ def load_soccat_baseline() -> dict:
                 continue  # label dropped from the final taxonomy (e.g. "enterprises")
             by_fold.setdefault(row["fold"], []).append((specific, row))
 
-        def weighted_f1(fold_rows):
+        def weighted(fold_rows, metric):
             total_w = sum(float(r["n_pos_entail"]) for _, r in fold_rows)
             if not total_w:
                 return 0.0, 0.0
-            weighted = sum(float(r["f1_binary"]) * float(r["n_pos_entail"]) for _, r in fold_rows) / total_w
-            return weighted, total_w
+            weighted_val = sum(float(r[metric]) * float(r["n_pos_entail"]) for _, r in fold_rows) / total_w
+            return weighted_val, total_w
 
-        best_fold, best_score, best_weight = None, -1.0, 0.0
+        best_fold, best_sel_score = None, -1.0
         for fold, fold_rows in by_fold.items():
-            score, weight = weighted_f1(fold_rows)
-            if score > best_score:
-                best_fold, best_score, best_weight = fold, score, weight
+            sel_score, _ = weighted(fold_rows, BEST_FOLD_METRIC)
+            if sel_score > best_sel_score:
+                best_fold, best_sel_score = fold, sel_score
 
         if best_fold is None:
             continue
+        best_score, best_weight = weighted(by_fold[best_fold], "f1_binary")
+        best_folds[broad] = best_fold
         broad_f1[broad] = best_score
         broad_weight[broad] = best_weight
         for specific, row in by_fold[best_fold]:
             specific_f1[(broad, specific)] = float(row["f1_binary"])
+            specific_stats["best"][(broad, specific)] = {
+                **{k: float(row[col]) for k, col in SOCCAT_METRIC_COLS.items()},
+                "n_pos": float(row["n_pos_entail"])}
+        per_label = {}
+        for fold_rows in by_fold.values():
+            for specific, row in fold_rows:
+                per_label.setdefault(specific, []).append(row)
+        for specific, label_rows in per_label.items():
+            for variant, agg in (("mean", statistics.mean), ("median", statistics.median)):
+                stats = {k: agg(float(r[col]) for r in label_rows) for k, col in SOCCAT_METRIC_COLS.items()}
+                stats["n_pos"] = statistics.mean(float(r["n_pos_entail"]) for r in label_rows)
+                specific_stats[variant][(broad, specific)] = stats
 
-    return {"broad_f1": broad_f1, "broad_weight": broad_weight, "specific_f1": specific_f1}
+    return {"broad_f1": broad_f1, "broad_weight": broad_weight, "specific_f1": specific_f1,
+            "specific_stats": specific_stats, "best_folds": best_folds}
+
+
+def _soccat_fold_counts() -> dict:
+    """{broad: {fold: (tp, fp, fn, tn)}} over all (sentence, label) pairs of each broad
+    class's test fold, from its fold_*_human_vs_model.csv (exact counts; 0 = entailment)."""
+    counts = {}
+    for broad, stem in BROAD_CLASS_FILE_STEM.items():
+        folder = STEP_2_DATA_DIR / FOLDER_NAME_MAP.get(stem, stem)
+        for f in folder.glob("fold_*_human_vs_model.csv"):
+            fold = re.search(r"fold_(\d+)_human_vs_model", f.name).group(1)
+            tp = fp = fn = tn = 0
+            with f.open("r", encoding="utf-8-sig", newline="") as fh:
+                for row in csv.DictReader(fh):
+                    y, p = row["nli_label"] == "0", row["pred_label"] == "0"
+                    tp += y and p; fp += (not y) and p; fn += y and not p; tn += not (y or p)
+            counts.setdefault(broad, {})[fold] = (tp, fp, fn, tn)
+    return counts
 
 
 def compute_soccat_overall_f1(baseline: dict) -> float | None:
-    """Weighted avg of each broad category's best-CV-fold F1, weighted by
-    positive-case count -- SOCCAT's single headline number, comparable to a run's
-    metrics["overall"]["f1"]. Note SOCCAT has no comparable overall accuracy/
-    precision/recall (load_soccat_baseline only carries F1 per broad category)."""
-    broad_f1, broad_weight = baseline["broad_f1"], baseline["broad_weight"]
-    if not broad_f1:
+    """SOCCAT's single headline number (best fold of each broad class, pooled),
+    comparable to a run's metrics["overall"]["f1"]."""
+    overall = compute_soccat_overall(baseline, "best")
+    return overall["f1"] if overall else None
+
+
+def compute_soccat_overall(baseline: dict, variant: str = "best") -> dict | None:
+    """SOCCAT's overall precision/recall/F1/macro F1 for one SOCCAT_VARIANTS entry,
+    pooled over all (sentence, label) pairs -- the same aggregation as a run's
+    metrics["overall"] (_pooled):
+      "best"   counts summed over each broad class's best fold (the released models);
+      "mean"   per fold k, counts summed over the 8 broad classes' fold k and scored,
+      "median" then the mean / median of these 5 fold scores."""
+    counts = _soccat_fold_counts()
+    if not counts:
         return None
-    total_w = sum(broad_weight.values())
-    if not total_w:
-        return None
-    return sum(broad_f1[b] * broad_weight[b] for b in broad_f1) / total_w
+    metrics = ("precision", "recall", "f1", "f1_macro")
+    if variant == "best":
+        best = baseline.get("best_folds", {})
+        totals = [sum(counts[b][best[b]][i] for b in counts if b in best) for i in range(4)]
+        return {m: v for m, v in _scores_from_counts(*totals).items() if m in metrics}
+    folds = sorted({k for per in counts.values() for k in per})
+    per_fold = [_scores_from_counts(*[sum(counts[b][k][i] for b in counts) for i in range(4)]) for k in folds]
+    agg = statistics.mean if variant == "mean" else statistics.median
+    return {m: agg(s[m] for s in per_fold) for m in metrics}
 
 
 def format_soccat_summary(baseline: dict) -> str:
@@ -167,8 +318,8 @@ def format_soccat_summary(baseline: dict) -> str:
     if overall_f1 is None:
         return "  (not available)"
     return (
-        f"  F1={overall_f1:.3f}  (weighted avg across {len(baseline['broad_f1'])} broad categories' "
-        f"best CV fold, weighted by positive-case count)"
+        f"  F1={overall_f1:.3f}  (pooled over all (sentence, label) pairs of the "
+        f"{len(baseline['broad_f1'])} broad categories' best CV folds)"
     )
 
 
@@ -182,7 +333,30 @@ def _label_stats(key: tuple, true_sets: list, pred_sets: list, n: int) -> dict:
     precision = tp / (tp + fp) if (tp + fp) else 0.0
     recall = tp / (tp + fn) if (tp + fn) else 0.0
     f1 = 2 * precision * recall / (precision + recall) if (precision + recall) else 0.0
-    return {"n_pos": tp + fn, "accuracy": (tp + tn) / n, "precision": precision, "recall": recall, "f1": f1}
+    # macro F1 = mean of the positive- and negative-class F1 (as SOCCAT's f1_macro)
+    f1_neg = 2 * tn / (2 * tn + fp + fn) if (2 * tn + fp + fn) else 0.0
+    return {"n_pos": tp + fn, "accuracy": (tp + tn) / n, "precision": precision, "recall": recall,
+            "f1": f1, "f1_macro": (f1 + f1_neg) / 2, "tp": tp, "fp": fp, "fn": fn, "tn": tn}
+
+
+def _scores_from_counts(tp, fp, fn, tn) -> dict:
+    """Precision/recall/F1 (positive class), accuracy and macro F1 (mean of positive-
+    and negative-class F1) from confusion counts, 0 where undefined (as _label_stats)."""
+    f1_of = lambda a, b, c: 2 * a / (2 * a + b + c) if (2 * a + b + c) else 0.0
+    f1, f1_neg = f1_of(tp, fp, fn), f1_of(tn, fn, fp)
+    return {"n_pos": tp + fn, "accuracy": (tp + tn) / (tp + fp + fn + tn) if (tp + fp + fn + tn) else 0.0,
+            "precision": tp / (tp + fp) if (tp + fp) else 0.0, "recall": tp / (tp + fn) if (tp + fn) else 0.0,
+            "f1": f1, "f1_macro": (f1 + f1_neg) / 2}
+
+
+def _pooled(stats_list: list):
+    """Scores pooled over all (sentence, label) pairs of the given labels: their
+    confusion counts are summed, then the scores are computed once (as
+    tables/model_comparison_overview.py), so every wrong label counts, whichever
+    label it is on."""
+    if not stats_list or not sum(s["n_pos"] for s in stats_list):
+        return None
+    return _scores_from_counts(*(sum(s[k] for s in stats_list) for k in ("tp", "fp", "fn", "tn")))
 
 
 def _weighted_avg(stats_list: list):
@@ -193,9 +367,27 @@ def _weighted_avg(stats_list: list):
     if total_w == 0:
         return None
     out = {"n_pos": total_w}
-    for m in ("accuracy", "precision", "recall", "f1"):
+    for m in ("accuracy", "precision", "recall", "f1", "f1_macro"):
         out[m] = sum(s[m] * s["n_pos"] for s in stats_list) / total_w
     return out
+
+
+def load_ground_truth() -> dict:
+    """{sentence id: list of (broad, specific) pairs} from the current ground-truth
+    file, parsed exactly as classify_step2.py does."""
+    with GROUND_TRUTH_PATH.open("r", encoding="utf-8-sig", newline="") as f:
+        return {row["id"]: parse_true_categories(row.get("specific_group_new"))
+                for row in csv.DictReader(f)}
+
+
+def apply_ground_truth(rows: list, ground_truth: dict) -> None:
+    """Overwrite the true_* columns stored in predictions.csv at classification
+    time with labels from the current ground-truth file, so runs are always
+    scored against the same annotations as SOCCAT, whenever they were made."""
+    for r in rows:
+        true_categories = ground_truth[r["id"]]
+        r["true_categories"] = json.dumps(true_categories, ensure_ascii=False)
+        r["true_has_social_category"] = int(bool(true_categories))
 
 
 def compute_metrics(rows: list) -> dict:
@@ -230,7 +422,9 @@ def compute_metrics(rows: list) -> dict:
             stats_for_broad.append(stats)
         broad_metrics[broad] = _weighted_avg(stats_for_broad)
 
-    overall = _weighted_avg(list(label_metrics.values()))
+    # the residual "Others" category is left out: SOCCAT has no such label, so including
+    # it would make the LLM's overall score incomparable with SOCCAT's
+    overall = _pooled([s for (broad, _), s in label_metrics.items() if broad != "Others"])
 
     return {"n": n, "detection": detection, "label_metrics": label_metrics,
             "broad_metrics": broad_metrics, "overall": overall}
@@ -270,12 +464,12 @@ def build_run_section(model: str, prompt: str, meta: dict, rows: list, usage: di
         )
         lines.append("")
         lines.append("Category performance (each specific label scored as its own binary detection problem;")
-        lines.append("broad-category and overall scores are the weighted average of specific-label scores,")
-        lines.append("weighted by each label's positive-case count)")
-        lines.append(_format_metric_line("OVERALL (all specific labels)", metrics["overall"]))
+        lines.append("broad-category scores are the weighted average of specific-label scores, weighted by each")
+        lines.append("label's positive-case count; the overall score is pooled over all (sentence, label) pairs)")
+        lines.append(_format_metric_line('OVERALL (all specific labels but "others")', metrics["overall"]))
         lines.append("")
         for broad, labels in TAXONOMY.items():
-            lines.append(_format_metric_line(broad, metrics["broad_metrics"][broad]))
+            lines.append(_format_metric_line(display_broad(broad), metrics["broad_metrics"][broad]))
             broad_baseline_f1 = baseline["broad_f1"].get(broad)
             if broad_baseline_f1 is not None:
                 lines.append(f"  SOCCAT baseline: F1={broad_baseline_f1:.3f}  (best CV fold, weighted across its labels)")
@@ -356,7 +550,7 @@ def build_broad_comparison_table(summary_rows: list, baseline: dict) -> list:
     )
     run_labels = [f"{display_model(model)}/{prompt}" for model, prompt, *_ in ranked]
 
-    cat_col_width = max(len("Broad category"), max((len(b) for b in TAXONOMY), default=0))
+    cat_col_width = max(len("Broad category"), max((len(display_broad(b)) for b in TAXONOMY), default=0))
     col_widths = [max(len(rl), 9) for rl in run_labels]
 
     header = [f"{'Broad category':<{cat_col_width}}", f"{'SOCCAT':>9}"]
@@ -368,7 +562,7 @@ def build_broad_comparison_table(summary_rows: list, baseline: dict) -> list:
         baseline_f1 = baseline["broad_f1"].get(broad)
         baseline_str = f"{baseline_f1:.3f}" if baseline_f1 is not None else "n/a"
 
-        row = [f"{broad:<{cat_col_width}}", f"{baseline_str:>9}"]
+        row = [f"{display_broad(broad):<{cat_col_width}}", f"{baseline_str:>9}"]
         for (model, prompt, metrics, cost, n_sampled, duration_ms), w in zip(ranked, col_widths):
             bm = metrics["broad_metrics"][broad] if metrics else None
             row.append(f"{bm['f1']:.3f}".rjust(w) if bm else "n/a".rjust(w))
@@ -397,7 +591,7 @@ def build_category_comparison_table(summary_rows: list, baseline: dict) -> list:
     cat_col_width = max(
         len("Category"),
         max((len(f"  {s}") for labels in TAXONOMY.values() for s in labels), default=0),
-        max((len(b) for b in TAXONOMY), default=0),
+        max((len(display_broad(b)) for b in TAXONOMY), default=0),
     )
     col_widths = [max(len(rl), 9) for rl in run_labels]
 
@@ -407,7 +601,7 @@ def build_category_comparison_table(summary_rows: list, baseline: dict) -> list:
     lines = [header_line, "-" * len(header_line)]
 
     for broad, labels in TAXONOMY.items():
-        lines.append(f"{broad:<{cat_col_width}}")
+        lines.append(f"{display_broad(broad):<{cat_col_width}}")
         for specific in labels:
             n_pos_values = [
                 metrics["label_metrics"][(broad, specific)]["n_pos"]
@@ -464,7 +658,7 @@ def build_category_outperform_table(summary_rows: list, baseline: dict) -> list:
     cat_col_width = max(
         len("Category"),
         max((len(f"  {s}") for labels in qualifying.values() for s in labels), default=0),
-        max((len(b) for b in qualifying), default=0),
+        max((len(display_broad(b)) for b in qualifying), default=0),
     )
     col_widths = [max(len(rl), 9) for rl in run_labels]
 
@@ -474,7 +668,7 @@ def build_category_outperform_table(summary_rows: list, baseline: dict) -> list:
     lines = [header_line, "-" * len(header_line)]
 
     for broad, labels in qualifying.items():
-        lines.append(f"{broad:<{cat_col_width}}")
+        lines.append(f"{display_broad(broad):<{cat_col_width}}")
         for specific in labels:
             n_pos_values = [
                 metrics["label_metrics"][(broad, specific)]["n_pos"]
@@ -517,7 +711,7 @@ def parse_model_thinking(model: str) -> tuple:
 # page, so it's split across two files at this taxonomy boundary.
 BROAD_SPLIT = [
     ["Socio-economic position", "Labor market position", "Age and family status",
-     "Identities and minority/majority status"],
+     "Gender, sexuality, and sociocultural characteristics"],
     ["Profession", "Social roles and behavior", "Social deviance",
      "Real estate ownership", "Others"],
 ]
@@ -527,7 +721,7 @@ def build_latex_category_tables(summary_rows: list, baseline: dict) -> list:
     """Two LaTeX tables (one per BROAD_SPLIT half): rows = every specific taxonomy
     label grouped under its broad category, columns = SOCCAT then each LLM run's F1
     (a 3-line column header: model / thinking effort / prompt length). A specific
-    label's row and any run F1 that beats SOCCAT's F1 for that label are bolded --
+    label's row and any run F1 that beats SOCCAT's mean F1 for that label are set in italics (bold is used for the broad-class names) --
     labels with no SOCCAT baseline (e.g. "Others") never qualify. Column order is
     grouped High-effort-then-Low, short/medium/long within each, not F1-ranked --
     this is a reference table, not a leaderboard.
@@ -542,28 +736,39 @@ def build_latex_category_tables(summary_rows: list, baseline: dict) -> list:
 
     ordered_runs = sorted(summary_rows, key=run_sort_key)
     n_runs = len(ordered_runs)
+    n_soccat = len(SOCCAT_VARIANTS)
 
     parts = []
     for part_idx, broads in enumerate(BROAD_SPLIT, start=1):
         lines = [
             r"\begin{table}[htb]",
             r"\centering",
+            rf"\renewcommand{{\arraystretch}}{{{ARRAY_STRETCH}}}",
             r"\scriptsize",
-            r"\begin{tabular}{>{\raggedright\arraybackslash}p{4.2cm}" + " r" * (1 + n_runs) + "}",
+            r"\begin{threeparttable}",
+            r"\begin{tabular}{l" + " c" * (n_runs + n_soccat) + "}",
             r"\toprule",
         ]
-        row1 = ["Model", f"\\multicolumn{{{n_runs}}}{{c}}{{Sonnet-5}}", "SOCCAT"]
-        row2 = ["Thinking"] + [parse_model_thinking(model)[1] for model, prompt, *_ in ordered_runs] + [""]
-        row3 = ["Prompt"] + [prompt.capitalize() for model, prompt, *_ in ordered_runs] + [""]
+        row1 = ["Model", f"\\multicolumn{{{n_runs}}}{{c}}{{Sonnet-5}}",
+                f"\\multicolumn{{{n_soccat}}}{{c}}{{SOCCAT}}"]
+        row2 = ["Thinking"] + [parse_model_thinking(model)[1] for model, prompt, *_ in ordered_runs] + [""] * n_soccat
+        row3 = (["Prompt"] + [prompt.capitalize() for model, prompt, *_ in ordered_runs]
+                + [SOCCAT_VARIANT_SHORT[v] for v in SOCCAT_VARIANTS])
         lines.append(" & ".join(row1) + r" \\")
-        lines.append(f"\\cmidrule(lr){{2-{1 + n_runs}}}")
+        lines.append(f"\\cmidrule(lr){{2-{1 + n_runs}}} "
+                     f"\\cmidrule(lr){{{2 + n_runs}-{1 + n_runs + n_soccat}}}")
         lines.append(" & ".join(row2) + r" \\")
         lines.append(" & ".join(row3) + r" \\")
         lines.append(r"\midrule")
 
+        # same layout as dictionary/05_make_latex_table.py: a thin spacer row
+        # before each broad class, whose name is stacked into its first label's cell
         for broad in broads:
-            for specific in TAXONOMY[broad]:
-                baseline_f1 = baseline["specific_f1"].get((broad, specific))
+            lines.append(" & ".join([rf"\rule{{0pt}}{{{GROUP_GAP_HEIGHT}}}"] + [""] * (n_runs + n_soccat)) + r" \\")
+            for j, specific in enumerate(TAXONOMY[broad]):
+                soccat_f1s = [baseline["specific_stats"][v].get((broad, specific), {}).get("f1")
+                              for v in SOCCAT_VARIANTS]
+                baseline_f1 = soccat_f1s[SOCCAT_VARIANTS.index("mean")]  # reference for bold
                 run_f1s = []
                 for model, prompt, metrics, cost, n_sampled, duration_ms in ordered_runs:
                     stats = metrics["label_metrics"].get((broad, specific)) if metrics else None
@@ -572,33 +777,40 @@ def build_latex_category_tables(summary_rows: list, baseline: dict) -> list:
                 beats = baseline_f1 is not None and any(
                     f1 is not None and f1 > baseline_f1 for f1 in run_f1s
                 )
-                label_text = escape_latex(specific[:1].upper() + specific[1:])
-                if beats:
-                    label_text = r"\textbf{" + label_text + "}"
-                baseline_str = f"{baseline_f1:.2f}" if baseline_f1 is not None else "--"
-
-                cells = [label_text]
+                label = [rf"\textit{{{line}}}" if beats else line for line in label_lines(specific)]
+                line_sep = "\\\\[" + LABEL_LINE_GAP + "]"
+                if j == 0:
+                    heading = [rf"\textbf{{{line}}}" for line in broad_heading_lines(display_broad(broad))]
+                    stacked = line_sep.join(heading) + "\\\\[" + BROAD_CLASS_LINE_GAP + "]" + line_sep.join(label)
+                    cell = r"\shortstack[l]{" + stacked + "}"
+                elif len(label) > 1:
+                    cell = r"\shortstack[l]{" + line_sep.join(label) + "}"
+                else:
+                    cell = label[0]
+                cells = [cell]
                 for f1 in run_f1s:
                     if f1 is None:
                         cells.append("--")
                     elif beats and f1 > baseline_f1:
-                        cells.append(r"\textbf{" + f"{f1:.2f}" + "}")
+                        cells.append(r"\textit{" + f"{f1:.2f}" + "}")
                     else:
                         cells.append(f"{f1:.2f}")
-                cells.append(baseline_str)
+                cells += [f"{f1:.2f}" if f1 is not None else "--" for f1 in soccat_f1s]
                 lines.append(" & ".join(cells) + r" \\")
-            lines.append(r"\addlinespace")
-        lines.pop()  # drop the last broad category's trailing \addlinespace before \bottomrule
 
         lines += [
             r"\bottomrule",
             r"\end{tabular}",
-            r"\\",
-            r"\vspace{2pt}",
-            r"{\footnotesize \textit{Note:} Bold font is used when at least one LLM run beats SOCCAT, and it shows "
-            r"the beating F1 values.\par}",
+            r"\begin{tablenotes}[flushleft]",
+            r"\footnotesize",
+            r"\item \textit{Note:} Specific group labels are listed under the name of their broad class. "
+            r"Scores are positive-class F1. SOCCAT: best cross-validation fold (best, released model), or "
+            r"mean / median (med) across the 5 folds. Italics are used for a label when at least one LLM "
+            r"run beats SOCCAT's mean F1, and it shows the beating F1 values.",
+            r"\end{tablenotes}",
+            r"\end{threeparttable}",
             f"\\caption{{Performance comparison with LLMs for Step 2, detailed F1 score by specific "
-            f"categories. Part {part_idx}/2.}}",
+            f"group labels. Part {part_idx}/2.}}",
             f"\\label{{tab:llm-step2-{part_idx}}}",
             r"\end{table}",
         ]
@@ -613,8 +825,7 @@ def build_latex_summary_table(summary_rows: list, baseline: dict) -> list:
     (each specific label scored as its own binary problem, weighted-averaged by
     positive-case count) rather than metrics["detection"] -- this is the step 2
     analogue of step 1's single binary-classification F1, and it's what SOCCAT's
-    own F1 (compute_soccat_overall_f1) is comparable to. SOCCAT has no comparable
-    accuracy/precision/recall, only F1."""
+    own scores (compute_soccat_overall, same aggregation) are comparable to."""
     ranked = sorted(
         summary_rows,
         key=lambda r: r[2]["overall"]["f1"] if r[2] and r[2]["overall"] else -1,
@@ -624,35 +835,54 @@ def build_latex_summary_table(summary_rows: list, baseline: dict) -> list:
     lines = [
         r"\begin{table}[htb]",
         r"\centering",
+        r"\begin{threeparttable}",
         r"\begin{tabular}{lllrrrrrr}",
         r"\toprule",
-        r"Model & Thinking & Prompt & Accuracy & Precision & Recall & F1 & Cost/1k (\$) & Rate/1k \\",
+        r"Model & Thinking & Prompt & Precision & Recall & F1 & Macro F1 & Cost/1k (\$) & Rate/1k \\",
         r"\midrule",
     ]
     for model, prompt, metrics, cost, n_sampled, duration_ms in ranked:
         model_name, thinking = parse_model_thinking(model)
         overall = metrics["overall"] if metrics else None
-        acc = f"{overall['accuracy']:.2f}" if overall else "--"
+        f1m = f"{overall['f1_macro']:.2f}" if overall else "--"
         prec = f"{overall['precision']:.2f}" if overall else "--"
         rec = f"{overall['recall']:.2f}" if overall else "--"
         f1 = f"{overall['f1']:.2f}" if overall else "--"
         cost_per_1k = cost / n_sampled * 1000 if n_sampled else 0.0
         rate_str = format_duration(duration_ms / n_sampled * 1000) if n_sampled else "--"
         lines.append(
-            f"{model_name} & {thinking} & {prompt.capitalize()} & {acc} & {prec} & {rec} & {f1} & "
+            f"{model_name} & {thinking} & {prompt.capitalize()} & {prec} & {rec} & {f1} & {f1m} & "
             f"{cost_per_1k:.2f} & {rate_str} \\\\"
         )
 
     lines.append(r"\midrule")
-    soccat_f1 = compute_soccat_overall_f1(baseline)
-    soccat_f1_str = f"{soccat_f1:.2f}" if soccat_f1 is not None else "--"
-    lines.append(f"SOCCAT & -- & -- & -- & -- & -- & {soccat_f1_str} & -- & -- \\\\")
+    for variant in SOCCAT_VARIANTS:
+        soccat = compute_soccat_overall(baseline, variant)
+        # variant spans the Thinking/Prompt columns (a longer first column overflows the page)
+        name = f"SOCCAT & \\multicolumn{{2}}{{l}}{{{SOCCAT_VARIANT_NAMES[variant]}}}"
+        if soccat is not None:
+            lines.append(
+                f"{name} & {soccat['precision']:.2f} & {soccat['recall']:.2f} & "
+                f"{soccat['f1']:.2f} & {soccat['f1_macro']:.2f} & -- & -- \\\\"
+            )
+        else:
+            lines.append(f"{name} & -- & -- & -- & -- & -- & -- \\\\")
 
     lines.extend([
         r"\bottomrule",
         r"\end{tabular}",
-        r"\caption{Overall performance comparison with LLMs for Step 2. The scores for specific "
-        r"categories are weighted by positive-case count to obtain these average performances.}",
+        r"\begin{tablenotes}[flushleft]",
+        r"\footnotesize",
+        r"\item \textit{Note:} Precision, recall and F1 refer to the positive class of each specific "
+        r"category; macro F1 averages the F1 scores of the positive and negative class. Scores are pooled "
+        r"over all (sentence, group label) pairs; the residual \textit{others} category, which SOCCAT does "
+        r"not predict, is left out. Sonnet-5: random sample of 1,446 sentences; SOCCAT: out-of-fold "
+        r"predictions of the 5-fold cross-validation on all 7,234 sentences, best fold of each broad class "
+        r"(released models), or mean / median across the 5 folds. Cost and rate: US\$ and processing time "
+        r"per 1,000 sentences.",
+        r"\end{tablenotes}",
+        r"\end{threeparttable}",
+        r"\caption{Overall performance comparison with LLMs for Step 2.}",
         r"\label{tab:llm-step2-summary}",
         r"\end{table}",
     ])
@@ -669,7 +899,11 @@ def main():
     lines.append(f"Generated:  {datetime.now().isoformat(timespec='seconds')}")
     lines.append(f"Runs found: {len(runs)}  (in {OUTPUT_ROOT.relative_to(REPO_ROOT)})")
     lines.append("")
-    lines.append(f"SOCCAT baseline for reference ({PER_FOLD_DIR.relative_to(REPO_ROOT)}/*_per_fold.csv):")
+    lines.append(
+        f"SOCCAT baseline for reference "
+        f"({STEP_2_DATA_DIR.relative_to(REPO_ROOT)}/*/fold_*_per_label.csv, "
+        f"best fold selected by n_pos-weighted macro F1):"
+    )
     lines.append(format_soccat_summary(baseline))
     lines.append("")
 
@@ -686,8 +920,10 @@ def main():
 
     summary_rows = []
     detail_lines = []
+    ground_truth = load_ground_truth()
     for model, prompt, run_dir in runs:
         rows = list(csv.DictReader((run_dir / "predictions.csv").open("r", encoding="utf-8", newline="")))
+        apply_ground_truth(rows, ground_truth)
         usage = json.loads((run_dir / "usage_totals.json").read_text(encoding="utf-8"))
         meta = json.loads((run_dir / "run_meta.json").read_text(encoding="utf-8"))
 

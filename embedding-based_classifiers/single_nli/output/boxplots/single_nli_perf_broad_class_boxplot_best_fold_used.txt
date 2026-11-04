@@ -1,0 +1,8 @@
+Age and family status (age_family): fold 0
+Gender, sexuality, and sociocultural characteristics (identity): fold 0
+Labor market position (labor_market_position): fold 2
+Profession (profession): fold 4
+Real estate ownership (real_estate): fold 0
+Social deviance (social_deviance): fold 4
+Social roles and behavior (social_roles): fold 1
+Socio-economic position (socio_economic): fold 4

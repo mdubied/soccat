@@ -1,0 +1,52 @@
+\begin{table}[htbp]
+\centering
+\scriptsize
+\begin{threeparttable}
+\caption{Step 2 binary F1 by country, pooled over the 5 cross-validation folds. Part 1/2.}
+\label{tab:step2-country-part1}
+\begin{tabular}{l rr r rr}
+\toprule
+Group & F1 FR & F1 DE & FR $-$ DE [95\% CI] & N FR & N DE \\
+\midrule
+\textbf{Real estate ownership} & \textbf{0.89} & \textbf{0.84} & \textbf{+0.06 [-0.03, +0.14]} & \textbf{90} & \textbf{80} \\
+\quad Tenants & 0.92 & 0.84 & +0.07 [-0.07, +0.24] & 19 & 22 \\
+\quad Homeless & 0.80 & 0.96 & -0.16 [-0.35, +0.00] & 20 & 14 \\
+\quad Real-estate owners & 0.92 & 0.79 & +0.13 [+0.03, +0.24]$^{*}$ & 51 & 44 \\
+\addlinespace
+\textbf{Profession} & \textbf{0.80} & \textbf{0.84} & \textbf{-0.04 [-0.06, -0.01]$^{*}$} & \textbf{1,323} & \textbf{1,575} \\
+\quad Politicians and high-ranking officials & 0.88 & 0.93 & -0.05 [-0.07, -0.03]$^{*}$ & 613 & 671 \\
+\quad Doctors & 0.88 & 0.88 & -0.01 [-0.17, +0.12] & 17 & 51 \\
+\quad Sex workers & 0.94 & 0.78 & +0.16 [-0.03, +0.41] & 16 & 11 \\
+\quad Farmers and fishermen & 0.83 & 0.89 & -0.05 [-0.18, +0.07] & 37 & 36 \\
+\quad Journalists & 0.82 & 0.85 & -0.03 [-0.22, +0.15] & 18 & 23 \\
+\quad Athletes & 0.77 & 0.83 & -0.06 [-0.12, +0.01] & 139 & 228 \\
+\quad Security forces & 0.79 & 0.83 & -0.04 [-0.12, +0.04] & 119 & 119 \\
+\quad Scientists and professors & 0.68 & 0.83 & -0.14 [-0.29, -0.01]$^{*}$ & 38 & 45 \\
+\quad Teachers and educators & 0.68 & 0.83 & -0.15 [-0.33, +0.02] & 30 & 32 \\
+\quad Authors and artists & 0.75 & 0.76 & -0.01 [-0.11, +0.09] & 92 & 86 \\
+\quad Soldiers & 0.72 & 0.76 & -0.04 [-0.19, +0.11] & 42 & 35 \\
+\quad Legal professionals & 0.68 & 0.75 & -0.07 [-0.30, +0.14] & 18 & 31 \\
+\quad Health and care professionals & 0.38 & 0.67 & -0.29 [-0.62, +0.03] & 14 & 20 \\
+\quad Other professions & 0.59 & 0.56 & +0.03 [-0.06, +0.13] & 130 & 187 \\
+\addlinespace
+\textbf{Age and family status} & \textbf{0.82} & \textbf{0.79} & \textbf{+0.03 [-0.01, +0.07]} & \textbf{524} & \textbf{442} \\
+\quad Singles & 0.91 & 0.85 & +0.06 [-0.16, +0.26] & 11 & 16 \\
+\quad Couples & 0.91 & 0.76 & +0.14 [-0.04, +0.35] & 20 & 16 \\
+\quad Youth, including students and apprentices & 0.84 & 0.84 & +0.00 [-0.06, +0.07] & 166 & 144 \\
+\quad Parents and families & 0.84 & 0.79 & +0.05 [-0.04, +0.13] & 83 & 107 \\
+\quad Minors, including children and pupils & 0.82 & 0.81 & +0.01 [-0.05, +0.08] & 213 & 136 \\
+\quad Elderly & 0.65 & 0.54 & +0.11 [-0.19, +0.44] & 21 & 14 \\
+\quad Middle-aged and pre-retirement age groups & 0.43 & 0.00 & +0.43 [+0.00, +0.73] & 10 & 9 \\
+\addlinespace
+\textbf{Social roles and behavior} & \textbf{0.78} & \textbf{0.82} & \textbf{-0.04 [-0.10, +0.02]} & \textbf{158} & \textbf{295} \\
+\quad Patients & 0.92 & 0.79 & +0.13 [+0.01, +0.25]$^{*}$ & 18 & 78 \\
+\quad Consumers and clients & 0.78 & 0.83 & -0.05 [-0.12, +0.02] & 129 & 207 \\
+\quad Car drivers & 0.53 & 0.70 & -0.17 [-0.58, +0.21] & 11 & 10 \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item \textit{Note:} Held-out predictions of the 5 cross-validation folds pooled, so that each sentence is scored once. Bold rows: broad classes (average of their groups' F1, weighted by the number of mentions). CI: 95\% bootstrap interval over sentences (2,000 resamples). $^{*}$: the interval of the difference excludes 0. N: number of mentions of the group per country.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}

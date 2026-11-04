@@ -53,6 +53,8 @@ These steps prepare your working environment and only need to be run once.
    pip install -r requirements.txt
    ```
 
+   The embedding-based baselines (`embedding-based_classifiers/`) were trained on a GPU cluster with a smaller environment, see `embedding-based_classifiers/requirements.txt`.
+
 ## Running the code
 
 The jupyter notebook `demo/demo.ipynb` shows an example on how to use the SOCCAT pipeline on your own sentences.
@@ -79,6 +81,8 @@ python replicate_from_hub_step_2.py \
 
 To run a single category instead of all eight, add `--category <name>` where `<name>` is one of the eight category names listed in `src/step_2/categories.json`. Use `--help` on any script to see all available flags.
 
+**Baselines and robustness checks.** The comparison classifiers and the robustness checks reported in the paper and its appendix each have their own folder: the dictionary baseline (`dictionary/`), the LLM classifier (`llm/`), the embedding-based baselines (`embedding-based_classifiers/`), the seen/unseen mention analysis (`unseen_generalization/`) and the cross-language transfer analysis (`cross-language_transfer/`). Numbered scripts are run in order; see the structure below.
+
 ## Repository structure
 
 ```
@@ -88,20 +92,32 @@ To run a single category instead of all eight, add `--category <name>` where `<n
 │
 ├── data/                          data used to produce results
 │   ├── annotated_corpus/          aggregated corpus statistics by outlet and year
-│   ├── manual_annotations/        raw and pre-processed manual annotation files
-│   └── model_performance/         model evaluation outputs
+│   ├── annotated_validation_corpus/  step 2 held-out predictions pooled over folds
+│   ├── manual_annotations/        raw (step 1, per coder) and curated (step 2) manual annotations
+│   └── model_performance/         model evaluation outputs (step 1 train/test data and
+│                                  metrics; step 2 per-fold predictions per broad class,
+│                                  and the initial specification in 00_initial_performance/)
 │
 ├── figures/                       scripts and PDF outputs for all paper figures
-│   ├── findings_fig1_broad_classes.py        figure 2 — broad category distributions
-│   ├── findings_fig2_top_categories.py       figure 4 — top 20 categories
-│   ├── findings_fig3_selected_groups_trends.py  figure 5 — group trends over time
-│   ├── step_1_heatmap.py                     figure A1 — step 1 performance heatmap
-│   ├── step_2_heatmap.py                     figures A10–A13 — step 2 performance heatmaps
-│   ├── step_2_boxplot.py                     figure 3, A2–A9 — step 2 performance boxplots
+│   ├── findings_fig1_broad_classes.py        broad class salience by country
+│   ├── findings_fig2_top_categories.py       top 20 specific groups
+│   ├── findings_fig3_selected_groups_trends.py  selected group trends over time
+│   ├── step_1_heatmap.py                     step 1 performance by outlet, country and decade
+│   ├── step_1_cross_language_transfer.py     step 1 cross-language transfer
+│   ├── step_2_boxplot.py                     step 2 performance boxplots
+│   ├── step_2_country.py                     step 2 boxplots split by country
+│   ├── step_2_heatmap.py                     step 2 performance heatmaps
+│   ├── step_2_roc_pr_curves.py               step 2 ROC and precision-recall curves
+│   ├── step_2_confusion_matrix.py            step 2 confusion matrices, SOCCAT vs ground truth
+│   ├── step_2_cross_language_transfer.py     step 2 cross-language transfer
+│   ├── annotation_confusion_matrix.py        confusion matrix, ground truth vs independent coders
+│   ├── confusion_matrix_utils.py             shared confusion matrix code (also used by the step 2 ICR notebook)
 │   ├── utils.py                              shared plotting utilities
-│   ├── findings/                             PDF outputs for findings figures
-│   ├── step_1/                               PDF output for step 1
-│   └── step_2/                               PDF outputs for step 2
+│   ├── application_to_newspaper_corpus/      PDF outputs for the findings figures
+│   ├── step_1/                               PDF outputs for step 1 (incl. cross_language/)
+│   └── step_2/                               PDF outputs for step 2 (boxplots/, heatmaps/,
+│                                             confusion_matrix/, annotation_confusion_matrix/,
+│                                             cross_language/)
 │
 ├── src/                           model training and pipeline code
 │   ├── step_1/
@@ -111,6 +127,9 @@ To run a single category instead of all eight, add `--category <name>` where `<n
 │   │           load the published model from the Hub.
 │   │
 │   └── step_2/
+│       ├── annotation_labels.py
+│       │       Codebook and label normalisation shared by the ICR notebook and
+│       │       the confusion matrices.
 │       ├── categories.json
 │       │       Manifest listing the 8 categories, their labels, and the
 │       │       corresponding Hugging Face Hub repositories. Consumed by
@@ -129,13 +148,53 @@ To run a single category instead of all eight, add `--category <name>` where `<n
 │               Optional Hub upload via --push_to_hub.
 │
 ├── tables/                        scripts and outputs for all paper tables
-│   ├── manual_annotation_top_groups.py       table A2 — top annotated groups per country
-│   ├── manual_annotation_top_10.tex          generated LaTeX output
-│   ├── icr_step1_krippendorff.ipynb          table 3 — inter-coder reliability, step 1
-│   ├── icr_step2_krippendorff.ipynb          table 3 — inter-coder reliability, step 2
-│   ├── icr_step1_by_outlet.csv               ICR step 1 results by outlet
-│   ├── icr_step1_by_annotator_pair.csv       ICR step 1 pairwise results
-│   └── icr_step2_by_outlet.csv               ICR step 2 results by outlet
+│   ├── icr_step1_krippendorff.ipynb          inter-coder reliability, step 1
+│   ├── icr_step2_krippendorff.ipynb          inter-coder reliability, step 2
+│   ├── icr/                                  ICR outputs (by outlet, annotator pair,
+│   │                                         category and country; coder outcomes)
+│   ├── manual_annotation_top_groups.py       top 10 annotated groups per country
+│   ├── step_1_groups_per_sentence.py         number of group references per sentence, step 1 sample
+│   ├── step_2_best_fold_table.py             step 2 metrics per category on the best fold
+│   ├── step_2_initial_vs_current.py          step 2 initial vs current specification
+│   ├── model_comparison_overview.py          overview of SOCCAT and all baselines
+│   └── *.tex / *.csv / *.txt                 generated outputs of the scripts above
+│
+├── dictionary/                    dictionary baseline (run the numbered scripts in order)
+│   ├── 01_prepare_data.py ... 03_evaluate_dictionary.py
+│   │       Train/test split, per-label dictionaries (log-odds with informative
+│   │       Dirichlet prior) and their step 2 evaluation.
+│   ├── 04_run_alpha0_sweep.py                robustness over prior size and z-threshold
+│   ├── 05_make_latex_table.py                per-label comparison with SOCCAT
+│   ├── 06_evaluate_step1.py                  dictionaries applied to step 1
+│   ├── tokenizer.py                          shared tokenizer
+│   ├── data/, dictionaries/, resources/      split, mined dictionaries, stopword lists
+│   └── output/                               tables and comparison CSVs
+│
+├── llm/                           LLM classifier (Claude, run via the Claude Code CLI)
+│   ├── classification/                       classify_step1.py, classify_step2.py,
+│   │                                         prompts/ and raw predictions in output/
+│   └── analysis/                             report_step1.py, report_step2.py: metrics,
+│                                             costs and LaTeX tables in output/
+│
+├── embedding-based_classifiers/   baselines built on SOCCAT's base model (GPU)
+│   ├── zero_shot_nli/                        base model without fine-tuning
+│   ├── fine_tuned_classifier/                standard multi-label classifier head
+│   ├── single_nli/                           one NLI model for all 57 labels, with
+│   │                                         boxplots and comparison with SOCCAT
+│   ├── common.py                             shared data, folds and metrics
+│   ├── compare_baselines.py                  per-label F1 table vs SOCCAT (output/)
+│   └── requirements.txt                      GPU environment
+│
+├── unseen_generalization/         recall on seen vs unseen mentions (run in order)
+│   ├── 01_seen_unseen_recall.py              seen / partial / no-overlap recall
+│   ├── 02_make_latex_table.py                appendix table
+│   ├── 03_semantic_proximity.py              similarity to nearest training mention
+│   ├── 04_plot_semantic_proximity.py         recall by proximity quintile
+│   └── output/                               CSVs, tables, figures and LLM predictions
+│
+└── cross-language_transfer/       training on one language, testing on the other
+    ├── step_1/                               notebook, runs (detailed_results/) and summaries
+    └── step_2/                               notebook and per-label / similarity summaries
 ```
 
 ## Troubleshooting

@@ -9,10 +9,13 @@ venv/
 .ipynb_checkpoints/
 
 # Generated pipeline outputs
-output/
 nli_pairs_by_category/
+src/step_1/output/
 src/step_2/nli_pairs_by_category/
 src/step_2/output/
+
+# Slurm logs
+logs/
 
 # LLM outputs
 !llm/classification/output/

@@ -1,0 +1,12 @@
+Category                                                       n_pairs    n_pos     n_neg     %neg
+--------------------------------------------------------------------------------------------------
+minors, including children and pupils                           1446.8     69.8    1377.0   95.18%
+youth, including students and apprentices                       1446.8     62.0    1384.8   95.71%
+parents and families                                            1446.8     38.0    1408.8   97.37%
+couples                                                         1446.8      7.2    1439.6   99.50%
+elderly                                                         1446.8      7.0    1439.8   99.52%
+singles                                                         1446.8      5.4    1441.4   99.63%
+middle-aged and pre-retirement age groups                       1446.8      3.8    1443.0   99.74%
+--------------------------------------------------------------------------------------------------
+Average %neg across 7 individual categories: 98.09%
+Median  %neg across 7 individual categories: 99.50%

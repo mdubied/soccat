@@ -18,7 +18,7 @@ List every distinct category the sentence expresses; sentences often express sev
 1. Socio-economic position: lower class; middle class; upper class; capital owners, investors and shareholders; unskilled or unqualified; skilled or qualified
 2. Labor market position: wage and salary earners; civil servants; CEOs and corporate leaders; employers; entrepreneurs; self-employed and freelancers; unemployed; retirees; housewives and househusbands
 3. Age and family status: parents and families; minors, including children and pupils; youth, including students and apprentices; middle-aged and pre-retirement age groups; elderly; couples; singles
-4. Identities and minority/majority status: men; women; cisgender and heterosexuals; LGBTQIA+; disabled people; people with an immigration background, including immigrants; ethnic and racial minorities; Christians; Jews; Muslims; multiple (or other) religious or minority groups
+4. Gender, sexuality, and sociocultural characteristics: men; women; cisgender and heterosexuals; LGBTQIA+; disabled people; people with an immigration background, including immigrants; ethnic and racial minorities; Christians; Jews; Muslims; multiple (or other) religious or minority groups
 5. Profession: athletes; authors and artists; doctors; farmers and fishermen; health and care professionals; journalists; legal professionals; politicians and high-ranking officials; sex workers; scientists and professors; security forces; soldiers; teachers and educators; other professions
 6. Social roles and behavior: consumers and clients; car drivers; patients
 7. Social deviance: extremists; terrorists, rebels, revolutionaries and/or movements of armed resistance; offenders, criminals, prisoners and/or accused people; drug addicts
@@ -66,19 +66,19 @@ Input (FR): "Les jeunes ont tenu assez longtemps le haut du pavé, place aux vie
 Output: {"has_social_category": true, "categories": [{"broad_category": "Age and family status", "specific_category": "youth, including students and apprentices"}, {"broad_category": "Age and family status", "specific_category": "elderly"}]}
 
 Input (DE): "Er nutzte den Widerstand gegen die Entscheidung, die Homo-Ehe und die Adoption von Kindern durch gleichgeschlechtliche Paare zuzulassen, für seine Zwecke aus."
-Output: {"has_social_category": true, "categories": [{"broad_category": "Identities and minority/majority status", "specific_category": "LGBTQIA+"}]}
+Output: {"has_social_category": true, "categories": [{"broad_category": "Gender, sexuality, and sociocultural characteristics", "specific_category": "LGBTQIA+"}]}
 
 Input (DE): "Wohl zum ersten Mal fand sich ein Podium von lesbischen, schwulen und transsexuellen Kulturschaffenden zusammen, die über ihre gesellschaftliche Außenseiterrolle berichteten."
-Output: {"has_social_category": true, "categories": [{"broad_category": "Identities and minority/majority status", "specific_category": "LGBTQIA+"}, {"broad_category": "Profession", "specific_category": "authors and artists"}]}
+Output: {"has_social_category": true, "categories": [{"broad_category": "Gender, sexuality, and sociocultural characteristics", "specific_category": "LGBTQIA+"}, {"broad_category": "Profession", "specific_category": "authors and artists"}]}
 
 Input (DE): "Bei der Trauerfeier wehten Regenbogen- und Transgenderfahnen; sogar die Polizei in Münster betonte ihre Solidarität mit der queeren Community."
-Output: {"has_social_category": true, "categories": [{"broad_category": "Identities and minority/majority status", "specific_category": "LGBTQIA+"}]}
+Output: {"has_social_category": true, "categories": [{"broad_category": "Gender, sexuality, and sociocultural characteristics", "specific_category": "LGBTQIA+"}]}
 
 Input (FR): "La plus haute juridiction judiciaire ne reconnaît pas les mêmes droits aux enfants élevés par deux parents du même sexe et aux enfants issus d'un couple hétérosexuel."
-Output: {"has_social_category": true, "categories": [{"broad_category": "Identities and minority/majority status", "specific_category": "LGBTQIA+"}, {"broad_category": "Identities and minority/majority status", "specific_category": "cisgender and heterosexuals"}]}
+Output: {"has_social_category": true, "categories": [{"broad_category": "Gender, sexuality, and sociocultural characteristics", "specific_category": "LGBTQIA+"}, {"broad_category": "Gender, sexuality, and sociocultural characteristics", "specific_category": "cisgender and heterosexuals"}]}
 
 Input (FR): "La décision prise par la SNCF d'accorder aux couples du même sexe les réductions consenties aux couples hétérosexuels est également un succès."
-Output: {"has_social_category": true, "categories": [{"broad_category": "Identities and minority/majority status", "specific_category": "LGBTQIA+"}, {"broad_category": "Identities and minority/majority status", "specific_category": "cisgender and heterosexuals"}]}
+Output: {"has_social_category": true, "categories": [{"broad_category": "Gender, sexuality, and sociocultural characteristics", "specific_category": "LGBTQIA+"}, {"broad_category": "Gender, sexuality, and sociocultural characteristics", "specific_category": "cisgender and heterosexuals"}]}
 
 Input (DE): "Die europäischen Ausbilder haben bislang rund 8000 einheimische Soldaten in Grundfertigkeiten ausgebildet."
 Output: {"has_social_category": true, "categories": [{"broad_category": "Profession", "specific_category": "soldiers"}]}

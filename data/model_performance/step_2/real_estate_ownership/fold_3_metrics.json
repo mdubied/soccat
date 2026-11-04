@@ -1,0 +1,16 @@
+{
+  "accuracy": 0.9993089149965446,
+  "precision_binary": 0.9428571428571428,
+  "recall_binary": 0.9705882352941176,
+  "f1_binary": 0.9565217391304348,
+  "precision_micro": 0.9993089149965446,
+  "recall_micro": 0.9993089149965446,
+  "f1_micro": 0.9993089149965446,
+  "f1_macro": 0.9780867142186482,
+  "cohen_kappa": 0.9561735021824068,
+  "prevalence": 0.00783229670582815,
+  "roc_auc": 0.9999180540570071,
+  "pr_auc": 0.9894369373015148,
+  "fold": 3,
+  "best_ckpt": "/content/drive/MyDrive/Media_Deservingness_Paper/cross_validation_v2/Real Estate Ownership/cv_models/fold_3/checkpoint-3258"
+}

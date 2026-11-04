@@ -1,0 +1,5 @@
+patienten
+malades
+schizophrenie
+patient
+patients

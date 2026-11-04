@@ -1,0 +1,1497 @@
+broad_class,fold,sentence_id,label,country,mentions,mention_statuses,status,prob_entail,soccat_hit,dict_hit,llm_hit
+age_and_family_status,2,2,"minors, including children and pupils",Germany,Kinder,seen,seen,0.9922569,1,1,1
+age_and_family_status,2,32,parents and families,Germany,die Angehörigen,seen,seen,0.97903043,1,0,1
+age_and_family_status,2,65,"youth, including students and apprentices",Germany,Studenten,seen,seen,0.9766484,1,1,0
+age_and_family_status,2,114,"minors, including children and pupils",Germany,ihre Kinder,seen,seen,0.99102217,1,1,1
+age_and_family_status,2,183,parents and families,Germany,Familie,seen,seen,0.96491045,1,0,0
+age_and_family_status,2,305,"youth, including students and apprentices",Germany,Student über 25 Jahre,seen,seen,0.990991,1,0,1
+age_and_family_status,2,345,parents and families,Germany,Ihre Familie,seen,seen,0.96283793,1,0,0
+age_and_family_status,2,463,"youth, including students and apprentices",Germany,die Mädels,no_overlap,no_overlap,7.592597e-05,0,0,0
+age_and_family_status,2,464,"youth, including students and apprentices",Germany,Junge Männer,seen,seen,0.9529581,1,1,1
+age_and_family_status,2,530,"minors, including children and pupils",Germany,ihren eigenen Kindern,seen,seen,0.975172,1,1,0
+age_and_family_status,2,619,parents and families,Germany,Familienväter,partial,partial,0.9802005,1,0,1
+age_and_family_status,2,682,parents and families,Germany,der Eltern,seen,seen,0.98128855,1,1,1
+age_and_family_status,2,682,"minors, including children and pupils",Germany,die Flüchtlingskinder,partial,partial,0.9488296,1,0,1
+age_and_family_status,2,699,"minors, including children and pupils",Germany,Die Kinder,seen,seen,0.9919424,1,1,1
+age_and_family_status,2,805,"youth, including students and apprentices",Germany,"die Jungs, die schutzlos in den Krieg ziehen mussten",partial,partial,0.94481564,1,0,0
+age_and_family_status,2,809,"minors, including children and pupils",Germany,der Kinder,seen,seen,0.99253815,1,1,1
+age_and_family_status,2,1036,"youth, including students and apprentices",Germany,junger Erwachsener,seen,seen,0.9896191,1,0,1
+age_and_family_status,2,1056,"minors, including children and pupils",Germany,Kindern,seen,seen,0.98431766,1,1,1
+age_and_family_status,2,1056,"youth, including students and apprentices",Germany,Jugendlichen,seen,seen,0.98919666,1,1,1
+age_and_family_status,2,1061,"youth, including students and apprentices",Germany,Noch jüngere Patienten,partial,partial,0.8487151,1,0,0
+age_and_family_status,2,1086,"minors, including children and pupils",Germany,der Schüler,seen,seen,0.9877815,1,1,1
+age_and_family_status,2,1098,"youth, including students and apprentices",Germany,die Jugendlichen,seen,seen,0.9921699,1,1,1
+age_and_family_status,2,1181,parents and families,Germany,Eltern,seen,seen,0.99246514,1,0,1
+age_and_family_status,2,1505,parents and families,Germany,Familien,seen,seen,0.0026533522,0,0,1
+age_and_family_status,2,1505,"minors, including children and pupils",Germany,Kind,seen,seen,0.6300644,1,0,0
+age_and_family_status,2,1725,"minors, including children and pupils",Germany,Schüler,seen,seen,0.9903351,1,1,1
+age_and_family_status,2,1726,"youth, including students and apprentices",Germany,Jugend,seen,seen,0.9885478,1,0,1
+age_and_family_status,2,1821,parents and families,Germany,Oma,no_overlap,no_overlap,7.719504e-05,0,0,0
+age_and_family_status,2,1821,elderly,Germany,Oma,no_overlap,no_overlap,1.8725264e-05,0,0,1
+age_and_family_status,2,1920,"minors, including children and pupils",Germany,den Mädchen,seen,seen,0.9925241,1,1,1
+age_and_family_status,2,1922,"minors, including children and pupils",Germany,vieler Kinder,partial,partial,0.9852653,1,1,1
+age_and_family_status,2,1922,"youth, including students and apprentices",Germany,Jugendlichen,seen,seen,0.9896298,1,1,1
+age_and_family_status,2,1969,"minors, including children and pupils",Germany,105 Jungen | 100 Mädchen,seen | seen,seen,0.99186456,1,1,1
+age_and_family_status,2,1983,"youth, including students and apprentices",Germany,die Kinder aus kaufkräftigen Familien,partial,partial,0.9653837,1,0,0
+age_and_family_status,2,2291,parents and families,Germany,Eltern von 477 Kindern im Alter von unter zehn Jahren in Baierbrunn,partial,partial,0.9861136,1,1,1
+age_and_family_status,2,2427,"minors, including children and pupils",Germany,die Kinder,seen,seen,0.9915064,1,1,1
+age_and_family_status,2,2507,"youth, including students and apprentices",Germany,"""Jugendliche"" | Jugend",seen | seen,seen,0.9883952,1,1,1
+age_and_family_status,2,2508,"minors, including children and pupils",Germany,"118,5 Jungen | 100 Mädchen",seen | seen,seen,0.99181765,1,1,1
+age_and_family_status,2,2521,"minors, including children and pupils",Germany,Kinder,seen,seen,0.8342154,1,0,0
+age_and_family_status,2,2531,parents and families,Germany,Familie | die Angehörigen,seen | seen,seen,0.98382425,1,0,1
+age_and_family_status,2,2539,"youth, including students and apprentices",Germany,Jugend,seen,seen,0.9881258,1,0,1
+age_and_family_status,2,2558,parents and families,Germany,die Mutter,seen,seen,0.0008489131,0,0,1
+age_and_family_status,2,2570,"youth, including students and apprentices",Germany,Jeder zweite junge Franzose,partial,partial,0.9554676,1,1,1
+age_and_family_status,2,2626,"youth, including students and apprentices",Germany,junger engagierter Menschen mit Migrationshintergrund,partial,partial,0.9892552,1,0,1
+age_and_family_status,2,2742,singles,Germany,Singles,seen,seen,0.9802751,1,0,1
+age_and_family_status,2,2902,"minors, including children and pupils",France,élèves en rupture avec le système scolaire,partial,partial,0.9925236,1,1,1
+age_and_family_status,2,2955,"youth, including students and apprentices",France,de jeunes,seen,seen,0.24909857,0,1,1
+age_and_family_status,2,2967,"minors, including children and pupils",France,les 4-14 ans,seen,seen,0.9914772,1,1,1
+age_and_family_status,2,2998,parents and families,France,les parents,seen,seen,0.99205023,1,1,1
+age_and_family_status,2,3005,"minors, including children and pupils",France,les gamins de la cité,no_overlap,no_overlap,0.99199414,1,0,1
+age_and_family_status,2,3068,"minors, including children and pupils",France,les élèves de l'école de musique de Chambly,partial,partial,0.989963,1,1,1
+age_and_family_status,2,3083,"minors, including children and pupils",France,les filles,seen,seen,0.9835105,1,1,0
+age_and_family_status,2,3149,"minors, including children and pupils",France,enfants,seen,seen,0.99255705,1,1,1
+age_and_family_status,2,3149,"youth, including students and apprentices",France,adolescents,seen,seen,0.0011190968,0,0,1
+age_and_family_status,2,3201,"youth, including students and apprentices",France,les jeunes,seen,seen,0.98780894,1,1,1
+age_and_family_status,2,3201,elderly,France,les vieux,seen,seen,0.17176005,0,0,1
+age_and_family_status,2,3215,"youth, including students and apprentices",France,aux jeunes chefs d'entreprises,partial,partial,0.97584414,1,1,1
+age_and_family_status,2,3231,"minors, including children and pupils",France,tous les enfants,seen,seen,0.99037373,1,1,1
+age_and_family_status,2,3233,parents and families,France,leurs parents,seen,seen,0.97196925,1,1,1
+age_and_family_status,2,3233,"youth, including students and apprentices",France,Les jeunes,seen,seen,0.989316,1,1,1
+age_and_family_status,2,3307,"minors, including children and pupils",France,les enfants,seen,seen,0.99249226,1,1,1
+age_and_family_status,2,3392,parents and families,France,les parents d'élèves,seen,seen,0.00058662,0,1,1
+age_and_family_status,2,3392,elderly,France,des vieux travailleurs,partial,partial,0.045125324,0,0,1
+age_and_family_status,2,3441,"minors, including children and pupils",France,d'enfants,seen,seen,0.99147296,1,1,1
+age_and_family_status,2,3465,"youth, including students and apprentices",France,des jeunes du club,partial,partial,0.98556304,1,1,1
+age_and_family_status,2,3486,parents and families,France,ces familles qui sont obligées de faire appel à des assistantes maternelles agréées,partial,partial,0.9901134,1,1,1
+age_and_family_status,2,3486,"minors, including children and pupils",France,d'enfants,seen,seen,0.9035939,1,1,1
+age_and_family_status,2,3530,"minors, including children and pupils",France,du mouvement lycéen,partial,partial,0.7686562,1,0,0
+age_and_family_status,2,3530,"youth, including students and apprentices",France,des plus jeunes manifestants,partial,partial,0.008687436,0,1,1
+age_and_family_status,2,3643,"youth, including students and apprentices",France,des meilleurs étudiants de cette université,partial,partial,0.98349553,1,1,1
+age_and_family_status,2,3673,"minors, including children and pupils",France,aux élèves de terminales,partial,partial,0.9752501,1,1,1
+age_and_family_status,2,3933,parents and families,France,toutes les familles,seen,seen,0.9913346,1,1,1
+age_and_family_status,2,4057,"minors, including children and pupils",France,les élèves,seen,seen,0.9919516,1,1,1
+age_and_family_status,2,4089,"minors, including children and pupils",France,aux jeunes à partir de 14 ans,partial,partial,0.709981,1,1,0
+age_and_family_status,2,4127,"minors, including children and pupils",France,Les classes de ville,partial,partial,5.218185e-05,0,0,1
+age_and_family_status,2,4217,parents and families,France,un public familial,partial,partial,0.24158782,0,0,1
+age_and_family_status,2,4217,"minors, including children and pupils",France,un public enfantin,partial,partial,0.83615935,1,1,1
+age_and_family_status,2,4238,parents and families,France,Une famille moyenne,partial,partial,0.99188143,1,1,1
+age_and_family_status,2,4294,parents and families,France,des familles « lourdes » d'immigrés qui posent des problèmes sociaux,partial,partial,0.93559057,1,1,1
+age_and_family_status,2,4296,elderly,France,public plus âgé,partial,partial,0.6804239,1,0,0
+age_and_family_status,2,4313,"minors, including children and pupils",France,les moins de 12 ans,seen,seen,0.9926172,1,1,1
+age_and_family_status,2,4335,parents and families,France,des parents,seen,seen,0.9919938,1,1,1
+age_and_family_status,2,4335,"minors, including children and pupils",France,L'adolescent,seen,seen,0.0016209225,0,0,1
+age_and_family_status,2,4347,"youth, including students and apprentices",France,d'emplois jeunes,seen,seen,0.9871525,1,1,1
+age_and_family_status,2,4372,"minors, including children and pupils",France,les jeunes | les 7/12 ans | les 8/10 ans | les 10/12 ans | les 10/12 ans,partial | seen | seen | seen | seen,seen,0.9901664,1,1,1
+age_and_family_status,2,4375,"minors, including children and pupils",France,aux 8-12 ans | les enfants,seen | seen,seen,0.9924654,1,1,1
+age_and_family_status,2,4557,"minors, including children and pupils",France,Enfants,seen,seen,0.9885795,1,1,1
+age_and_family_status,2,4591,"minors, including children and pupils",France,les élèves,seen,seen,0.9923344,1,1,1
+age_and_family_status,2,4592,"youth, including students and apprentices",France,étudiants de l'université,partial,partial,0.98538095,1,1,1
+age_and_family_status,2,4667,"youth, including students and apprentices",France,des boursiers,partial,partial,2.4060811e-05,0,0,0
+age_and_family_status,2,4686,"minors, including children and pupils",France,les enfants de moins de 3 ans,seen,seen,0.9911459,1,1,1
+age_and_family_status,2,4888,"minors, including children and pupils",France,des enfants,seen,seen,0.98667914,1,1,1
+age_and_family_status,2,4897,"minors, including children and pupils",France,Si les petits garçons | beaucoup de petites filles,partial | partial,partial,0.98031944,1,1,1
+age_and_family_status,2,4948,"youth, including students and apprentices",France,jeunes prometteurs,partial,partial,0.98907185,1,1,1
+age_and_family_status,2,4952,"youth, including students and apprentices",France,les jeunes,seen,seen,0.99155945,1,1,1
+age_and_family_status,2,5009,"minors, including children and pupils",France,les individus de quatre ans et plus,partial,partial,0.68763274,1,1,0
+age_and_family_status,2,5015,"minors, including children and pupils",France,Enfants,seen,seen,0.99124056,1,1,1
+age_and_family_status,2,5051,parents and families,France,de familles,seen,seen,0.98649627,1,1,1
+age_and_family_status,2,5051,"youth, including students and apprentices",France,Beaucoup de jeunes gens,seen,seen,0.97942513,1,1,1
+age_and_family_status,2,5194,elderly,France,les personnes âgées,seen,seen,0.9777284,1,1,1
+age_and_family_status,2,5201,"minors, including children and pupils",France,adolescente,seen,seen,0.0066138324,0,0,0
+age_and_family_status,2,5394,"minors, including children and pupils",France,Les 11-13 ans,seen,seen,0.9924935,1,1,1
+age_and_family_status,2,5469,"minors, including children and pupils",France,aux enfants,seen,seen,0.9900511,1,1,1
+age_and_family_status,2,5471,"youth, including students and apprentices",France,Des grappes d'adolescents,partial,partial,0.028968899,0,0,1
+age_and_family_status,2,5491,"youth, including students and apprentices",France,des adolescents,seen,seen,0.89322776,1,0,1
+age_and_family_status,2,5501,"minors, including children and pupils",France,les enfants de 3 à 9,seen,seen,0.99229974,1,1,1
+age_and_family_status,2,5519,parents and families,France,de familles,seen,seen,0.98627603,1,1,1
+age_and_family_status,2,5519,"youth, including students and apprentices",France,Beaucoup de jeunes gens,seen,seen,0.9789969,1,1,1
+age_and_family_status,2,5550,"minors, including children and pupils",France,aux enfants,seen,seen,0.9891774,1,1,1
+age_and_family_status,2,5564,"youth, including students and apprentices",France,les jeunes comédiens,partial,partial,0.9885395,1,1,1
+age_and_family_status,2,5576,"youth, including students and apprentices",France,Les jeunes filles | les jeunes hommes,partial | seen,seen,0.98406374,1,1,1
+age_and_family_status,2,5611,"youth, including students and apprentices",Germany,junge Kriminelle,partial,partial,0.984193,1,1,1
+age_and_family_status,2,5743,parents and families,Germany,ihrer Angehörigen,seen,seen,0.98049223,1,0,0
+age_and_family_status,2,5808,parents and families,Germany,Die Eltern | die Kinder,seen | seen,seen,0.9924338,1,1,1
+age_and_family_status,2,6071,parents and families,Germany,unserer Eltern | unserer Großeltern,seen | no_overlap,seen,0.9779839,1,1,1
+age_and_family_status,2,6076,"youth, including students and apprentices",Germany,Jugend,seen,seen,0.99107575,1,0,1
+age_and_family_status,2,6146,"minors, including children and pupils",Germany,Teenager ab 15,no_overlap,no_overlap,0.0015082892,0,0,0
+age_and_family_status,2,6241,"minors, including children and pupils",Germany,Kinder,seen,seen,0.98960495,1,0,1
+age_and_family_status,2,6264,parents and families,Germany,die Eltern,seen,seen,0.99141055,1,1,1
+age_and_family_status,2,6341,parents and families,Germany,zum zerknitterten Großvater,no_overlap,no_overlap,0.0001635202,0,0,0
+age_and_family_status,2,6341,"minors, including children and pupils",Germany, vom schreienden Baby,partial,partial,0.0047004777,0,0,1
+age_and_family_status,2,6341,elderly,Germany,zum zerknitterten Großvater,no_overlap,no_overlap,0.0003341534,0,0,1
+age_and_family_status,2,6409,"youth, including students and apprentices",Germany,Jugend | Kreisjugendrings,seen | partial,seen,0.98530376,1,0,0
+age_and_family_status,2,6413,"youth, including students and apprentices",Germany,der katholischen Jugend,seen,seen,0.9886367,1,1,1
+age_and_family_status,2,6556,"youth, including students and apprentices",Germany,der BJU,no_overlap,no_overlap,0.00086874515,0,0,0
+age_and_family_status,2,6755,parents and families,Germany,pflegende Angehörige,seen,seen,0.9893995,1,1,0
+age_and_family_status,2,6781,"minors, including children and pupils",Germany,diesen Kindern | die Kinder,seen | seen,seen,0.9922133,1,1,1
+age_and_family_status,2,6886,"youth, including students and apprentices",Germany,junge Menschen,seen,seen,0.9914381,1,1,1
+age_and_family_status,2,6907,parents and families,Germany,Familien,seen,seen,0.16611543,0,0,1
+age_and_family_status,2,6907,"minors, including children and pupils",Germany,Kinder,seen,seen,0.99039525,1,0,1
+age_and_family_status,2,6960,"youth, including students and apprentices",Germany,jugendliche Gewalttäter,partial,partial,0.95869124,1,1,1
+age_and_family_status,2,6965,"minors, including children and pupils",Germany,Rund 1000 kleine Gäste,no_overlap,no_overlap,0.064512566,0,0,1
+age_and_family_status,2,7004,"minors, including children and pupils",Germany,den bayerischen Kindern,partial,partial,0.9887615,1,1,1
+age_and_family_status,2,7025,"youth, including students and apprentices",Germany,die jugendlichen Bildungsverlierer,partial,partial,0.9851562,1,1,1
+age_and_family_status,2,7244,"youth, including students and apprentices",Germany,den jungen Leuten,seen,seen,0.991314,1,1,1
+age_and_family_status,2,7281,"youth, including students and apprentices",Germany,den Studenten,seen,seen,0.9925264,1,1,1
+age_and_family_status,2,7285,"minors, including children and pupils",Germany,Kinder,seen,seen,0.9668251,1,1,1
+age_and_family_status,2,7323,"minors, including children and pupils",Germany,Kinder,seen,seen,0.9860677,1,0,0
+age_and_family_status,2,7375,parents and families,Germany,örtlicher Familien,partial,partial,0.9606005,1,1,1
+age_and_family_status,2,7513,parents and families,Germany,Familie,seen,seen,0.004841555,0,0,1
+age_and_family_status,2,7527,"minors, including children and pupils",Germany,den anderen Mitschülern,partial,partial,0.99133766,1,0,1
+age_and_family_status,2,7641,"minors, including children and pupils",Germany,die Kinder,seen,seen,0.98381513,1,1,1
+age_and_family_status,2,7650,"youth, including students and apprentices",Germany,die jungen Leute,seen,seen,0.99192226,1,1,1
+age_and_family_status,2,7659,"minors, including children and pupils",Germany,Mittelschichtkind | Arbeitersproß,partial | partial,partial,0.012265457,0,0,0
+age_and_family_status,2,7685,parents and families,Germany,die meisten Eltern,partial,partial,0.99211407,1,1,1
+age_and_family_status,2,7737,"youth, including students and apprentices",Germany,frische Absolventen | frische Absolventen,partial | partial,partial,0.0012692388,0,0,1
+age_and_family_status,2,7738,"youth, including students and apprentices",Germany,14-Jährige,seen,seen,0.010278614,0,0,0
+age_and_family_status,2,7767,"minors, including children and pupils",Germany,fast 70 Kinder,partial,partial,0.992222,1,1,1
+age_and_family_status,2,7769,parents and families,Germany,pflegende Angehörige,seen,seen,0.9905252,1,1,1
+age_and_family_status,2,7769,"minors, including children and pupils",Germany,Kinder,seen,seen,0.80666727,1,1,0
+age_and_family_status,2,7769,"youth, including students and apprentices",Germany,Jugend,seen,seen,0.9784597,1,1,0
+age_and_family_status,2,7909,"youth, including students and apprentices",Germany,den vielen Jugendlichen im Sitzungssaal | Jugend,partial | seen,seen,0.98731005,1,1,1
+age_and_family_status,2,7980,"youth, including students and apprentices",Germany,Jugendarbeitslosigkeit,partial,partial,0.9862911,1,0,1
+age_and_family_status,2,8100,"youth, including students and apprentices",Germany,Jugend,seen,seen,0.9894911,1,0,0
+age_and_family_status,2,8131,"youth, including students and apprentices",Germany,die meisten sind jung,partial,partial,0.97174376,1,0,1
+age_and_family_status,2,8175,"minors, including children and pupils",France,celles des enfants qui apprennent à écrire,partial,partial,0.987718,1,1,1
+age_and_family_status,2,8336,"minors, including children and pupils",France,des enfants,seen,seen,0.96174717,1,1,1
+age_and_family_status,2,8560,"youth, including students and apprentices",France,la jeunesse,seen,seen,0.9911554,1,1,1
+age_and_family_status,2,8673,parents and families,France,la famille,seen,seen,0.9870782,1,1,0
+age_and_family_status,2,8673,"minors, including children and pupils",France,des garçons | des filles,seen | seen,seen,0.987763,1,1,0
+age_and_family_status,2,8802,"youth, including students and apprentices",France,Les jeunes des quartiers,seen,seen,0.9653927,1,1,1
+age_and_family_status,2,8848,"minors, including children and pupils",France,aux mineurs,seen,seen,0.9918819,1,1,1
+age_and_family_status,2,8890,"youth, including students and apprentices",France,la jeunesse,seen,seen,0.9911869,1,1,1
+age_and_family_status,2,9042,"minors, including children and pupils",France,des élèves,seen,seen,0.9926696,1,1,1
+age_and_family_status,2,9071,couples,France,les époux,seen,seen,0.98706996,1,0,1
+age_and_family_status,2,9088,"youth, including students and apprentices",France, des jeune,seen,seen,0.9886001,1,1,1
+age_and_family_status,2,9131,"youth, including students and apprentices",France,"
+Les jeunes gens nés avant le 1er janvier 19",partial,partial,0.9488767,1,1,1
+age_and_family_status,2,9285,parents and families,France,des familles,seen,seen,0.991915,1,1,1
+age_and_family_status,2,9303,"youth, including students and apprentices",France,10.000 jeunes,seen,seen,0.97173744,1,1,1
+age_and_family_status,2,9384,"minors, including children and pupils",France,des filles qui commencent à racoler dans les rues à 12 ans,partial,partial,0.9858994,1,1,1
+age_and_family_status,2,9393,elderly,France,les personnes âgées,seen,seen,0.9866981,1,1,1
+age_and_family_status,2,9396,couples,France,époux,seen,seen,0.97374445,1,0,1
+age_and_family_status,2,9401,"youth, including students and apprentices",France,des étudiants,seen,seen,0.99006534,1,1,1
+age_and_family_status,2,9418,couples,France,les couples de lesbiennes mariées,partial,partial,0.9841517,1,1,1
+age_and_family_status,2,9419,couples,France,aux couples de femmes,partial,partial,0.9804749,1,1,1
+age_and_family_status,2,9419,singles,France,aux femmes célibataires,partial,partial,0.98228514,1,1,1
+age_and_family_status,2,9420,couples,France,en couple,seen,seen,0.97815186,1,0,1
+age_and_family_status,2,9420,singles,France,célibataires,seen,seen,0.9879445,1,1,1
+age_and_family_status,2,9438,parents and families,France,des parents,seen,seen,0.99176687,1,1,1
+age_and_family_status,2,9457,"youth, including students and apprentices",France,les futurs étudiants del'université,partial,partial,0.98381585,1,1,1
+age_and_family_status,2,9468,"minors, including children and pupils",France,d’enfants de la rue,partial,partial,0.9707534,1,1,1
+age_and_family_status,2,9514,parents and families,Germany,"diejenigen, die Kinder erziehen",partial,partial,0.00021919196,0,0,1
+age_and_family_status,2,9514,"minors, including children and pupils",Germany,Kinder,seen,seen,0.98421127,1,1,0
+age_and_family_status,2,9585,couples,Germany,mit klassischen Paaren heterosexueller Art,partial,partial,0.9652812,1,0,1
+age_and_family_status,2,9593,singles,Germany,Überzeugte Singles,partial,partial,0.9910663,1,0,1
+age_and_family_status,2,9596,singles,Germany,Singles,seen,seen,0.9905627,1,0,1
+age_and_family_status,2,9610,parents and families,Germany,Eltern,seen,seen,0.0010676597,0,0,1
+age_and_family_status,2,9618,middle-aged and pre-retirement age groups,Germany,Vorruhestandsalter,no_overlap,no_overlap,0.084835455,0,0,1
+age_and_family_status,2,9629,couples,France,les couples hétérosexuels,seen,seen,0.99030566,1,1,1
+age_and_family_status,2,9636,"youth, including students and apprentices",France,des 20-30 ans,seen,seen,0.8821799,1,0,1
+age_and_family_status,2,9636,middle-aged and pre-retirement age groups,France,les quinquagénaires,seen,seen,0.6290856,1,0,1
+age_and_family_status,2,9637,middle-aged and pre-retirement age groups,France,quinqua | les sexagénaires,partial | no_overlap,partial,0.7157566,1,0,1
+age_and_family_status,2,9638,middle-aged and pre-retirement age groups,France,un préretraité,no_overlap,no_overlap,0.0076133204,0,0,0
+identities,4,167,"people with an immigration background, including immigrants",Germany,der arbeitslosen Flüchtlinge,seen,seen,0.957164,1,1,1
+identities,4,189,men,Germany,Männer,seen,seen,0.9352621,1,1,1
+identities,4,189,women,Germany,Frauen,seen,seen,0.95512927,1,1,1
+identities,4,284,women,Germany,iranischen Frauen,seen,seen,0.95514566,1,1,1
+identities,4,335,women,Germany,den Müttern vor 1992 | den Müttern ab 1992,seen | seen,seen,0.9464123,1,0,0
+identities,4,405,women,Germany,Mütter,seen,seen,0.93899286,1,1,0
+identities,4,405,disabled people,Germany,Rollstuhlfahrer,no_overlap,no_overlap,0.9167529,1,0,1
+identities,4,464,men,Germany,Junge Männer,seen,seen,0.9581581,1,1,1
+identities,4,469,women,Germany,die unterdrückten Frauen,partial,partial,0.95744395,1,1,1
+identities,4,482,"people with an immigration background, including immigrants",Germany,Viele Flüchtlinge aus der Ukraine,seen,seen,0.9602311,1,1,1
+identities,4,606,women,Germany,Frauen,seen,seen,0.95204735,1,1,1
+identities,4,619,men,Germany,Familienväter,no_overlap,no_overlap,6.588581e-05,0,0,0
+identities,4,647,women,Germany,"13-, 14-jährige Mädchen",seen,seen,0.9414833,1,1,1
+identities,4,676,"people with an immigration background, including immigrants",Germany,Flüchtlings,seen,seen,0.9587976,1,0,1
+identities,4,692,women,Germany,Mädchen,seen,seen,0.9320183,1,0,1
+identities,4,694,men,Germany,Männer,seen,seen,0.93602526,1,1,1
+identities,4,694,women,Germany,Frauen,seen,seen,0.9164633,1,1,1
+identities,4,703,women,Germany,kleine Mädchen,seen,seen,0.94746125,1,1,1
+identities,4,706,women,Germany,die Frauen | Rassistinnen,seen | no_overlap,seen,0.9475754,1,1,1
+identities,4,726,"people with an immigration background, including immigrants",Germany,den Migranten,seen,seen,0.956672,1,1,1
+identities,4,758,LGBTQIA+,Germany,Trans | Trans | sehr viele,seen | seen | no_content,seen,0.9490199,1,1,1
+identities,4,769,women,Germany,weinender Frauen mit verwischter Mascara,partial,partial,0.9528271,1,1,1
+identities,4,806,"people with an immigration background, including immigrants",Germany,Flüchtlings,seen,seen,0.95763546,1,0,1
+identities,4,954,Muslims,Germany,radikaler Muslime,partial,partial,0.9581972,1,0,1
+identities,4,1145,women,Germany,Mädchen,seen,seen,0.88138276,1,0,0
+identities,4,1164,Jews,Germany,Juden,partial,partial,0.94415295,1,0,1
+identities,4,1191,women,Germany,Frauen | Damen,seen | seen,seen,0.9493778,1,1,0
+identities,4,1191,LGBTQIA+,Germany,trans Personen,seen,seen,0.927201,1,1,1
+identities,4,1229,men,Germany,Schwule | Schwule,seen | seen,seen,0.00013565135,0,0,0
+identities,4,1229,LGBTQIA+,Germany,Schwule | Schwule,seen | seen,seen,0.9435869,1,0,1
+identities,4,1317,men,Germany,der Männer,seen,seen,0.9539447,1,1,1
+identities,4,1319,women,Germany,keine andere Schauspielerin,no_overlap,no_overlap,0.06613052,0,0,0
+identities,4,1319,"people with an immigration background, including immigrants",Germany,Fremden,seen,seen,0.9381217,1,0,0
+identities,4,1319,Jews,Germany,Juden,partial,partial,0.85557115,1,0,1
+identities,4,1511,"people with an immigration background, including immigrants",Germany,der Vertriebenen,no_overlap,no_overlap,0.0030222835,0,0,0
+identities,4,1522,"people with an immigration background, including immigrants",Germany,Die Leute | 500 bis 600 Menschen,partial | no_content,partial,0.84130025,1,0,1
+identities,4,1538,"people with an immigration background, including immigrants",Germany,mehr als 148 000 Kriegsflüchtlinge aus der Ukraine | fast 22 000 Asylbewerber aus anderen Ländern,partial | partial,partial,0.9451581,1,1,1
+identities,4,1546,"people with an immigration background, including immigrants",Germany,eine kleine Gruppe von ausländischen Mitbürgern,partial,partial,0.9515258,1,0,1
+identities,4,1584,"people with an immigration background, including immigrants",Germany,mehrerer abgelehnter Asylbewerber,partial,partial,0.95360774,1,1,1
+identities,4,1686,"people with an immigration background, including immigrants",Germany,der Hilfesuchenden | viele Ukraine-Flüchtlinge,no_overlap | seen,seen,0.9482864,1,1,1
+identities,4,1715,"people with an immigration background, including immigrants",Germany,anderer syrischer Geflüchteter,partial,partial,0.9547442,1,0,1
+identities,4,1736,Jews,Germany,die Juden Berlins,partial,partial,0.9360729,1,0,1
+identities,4,1753,"people with an immigration background, including immigrants",Germany,Viele Fußballer mit multinationalen Wurzeln,no_overlap,no_overlap,5.2584583e-05,0,0,1
+identities,4,1920,women,Germany,den Mädchen,seen,seen,0.9504948,1,1,0
+identities,4,1962,"people with an immigration background, including immigrants",Germany,so viele Flüchtlinge,seen,seen,0.95630693,1,1,1
+identities,4,2022,men,Germany,Die Männer,seen,seen,0.95340455,1,1,1
+identities,4,2079,"people with an immigration background, including immigrants",Germany,Die älteren Flüchtlinge zwischen 16 und 21,partial,partial,0.95493287,1,1,1
+identities,4,2149,women,Germany,Promi-Frauen zeigen | unterdrückten Frauen im Iran.--- |  Stars las,partial | partial | partial,partial,0.93702024,1,1,1
+identities,4,2379,women,Germany,eine trans Frau | Damen,seen | seen,seen,0.9549475,1,1,0
+identities,4,2379,LGBTQIA+,Germany,eine trans Frau,seen,seen,0.95119256,1,1,1
+identities,4,2402,women,Germany,den besiegten Frauen,partial,partial,0.9500443,1,1,1
+identities,4,2474,"people with an immigration background, including immigrants",Germany,viele Flüchtlinge,seen,seen,0.9611757,1,1,1
+identities,4,2508,men,Germany,"118,5 Jungen",seen,seen,0.9476747,1,0,0
+identities,4,2508,women,Germany,100 Mädchen,seen,seen,0.9158811,1,1,0
+identities,4,2516,"people with an immigration background, including immigrants",Germany,jungen Flüchtlingen,seen,seen,0.95595455,1,1,1
+identities,4,2621,"people with an immigration background, including immigrants",Germany,Flüchtlinge,seen,seen,0.95826155,1,1,1
+identities,4,2754,multiple (or other) religious or minority groups,Germany,viele Gläubige,seen,seen,0.0005674912,0,0,1
+identities,4,2755,women,Germany,Viele Frauen,seen,seen,0.9570314,1,1,1
+identities,4,2756,"people with an immigration background, including immigrants",Germany,Migranten | krimineller Ausländer,seen | partial,seen,0.9529787,1,1,1
+identities,4,2819,men,Germany,Jungen | trans Jungs,seen | partial,seen,0.95332694,1,0,0
+identities,4,2819,women,Germany,diesen Mädchen | trans Mädchen,seen | seen,seen,0.9507648,1,1,0
+identities,4,2819,LGBTQIA+,Germany,trans Jungs | trans Mädchen,seen | seen,seen,0.93879074,1,1,1
+identities,4,3054,women,France,nos hôtesses,seen,seen,0.88769203,1,0,0
+identities,4,3431,Christians,France,"Une centaine de fidèles polonais, biélorusses, arméniens, lituaniens",no_overlap,no_overlap,0.00010070439,0,0,1
+identities,4,3539,women,France,un tiers de femmes | des femmes,partial | seen,seen,0.9477848,1,1,1
+identities,4,3540,"people with an immigration background, including immigrants",France,Les clandestins,seen,seen,0.9503261,1,0,1
+identities,4,3652,women,France,de belles femmes,partial,partial,0.95099163,1,1,1
+identities,4,3661,Christians,France,certains chrétiens extrémistes,partial,partial,0.93890727,1,1,1
+identities,4,3677,Christians,France,des prêtres catholiques,partial,partial,0.9105275,1,0,1
+identities,4,3757,Jews,France,aux juifs,seen,seen,0.91342485,1,1,1
+identities,4,3775,women,France,les femmes,seen,seen,0.94902956,1,1,1
+identities,4,3915,LGBTQIA+,France,Des travestis,partial,partial,0.9382474,1,0,1
+identities,4,3978,Muslims,France,des musulmans,seen,seen,0.95328295,1,1,1
+identities,4,3995,women,France,féminine | des dames de Palestine | quelque deux cents participantes,seen | partial | partial,seen,0.8862529,1,0,1
+identities,4,3995,Muslims,France,La population musulmane,partial,partial,0.88423824,1,0,1
+identities,4,4040,women,France,des femmes plutôt jolies,partial,partial,0.950635,1,1,1
+identities,4,4165,women,France,Les candidates,partial,partial,0.79218477,1,0,1
+identities,4,4205,men,France,d'hommes,seen,seen,0.52110124,1,1,1
+identities,4,4205,women,France,au moins quelques femmes | de femmes,seen | seen,seen,0.9399106,1,1,1
+identities,4,4445,Jews,France,tous les musiciens juifs du National,partial,partial,0.89611244,1,1,1
+identities,4,4558,disabled people,France,des aveugles,no_overlap,no_overlap,0.920364,1,0,0
+identities,4,4615,Muslims,France,les mollahs,no_overlap,no_overlap,3.918779e-05,0,0,1
+identities,4,4819,Christians,France,jeunes chrétiens,partial,partial,0.7985538,1,1,1
+identities,4,4911,Ethnic and racial minorities,France,au peuple indigène | l'indigène | un Zigane,no_overlap | no_overlap | no_overlap,no_overlap,0.00035190428,0,0,1
+identities,4,4935,men,France,ces jeunes hommes,seen,seen,0.0002984995,0,1,1
+identities,4,4972,men,France,les hommes,seen,seen,0.00043780135,0,1,0
+identities,4,5050,Christians,France,les catholiques | des chrétiens de seconde zone,no_overlap | partial,partial,0.94721276,1,1,1
+identities,4,5076,women,France,Femmes,seen,seen,0.95637316,1,1,1
+identities,4,5319,Jews,France,les prolétaires juifs,partial,partial,0.8103255,1,1,1
+identities,4,5439,"people with an immigration background, including immigrants",France,les réfugiés,seen,seen,0.9483888,1,1,1
+identities,4,5445,women,France,des femmes au foyer,seen,seen,0.932287,1,1,0
+identities,4,5445,"people with an immigration background, including immigrants",France,des étrangers,seen,seen,0.9428737,1,0,1
+identities,4,5505,men,France,Les garçons,seen,seen,0.9402769,1,1,0
+identities,4,5598,disabled people,Germany,die blinden Teenager,partial,partial,0.93057823,1,0,1
+identities,4,5728,"people with an immigration background, including immigrants",Germany,Flüchtlings,seen,seen,0.944833,1,0,0
+identities,4,5731,"people with an immigration background, including immigrants",Germany,immer mehr Flüchtlinge,seen,seen,0.957677,1,1,1
+identities,4,5740,"people with an immigration background, including immigrants",Germany,alle Migranten der Welt,partial,partial,0.9623804,1,1,1
+identities,4,5804,men,Germany,die Jungs,seen,seen,0.9424111,1,0,0
+identities,4,5804,women,Germany,die Mädchen,seen,seen,0.92906696,1,1,0
+identities,4,5823,women,Germany,starke Frauen | der Frauen,partial | seen,seen,0.9513386,1,1,1
+identities,4,5896,men,Germany,"ein Trans-Mann, der geschlagen wird",partial,partial,0.040229235,0,0,0
+identities,4,5896,LGBTQIA+,Germany,"ein Trans-Mann, der geschlagen wird",partial,partial,0.9420207,1,1,1
+identities,4,5925,Christians,Germany,seiner christlichen Finanziers,partial,partial,0.055042725,0,0,1
+identities,4,5957,LGBTQIA+,Germany,trans Personen,seen,seen,0.93284863,1,1,1
+identities,4,6082,"people with an immigration background, including immigrants",Germany,Flüchtlinge | Flüchtlinge,seen | seen,seen,0.95482355,1,1,1
+identities,4,6161,women,Germany,mancher älteren (Power)-Frau,partial,partial,0.93038416,1,1,1
+identities,4,6193,women,Germany,Mutter,seen,seen,0.03232999,0,0,0
+identities,4,6393,women,Germany,die Frauen,seen,seen,0.9544719,1,1,0
+identities,4,6429,"people with an immigration background, including immigrants",Germany,ausländischen,seen,seen,0.9511506,1,0,1
+identities,4,6454,disabled people,Germany,Behinderten,seen,seen,0.9494518,1,0,1
+identities,4,6562,women,Germany,der Frauen-Union in Berlin-Mitte,partial,partial,0.9362576,1,1,0
+identities,4,6568,LGBTQIA+,Germany,Trans Personen,seen,seen,0.9370643,1,1,1
+identities,4,6598,"people with an immigration background, including immigrants",Germany,etwa 15 600 Flüchtlingen | etwa 70 000 Flüchtlinge | jeder Dritte,seen | seen | no_content,seen,0.95124,1,1,1
+identities,4,6688,women,Germany,der Frauen,seen,seen,0.95989865,1,1,1
+identities,4,6750,women,Germany,Die Mädchen,seen,seen,0.9543727,1,1,0
+identities,4,6792,women,Germany,Die einen | andere,no_content | no_content,no_content,0.9080689,1,0,1
+identities,4,6794,"people with an immigration background, including immigrants",Germany,Einwanderungs,partial,partial,0.91511464,1,0,0
+identities,4,6810,"people with an immigration background, including immigrants",Germany,Die Millionen von Heimatvertriebenen,partial,partial,0.94195175,1,0,1
+identities,4,6831,"people with an immigration background, including immigrants",Germany,türkischstämmige Bürger in Deutschland,partial,partial,7.602116e-05,0,0,1
+identities,4,6851,"people with an immigration background, including immigrants",Germany,Flüchtlings,seen,seen,0.9577352,1,1,1
+identities,4,6899,"people with an immigration background, including immigrants",Germany,mehr als 9000 Flüchtlinge | etwa 150 Flüchtlinge,seen | seen,seen,0.95107186,1,1,1
+identities,4,6948,women,Germany,Frauen,seen,seen,0.956367,1,1,1
+identities,4,6972,women,Germany,eine alkoholsüchtige Frau,partial,partial,0.94269454,1,1,1
+identities,4,7026,Ethnic and racial minorities,Germany,Indianern,seen,seen,0.018789705,0,0,1
+identities,4,7180,"people with an immigration background, including immigrants",Germany,Flüchtlings,seen,seen,0.9494617,1,0,1
+identities,4,7225,men,Germany,die Männer,seen,seen,0.9553575,1,1,1
+identities,4,7236,LGBTQIA+,Germany,"Frauen, die keine Frauen waren",seen,seen,0.0003354259,0,1,1
+identities,4,7266,disabled people,Germany,die geistig Behinderten,partial,partial,0.9482042,1,1,1
+identities,4,7285,"people with an immigration background, including immigrants",Germany,Flüchtlings,seen,seen,0.942461,1,0,1
+identities,4,7303,women,Germany,Schwangeren,no_overlap,no_overlap,0.9007783,1,0,1
+identities,4,7393,men,Germany,die Jungs aus seinem Kiez um die Naunynstraße,partial,partial,0.2603139,0,0,0
+identities,4,7407,women,Germany,der Frauen,seen,seen,0.9567485,1,1,1
+identities,4,7420,men,Germany,den Jungen im Jugendalter,partial,partial,0.94941795,1,0,0
+identities,4,7420,women,Germany,den Mädchen im Grundschulalter,partial,partial,0.9062688,1,1,0
+identities,4,7447,"people with an immigration background, including immigrants",Germany,Rund 250 000,no_content,no_content,0.911631,1,0,0
+identities,4,7495,"people with an immigration background, including immigrants",Germany,Illegal eingereiste Ausländer,partial,partial,0.9569375,1,1,1
+identities,4,7519,men,Germany,keinen Sohn,seen,seen,0.8433403,1,0,0
+identities,4,7519,women,Germany,eine Tochter,partial,partial,0.86233777,1,0,0
+identities,4,7563,"people with an immigration background, including immigrants",Germany,Kleinkinder,no_overlap,no_overlap,0.00023292367,0,0,1
+identities,4,7663,LGBTQIA+,Germany,Trans,seen,seen,0.7751021,1,0,1
+identities,4,7729,disabled people,Germany,Down-Syndrom-Kindern | diese Kinder,partial | partial,partial,0.9478466,1,0,1
+identities,4,7875,men,Germany,dummen Männern,partial,partial,0.9552034,1,1,1
+identities,4,7875,women,Germany,das hübsche Mädchen,partial,partial,0.9399573,1,1,1
+identities,4,8107,"people with an immigration background, including immigrants",Germany,Ausländer,seen,seen,0.9509591,1,1,1
+identities,4,8130,"people with an immigration background, including immigrants",Germany,Flüchtling,seen,seen,0.9490552,1,0,1
+identities,4,8266,women,France,des femmes,seen,seen,0.94206285,1,1,1
+identities,4,8269,LGBTQIA+,France,les Trans,seen,seen,0.9309532,1,1,0
+identities,4,8290,multiple (or other) religious or minority groups,France,des groupes stigmatisés,no_overlap,no_overlap,9.9898396e-05,0,0,0
+identities,4,8331,women,France,Les femmes,seen,seen,0.9507,1,1,1
+identities,4,8332,"people with an immigration background, including immigrants",France,"Plus de 1 162 personnes, pour la plupart syriennes",no_overlap,no_overlap,0.00043316052,0,0,1
+identities,4,8400,men,France,les hommes,seen,seen,0.16388002,0,1,1
+identities,4,8400,women,France,Une communauté de femmes,partial,partial,0.94267684,1,1,1
+identities,4,8506,men,France,les hommes,seen,seen,3.4014985e-05,0,1,0
+identities,4,8586,"people with an immigration background, including immigrants",France,les migrants,seen,seen,0.9624803,1,1,1
+identities,4,8663,Christians,France,frontistes catholiques,no_overlap,no_overlap,0.84763426,1,0,1
+identities,4,8740,Ethnic and racial minorities,France,la majorité des Noirs,partial,partial,0.9513438,1,0,1
+identities,4,8779,Muslims,France,du Mouvement islamiste,partial,partial,0.7310144,1,0,1
+identities,4,8824,"people with an immigration background, including immigrants",France,ces réfugiés,seen,seen,0.9536396,1,1,1
+identities,4,8846,women,France,les femmes en France (Enveff),partial,partial,0.94809586,1,1,1
+identities,4,9096,men,France,les hommes,seen,seen,0.00029163406,0,1,1
+identities,4,9181,women,France,la femme,seen,seen,0.9512067,1,0,1
+identities,4,9284,women,France,une femme,seen,seen,0.9457044,1,0,1
+identities,4,9340,women,France,la mère,seen,seen,0.8735848,1,0,0
+identities,4,9363,Muslims,France,du Conseil français du culte musulman,partial,partial,0.15387793,0,0,1
+identities,4,9379,men,France,les hommes,seen,seen,0.9118457,1,1,1
+identities,4,9379,women,France,les femmes,seen,seen,0.94834626,1,1,1
+identities,4,9398,men,France,"de «salarymen», célibataires ou bons pères de famille | bons pères de famille",no_overlap | no_overlap,no_overlap,5.4627344e-05,0,0,0
+identities,4,9410,women,France,Les filles,seen,seen,0.95395106,1,1,1
+identities,4,9419,women,France,aux couples de femmes | aux femmes célibataires,partial | partial,partial,0.9417042,1,1,1
+identities,4,9419,LGBTQIA+,France,aux couples de femmes,partial,partial,7.3201845e-05,0,0,1
+identities,4,9449,cisgender and heterosexuals,France,des parents hétéros,partial,partial,3.2614593e-05,0,0,1
+identities,4,9489,men,France,l’homme blanc hétérosexuel,partial,partial,0.0030082504,0,0,1
+identities,4,9489,women,France,des femmes,seen,seen,0.949387,1,1,1
+identities,4,9489,cisgender and heterosexuals,France,l’homme blanc hétérosexuel,partial,partial,0.929502,1,0,1
+identities,4,9530,women,Germany,Sexarbeiterinnen,seen,seen,0.9397007,1,1,0
+identities,4,9585,men,Germany,weißer Cis-Mann,partial,partial,0.0008423312,0,0,1
+identities,4,9585,cisgender and heterosexuals,Germany,weißer Cis-Mann,partial,partial,0.94628507,1,1,1
+identities,4,9585,LGBTQIA+,Germany,queere Kreise | mit klassischen Paaren heterosexueller Art,partial | partial,partial,0.7420037,1,0,1
+identities,4,9602,women,Germany,die Frauen,seen,seen,0.9557696,1,1,1
+identities,4,9605,women,Germany,keine junge Frau | Hausfrau | Mutter,seen | partial | seen,seen,0.9489414,1,1,1
+identities,4,9609,women,Germany,der schwäbischen Hausfrau,partial,partial,0.00015182876,0,0,0
+identities,4,9611,women,Germany,Hausfrau | Glamourgirl,partial | partial,partial,0.6910796,1,0,0
+identities,4,9613,women,Germany,"die moderne, gesundheitsbewußte Hausfrau",partial,partial,0.799629,1,0,0
+identities,4,9626,LGBTQIA+,France,les homosexuels,seen,seen,0.815137,1,0,1
+identities,4,9629,cisgender and heterosexuals,France,les couples hétérosexuels,seen,seen,0.95173526,1,0,1
+labor_market_position,2,68,civil servants,Germany,hochrangigen Beamten,partial,partial,0.22551313,0,0,1
+labor_market_position,2,78,entrepreneurs,Germany,eine andere Bank | eine andere Bank,seen | seen,seen,0.11057909,0,0,1
+labor_market_position,2,131,employers,Germany,Arbeitgebern,seen,seen,0.9907706,1,1,1
+labor_market_position,2,211,wage and salary earners,Germany,Opel-Mitarbeitern | Angestellte von Baufirmen,seen | partial,seen,0.9911177,1,1,1
+labor_market_position,2,228,entrepreneurs,Germany,die Stromerzeuger | den Verkehrssektor | Landwirtschaft | Industrie | Gebäudewirtschaft,no_overlap | partial | partial | seen | partial,seen,0.9957694,1,1,1
+labor_market_position,2,286,entrepreneurs,Germany,ein Internetunternehmen,partial,partial,0.99328893,1,0,0
+labor_market_position,2,287,employers,Germany,der Arbeitgeber,seen,seen,0.9900647,1,1,1
+labor_market_position,2,310,entrepreneurs,Germany,andere Hersteller,seen,seen,0.9931378,1,0,1
+labor_market_position,2,411,CEOs and corporate leaders,Germany,der Spitzenmanager,partial,partial,0.98817444,1,0,1
+labor_market_position,2,564,entrepreneurs,Germany,Briefkastenfirmen,partial,partial,0.9957832,1,0,0
+labor_market_position,2,566,wage and salary earners,Germany,die Gewerkschaft,seen,seen,0.99403906,1,1,0
+labor_market_position,2,566,entrepreneurs,Germany,Mittelständler,partial,partial,0.0018409621,0,0,1
+labor_market_position,2,663,entrepreneurs,Germany,Konzern,seen,seen,0.9956039,1,0,0
+labor_market_position,2,666,entrepreneurs,Germany,die Betreiber,seen,seen,0.03909165,0,0,1
+labor_market_position,2,693,wage and salary earners,Germany,Gewerkschaften | der Arbeiterpartei,seen | partial,seen,0.9937775,1,1,1
+labor_market_position,2,697,entrepreneurs,Germany,ein Unternehmen | einen Industriekonzern,seen | partial,seen,0.9954116,1,1,0
+labor_market_position,2,719,civil servants,Germany,Den Funktionären,seen,seen,0.4322619,0,0,0
+labor_market_position,2,759,entrepreneurs,Germany,Branchen,seen,seen,0.99013746,1,0,0
+labor_market_position,2,829,entrepreneurs,Germany,mehrere Hersteller,partial,partial,0.99429286,1,0,1
+labor_market_position,2,836,entrepreneurs,Germany,die Banken | die Banken und damit,seen | seen,seen,0.99582326,1,1,1
+labor_market_position,2,852,entrepreneurs,Germany,die Hersteller,seen,seen,0.99529797,1,0,1
+labor_market_position,2,871,wage and salary earners,Germany,Personal,seen,seen,0.9846102,1,1,0
+labor_market_position,2,902,entrepreneurs,Germany,Geschäftsbesitzer,partial,partial,0.02954863,0,0,1
+labor_market_position,2,913,entrepreneurs,Germany,Händler,seen,seen,0.989911,1,1,1
+labor_market_position,2,914,entrepreneurs,Germany,"Konzernen aus Industrie, Handel oder Dienstleistungen | Industrie | Handel | Dienstleistungen",partial | seen | seen | seen,seen,0.99559385,1,1,1
+labor_market_position,2,915,CEOs and corporate leaders,Germany,der Spitze von Gesamtmetall,partial,partial,5.854217e-05,0,0,0
+labor_market_position,2,915,employers,Germany,Gesamtmetall,no_overlap,no_overlap,0.00012308292,0,0,1
+labor_market_position,2,962,entrepreneurs,Germany,andere Indu­strien | die Autobranche,partial | partial,partial,0.9958962,1,0,1
+labor_market_position,2,1100,wage and salary earners,Germany,die Belegschaften,seen,seen,0.99370676,1,0,1
+labor_market_position,2,1135,wage and salary earners,Germany,Gewerkschaft,seen,seen,0.9925789,1,1,0
+labor_market_position,2,1140,wage and salary earners,Germany,normale Arbeitnehmer,partial,partial,0.41380534,0,1,1
+labor_market_position,2,1145,entrepreneurs,Germany,"Verkäufern von Batterien, Einlegesohlen und Kämmen",partial,partial,0.00016831218,0,0,0
+labor_market_position,2,1165,entrepreneurs,Germany,Staatsunternehmen,partial,partial,0.9939779,1,0,0
+labor_market_position,2,1168,entrepreneurs,Germany,Ein Konzern,seen,seen,0.007205581,0,0,0
+labor_market_position,2,1174,entrepreneurs,Germany,Pharma | Pharma,seen | seen,seen,7.962925e-05,0,0,0
+labor_market_position,2,1176,entrepreneurs,Germany,Viele der Unternehme | diese riesigen Konzerne,seen | partial,seen,0.99566156,1,0,1
+labor_market_position,2,1230,entrepreneurs,Germany,Pharma,seen,seen,0.09612218,0,0,0
+labor_market_position,2,1332,entrepreneurs,Germany,die deutsche Stahlindustrie,partial,partial,0.9957424,1,0,1
+labor_market_position,2,1365,entrepreneurs,Germany,der »Weißen Flotte«,no_overlap,no_overlap,0.00019195845,0,0,0
+labor_market_position,2,1462,wage and salary earners,Germany,der Beschäftigten,seen,seen,0.9940382,1,1,1
+labor_market_position,2,1534,entrepreneurs,Germany,den gesetzlichen Krankenversicherungen | den gesetzlichen Krankenversicherungen,partial | partial,partial,0.0009920005,0,0,0
+labor_market_position,2,1553,unemployed,Germany,besonders ältere Arbeitslose,seen,seen,0.990217,1,0,1
+labor_market_position,2,1631,entrepreneurs,Germany,Bank | Bank,seen | seen,seen,0.96091264,1,0,0
+labor_market_position,2,1682,wage and salary earners,Germany,die Beschäftigten,seen,seen,0.993832,1,1,1
+labor_market_position,2,1777,entrepreneurs,Germany,"mehr als 20 Firmen auf, mit denen das UKM während Masins Tätigkeit als Ernährungsbeauftragter zusammenarbeitete",partial,partial,0.99352384,1,1,0
+labor_market_position,2,1866,entrepreneurs,Germany,Die Autozuliefer-Sparte,partial,partial,0.9949398,1,1,1
+labor_market_position,2,1871,entrepreneurs,Germany,Einrichtungsfirmen,partial,partial,0.9957634,1,0,1
+labor_market_position,2,1883,entrepreneurs,Germany,der Ersatzkassenverbände,no_overlap,no_overlap,0.0014913481,0,0,0
+labor_market_position,2,1910,entrepreneurs,Germany,Die Markenboutiquen in der Stadt,partial,partial,0.9946465,1,0,1
+labor_market_position,2,2051,wage and salary earners,Germany,Der Betriebsrat,no_overlap,no_overlap,0.003921814,0,0,1
+labor_market_position,2,2160,entrepreneurs,Germany,der Branche,seen,seen,0.9949215,1,0,1
+labor_market_position,2,2200,wage and salary earners,Germany,den aktuell 2000 Mitarbeitern in München,partial,partial,0.99399287,1,1,1
+labor_market_position,2,2228,entrepreneurs,Germany,Banken | Banken,seen | seen,seen,0.99582326,1,1,1
+labor_market_position,2,2238,entrepreneurs,Germany,zivilen Airlines,seen,seen,0.049730483,0,0,0
+labor_market_position,2,2273,CEOs and corporate leaders,Germany,Manager,seen,seen,0.95944566,1,0,1
+labor_market_position,2,2273,employers,Germany,der Arbeitgeber,seen,seen,0.98512065,1,1,1
+labor_market_position,2,2314,entrepreneurs,Germany,branchenfremden Unternehmen,partial,partial,0.99589765,1,1,1
+labor_market_position,2,2320,entrepreneurs,Germany,Unternehmen,seen,seen,0.9952034,1,1,1
+labor_market_position,2,2468,entrepreneurs,Germany,Die Gasimporteure,partial,partial,0.00016393814,0,0,1
+labor_market_position,2,2586,entrepreneurs,Germany,Die Handwerksbetriebe in Schleswig-Holstein,partial,partial,0.9827702,1,0,1
+labor_market_position,2,2630,entrepreneurs,Germany,Die Branche,seen,seen,0.2460757,0,0,0
+labor_market_position,2,2677,employers,Germany,den Arbeitgebern,seen,seen,0.98837435,1,1,1
+labor_market_position,2,2701,unemployed,Germany,jungen Arbeitslosen,partial,partial,0.98534065,1,0,1
+labor_market_position,2,2736,wage and salary earners,Germany,der Gewerkschaft,seen,seen,0.9936329,1,1,1
+labor_market_position,2,2736,employers,Germany,Die Arbeitgeber,seen,seen,0.990949,1,1,1
+labor_market_position,2,2821,wage and salary earners,Germany,die Arbeiter,seen,seen,0.9917157,1,0,1
+labor_market_position,2,2832,unemployed,Germany,den Arbeitssuchenden,partial,partial,0.98198456,1,0,1
+labor_market_position,2,2848,entrepreneurs,Germany,der Banken | der Banken,seen | seen,seen,0.99578947,1,1,1
+labor_market_position,2,2849,entrepreneurs,Germany,Viele Unternehmen,seen,seen,0.9957818,1,1,1
+labor_market_position,2,2864,entrepreneurs,Germany,der französischen Atomindustrie,partial,partial,0.9913635,1,1,0
+labor_market_position,2,2922,unemployed,France,de demandeurs d'emploi,seen,seen,0.0001926547,0,0,0
+labor_market_position,2,2962,entrepreneurs,France,les médias occidentaux,partial,partial,8.890016e-05,0,0,0
+labor_market_position,2,2975,wage and salary earners,France,2000 salariés,seen,seen,0.9932592,1,1,1
+labor_market_position,2,2975,entrepreneurs,France,des constructeurs automobiles,seen,seen,0.99447495,1,1,1
+labor_market_position,2,2994,entrepreneurs,France,Les compagnies d'assurances,seen,seen,0.995795,1,0,1
+labor_market_position,2,3054,wage and salary earners,France,nos hôtesses,partial,partial,0.014497422,0,0,0
+labor_market_position,2,3157,entrepreneurs,France,Les entreprises,seen,seen,0.9958104,1,1,1
+labor_market_position,2,3180,entrepreneurs,France,l'agro-industrie | l'agro-industrie | les firmes de boisson | les magasins de détail | les hypermarchés | les hypermarchés,partial | partial | partial | no_overlap | partial | partial,partial,0.99511045,1,1,1
+labor_market_position,2,3185,wage and salary earners,France,"les autres centrales syndicales, de la CFDT à FO en passant par les autonomes de l'Unsa",partial,partial,0.9940177,1,1,1
+labor_market_position,2,3191,entrepreneurs,France,"les gérants de sicav, comme Deutsche Bank Asset Management | les gérants de sicav, comme Deutsche Bank Asset Management",partial | partial,partial,0.00021479945,0,0,0
+labor_market_position,2,3244,entrepreneurs,France,l'industrie,seen,seen,0.99493355,1,1,0
+labor_market_position,2,3263,wage and salary earners,France,tous les collaborateurs,seen,seen,0.09090479,0,0,1
+labor_market_position,2,3263,entrepreneurs,France,ses agences,partial,partial,0.006362362,0,0,0
+labor_market_position,2,3285,wage and salary earners,France,le mouvement ouvrier,partial,partial,0.4305828,0,0,1
+labor_market_position,2,3290,entrepreneurs,France,Les marques françaises,partial,partial,0.9947702,1,0,0
+labor_market_position,2,3295,entrepreneurs,France,des commerçants,seen,seen,0.9959254,1,1,1
+labor_market_position,2,3344,entrepreneurs,France,Pharmaciens,seen,seen,0.86530685,1,0,0
+labor_market_position,2,3421,CEOs and corporate leaders,France,chef d'entreprise,seen,seen,0.0052437945,0,0,1
+labor_market_position,2,3434,entrepreneurs,France,plusieurs entreprises,seen,seen,0.9958935,1,1,0
+labor_market_position,2,3443,employers,France,patronaux,seen,seen,0.9887632,1,0,1
+labor_market_position,2,3517,wage and salary earners,France,des effectifs salariés,partial,partial,0.9941566,1,1,1
+labor_market_position,2,3528,wage and salary earners,France,des candidates disponibles de qualité,no_overlap,no_overlap,0.015521192,0,0,0
+labor_market_position,2,3528,entrepreneurs,France,les prestataires de services,partial,partial,0.9954442,1,1,0
+labor_market_position,2,3536,entrepreneurs,France,les prestataires de services,partial,partial,0.0015360732,0,0,1
+labor_market_position,2,3587,wage and salary earners,France,la CGT,seen,seen,0.9929182,1,1,1
+labor_market_position,2,3639,wage and salary earners,France,des grévistes,seen,seen,0.0017910711,0,0,1
+labor_market_position,2,3658,entrepreneurs,France,les sociétés Internet,partial,partial,0.9923929,1,0,0
+labor_market_position,2,3684,entrepreneurs,France,la plupart des industriels,seen,seen,0.99584275,1,0,1
+labor_market_position,2,3694,wage and salary earners,France,la CGT,seen,seen,0.994111,1,1,1
+labor_market_position,2,3734,wage and salary earners,France,l'ensemble des employés,partial,partial,0.99321884,1,1,1
+labor_market_position,2,3828,wage and salary earners,France,du personnel,seen,seen,0.994214,1,1,1
+labor_market_position,2,3840,entrepreneurs,France,Les constructeurs français,partial,partial,0.9958753,1,1,1
+labor_market_position,2,3892,entrepreneurs,France,aux commerçants,seen,seen,0.995748,1,1,1
+labor_market_position,2,3972,entrepreneurs,France,Les compagnies,seen,seen,0.99577314,1,0,1
+labor_market_position,2,3982,entrepreneurs,France,des banques | des entreprises,seen | seen,seen,0.99583554,1,1,0
+labor_market_position,2,4032,entrepreneurs,France,les industriels de la pharmacie,partial,partial,0.99569404,1,0,1
+labor_market_position,2,4038,wage and salary earners,France,aux hôtesses qui le souhaitent,partial,partial,0.0007508883,0,0,0
+labor_market_position,2,4063,entrepreneurs,France,l'entreprise,seen,seen,0.0010502852,0,0,0
+labor_market_position,2,4064,wage and salary earners,France,au salarié,seen,seen,0.9923568,1,0,1
+labor_market_position,2,4099,entrepreneurs,France,aux entreprises européennes,partial,partial,0.9957355,1,1,1
+labor_market_position,2,4110,CEOs and corporate leaders,France,Les cadres de la compagnie,partial,partial,0.9114614,1,0,1
+labor_market_position,2,4146,wage and salary earners,France,du personnel | les postes à temps partiel,seen | partial,seen,0.98936355,1,0,1
+labor_market_position,2,4165,entrepreneurs,France,De plus en plus d'entreprises | des prestataires de services spécialisés,seen | partial,seen,0.9951196,1,1,0
+labor_market_position,2,4175,wage and salary earners,France,aux syndicats de Radio France,partial,partial,0.9942667,1,1,0
+labor_market_position,2,4179,entrepreneurs,France,Les concurrents,partial,partial,6.8821195e-05,0,0,0
+labor_market_position,2,4194,CEOs and corporate leaders,France,les dirigeants de Cofidis,partial,partial,0.9580489,1,1,1
+labor_market_position,2,4246,entrepreneurs,France,les équipementiers,partial,partial,0.9946812,1,0,1
+labor_market_position,2,4255,entrepreneurs,France,des assureurs | des assureurs,seen | seen,seen,0.0007012084,0,0,1
+labor_market_position,2,4317,wage and salary earners,France,le salarié,seen,seen,0.9919443,1,0,1
+labor_market_position,2,4317,entrepreneurs,France,les entreprises,seen,seen,0.9956542,1,1,0
+labor_market_position,2,4327,wage and salary earners,France,3 000 personnes | les 5 000 prévues initialement,no_content | no_overlap,no_overlap,0.98968655,1,0,1
+labor_market_position,2,4371,entrepreneurs,France,les entreprises de ce secteur | les entreprises de ce secteur,partial | partial,partial,0.99590576,1,1,1
+labor_market_position,2,4406,civil servants,France,aux fonctionnaires,seen,seen,0.9759,1,1,1
+labor_market_position,2,4406,entrepreneurs,France,les entreprises,seen,seen,0.9951113,1,1,0
+labor_market_position,2,4431,entrepreneurs,France,les prestataires de services,partial,partial,0.00031319517,0,0,1
+labor_market_position,2,4452,entrepreneurs,France,des grands constructeurs automobiles | des sponsors,partial | no_overlap,partial,0.995421,1,1,1
+labor_market_position,2,4461,wage and salary earners,France,les salariés des grandes entreprises,partial,partial,0.99345374,1,1,1
+labor_market_position,2,4461,entrepreneurs,France,des PME | PMI,seen | no_overlap,seen,0.99313486,1,1,0
+labor_market_position,2,4466,entrepreneurs,France,des banques nationales | les banques étrangères,partial | partial,partial,0.9937044,1,1,1
+labor_market_position,2,4486,entrepreneurs,France,certaines banques,seen,seen,0.9958538,1,1,1
+labor_market_position,2,4526,CEOs and corporate leaders,France,certains dirigeants,seen,seen,0.14093359,0,1,1
+labor_market_position,2,4577,entrepreneurs,France,"entreprises (hôtels, restaurants, Les Salins du Midi, Solvay, Saint-Gobain...)",partial,partial,0.9601155,1,1,1
+labor_market_position,2,4579,wage and salary earners,France,2 800 employés,seen,seen,0.99221545,1,1,1
+labor_market_position,2,4582,civil servants,France,les fonctionnaires,seen,seen,0.98881257,1,1,1
+labor_market_position,2,4583,CEOs and corporate leaders,France,Les chefs d'entreprise européens,partial,partial,0.9882731,1,0,0
+labor_market_position,2,4595,entrepreneurs,France,des entreprises fournissant les produits de base,partial,partial,0.9957814,1,1,0
+labor_market_position,2,4642,wage and salary earners,France,Force ouvrière | CGT,seen | seen,seen,0.99306256,1,1,1
+labor_market_position,2,4717,entrepreneurs,France,les réseaux bancaires,seen,seen,0.98866963,1,0,1
+labor_market_position,2,4746,CEOs and corporate leaders,France,Les dirigeants nocéens,partial,partial,0.9080857,1,1,1
+labor_market_position,2,4777,entrepreneurs,France,ses entreprises,seen,seen,0.99565107,1,1,0
+labor_market_position,2,4781,entrepreneurs,France,des entreprises,seen,seen,0.9955656,1,1,0
+labor_market_position,2,4799,entrepreneurs,France,80 % des hypermarchés,partial,partial,0.92478997,1,0,0
+labor_market_position,2,4932,wage and salary earners,France,le personnel de Ris-Orangis,partial,partial,0.1899143,0,0,0
+labor_market_position,2,4967,wage and salary earners,France,Les salariés,seen,seen,0.99370074,1,1,1
+labor_market_position,2,4979,civil servants,France,des serviteurs de l'Etat,partial,partial,0.000667352,0,0,1
+labor_market_position,2,5061,employers,France,les patrons,seen,seen,0.9922003,1,1,1
+labor_market_position,2,5061,entrepreneurs,France,des entreprises,seen,seen,0.994568,1,1,0
+labor_market_position,2,5080,CEOs and corporate leaders,France,les gérants,no_overlap,no_overlap,7.400507e-05,0,0,1
+labor_market_position,2,5190,employers,France,des anciens employeurs du présentateur,partial,partial,0.98624414,1,1,1
+labor_market_position,2,5210,entrepreneurs,France,des entreprises,seen,seen,0.9958806,1,1,1
+labor_market_position,2,5232,wage and salary earners,France,des anciens ouvriers de cette entreprise,partial,partial,0.993561,1,1,1
+labor_market_position,2,5262,entrepreneurs,France,les banques | les banques | les entités bancaires,seen | seen | partial,seen,0.9957709,1,1,1
+labor_market_position,2,5299,wage and salary earners,France,plus de trois actifs,seen,seen,0.9873396,1,0,1
+labor_market_position,2,5299,retirees,France,un pensionné,partial,partial,0.033322606,0,0,1
+labor_market_position,2,5321,entrepreneurs,France,Les entreprises chinoises,seen,seen,0.99571264,1,1,1
+labor_market_position,2,5389,wage and salary earners,France,de nombreux effectifs,no_overlap,no_overlap,0.00020497973,0,0,0
+labor_market_position,2,5450,entrepreneurs,France,les commerçants,seen,seen,0.9919418,1,1,1
+labor_market_position,2,5459,entrepreneurs,France,d'entreprises internationales,partial,partial,0.9959371,1,1,0
+labor_market_position,2,5461,wage and salary earners,France,travailleurs,seen,seen,0.0057225684,0,0,1
+labor_market_position,2,5482,wage and salary earners,France,les personnels,seen,seen,0.9925007,1,0,1
+labor_market_position,2,5489,entrepreneurs,France,700 entreprises | d'autres établissements bancaires | d'autres établissements bancaires,seen | partial | partial,seen,0.99577975,1,1,1
+labor_market_position,2,5527,entrepreneurs,France,les commerçants,seen,seen,0.99535805,1,1,0
+labor_market_position,2,5540,entrepreneurs,France,les sociétés,seen,seen,0.9959032,1,0,0
+labor_market_position,2,5701,entrepreneurs,Germany,die Wohnungswirtschaft,partial,partial,0.9940532,1,0,1
+labor_market_position,2,5737,employers,Germany,die Arbeitgeber,seen,seen,0.9904903,1,1,1
+labor_market_position,2,5770,entrepreneurs,Germany,Beratungsfirmen | Pharmakonzernen,partial | partial,partial,0.99588287,1,0,0
+labor_market_position,2,5803,wage and salary earners,Germany,keine Mitarbeiter vor Ort,partial,partial,0.9927965,1,1,1
+labor_market_position,2,5900,retirees,Germany,"Unternehmen, die ihre neuen Assistenzsysteme für Senioren aus ethischer Sicht evaluieren wollen",partial,partial,0.9703574,1,0,0
+labor_market_position,2,5930,self-employed and freelancers,Germany,Freelancer,seen,seen,0.13720042,0,0,1
+labor_market_position,2,5936,entrepreneurs,Germany,ihren Energieversorgern,partial,partial,0.991491,1,0,0
+labor_market_position,2,5953,entrepreneurs,Germany,Unternehmen,seen,seen,0.99569196,1,1,0
+labor_market_position,2,5955,entrepreneurs,Germany,der Gesundheitswirtschaft,seen,seen,0.9948331,1,0,0
+labor_market_position,2,6001,entrepreneurs,Germany,die Hersteller,seen,seen,0.9955239,1,0,1
+labor_market_position,2,6016,entrepreneurs,Germany,Großhändler,partial,partial,0.99562174,1,0,1
+labor_market_position,2,6190,entrepreneurs,Germany,einzelnen Unternehmen,partial,partial,0.99200714,1,1,0
+labor_market_position,2,6236,entrepreneurs,Germany,wichtige Unternehmen,partial,partial,0.99583,1,1,1
+labor_market_position,2,6249,wage and salary earners,Germany,der Gewerkschaft IG BCE,partial,partial,0.99388427,1,1,1
+labor_market_position,2,6279,wage and salary earners,Germany,"Leuten, die tagsüber an der Kasse des »Tropical Islands« sitzen oder im Park von Pankow mit dem Laubbläser unterwegs sind",partial,partial,0.00020031215,0,0,0
+labor_market_position,2,6302,civil servants,Germany,Karriereorientierte Ministerialbeamte,partial,partial,0.5726874,1,0,1
+labor_market_position,2,6340,entrepreneurs,Germany,die Banke | die Banke,seen | seen,seen,0.9958171,1,1,1
+labor_market_position,2,6383,entrepreneurs,Germany,Einige der Mitglieder,no_overlap,no_overlap,0.995427,1,0,0
+labor_market_position,2,6483,civil servants,Germany,seiner Beamten,seen,seen,0.95596486,1,0,1
+labor_market_position,2,6513,retirees,Germany,mehr als 500 Pensionisten,no_overlap,no_overlap,0.329489,0,0,1
+labor_market_position,2,6515,entrepreneurs,Germany,der Banker | der Banker | der Banker,seen | seen | seen,seen,0.9949812,1,0,0
+labor_market_position,2,6521,entrepreneurs,Germany,ins­gesamt 22 Firmen aus sieben Ländern,partial,partial,0.99524826,1,1,0
+labor_market_position,2,6556,entrepreneurs,Germany,der BJU,seen,seen,8.1621925e-05,0,0,0
+labor_market_position,2,6596,self-employed and freelancers,Germany,ein freischaffendes Ehepaar,partial,partial,0.0062953825,0,0,1
+labor_market_position,2,6600,wage and salary earners,Germany,Personal,seen,seen,0.9912915,1,0,0
+labor_market_position,2,6621,wage and salary earners,Germany,wer pro Woche mindestens eine Stunde arbeitet,partial,partial,0.99066085,1,0,0
+labor_market_position,2,6621,unemployed,Germany,der Arbeitslosen,seen,seen,0.97566015,1,0,1
+labor_market_position,2,6630,unemployed,Germany,die auf dem ersten Arbeitsmarkt keine Stelle finden,partial,partial,0.018131612,0,0,1
+labor_market_position,2,6652,wage and salary earners,Germany,die deutschen Beschäftigten,partial,partial,0.99382496,1,1,1
+labor_market_position,2,6652,CEOs and corporate leaders,Germany,Der Vorstand,partial,partial,0.4669756,0,0,1
+labor_market_position,2,6660,entrepreneurs,Germany,der Chemiebranche,partial,partial,0.9957296,1,0,1
+labor_market_position,2,6683,wage and salary earners,Germany,die Nokia-Mitarbeiter,partial,partial,0.993238,1,1,1
+labor_market_position,2,6805,CEOs and corporate leaders,Germany,Russen-Oligarchen,no_overlap,no_overlap,7.6183875e-05,0,0,0
+labor_market_position,2,6883,entrepreneurs,Germany,der Auto- | Wasserstoff- | Solarindustrie,partial | no_overlap | partial,partial,0.995815,1,0,1
+labor_market_position,2,6933,wage and salary earners,Germany,Betriebsrats,no_overlap,no_overlap,0.005735242,0,0,0
+labor_market_position,2,6946,entrepreneurs,Germany,Unternehmen mit einer ohnehin starken Position | kleinere Konkurrenten oder Start-ups,partial | partial,partial,0.9957879,1,1,1
+labor_market_position,2,6951,entrepreneurs,Germany,den Energiemärkten,partial,partial,0.11840731,0,0,0
+labor_market_position,2,6973,wage and salary earners,Germany,etwa 5000 Mitarbeiter,seen,seen,0.99278355,1,1,1
+labor_market_position,2,6994,entrepreneurs,Germany,die Branche,seen,seen,0.99333584,1,0,1
+labor_market_position,2,7003,entrepreneurs,Germany,Die mehr als 3000 staatlichen Unternehmen des  Landes,partial,partial,0.99581426,1,1,1
+labor_market_position,2,7016,entrepreneurs,Germany,Großunternehmer,partial,partial,0.00911123,0,0,0
+labor_market_position,2,7039,wage and salary earners,Germany,den 89 Mitarbeitern in der Berliner Zentrale,partial,partial,0.99306655,1,1,1
+labor_market_position,2,7095,wage and salary earners,Germany,der Daimler-Belegschaft,partial,partial,0.22339322,0,0,1
+labor_market_position,2,7095,entrepreneurs,Germany,die GmBHs,no_overlap,no_overlap,0.034581162,0,1,0
+labor_market_position,2,7231,wage and salary earners,Germany,die Hafenmitarbeiter,partial,partial,0.03899719,0,0,0
+labor_market_position,2,7301,wage and salary earners,Germany,den Arbeitnehmern,seen,seen,0.99367636,1,0,1
+labor_market_position,2,7305,wage and salary earners,Germany,Personal,seen,seen,0.08281343,0,0,0
+labor_market_position,2,7311,entrepreneurs,Germany,deutschen Instituten,partial,partial,0.036349278,0,0,0
+labor_market_position,2,7404,wage and salary earners,Germany,"Tausende teure, aber unproduktive Mitarbeiter",partial,partial,0.9933862,1,1,1
+labor_market_position,2,7480,entrepreneurs,Germany,der Industrie,seen,seen,0.993694,1,1,0
+labor_market_position,2,7502,entrepreneurs,Germany,externe Kooperationspartner aus der Fintech-Branche,partial,partial,0.9956542,1,0,1
+labor_market_position,2,7511,entrepreneurs,Germany,Unternehmen,seen,seen,0.9948885,1,0,0
+labor_market_position,2,7549,entrepreneurs,Germany,energieintensive kleine und mittelständische Unternehmen | energieintensive kleine und mittelständische Unternehmen.,partial | partial,partial,0.9957045,1,1,1
+labor_market_position,2,7576,wage and salary earners,Germany,viel weniger Beschäftigten,seen,seen,0.9928752,1,1,1
+labor_market_position,2,7639,wage and salary earners,Germany,die Gewerkschaft,seen,seen,0.99418074,1,1,1
+labor_market_position,2,7659,wage and salary earners,Germany,Arbeitersproß,partial,partial,0.97281015,1,0,0
+labor_market_position,2,7673,entrepreneurs,Germany,die Banken | die Banken,seen | seen,seen,0.99311936,1,1,1
+labor_market_position,2,7755,entrepreneurs,Germany,der Solarindustrie | Chinas gepamperte Sonnenkonzerne | der Elektromobilität | Batteriehersteller,partial | partial | no_overlap | partial,partial,0.99558556,1,1,1
+labor_market_position,2,7828,wage and salary earners,Germany,der Weltarbeitnehmervertretung bei Daimler,partial,partial,0.9931157,1,1,1
+labor_market_position,2,7895,wage and salary earners,Germany,den Arbeitnehmern,seen,seen,0.9931235,1,0,1
+labor_market_position,2,7895,employers,Germany,Arbeitgeber,seen,seen,0.0535682,0,0,1
+labor_market_position,2,7906,entrepreneurs,Germany,der Bank | der Bank,seen | seen,seen,0.13770479,0,0,0
+labor_market_position,2,7917,wage and salary earners,Germany,"eine Nachwuchskraft | einen sucht, der für den Job brennt",partial | no_overlap,partial,0.040849134,0,0,0
+labor_market_position,2,7980,unemployed,Germany,Jugendarbeitslosigkeit,partial,partial,0.30629766,0,0,1
+labor_market_position,2,7985,entrepreneurs,Germany,Bank | Bank,seen | seen,seen,0.040060185,0,0,0
+labor_market_position,2,8104,CEOs and corporate leaders,Germany,die Führungskräfte,seen,seen,0.9878484,1,0,1
+labor_market_position,2,8129,wage and salary earners,Germany,Arbeitnehmer,seen,seen,0.9936801,1,0,1
+labor_market_position,2,8149,civil servants,France,les fonctionnaires,seen,seen,0.98898053,1,1,1
+labor_market_position,2,8154,entrepreneurs,France,aux entreprises,seen,seen,0.9958352,1,1,1
+labor_market_position,2,8178,wage and salary earners,France,au moins 400 salariés de l’équipementier télécom,partial,partial,0.9942873,1,1,1
+labor_market_position,2,8184,entrepreneurs,France,les entreprises,seen,seen,0.99584085,1,1,1
+labor_market_position,2,8188,wage and salary earners,France,la majorité des employés,partial,partial,0.99306726,1,1,1
+labor_market_position,2,8213,wage and salary earners,France,aux 18 000 salariés du groupe,partial,partial,0.99396646,1,1,1
+labor_market_position,2,8223,wage and salary earners,France,des membres de la CNT anarchiste,partial,partial,0.99265987,1,0,0
+labor_market_position,2,8234,entrepreneurs,France,aux industriels,seen,seen,0.99180764,1,0,1
+labor_market_position,2,8265,unemployed,France,les chômeurs,seen,seen,0.9899541,1,1,1
+labor_market_position,2,8283,wage and salary earners,France,les salariés,seen,seen,0.99397075,1,1,1
+labor_market_position,2,8285,wage and salary earners,France,d’autres organisations syndicales,seen,seen,0.9936185,1,1,1
+labor_market_position,2,8300,wage and salary earners,France,de nombreux adhérents de la CGT,partial,partial,0.9935154,1,1,1
+labor_market_position,2,8420,entrepreneurs,France,les Gafam,no_overlap,no_overlap,0.0008477111,0,0,0
+labor_market_position,2,8507,wage and salary earners,France,l’Union syndicale des travailleurs kanaks et exploités (l’USTKE),partial,partial,0.9931599,1,1,1
+labor_market_position,2,8507,employers,France,au patronat,seen,seen,0.9665943,1,1,1
+labor_market_position,2,8537,employers,France,les employeurs,seen,seen,0.9904283,1,1,1
+labor_market_position,2,8562,wage and salary earners,France,ces travailleurs,seen,seen,0.99407876,1,0,1
+labor_market_position,2,8575,entrepreneurs,France,"toutes les entreprises de réseau, en particulier les vendeurs de flux et possesseurs d’un maillage communicationnel (électricité, téléphonie, eau, gaz, chemins de fer, sociétés d’autoroutes, etc.)",partial,partial,0.9958456,1,1,1
+labor_market_position,2,8576,wage and salary earners,France,la population active aux Pays-Bas,partial,partial,0.9903487,1,0,0
+labor_market_position,2,8583,wage and salary earners,France,de puissants syndicats corporatistes,partial,partial,0.99095505,1,1,0
+labor_market_position,2,8617,wage and salary earners,France,des travailleurs actifs,partial,partial,0.99219245,1,0,1
+labor_market_position,2,8622,wage and salary earners,France,les syndicats,seen,seen,0.9938334,1,1,0
+labor_market_position,2,8647,entrepreneurs,France,des banques jugées « trop grosses pour faire faillite »,partial,partial,0.9959169,1,1,1
+labor_market_position,2,8702,employers,France,le patronat américain,partial,partial,0.31462967,0,1,1
+labor_market_position,2,8702,unemployed,France,des sans-emploi,partial,partial,0.81334865,1,0,1
+labor_market_position,2,8915,wage and salary earners,France,11 millions de salariés,partial,partial,0.99424547,1,1,1
+labor_market_position,2,8916,entrepreneurs,France,de distributeurs,seen,seen,0.9958255,1,1,1
+labor_market_position,2,8935,CEOs and corporate leaders,France,la majorité des directeurs,partial,partial,0.98658633,1,0,1
+labor_market_position,2,8959,entrepreneurs,France,des industries de défense,partial,partial,0.9922391,1,0,1
+labor_market_position,2,8978,wage and salary earners,France,", les syndica",seen,seen,0.99402386,1,1,1
+labor_market_position,2,8979,wage and salary earners,France,des personnels,seen,seen,0.9934509,1,0,1
+labor_market_position,2,9009,civil servants,France,des ministres,partial,partial,0.9863434,1,1,1
+labor_market_position,2,9106,wage and salary earners,France,les 3 800 salariés qu'il emploie dans cette activité,partial,partial,0.9934001,1,1,1
+labor_market_position,2,9154,wage and salary earners,France,les syndicats,seen,seen,0.9931058,1,1,0
+labor_market_position,2,9157,wage and salary earners,France,Les permanents,no_overlap,no_overlap,0.0067314385,0,0,0
+labor_market_position,2,9163,wage and salary earners,France,528 salariés âgés de 18 à 65 ans,partial,partial,0.99398476,1,1,1
+labor_market_position,2,9164,wage and salary earners,France,des employés,seen,seen,0.99321425,1,1,1
+labor_market_position,2,9247,retirees,France,de retraités,seen,seen,0.99071723,1,1,1
+labor_market_position,2,9414,entrepreneurs,France,Le business,no_overlap,no_overlap,0.98810905,1,0,0
+labor_market_position,2,9422,entrepreneurs,France,aux entrepreneurs français qui feraient l’objet d’offres hostiles,partial,partial,0.009092029,0,0,1
+labor_market_position,2,9437,housewives and househusbands,France,les « femmes au foyer »,seen,seen,0.99265504,1,1,1
+labor_market_position,2,9465,wage and salary earners,France,une abondante main-d’œuvre non qualifiée | des techniciens et cadres hautement qualifiés,partial | partial,partial,0.99116653,1,0,0
+labor_market_position,2,9465,entrepreneurs,France,aux sociétés multinationales | aux sociétés multinationales,partial | partial,partial,0.9958644,1,0,0
+labor_market_position,2,9506,self-employed and freelancers,Germany,Soloselbstständigen | Freelancer,partial | seen,seen,0.9765999,1,0,1
+labor_market_position,2,9507,self-employed and freelancers,Germany,selbständige Akademiker,partial,partial,0.0021160215,0,0,1
+labor_market_position,2,9564,entrepreneurs,Germany,Makler,seen,seen,6.038028e-05,0,0,0
+labor_market_position,2,9604,housewives and househusbands,Germany,echter Hausmann,partial,partial,0.9863495,1,0,1
+labor_market_position,2,9606,housewives and househusbands,Germany,der Hausfrauen und Hausmänner,seen,seen,0.99237216,1,0,1
+labor_market_position,2,9609,wage and salary earners,Germany,Personal,seen,seen,0.11470202,0,0,0
+labor_market_position,2,9609,housewives and househusbands,Germany,der schwäbischen Hausfrau,partial,partial,0.9917191,1,1,1
+labor_market_position,2,9615,unemployed,Germany,ältere Arbeitslose,seen,seen,0.98924774,1,0,1
+labor_market_position,2,9636,wage and salary earners,France,des cadres | les ouvriers,seen | seen,seen,0.99046046,1,1,0
+profession,3,19,politicians and high-ranking officials,Germany,CDU | die Opposition,seen | seen,seen,0.99724495,1,1,1
+profession,3,34,politicians and high-ranking officials,Germany,Linke,seen,seen,0.99749374,1,0,1
+profession,3,44,other professions,Germany,die Feuerwehrleute,seen,seen,0.9580806,1,0,1
+profession,3,51,doctors,Germany,Ärzten,seen,seen,0.9968984,1,1,1
+profession,3,55,politicians and high-ranking officials,Germany,Partei | Partei,seen | seen,seen,0.99761105,1,1,0
+profession,3,57,politicians and high-ranking officials,Germany,CSU,seen,seen,0.99740344,1,1,1
+profession,3,58,politicians and high-ranking officials,Germany,der SED,no_overlap,no_overlap,0.99765056,1,0,0
+profession,3,61,athletes,Germany,die Schalker,seen,seen,0.9960064,1,0,1
+profession,3,94,other professions,Germany,viele Analysten,seen,seen,0.98597497,1,0,1
+profession,3,117,other professions,Germany,Designer,no_overlap,no_overlap,0.038522836,0,0,0
+profession,3,122,authors and artists,Germany,die Künstler,seen,seen,0.98743886,1,1,1
+profession,3,130,soldiers,Germany,Es waren zweisprachige Verbindungsoffiziere,partial,partial,0.84256285,1,0,1
+profession,3,133,other professions,Germany,Datenschützer | Sammler,no_overlap | seen,seen,0.076429695,0,0,1
+profession,3,143,politicians and high-ranking officials,Germany,den Grünen,seen,seen,0.9975375,1,1,1
+profession,3,164,authors and artists,Germany,der Autoren,seen,seen,0.99444026,1,1,1
+profession,3,175,athletes,Germany,vieler Sportler aus der  ehemaligen DDR,partial,partial,0.9944108,1,1,1
+profession,3,180,athletes,Germany,Athleten,seen,seen,0.99546534,1,1,1
+profession,3,224,security forces,Germany,alle verfügbaren Kräfte und Schiffe der Bundespolizei,partial,partial,0.98487073,1,1,1
+profession,3,278,other professions,Germany,Skipper,no_overlap,no_overlap,0.028578278,0,0,1
+profession,3,307,other professions,Germany,"Fahrer, wie in München und Frankfurt",partial,partial,0.87120026,1,0,1
+profession,3,350,politicians and high-ranking officials,Germany,die Partei,seen,seen,0.99769443,1,1,0
+profession,3,362,athletes,Germany,Deutsche | Amerikaner,seen | no_overlap,seen,0.07937565,0,0,1
+profession,3,363,politicians and high-ranking officials,Germany,Die CDU,seen,seen,0.9971938,1,1,1
+profession,3,384,authors and artists,Germany,die Künstler,seen,seen,0.9832478,1,1,1
+profession,3,389,journalists,Germany,missliebige Journalisten,partial,partial,0.9969914,1,1,1
+profession,3,405,politicians and high-ranking officials,Germany,SPD,seen,seen,0.9976616,1,1,0
+profession,3,429,security forces,Germany,Die Ermittler,seen,seen,0.9967205,1,1,1
+profession,3,437,politicians and high-ranking officials,Germany,CSU,seen,seen,0.9973864,1,1,1
+profession,3,450,security forces,Germany,Die deutschen Kriminalbeamtinnen und -beamten,partial,partial,0.9929778,1,1,1
+profession,3,455,politicians and high-ranking officials,Germany,ein gutes Drittel seiner Fraktion,partial,partial,0.98098123,1,0,1
+profession,3,463,other professions,Germany,Kritik,seen,seen,0.000610861,0,0,0
+profession,3,475,politicians and high-ranking officials,Germany,der FW | die Partei,no_overlap | seen,seen,0.9974101,1,1,1
+profession,3,478,politicians and high-ranking officials,Germany,die Parteien,seen,seen,0.9973435,1,0,1
+profession,3,479,authors and artists,Germany,Die Schriftsteller,seen,seen,0.99628556,1,1,1
+profession,3,487,politicians and high-ranking officials,Germany,CDU,seen,seen,0.9975501,1,1,1
+profession,3,495,athletes,Germany,Die Münchner,seen,seen,0.995327,1,0,1
+profession,3,543,politicians and high-ranking officials,Germany,der AfD,seen,seen,0.99715936,1,1,1
+profession,3,546,politicians and high-ranking officials,Germany,Partei | dem Ortsverband,seen | no_overlap,seen,0.99707794,1,0,1
+profession,3,568,politicians and high-ranking officials,Germany,SPD,seen,seen,0.99764997,1,1,1
+profession,3,589,politicians and high-ranking officials,Germany,der PDS | der CSU,seen | seen,seen,0.9975604,1,1,1
+profession,3,607,health and care professionals,Germany,Pflegeberufen,partial,partial,0.01891502,0,0,1
+profession,3,616,politicians and high-ranking officials,Germany,Grünen,seen,seen,0.99739444,1,1,1
+profession,3,620,athletes,Germany,Spieler | keinen Trainer,seen | seen,seen,0.994231,1,1,1
+profession,3,633,politicians and high-ranking officials,Germany,die Dachauer Kommunalpolitiker | SPD,partial | seen,seen,0.9976311,1,1,1
+profession,3,660,security forces,Germany,Polizisten,seen,seen,0.99468344,1,1,1
+profession,3,678,politicians and high-ranking officials,Germany,AfD,seen,seen,0.980695,1,1,0
+profession,3,679,teachers and educators,Germany,Lehrer | Kindergärtnerinnen,seen | partial,seen,0.9958616,1,1,1
+profession,3,681,politicians and high-ranking officials,Germany,den Fraktionen,seen,seen,0.9975853,1,0,1
+profession,3,682,teachers and educators,Germany,die Lehrer,seen,seen,0.98116976,1,1,1
+profession,3,704,athletes,Germany,Sportverbände | den vielbeschworenen sauberen Athleten,no_overlap | partial,partial,0.98769546,1,1,1
+profession,3,730,politicians and high-ranking officials,Germany,CSU,seen,seen,0.99729234,1,1,1
+profession,3,744,security forces,Germany,den Kriminaltechnikern,no_overlap,no_overlap,0.9600322,1,1,1
+profession,3,751,politicians and high-ranking officials,Germany,CDU,seen,seen,0.99720484,1,1,1
+profession,3,766,politicians and high-ranking officials,Germany,die Union | Die CDU | keine in Hamburg verankerte Partei,seen | seen | partial,seen,0.9975325,1,1,1
+profession,3,768,health and care professionals,Germany,therapeutischen Begleiter,no_overlap,no_overlap,0.2007696,0,0,0
+profession,3,811,politicians and high-ranking officials,Germany,der SPD,seen,seen,0.99701834,1,1,1
+profession,3,823,scientists and professors,Germany,Pioniere und Forsche,partial,partial,0.98901856,1,1,1
+profession,3,827,farmers and fishermen,Germany,die Bauern,seen,seen,0.99744487,1,1,1
+profession,3,870,politicians and high-ranking officials,Germany,mancher Politiker,seen,seen,0.99596834,1,1,1
+profession,3,898,teachers and educators,Germany,Lehrer,seen,seen,0.9966029,1,0,1
+profession,3,915,politicians and high-ranking officials,Germany,SPD,seen,seen,0.99762255,1,1,1
+profession,3,938,politicians and high-ranking officials,Germany,ein paar Wahlkämpfer,partial,partial,0.6874112,1,0,1
+profession,3,968,politicians and high-ranking officials,Germany,SPD,seen,seen,0.9975297,1,1,1
+profession,3,990,security forces,Germany,nordrhein-westfälische Steuerfahnder,partial,partial,0.9320604,1,0,0
+profession,3,1023,politicians and high-ranking officials,Germany,"die wichtigen, kompetenten und beliebten Politiker",partial,partial,0.9353283,1,1,1
+profession,3,1023,other professions,Germany,der Demoskopen,no_overlap,no_overlap,0.000247514,0,0,0
+profession,3,1039,doctors,Germany,der Zahnärzte | die Kassenzahnärztliche Vereinigung Niedersachsen (KZVN),seen | partial,seen,0.9967332,1,1,1
+profession,3,1039,politicians and high-ranking officials,Germany,SPD,seen,seen,0.99757785,1,1,1
+profession,3,1043,politicians and high-ranking officials,Germany,Politiker,seen,seen,0.9968809,1,1,1
+profession,3,1051,authors and artists,Germany,namhaften Künstlern,partial,partial,0.9929773,1,1,1
+profession,3,1056,politicians and high-ranking officials,Germany,Grüne,seen,seen,0.9692852,1,1,1
+profession,3,1068,athletes,Germany,alle Teilnehmer,partial,partial,0.2267428,0,0,1
+profession,3,1136,scientists and professors,Germany,Manche Wissenschaftler,seen,seen,0.99372673,1,1,1
+profession,3,1141,doctors,Germany,der Arbeitsgemeinschaft Niedersächsischer Zahnärzte | Ärzte,partial | seen,seen,0.9958347,1,1,1
+profession,3,1147,politicians and high-ranking officials,Germany,die Düsseldorfer Grünen,partial,partial,0.99743026,1,1,1
+profession,3,1157,politicians and high-ranking officials,Germany,CSU,seen,seen,0.99731797,1,1,1
+profession,3,1188,athletes,Germany,der Fraktionen,no_overlap,no_overlap,0.0021256285,0,0,0
+profession,3,1202,politicians and high-ranking officials,Germany,Sicherheitspolitiker,seen,seen,0.9816141,1,0,1
+profession,3,1202,security forces,Germany,Nachrichtendienstler,partial,partial,0.9768131,1,0,0
+profession,3,1252,authors and artists,Germany,"Sänger, die heute auf  dem Höhepunkt ihrer Karriere stehen und auch im medialen Sinne paradigmatisch sind",partial,partial,0.9916943,1,1,1
+profession,3,1260,other professions,Germany,die Makler,seen,seen,0.0006083066,0,0,1
+profession,3,1276,security forces,Germany,deutsche Ermittler | Spezialisten der maritimen Einheit der GSG 9,seen | partial,seen,0.94791734,1,1,1
+profession,3,1277,politicians and high-ranking officials,Germany,Liberalen | Konservativen,seen | seen,seen,0.99765587,1,0,1
+profession,3,1294,politicians and high-ranking officials,Germany,einer geringen Anzahl von Bundestagsabgeordneten,partial,partial,0.9964928,1,0,1
+profession,3,1314,politicians and high-ranking officials,Germany,die Politiker,seen,seen,0.9975884,1,1,1
+profession,3,1316,politicians and high-ranking officials,Germany,der Partei,seen,seen,0.99320424,1,1,1
+profession,3,1342,athletes,Germany,Die Deutschen | sehr starke Torhüter,seen | partial,seen,0.9963568,1,0,1
+profession,3,1358,security forces,Germany,die Ermittler,seen,seen,0.99665123,1,1,1
+profession,3,1376,athletes,Germany,ballspielender Staatsrepräsentanten,partial,partial,0.016979571,0,0,0
+profession,3,1377,other professions,Germany,die Berater,seen,seen,0.93356407,1,0,1
+profession,3,1421,athletes,Germany,Profis,seen,seen,0.99663806,1,1,1
+profession,3,1464,politicians and high-ranking officials,Germany,den Eliten,seen,seen,0.91043997,1,0,0
+profession,3,1466,authors and artists,Germany,die Musiker,seen,seen,0.9966233,1,0,1
+profession,3,1477,politicians and high-ranking officials,Germany,keinem Direktkandidaten der Volksparteien,partial,partial,0.9976203,1,0,1
+profession,3,1488,politicians and high-ranking officials,Germany,der Grünen,seen,seen,0.9974546,1,1,1
+profession,3,1508,athletes,Germany,des Teams,seen,seen,0.9961314,1,1,0
+profession,3,1527,farmers and fishermen,Germany,Landwirten,seen,seen,0.99638957,1,1,1
+profession,3,1569,politicians and high-ranking officials,Germany,die Politiker,seen,seen,0.99767584,1,1,1
+profession,3,1591,politicians and high-ranking officials,Germany,Linke Parteien,partial,partial,0.99749595,1,0,1
+profession,3,1598,authors and artists,Germany,die Künstler,seen,seen,0.9905282,1,1,1
+profession,3,1606,politicians and high-ranking officials,Germany,der grünen Ministerinnen und Minister,partial,partial,0.99766374,1,1,1
+profession,3,1637,other professions,Germany,die amnesty-Ermittler,no_overlap,no_overlap,0.0002434909,0,0,0
+profession,3,1656,politicians and high-ranking officials,Germany,SPD,seen,seen,0.9975472,1,1,1
+profession,3,1663,athletes,Germany,die Frankfurter | der Berliner,no_overlap | seen,seen,0.97789294,1,0,1
+profession,3,1681,politicians and high-ranking officials,Germany,konservative Politiker wie Berlins Innensenator Heckelmann,partial,partial,0.99766695,1,1,1
+profession,3,1683,politicians and high-ranking officials,Germany,SPD,seen,seen,0.99766064,1,1,1
+profession,3,1705,scientists and professors,Germany,die Wissenschaftler,seen,seen,0.99565506,1,1,1
+profession,3,1707,athletes,Germany,die Spieler,seen,seen,0.9790107,1,1,1
+profession,3,1719,politicians and high-ranking officials,Germany,Der CSU-Ortsverband | CSU,partial | seen,seen,0.99727064,1,1,1
+profession,3,1749,politicians and high-ranking officials,Germany,die AfD,seen,seen,0.9973678,1,1,1
+profession,3,1753,athletes,Germany,Viele Fußballer mit multinationalen Wurzeln,partial,partial,0.9961875,1,0,1
+profession,3,1767,politicians and high-ranking officials,Germany,der CDU,seen,seen,0.997633,1,1,1
+profession,3,1775,athletes,Germany,die Bayern,seen,seen,0.052772325,0,1,1
+profession,3,1792,politicians and high-ranking officials,Germany,einer kraftlosen Opposition,partial,partial,0.9968881,1,1,1
+profession,3,1800,security forces,Germany,die Einsatzkräfte,seen,seen,0.0043218904,0,0,0
+profession,3,1813,security forces,Germany,die Beamten,seen,seen,0.9936069,1,1,1
+profession,3,1819,other professions,Germany,Versicherungsvertretern,partial,partial,0.9247116,1,0,1
+profession,3,1845,other professions,Germany,gierige GEMA-Geldeintreiber,no_overlap,no_overlap,0.0004412731,0,0,1
+profession,3,1852,athletes,Germany,die israelische Mannschaft,partial,partial,0.9843507,1,1,1
+profession,3,1863,politicians and high-ranking officials,Germany,die Opposition,seen,seen,0.9975683,1,1,1
+profession,3,1871,other professions,Germany,viele Designer,no_overlap,no_overlap,0.05847264,0,0,1
+profession,3,1883,doctors,Germany,Die KZVN | der Zahnärzte,seen | seen,seen,0.99618596,1,1,1
+profession,3,1896,security forces,Germany,die Ermittler,seen,seen,0.9742633,1,1,0
+profession,3,1913,soldiers,Germany,der Streitkräfte,no_overlap,no_overlap,0.13104129,0,0,1
+profession,3,1967,doctors,Germany,Diabetes-Ärzte | Diabetologen,partial | partial,partial,0.9925954,1,1,1
+profession,3,1982,other professions,Germany,einen Dozenten,seen,seen,4.6024972e-05,0,0,0
+profession,3,1997,farmers and fishermen,Germany,die Obstbauern,seen,seen,0.99640477,1,0,1
+profession,3,2003,scientists and professors,Germany,Altertumswissenschaftler,partial,partial,0.9469818,1,0,1
+profession,3,2050,politicians and high-ranking officials,Germany,SPD | Grüne,seen | seen,seen,0.9969138,1,1,1
+profession,3,2087,athletes,Germany,zahlreiche Bergsteiger,no_overlap,no_overlap,0.026529057,0,0,1
+profession,3,2094,soldiers,Germany,deutsche und sowjetische Soldaten | die deutschen Soldaten,partial | seen,seen,0.98845345,1,1,1
+profession,3,2105,athletes,Germany,Spieler,seen,seen,0.00038482918,0,0,0
+profession,3,2112,politicians and high-ranking officials,Germany,SPD,seen,seen,0.99736387,1,1,1
+profession,3,2124,politicians and high-ranking officials,Germany,den Grünen | der SPD | der FDP,seen | seen | seen,seen,0.9973623,1,1,1
+profession,3,2141,politicians and high-ranking officials,Germany,Amtsträgern,no_overlap,no_overlap,0.003950704,0,0,0
+profession,3,2155,politicians and high-ranking officials,Germany,CDU | CSU,seen | seen,seen,0.99750876,1,1,1
+profession,3,2159,politicians and high-ranking officials,Germany,SPD,seen,seen,0.99753606,1,1,1
+profession,3,2167,scientists and professors,Germany,Hochschulrektoren,no_overlap,no_overlap,0.06432221,0,0,0
+profession,3,2176,athletes,Germany,Die Stars der EM,partial,partial,0.5617597,1,0,1
+profession,3,2202,journalists,Germany,deutsche Journalisten,partial,partial,0.99716395,1,1,1
+profession,3,2211,athletes,Germany,Homosexuelle,no_overlap,no_overlap,8.9342175e-05,0,0,0
+profession,3,2213,politicians and high-ranking officials,Germany,der SPD,seen,seen,0.9976634,1,1,1
+profession,3,2213,scientists and professors,Germany,der Rat,no_overlap,no_overlap,3.204076e-05,0,0,0
+profession,3,2251,politicians and high-ranking officials,Germany,Der AfD-Bezirksverband | AfD | AfD | zum rechten Flügel der Partei | die AfD,partial | seen | seen | partial | seen,seen,0.99751556,1,1,1
+profession,3,2272,authors and artists,Germany,gute Schauspieler,seen,seen,0.99033946,1,1,1
+profession,3,2283,politicians and high-ranking officials,Germany,die SPD,seen,seen,0.9974548,1,1,1
+profession,3,2344,politicians and high-ranking officials,Germany,Grüne,seen,seen,0.99742955,1,1,1
+profession,3,2362,other professions,Germany,Experten,seen,seen,0.95478624,1,1,0
+profession,3,2434,scientists and professors,Germany,ein Fachhochschul-Dozent | sein Kollege an der Universität,partial | partial,partial,3.5145105e-05,0,0,0
+profession,3,2455,politicians and high-ranking officials,Germany,die Grünen,seen,seen,0.997693,1,1,1
+profession,3,2462,soldiers,Germany,knapp 600 Soldaten aus europäischen Ländern | jene militärischen Kräfte,partial | partial,partial,0.99443275,1,1,1
+profession,3,2465,politicians and high-ranking officials,Germany,der SPD,seen,seen,0.9973441,1,1,1
+profession,3,2488,other professions,Germany,hundert Fachleuten und Machern,partial,partial,0.9683348,1,0,0
+profession,3,2493,politicians and high-ranking officials,Germany,SPD | CDU,seen | seen,seen,0.99737644,1,1,1
+profession,3,2539,politicians and high-ranking officials,Germany,der Union,seen,seen,0.9974921,1,0,1
+profession,3,2540,politicians and high-ranking officials,Germany,die Minister,seen,seen,0.989641,1,0,1
+profession,3,2566,politicians and high-ranking officials,Germany,SPD,seen,seen,0.99752885,1,1,1
+profession,3,2592,politicians and high-ranking officials,Germany,CDU | Grüne,seen | seen,seen,0.99754757,1,1,1
+profession,3,2691,politicians and high-ranking officials,Germany,der Mächtigen,partial,partial,0.8806149,1,0,0
+profession,3,2713,journalists,Germany,Journalisten,seen,seen,0.9962748,1,1,1
+profession,3,2763,athletes,Germany,Alle Mannschaften,seen,seen,0.9972703,1,0,1
+profession,3,2766,other professions,Germany,Experten,seen,seen,0.94589984,1,0,0
+profession,3,2789,politicians and high-ranking officials,Germany,die Top-Politiker,partial,partial,0.9538318,1,1,1
+profession,3,2789,soldiers,Germany,seine Soldatinnen und Soldaten,partial,partial,0.9850952,1,1,1
+profession,3,2844,other professions,Germany,die westdeutschen Architekten,partial,partial,0.9650985,1,0,1
+profession,3,2854,politicians and high-ranking officials,Germany,CDU,seen,seen,0.9973091,1,1,1
+profession,3,2861,other professions,Germany,die Wachleute,no_overlap,no_overlap,0.93875074,1,0,1
+profession,3,2881,other professions,Germany,der Meetingorganisatoren,partial,partial,0.007646297,0,0,1
+profession,3,2899,politicians and high-ranking officials,France,la bureaucratie de Washington,partial,partial,0.0046081683,0,0,1
+profession,3,2901,athletes,France,"aux coureurs R1, R2, D1 et D2",seen,seen,0.9940509,1,1,1
+profession,3,2912,other professions,France,les analystes,seen,seen,0.9579063,1,1,1
+profession,3,2921,politicians and high-ranking officials,France,les Verts | de candidats,seen | no_overlap,seen,0.9977042,1,0,1
+profession,3,2960,security forces,France,de futurs officiers et sous-officiers,partial,partial,0.9305825,1,1,0
+profession,3,2960,soldiers,France,des différents corps de l'armée,partial,partial,0.0075606355,0,0,1
+profession,3,2963,authors and artists,France,les jeunes comédiens de la compagnie Crescendo,partial,partial,0.00049187214,0,0,1
+profession,3,2972,politicians and high-ranking officials,France,une majorité présidentielle | l'opposition,partial | seen,seen,0.99764687,1,1,1
+profession,3,2995,athletes,France,les Camblysards,no_overlap,no_overlap,0.5775909,1,0,1
+profession,3,3009,other professions,France,des professionnels,seen,seen,0.024395792,0,0,0
+profession,3,3028,politicians and high-ranking officials,France,Les élus locaux,seen,seen,0.9973442,1,1,1
+profession,3,3053,authors and artists,France,les personnalités du show business suisse et européen,partial,partial,0.0008489144,0,0,1
+profession,3,3069,athletes,France,les Picards,no_overlap,no_overlap,0.9511654,1,0,0
+profession,3,3116,other professions,France,les analystes,seen,seen,0.96233726,1,1,1
+profession,3,3130,doctors,France,des médecins,seen,seen,0.9836685,1,1,1
+profession,3,3167,farmers and fishermen,France,aux agriculteurs,seen,seen,0.9910433,1,1,1
+profession,3,3173,politicians and high-ranking officials,France,le PS,seen,seen,0.9975604,1,1,1
+profession,3,3185,security forces,France,des membres de leur section police,partial,partial,0.0010418479,0,1,1
+profession,3,3186,politicians and high-ranking officials,France,cette majorité,seen,seen,0.9967457,1,0,1
+profession,3,3192,politicians and high-ranking officials,France,l'extrême droite,seen,seen,0.99750996,1,0,1
+profession,3,3201,authors and artists,France,Les artistes,seen,seen,0.9884094,1,1,1
+profession,3,3203,politicians and high-ranking officials,France,une majorité au sein du Parlemen,partial,partial,0.9973091,1,0,1
+profession,3,3220,other professions,France,des sommeliers,no_overlap,no_overlap,0.025722794,0,0,1
+profession,3,3236,authors and artists,France,des auteurs sans complaisance,partial,partial,0.99165756,1,0,1
+profession,3,3262,legal professionals,France,aux juges,seen,seen,0.99444264,1,0,1
+profession,3,3301,security forces,France,les policiers,seen,seen,0.9954034,1,1,1
+profession,3,3318,soldiers,France,l'armée française dans son ensemble,partial,partial,0.0038003507,0,0,1
+profession,3,3347,security forces,France,aux policiers,seen,seen,0.9956962,1,1,1
+profession,3,3358,other professions,France,des hôtesses,seen,seen,0.37204227,0,0,1
+profession,3,3361,politicians and high-ranking officials,France,une frange notable du parti,partial,partial,0.9965025,1,1,1
+profession,3,3368,politicians and high-ranking officials,France,2 000,no_content,no_content,0.99683267,1,1,1
+profession,3,3396,athletes,France,des joueurs,seen,seen,0.995103,1,1,1
+profession,3,3416,politicians and high-ranking officials,France,des autres candidats de gauche,partial,partial,0.975023,1,1,1
+profession,3,3421,politicians and high-ranking officials,France,politiciens,partial,partial,0.9123566,1,0,1
+profession,3,3435,politicians and high-ranking officials,France,les Verts,seen,seen,0.9975472,1,0,1
+profession,3,3442,authors and artists,France,des DJ du Sud,partial,partial,0.9627264,1,0,1
+profession,3,3451,politicians and high-ranking officials,France,du Front national,seen,seen,0.9975569,1,0,1
+profession,3,3452,politicians and high-ranking officials,France,les socialistes | six femmes têtes de liste | quatre,seen | partial | no_content,seen,0.9973072,1,1,1
+profession,3,3514,athletes,France,des joueurs,seen,seen,0.99625224,1,1,1
+profession,3,3533,security forces,France,les gendarmes de Chantilly | ceux de Sucy-en-Brie,partial | no_overlap,partial,0.9925553,1,1,1
+profession,3,3533,other professions,France,d'éboueur,no_overlap,no_overlap,0.0001898334,0,0,1
+profession,3,3559,politicians and high-ranking officials,France,nos plus brillants diplomates,partial,partial,0.91531783,1,0,0
+profession,3,3583,politicians and high-ranking officials,France,l'opposition de gauche,partial,partial,0.9973999,1,1,1
+profession,3,3584,athletes,France,les Essonniens,no_overlap,no_overlap,0.00065797503,0,0,1
+profession,3,3598,scientists and professors,France,les économistes,seen,seen,0.98571277,1,1,0
+profession,3,3605,security forces,France,de gendarmes,seen,seen,0.9885002,1,1,1
+profession,3,3606,athletes,France,un XV plaisirois | ses entraîneurs,partial | seen,seen,0.9972535,1,0,1
+profession,3,3634,other professions,France,des techniciens,seen,seen,0.9574716,1,0,1
+profession,3,3638,politicians and high-ranking officials,France,des puissants de ce Monde,partial,partial,0.00059988134,0,0,0
+profession,3,3644,athletes,France,Les Italiens | les Français,no_overlap | partial,partial,0.95095444,1,0,1
+profession,3,3700,politicians and high-ranking officials,France,une majorité régionale de gauche,partial,partial,0.9851046,1,1,1
+profession,3,3701,politicians and high-ranking officials,France,du PS,seen,seen,0.99761534,1,1,1
+profession,3,3711,politicians and high-ranking officials,France,du FN,seen,seen,0.9711141,1,1,1
+profession,3,3712,scientists and professors,France,des scientifiques suédois,partial,partial,0.9722129,1,0,1
+profession,3,3723,security forces,France,des policiers de la BAC,partial,partial,0.99394435,1,1,1
+profession,3,3730,politicians and high-ranking officials,France,PS,seen,seen,0.99763954,1,1,1
+profession,3,3752,athletes,France,la formation val-de-marnaise | des hommes d'Olivier Joba,no_overlap | partial,partial,0.96961445,1,0,1
+profession,3,3770,politicians and high-ranking officials,France,PS,seen,seen,0.9974879,1,1,1
+profession,3,3790,politicians and high-ranking officials,France,la trentaine de préfets de gauche qui se trouvaient en poste en mars 1993 | la moitié,partial | no_overlap,partial,0.9973731,1,1,1
+profession,3,3801,security forces,France,des autres acteurs de la sécurité,partial,partial,0.06997649,0,0,1
+profession,3,3809,security forces,France,des policiers,seen,seen,0.9966624,1,1,1
+profession,3,3841,farmers and fishermen,France,des principaux producteurs de riz,partial,partial,0.9548232,1,0,1
+profession,3,3845,politicians and high-ranking officials,France,des Verts,seen,seen,0.97710776,1,0,1
+profession,3,3884,politicians and high-ranking officials,France,la gauche,seen,seen,0.9976767,1,1,1
+profession,3,3899,athletes,France,Les coureurs de Régionale 1 et 2 et Départementale 1,partial,partial,0.9960194,1,1,1
+profession,3,3907,athletes,France,le milieu pro,no_overlap,no_overlap,0.0076043764,0,0,1
+profession,3,3946,other professions,France,plus d'un boursier,no_overlap,no_overlap,3.5758436e-05,0,0,0
+profession,3,3970,other professions,France,des détectives privés,partial,partial,0.026368668,0,0,1
+profession,3,3974,authors and artists,France,"les énormes orchestres wagnériens, brucknériens et mahlériens",partial,partial,0.98859394,1,0,1
+profession,3,4005,other professions,France,des diamantaires juifs,no_overlap,no_overlap,5.5473323e-05,0,0,1
+profession,3,4078,politicians and high-ranking officials,France,la gauche,seen,seen,0.9974515,1,1,1
+profession,3,4114,authors and artists,France,les groupes,partial,partial,0.0010117834,0,0,0
+profession,3,4120,politicians and high-ranking officials,France,la gauche | du Front national | la droite,seen | seen | no_content,seen,0.9976005,1,1,1
+profession,3,4122,authors and artists,France,des artistes,seen,seen,0.980288,1,1,1
+profession,3,4124,politicians and high-ranking officials,France,le Front national,seen,seen,0.93420523,1,0,1
+profession,3,4143,security forces,France,les policiers de la sûreté urbaine,partial,partial,0.9898985,1,1,1
+profession,3,4158,politicians and high-ranking officials,France,Onze chefs d'Etat,seen,seen,0.99328977,1,0,1
+profession,3,4178,politicians and high-ranking officials,France,du FN,seen,seen,0.9976496,1,1,1
+profession,3,4191,politicians and high-ranking officials,France,dix-neuf secrétaires fédéraux du PS,partial,partial,0.99764484,1,1,1
+profession,3,4197,politicians and high-ranking officials,France,les poids lourds de la campagne,partial,partial,0.0012018811,0,0,1
+profession,3,4198,other professions,France,des cheminots,no_overlap,no_overlap,0.036553577,0,0,1
+profession,3,4218,politicians and high-ranking officials,France,du Parti communiste local,partial,partial,0.99036366,1,1,0
+profession,3,4219,politicians and high-ranking officials,France,du groupe socialiste de l'Assemblée nationale,partial,partial,0.997447,1,0,1
+profession,3,4222,politicians and high-ranking officials,France,du Parti communiste,seen,seen,0.9967384,1,1,1
+profession,3,4231,security forces,France,plusieurs milliers de policiers et de forces paramilitaires,partial,partial,0.9966408,1,1,1
+profession,3,4247,authors and artists,France,les artistes,seen,seen,0.99578434,1,1,1
+profession,3,4259,athletes,France,les concurrents de l'épreuve masculine,partial,partial,0.9441696,1,0,1
+profession,3,4268,athletes,France,les joueurs de Didier Caignard,partial,partial,0.9963696,1,1,1
+profession,3,4278,politicians and high-ranking officials,France,des élus socialistes de la municipalité,partial,partial,0.99688345,1,1,1
+profession,3,4290,politicians and high-ranking officials,France,RPR,seen,seen,0.9970483,1,1,1
+profession,3,4307,authors and artists,France,ces musiciens,seen,seen,0.9936739,1,1,1
+profession,3,4311,security forces,France,Les policiers,seen,seen,0.99701154,1,1,1
+profession,3,4312,politicians and high-ranking officials,France,des chefs d'Etat,seen,seen,0.00025220573,0,0,1
+profession,3,4319,other professions,France,les mineurs de la Lorraine,seen,seen,0.03516427,0,0,1
+profession,3,4325,other professions,France,Les chefs hôtesses | trois à vingt autres hôtesses,partial | seen,seen,0.8941179,1,0,1
+profession,3,4329,other professions,France,aux directeurs des théâtres de la capitale,partial,partial,0.12348331,0,0,1
+profession,3,4368,politicians and high-ranking officials,France,La gauche,seen,seen,0.9964179,1,1,1
+profession,3,4380,security forces,France,Des renforts | les forces de l'ordre,no_overlap | seen,seen,0.9088407,1,1,1
+profession,3,4405,politicians and high-ranking officials,France,des cadres du parti,partial,partial,0.9081284,1,1,1
+profession,3,4411,politicians and high-ranking officials,France,les nationalistes,partial,partial,0.0039556194,0,0,1
+profession,3,4418,politicians and high-ranking officials,France,la nouvelle majorité républicaine au Congrès,partial,partial,0.9970061,1,0,1
+profession,3,4421,security forces,France,les membres du DPS,no_overlap,no_overlap,3.845618e-05,0,0,1
+profession,3,4439,farmers and fishermen,France,les paysans,seen,seen,0.99532384,1,0,1
+profession,3,4445,authors and artists,France,tous les musiciens juifs du National,partial,partial,0.99414366,1,1,1
+profession,3,4487,athletes,France,les clubs de DN2,partial,partial,0.011315262,0,0,0
+profession,3,4556,politicians and high-ranking officials,France,du PS,seen,seen,0.9972657,1,1,1
+profession,3,4577,farmers and fishermen,France,400 riziculteurs | éleveurs,no_overlap | partial,partial,0.9757583,1,0,1
+profession,3,4606,politicians and high-ranking officials,France,RPR | UDF-CDS,seen | partial,seen,0.99719256,1,1,1
+profession,3,4621,politicians and high-ranking officials,France,la gauche française,seen,seen,0.99764484,1,1,1
+profession,3,4655,authors and artists,France,des chanteuses françaises,no_overlap,no_overlap,0.9930051,1,0,1
+profession,3,4819,doctors,France,médecins,seen,seen,0.92488635,1,1,1
+profession,3,4819,legal professionals,France,avocats,seen,seen,0.9085973,1,0,1
+profession,3,4819,politicians and high-ranking officials,France,Le Front national,seen,seen,0.9962257,1,1,1
+profession,3,4836,athletes,France,aux mêmes joueurs,seen,seen,0.9961272,1,1,1
+profession,3,4838,athletes,France,les Cergypontaines | des Alsaciennes,no_overlap | no_overlap,no_overlap,0.040861364,0,0,1
+profession,3,4857,politicians and high-ranking officials,France,RPR,seen,seen,0.99753004,1,1,1
+profession,3,4860,athletes,France,Les sportifs du plateau Jules-Ferry,partial,partial,0.9954092,1,1,1
+profession,3,4872,legal professionals,France,des juges,seen,seen,0.9886072,1,0,0
+profession,3,4879,politicians and high-ranking officials,France,du FN,seen,seen,0.99751794,1,1,0
+profession,3,4888,authors and artists,France,Danseurs | acrobate,seen | seen,seen,0.9219761,1,0,1
+profession,3,4911,authors and artists,France,"les orientalistes français, genre Flaubert, Gautier, Loti, Delacroix",partial,partial,0.010308116,0,0,1
+profession,3,4916,politicians and high-ranking officials,France,La classe politique française,partial,partial,0.92264175,1,0,1
+profession,3,4920,authors and artists,France,Les professionnels du spectacle,partial,partial,0.00047887277,0,0,1
+profession,3,4930,politicians and high-ranking officials,France,Les élus des communes limitrophes des bois,partial,partial,0.9910267,1,1,1
+profession,3,4947,security forces,France,Les enquêteurs,seen,seen,0.9660677,1,1,1
+profession,3,4953,security forces,France,Les gendarmes,seen,seen,0.9962942,1,1,1
+profession,3,4969,soldiers,France,les forces serbes de Krajina,partial,partial,0.02778475,0,0,1
+profession,3,4981,authors and artists,France,les musiciens de la fanfare,partial,partial,0.9904214,1,1,1
+profession,3,5004,athletes,France,des joueurs de Noël Tosi,partial,partial,0.996579,1,1,1
+profession,3,5008,other professions,France,hôtesse,seen,seen,0.8502007,1,0,1
+profession,3,5013,legal professionals,France,Les magistrats instructeurs,partial,partial,0.3802636,0,0,1
+profession,3,5024,politicians and high-ranking officials,France,les forces d'extrême droite | la droite extrême | la droite du Parti républicain,partial | seen | seen,seen,0.9558224,1,1,0
+profession,3,5036,politicians and high-ranking officials,France,l'élite,seen,seen,0.00047769744,0,0,0
+profession,3,5053,politicians and high-ranking officials,France,RPR,seen,seen,0.99698216,1,1,1
+profession,3,5062,politicians and high-ranking officials,France,les élus | les nationalistes,seen | partial,seen,0.9493062,1,1,1
+profession,3,5063,farmers and fishermen,France,les paysans,seen,seen,0.99301636,1,0,1
+profession,3,5081,other professions,France,les vendeuses,no_overlap,no_overlap,0.006406944,0,0,1
+profession,3,5090,health and care professionals,France,du psy,seen,seen,0.0035755152,0,0,0
+profession,3,5142,politicians and high-ranking officials,France,l'opposition municipale,partial,partial,0.9965978,1,1,1
+profession,3,5176,athletes,France,les coureurs,seen,seen,0.9942688,1,1,1
+profession,3,5200,athletes,France,les autres coureurs,seen,seen,0.99677074,1,1,1
+profession,3,5209,politicians and high-ranking officials,France,"élite le ramassis de diplômés bilingues qui, se couvrant d'une fausse jeunesse, en vient à manifester tous les jours contre son peuple",partial,partial,0.015780874,0,0,0
+profession,3,5212,security forces,France,Les enquêteurs de la répression des fraudes,partial,partial,0.9288833,1,1,1
+profession,3,5243,security forces,France,les policiers du syndicat Alliance 93,partial,partial,0.9663272,1,1,1
+profession,3,5272,authors and artists,France,"Tous les autres comédiens, dont Mallaury Nataf",partial,partial,0.0010873195,0,0,1
+profession,3,5295,authors and artists,France,les plus artistes,seen,seen,0.9788038,1,1,1
+profession,3,5306,politicians and high-ranking officials,France,Une demi-douzaine de préfets de gauche,partial,partial,0.9962824,1,1,0
+profession,3,5362,politicians and high-ranking officials,France,FN,seen,seen,0.99759287,1,1,0
+profession,3,5376,athletes,France,Les Racingmen,no_overlap,no_overlap,0.9894357,1,0,1
+profession,3,5400,scientists and professors,France,Les sociologues,no_overlap,no_overlap,0.04025314,0,0,1
+profession,3,5422,security forces,France,3 500 policiers et gendarmes,seen,seen,0.9962675,1,1,1
+profession,3,5432,politicians and high-ranking officials,France,du Front national | aux partis de gouvernement de droite | de gauche,seen | partial | seen,seen,0.9974679,1,1,1
+profession,3,5435,athletes,France,Les joueurs,seen,seen,0.9963838,1,1,1
+profession,3,5475,politicians and high-ranking officials,France,du PS,seen,seen,0.99463224,1,1,1
+profession,3,5532,politicians and high-ranking officials,France,les préfets,seen,seen,0.99754745,1,0,0
+profession,3,5538,farmers and fishermen,France,les viticulteurs des côtes du Tarn | les paysans,partial | seen,seen,0.99388593,1,0,1
+profession,3,5551,scientists and professors,France,de nombreux économistes,seen,seen,0.9749715,1,1,1
+profession,3,5569,politicians and high-ranking officials,France,des ministres,seen,seen,0.9974509,1,0,1
+profession,3,5590,athletes,Germany,Acht der zehn bestbezahlten Fußballer der Welt,partial,partial,0.99661297,1,0,1
+profession,3,5602,security forces,Germany,die Ermittler,seen,seen,0.99482346,1,1,1
+profession,3,5627,politicians and high-ranking officials,Germany,der SPD | der ganzen Führungsgruppe,seen | partial,seen,0.99744886,1,1,1
+profession,3,5629,athletes,Germany,ein starker Kader | seine Spieler,partial | seen,seen,0.9971814,1,1,1
+profession,3,5636,athletes,Germany,"Die erfahrenen Stammkräfte wie Daniel Heuer Fernandes (29), Sebastian Schonlau (28), Moritz Heyer (27), Jonas Meffert (28) oder Robert Glatzel (28) | die Fans | die Profis",partial | no_overlap | seen,seen,0.9202918,1,1,1
+profession,3,5678,other professions,Germany,die Sachverständigen,seen,seen,0.94001496,1,0,0
+profession,3,5690,politicians and high-ranking officials,Germany,demokratische Kandidaten für den US-Senat,partial,partial,0.991983,1,0,1
+profession,3,5706,politicians and high-ranking officials,Germany,SPD | SPD,seen | seen,seen,0.9975231,1,1,1
+profession,3,5706,other professions,Germany,die Macher,partial,partial,0.003533743,0,0,0
+profession,3,5734,security forces,Germany,die Ermittler,seen,seen,0.98521984,1,1,1
+profession,3,5794,legal professionals,Germany,die Notenbanker,no_overlap,no_overlap,5.8803693e-05,0,0,0
+profession,3,5799,other professions,Germany,Lebensmittelkontrolleure,partial,partial,0.9316683,1,0,1
+profession,3,5840,politicians and high-ranking officials,Germany,Unions,seen,seen,0.99766266,1,0,1
+profession,3,5856,athletes,Germany,die Deutschen,seen,seen,0.9176887,1,0,1
+profession,3,5886,security forces,Germany,Schweizer Ermittler,partial,partial,0.9832117,1,1,0
+profession,3,5886,other professions,Germany,deutsche Fußball-Funktionäre,partial,partial,0.0016329895,0,0,1
+profession,3,5890,athletes,Germany,den Hamburgern,seen,seen,0.91442466,1,0,0
+profession,3,5898,security forces,Germany,vom einzelnen Ermittler,partial,partial,0.9940455,1,1,0
+profession,3,5959,teachers and educators,Germany,Lehrer,seen,seen,0.9928844,1,0,1
+profession,3,5979,politicians and high-ranking officials,Germany,dessen Repräsentanten,no_overlap,no_overlap,0.044922575,0,0,1
+profession,3,5989,teachers and educators,Germany,die Kollegen,no_overlap,no_overlap,0.00015220797,0,0,1
+profession,3,5999,scientists and professors,Germany,Wissenschaftlern,seen,seen,0.99510854,1,0,1
+profession,3,6027,farmers and fishermen,Germany,die  Fischer,seen,seen,0.98900014,1,0,1
+profession,3,6033,other professions,Germany,Honorarkräfte wie Schulpsychologen oder Dolmetscher,no_overlap,no_overlap,0.011308699,0,0,1
+profession,3,6035,athletes,Germany,Der Großteil beider Teams | andere Spielerinnen,partial | partial,partial,0.99549353,1,1,1
+profession,3,6037,teachers and educators,Germany,Lehrer,seen,seen,0.9959162,1,0,1
+profession,3,6123,athletes,Germany,die Baller-Truppe von Trainer Lukas Kwasniok,partial,partial,0.62410253,1,1,0
+profession,3,6168,politicians and high-ranking officials,Germany,Die Kabinettsmitglieder,seen,seen,0.9376525,1,0,1
+profession,3,6272,other professions,Germany,Die Piloten,seen,seen,0.95264196,1,1,1
+profession,3,6273,politicians and high-ranking officials,Germany,Die CDU,seen,seen,0.99710006,1,1,1
+profession,3,6284,authors and artists,Germany,den Männern,partial,partial,0.00019238445,0,0,0
+profession,3,6294,soldiers,Germany,die meisten noch verbliebenen deutschen Soldaten,partial,partial,0.9931694,1,1,1
+profession,3,6295,other professions,Germany,die Analysten der LBBW,partial,partial,0.93351334,1,0,1
+profession,3,6334,politicians and high-ranking officials,Germany,die Politiker,seen,seen,0.99194217,1,1,1
+profession,3,6336,athletes,Germany,Profis mit Star-Gehabe,partial,partial,0.99515885,1,0,1
+profession,3,6350,doctors,Germany,viele Ärzte,seen,seen,0.99627846,1,1,1
+profession,3,6361,politicians and high-ranking officials,Germany,die Christdemokraten | den Rechtspopulisten,seen | partial,seen,0.9976109,1,0,1
+profession,3,6363,politicians and high-ranking officials,Germany,die Abgeordneten des Bundestages,partial,partial,0.99740785,1,0,1
+profession,3,6424,athletes,Germany,andere Spieler,seen,seen,0.99491584,1,1,1
+profession,3,6434,athletes,Germany,Klippenspringer,seen,seen,0.77132237,1,0,1
+profession,3,6434,authors and artists,Germany,Artisten.,seen,seen,0.9788087,1,1,1
+profession,3,6435,athletes,Germany,die Münchner,seen,seen,0.98189974,1,0,1
+profession,3,6445,politicians and high-ranking officials,Germany,CDU,seen,seen,0.9975337,1,1,1
+profession,3,6451,teachers and educators,Germany,Lehrer,seen,seen,0.9937902,1,1,1
+profession,3,6456,scientists and professors,Germany,Forscher,seen,seen,0.99650854,1,1,1
+profession,3,6460,politicians and high-ranking officials,Germany,die Akteure,no_overlap,no_overlap,0.0016859133,0,0,0
+profession,3,6463,politicians and high-ranking officials,Germany,den Parteien,seen,seen,0.9973181,1,0,1
+profession,3,6506,security forces,Germany,der Beamten,seen,seen,0.9562688,1,1,1
+profession,3,6537,athletes,Germany,"Weltbesten Sprinterinnen und Sprinter, di | Diskuswerferinnen und | Zehnkämpfer wieder | Topstars, ge",partial | no_overlap | no_overlap | no_overlap,partial,0.947162,1,0,1
+profession,3,6595,politicians and high-ranking officials,Germany,Grünen,seen,seen,0.9974481,1,1,1
+profession,3,6609,politicians and high-ranking officials,Germany,SPD,seen,seen,0.9972127,1,1,1
+profession,3,6627,politicians and high-ranking officials,Germany,Politiker,seen,seen,0.9950418,1,1,1
+profession,3,6695,authors and artists,Germany,der Musik-Szene,partial,partial,0.04570836,0,0,1
+profession,3,6716,legal professionals,Germany,der Verteidigung,no_overlap,no_overlap,3.152806e-05,0,0,1
+profession,3,6723,politicians and high-ranking officials,Germany,sowjetische Diplomaten,partial,partial,0.9974686,1,0,1
+profession,3,6736,authors and artists,Germany,die Produzenten,seen,seen,0.9537112,1,0,1
+profession,3,6740,politicians and high-ranking officials,Germany,Hessens SPD,partial,partial,0.9971559,1,1,1
+profession,3,6751,politicians and high-ranking officials,Germany,Grünen,seen,seen,0.99756914,1,1,1
+profession,3,6755,politicians and high-ranking officials,Germany,der niedersächsischen AfD,partial,partial,0.98342264,1,1,1
+profession,3,6757,politicians and high-ranking officials,Germany,Kommunalpolitikern,seen,seen,0.99550384,1,0,1
+profession,3,6757,other professions,Germany,Fachleuten,seen,seen,0.937953,1,0,0
+profession,3,6763,athletes,Germany,keinem einzigen Gegenspieler | weitere ehemalige Spieler,partial | partial,partial,0.99418193,1,1,1
+profession,3,6768,politicians and high-ranking officials,Germany,die Sachsen-CDU,seen,seen,0.9969163,1,1,1
+profession,3,6785,other professions,Germany,Fachleute,seen,seen,0.96008134,1,1,0
+profession,3,6860,doctors,Germany,Ärzte,seen,seen,0.97673154,1,1,1
+profession,3,6860,security forces,Germany,Polizeibeamte,seen,seen,0.9703772,1,0,1
+profession,3,6866,security forces,Germany,die Beamten,seen,seen,0.5799692,1,1,0
+profession,3,6889,athletes,Germany,meine Sportler | einige Spitzenathleten,seen | partial,seen,0.99431336,1,1,1
+profession,3,6905,soldiers,Germany,der  europäischen Soldaten,seen,seen,0.9962774,1,1,1
+profession,3,6907,politicians and high-ranking officials,Germany,den Parteien | die CDU | der Partei,seen | seen | seen,seen,0.9975343,1,1,1
+profession,3,6930,politicians and high-ranking officials,Germany,SPD | SPD,seen | seen,seen,0.99757725,1,1,1
+profession,3,6950,legal professionals,Germany,seine Anwälte,seen,seen,0.996219,1,1,1
+profession,3,6959,authors and artists,Germany,amerikanischen Produzenten,partial,partial,0.9868116,1,0,1
+profession,3,6960,politicians and high-ranking officials,Germany,CDU | CSU,seen | seen,seen,0.9957535,1,1,1
+profession,3,6964,politicians and high-ranking officials,Germany,die Väter des Grundgesetzes,partial,partial,0.99748355,1,1,0
+profession,3,6984,politicians and high-ranking officials,Germany,SPD | SPD | SPD,seen | seen | seen,seen,0.997531,1,1,1
+profession,3,7015,athletes,Germany,"die besten Läufer, Werfer und Springer",partial,partial,0.9930248,1,0,1
+profession,3,7049,politicians and high-ranking officials,Germany,der Partei,seen,seen,0.9976393,1,1,1
+profession,3,7054,politicians and high-ranking officials,Germany,der Union | FDP,seen | seen,seen,0.99720985,1,1,1
+profession,3,7076,other professions,Germany,einheimische Verkäufer,partial,partial,0.0058358843,0,0,0
+profession,3,7077,politicians and high-ranking officials,Germany,des politischen Verbündeten,partial,partial,0.9437174,1,0,0
+profession,3,7099,soldiers,Germany,die Soldaten,seen,seen,0.9953542,1,1,1
+profession,3,7103,athletes,Germany,die Kollegen,seen,seen,0.9932996,1,0,1
+profession,3,7104,politicians and high-ranking officials,Germany,CDU | CDU | der SPD,seen | seen | seen,seen,0.9973369,1,1,1
+profession,3,7129,politicians and high-ranking officials,Germany,die AfD,seen,seen,0.99734277,1,1,1
+profession,3,7133,scientists and professors,Germany,Die Meteorologen,seen,seen,0.9953041,1,0,1
+profession,3,7191,politicians and high-ranking officials,Germany,den schlauen Spritpreisbremsenausbremsern,partial,partial,0.55210024,1,0,1
+profession,3,7196,security forces,Germany,die Kriminalbeamten,partial,partial,0.9945582,1,0,1
+profession,3,7209,politicians and high-ranking officials,Germany,die Grünen,seen,seen,0.9974868,1,1,1
+profession,3,7222,security forces,Germany,angehenden Polizisten,partial,partial,0.9953615,1,1,1
+profession,3,7223,politicians and high-ranking officials,Germany,die Linke,seen,seen,0.9976451,1,0,1
+profession,3,7225,other professions,Germany,Sicherheitskräfte,no_overlap,no_overlap,0.001258688,0,0,0
+profession,3,7246,politicians and high-ranking officials,Germany,die Grünen,seen,seen,0.9974051,1,1,1
+profession,3,7292,politicians and high-ranking officials,Germany,Grünen,seen,seen,0.99762434,1,1,1
+profession,3,7308,politicians and high-ranking officials,Germany,die Lokalpolitiker,partial,partial,0.9957419,1,0,1
+profession,3,7328,politicians and high-ranking officials,Germany,Parteien,seen,seen,0.9965945,1,0,0
+profession,3,7333,authors and artists,Germany,die Sänger | Dirigenten | Regisseure,seen | no_overlap | partial,seen,0.98569196,1,1,1
+profession,3,7333,teachers and educators,Germany,Lehrer,seen,seen,0.9343692,1,1,1
+profession,3,7353,athletes,Germany,die Spieler | die Trainer,seen | seen,seen,0.946922,1,1,1
+profession,3,7371,doctors,Germany,Ärzte,seen,seen,0.99643695,1,1,1
+profession,3,7378,politicians and high-ranking officials,Germany,SPD,seen,seen,0.9972893,1,1,1
+profession,3,7449,athletes,Germany,Gut hundert Medaillengewinner der Olympischen Spiele von Peking 2008 und London 2012,partial,partial,0.21109456,0,1,1
+profession,3,7463,politicians and high-ranking officials,Germany,Die Ministerinnen und Minister,partial,partial,0.9961282,1,0,1
+profession,3,7497,politicians and high-ranking officials,Germany,SPD,seen,seen,0.99732345,1,1,0
+profession,3,7502,other professions,Germany,externe Kooperationspartner aus der Fintech-Branche,partial,partial,0.0002699636,0,0,0
+profession,3,7517,politicians and high-ranking officials,Germany,Kommunistische Partei,partial,partial,0.9976285,1,1,1
+profession,3,7531,security forces,Germany,Polizisten,seen,seen,0.9884829,1,1,1
+profession,3,7532,politicians and high-ranking officials,Germany,den Gegnern | Befürwortern Europas | den radikalen Neokonservativen | den sozial denkenden Konservativen,partial | partial | partial | partial,partial,0.99726534,1,0,1
+profession,3,7546,politicians and high-ranking officials,Germany,die FDP,seen,seen,0.99733067,1,1,1
+profession,3,7550,security forces,Germany,deutsche Grenzbeamte,partial,partial,0.98991114,1,0,1
+profession,3,7553,politicians and high-ranking officials,Germany,der SPD,seen,seen,0.99733955,1,1,1
+profession,3,7554,authors and artists,Germany,viele bedeutende Theatermacher,partial,partial,0.9917945,1,0,1
+profession,3,7583,legal professionals,Germany,die Sittenwächter von Karlsruhe,partial,partial,0.0004758409,0,0,1
+profession,3,7596,teachers and educators,Germany,dem Pädagoge,seen,seen,0.980856,1,0,0
+profession,3,7607,health and care professionals,Germany,Pflegekräfte,partial,partial,0.30264133,0,0,1
+profession,3,7607,politicians and high-ranking officials,Germany,FDP,seen,seen,0.9972078,1,1,1
+profession,3,7611,athletes,Germany,viele Trainer,seen,seen,0.99655354,1,1,0
+profession,3,7615,journalists,Germany,Journalisten,seen,seen,0.9962488,1,1,1
+profession,3,7620,journalists,Germany,westlichen Reporter,partial,partial,0.046854496,0,0,1
+profession,3,7621,politicians and high-ranking officials,Germany,die Opposition,seen,seen,0.9975975,1,1,1
+profession,3,7631,politicians and high-ranking officials,Germany,SPD,seen,seen,0.9975473,1,1,1
+profession,3,7648,athletes,Germany,die Borussen,no_overlap,no_overlap,0.00025573344,0,0,1
+profession,3,7669,politicians and high-ranking officials,Germany,Abgeordneten,seen,seen,0.98871535,1,0,0
+profession,3,7669,other professions,Germany,die Bonner,no_overlap,no_overlap,6.390777e-05,0,0,0
+profession,3,7688,politicians and high-ranking officials,Germany,Bildungspolitiker,partial,partial,0.96873796,1,0,1
+profession,3,7702,other professions,Germany,der Museumsleute,no_overlap,no_overlap,0.10892872,0,0,1
+profession,3,7746,politicians and high-ranking officials,Germany,die Grünen | Mitgliedern der sogenannten Sechserrunde,seen | partial,seen,0.9972614,1,1,1
+profession,3,7751,politicians and high-ranking officials,Germany,Den Machthabern,no_overlap,no_overlap,0.66583073,1,0,0
+profession,3,7761,politicians and high-ranking officials,Germany,der Fraktion,seen,seen,0.9976211,1,0,1
+profession,3,7762,health and care professionals,Germany,Traumaexperten,no_overlap,no_overlap,0.60062116,1,0,1
+profession,3,7770,health and care professionals,Germany,ausländischer Pflegekräfte,partial,partial,0.9469462,1,0,1
+profession,3,7775,athletes,Germany,unseren Sportvereinen,partial,partial,0.9890321,1,0,1
+profession,3,7799,other professions,Germany,trans Jungs,partial,partial,0.88208663,1,1,0
+profession,3,7808,security forces,Germany,der Ermittler,seen,seen,0.9917522,1,1,0
+profession,3,7817,other professions,Germany,Frauen im Mainstreamporno | Männern | Frauen,partial | partial | seen,seen,7.603596e-05,0,0,0
+profession,3,7882,politicians and high-ranking officials,Germany,der SPD-Fraktion,seen,seen,0.99753594,1,1,1
+profession,3,7922,athletes,Germany,Die jungen Spieler aus dem eigenen Nachwuchs,partial,partial,0.993016,1,1,1
+profession,3,7945,athletes,Germany,seinen Spielern,seen,seen,0.9967434,1,1,1
+profession,3,7970,politicians and high-ranking officials,Germany,SPD,seen,seen,0.9975643,1,1,1
+profession,3,7992,other professions,Germany,Schwedische Nord-­Stream-Experten | die Deutschen,partial | partial,partial,0.9723269,1,1,1
+profession,3,7993,athletes,Germany,keiner der aktuellen Spieler | das Team,partial | seen,seen,0.8690387,1,1,1
+profession,3,8009,politicians and high-ranking officials,Germany,wir Grünen,seen,seen,0.99736446,1,1,1
+profession,3,8017,politicians and high-ranking officials,Germany,viele Vertreter der AfD,partial,partial,0.99748236,1,1,1
+profession,3,8033,politicians and high-ranking officials,Germany,SPD,seen,seen,0.9973333,1,1,1
+profession,3,8065,farmers and fishermen,Germany,Landwirte,seen,seen,0.9950448,1,1,1
+profession,3,8084,politicians and high-ranking officials,Germany,keine Kandidaten,partial,partial,0.03339542,0,0,1
+profession,3,8124,politicians and high-ranking officials,Germany,die CDU,seen,seen,0.9971259,1,1,1
+profession,3,8125,athletes,Germany,die Deutschen,seen,seen,0.99206614,1,1,0
+profession,3,8127,athletes,Germany,Spielern,seen,seen,0.019685512,0,1,0
+profession,3,8127,other professions,Germany,der Kellner | eines Parfümverkäufers,partial | no_overlap,partial,0.8667335,1,0,1
+profession,3,8190,politicians and high-ranking officials,France,LREM du Rhône,partial,partial,0.9846965,1,0,1
+profession,3,8197,politicians and high-ranking officials,France,une partie de l’UMP,partial,partial,0.99769884,1,0,1
+profession,3,8199,security forces,France,des policiers,seen,seen,0.9965223,1,1,1
+profession,3,8210,politicians and high-ranking officials,France,du PCF,seen,seen,0.99239326,1,1,1
+profession,3,8242,politicians and high-ranking officials,France,Ses “ ministres ”,seen,seen,0.7668539,1,0,1
+profession,3,8310,politicians and high-ranking officials,France,les ministres,seen,seen,0.9952839,1,0,1
+profession,3,8318,politicians and high-ranking officials,France,le parti,seen,seen,0.99731416,1,1,1
+profession,3,8324,politicians and high-ranking officials,France,les Pirates,no_overlap,no_overlap,0.10975709,0,0,1
+profession,3,8344,politicians and high-ranking officials,France,RN,seen,seen,0.9691702,1,0,0
+profession,3,8347,politicians and high-ranking officials,France,les rangs des droites les plus dures,partial,partial,0.99759966,1,0,1
+profession,3,8362,politicians and high-ranking officials,France,du Zanu-PF,no_overlap,no_overlap,0.9872147,1,1,1
+profession,3,8380,journalists,France,aux responsables de la société des journalistes et personnels de Libération (SJPL),partial,partial,0.99527633,1,1,1
+profession,3,8384,politicians and high-ranking officials,France,La France insoumise (LFI),seen,seen,0.9974201,1,0,1
+profession,3,8402,politicians and high-ranking officials,France,l’extrême droite,seen,seen,0.9955948,1,0,1
+profession,3,8405,scientists and professors,France,les chercheurs,seen,seen,0.98869544,1,1,1
+profession,3,8416,politicians and high-ranking officials,France,Union centriste,partial,partial,0.997566,1,1,1
+profession,3,8423,politicians and high-ranking officials,France,ce parti,seen,seen,0.9970682,1,1,0
+profession,3,8477,politicians and high-ranking officials,France,l'UDF,seen,seen,0.99725753,1,1,1
+profession,3,8515,politicians and high-ranking officials,France,l’opposition roumaine,partial,partial,0.9976739,1,1,1
+profession,3,8521,soldiers,France,Les militaires,seen,seen,0.9954724,1,1,1
+profession,3,8540,farmers and fishermen,France,une communauté agrarienne,partial,partial,0.9030581,1,0,1
+profession,3,8551,farmers and fishermen,France,120 000 familles paysannes,partial,partial,0.98491573,1,0,1
+profession,3,8610,politicians and high-ranking officials,France,le Sinn Féin,no_overlap,no_overlap,0.9975333,1,1,1
+profession,3,8620,journalists,France,des journalistes en déambulation dans les quartiers populaires,partial,partial,0.99551976,1,1,1
+profession,3,8644,politicians and high-ranking officials,France,du Parti communiste arménien dans les années 70-80,partial,partial,0.9942583,1,1,1
+profession,3,8646,athletes,France,des athlètes des pays de l’Est,partial,partial,0.9938472,1,0,1
+profession,3,8662,politicians and high-ranking officials,France,Perú libre,no_overlap,no_overlap,0.01088569,0,0,0
+profession,3,8674,politicians and high-ranking officials,France,ceux d’en haut,no_content,no_content,0.98528415,1,1,1
+profession,3,8688,other professions,France,les assureurs,seen,seen,0.007786808,0,0,0
+profession,3,8692,politicians and high-ranking officials,France,L’opposition,seen,seen,0.99735767,1,1,1
+profession,3,8719,politicians and high-ranking officials,France,L’aile conservatrice,partial,partial,0.002930455,0,0,1
+profession,3,8724,politicians and high-ranking officials,France,des partis politiques,seen,seen,0.9957754,1,1,1
+profession,3,8725,politicians and high-ranking officials,France,Le parti,seen,seen,0.9976063,1,1,1
+profession,3,8726,politicians and high-ranking officials,France,des cercles dirigeants de son parti,partial,partial,0.9914274,1,1,1
+profession,3,8745,journalists,France,des journalistes,seen,seen,0.996609,1,1,1
+profession,3,8746,politicians and high-ranking officials,France,nos gouvernants,seen,seen,0.9773663,1,0,1
+profession,3,8754,other professions,France,les experts,seen,seen,0.9681907,1,1,1
+profession,3,8763,soldiers,France,Ses soldats,seen,seen,0.98946625,1,1,1
+profession,3,8765,other professions,France,les promoteurs,no_overlap,no_overlap,0.0015523429,0,0,0
+profession,3,8774,security forces,France,des policiers,seen,seen,0.996711,1,1,1
+profession,3,8805,other professions,France,des experts,seen,seen,0.9638865,1,1,1
+profession,3,8830,politicians and high-ranking officials,France,droites radicales,partial,partial,0.9967589,1,0,1
+profession,3,8850,politicians and high-ranking officials,France,d’hommes d’Etat,partial,partial,0.9693514,1,0,1
+profession,3,8886,scientists and professors,France,les meilleurs chercheurs en IA,partial,partial,0.97055006,1,1,1
+profession,3,8887,politicians and high-ranking officials,France,Génération Ecologie,partial,partial,0.00021581395,0,0,1
+profession,3,8888,other professions,France,les analystes,seen,seen,0.9562554,1,1,0
+profession,3,8897,teachers and educators,France,la direction,no_overlap,no_overlap,5.2796775e-05,0,0,0
+profession,3,8932,politicians and high-ranking officials,France,LR,seen,seen,0.99756205,1,1,1
+profession,3,8934,farmers and fishermen,France,"Syndilait, organisation professionnelle regroupant les fabricants de lait",partial,partial,0.005211852,0,0,1
+profession,3,8940,soldiers,France,aux planificateurs militaires,partial,partial,0.9248737,1,1,1
+profession,3,8949,authors and artists,France,"des dessinateurs serrés, cassés, tendus, précis jusqu'à la cruauté, et naturellement enclins au fantastique",partial,partial,0.9530814,1,0,1
+profession,3,8955,security forces,France,de policiers,seen,seen,0.95923686,1,1,1
+profession,3,8974,soldiers,France,ces soldats,seen,seen,0.9954401,1,1,1
+profession,3,9001,health and care professionals,France,les soignants,partial,partial,0.5306045,1,0,1
+profession,3,9005,politicians and high-ranking officials,France,""" les communist",partial,partial,0.0016323661,0,1,1
+profession,3,9007,politicians and high-ranking officials,France,du parti radical,partial,partial,0.64481616,1,1,1
+profession,3,9028,politicians and high-ranking officials,France,des ministres,seen,seen,0.9962281,1,0,1
+profession,3,9032,politicians and high-ranking officials,France,des sénateurs et représentants,partial,partial,0.994747,1,0,1
+profession,3,9038,athletes,France,un banc de joueurs aptes et frais,partial,partial,0.9913668,1,1,1
+profession,3,9048,sex workers,France,les prostitués,seen,seen,0.9860641,1,0,1
+profession,3,9075,politicians and high-ranking officials,France,Les jeunes élus,partial,partial,0.9821976,1,1,1
+profession,3,9105,politicians and high-ranking officials,France,UMP,seen,seen,0.99762976,1,0,1
+profession,3,9134,politicians and high-ranking officials,France,du PS,seen,seen,0.99765056,1,1,1
+profession,3,9139,teachers and educators,France,de très bons profs,partial,partial,0.0013732787,0,0,1
+profession,3,9146,politicians and high-ranking officials,France,beaucoup d'élus de droite,seen,seen,0.993335,1,1,1
+profession,3,9170,politicians and high-ranking officials,France,les responsables communistes Parisiens,partial,partial,0.0026220034,0,0,1
+profession,3,9171,politicians and high-ranking officials,France,du Front de gauche,partial,partial,0.99758995,1,1,1
+profession,3,9188,politicians and high-ranking officials,France,les partis politiques,seen,seen,0.9976076,1,1,0
+profession,3,9191,doctors,France,Les médecins,seen,seen,0.9426917,1,1,1
+profession,3,9205,politicians and high-ranking officials,France,président,partial,partial,0.9975178,1,1,1
+profession,3,9219,politicians and high-ranking officials,France,des maires de droite de l'Ouest lyonnais,partial,partial,0.99640083,1,0,1
+profession,3,9230,politicians and high-ranking officials,France, la droit,seen,seen,0.99708146,1,0,1
+profession,3,9233,doctors,France,Les médecins universitaires,partial,partial,0.98897374,1,1,1
+profession,3,9240,politicians and high-ranking officials,France,l'UMP,seen,seen,0.99750996,1,1,0
+profession,3,9242,politicians and high-ranking officials,France,LR,seen,seen,0.99716324,1,0,0
+profession,3,9248,politicians and high-ranking officials,France,l’UMP,seen,seen,0.9976667,1,1,1
+profession,3,9253,politicians and high-ranking officials,France,la Droite,no_content,no_content,0.96103364,1,0,1
+profession,3,9259,security forces,France,les policiers,seen,seen,0.9846549,1,1,1
+profession,3,9279,politicians and high-ranking officials,France,du PS,seen,seen,0.9975321,1,1,1
+profession,3,9287,politicians and high-ranking officials,France,PS,seen,seen,0.99755126,1,1,1
+profession,3,9290,politicians and high-ranking officials,France,tête des députés de droite à l'Assemblée,partial,partial,0.99675316,1,0,1
+profession,3,9292,politicians and high-ranking officials,France,LREM,seen,seen,0.9971762,1,0,1
+profession,3,9308,politicians and high-ranking officials,France,l'UMP,seen,seen,0.9975266,1,0,1
+profession,3,9319,politicians and high-ranking officials,France,la droite,no_content,no_content,0.99763894,1,0,1
+profession,3,9322,politicians and high-ranking officials,France,la droite,no_content,no_content,0.9971674,1,0,1
+profession,3,9338,politicians and high-ranking officials,France,l’UMP,seen,seen,0.99751353,1,0,1
+profession,3,9345,politicians and high-ranking officials,France,les Verts,seen,seen,0.9975495,1,0,1
+profession,3,9349,legal professionals,France,les juges,seen,seen,0.95434535,1,0,1
+profession,3,9350,teachers and educators,France,les directeurs d'école,partial,partial,0.9649165,1,0,1
+profession,3,9367,politicians and high-ranking officials,France,du PS,seen,seen,0.99744344,1,1,1
+profession,3,9405,other professions,France,les 40 000 chauffeurs d’Uber en Grande-Bretagne,partial,partial,0.38396263,0,0,0
+profession,3,9528,sex workers,Germany,Sexarbeiterinnen | Huren,seen | no_overlap,seen,0.9903604,1,0,1
+profession,3,9529,sex workers,Germany,Prostituierte,seen,seen,0.03294914,0,0,1
+profession,3,9530,sex workers,Germany,der Sexarbeiter | Sexarbeiterinnen,partial | seen,seen,0.98432565,1,0,1
+profession,3,9531,sex workers,Germany,legale Sexarbeiterinnen,seen,seen,0.9909279,1,0,1
+profession,3,9546,other professions,Germany,die Feuerwehrleute,seen,seen,0.9580807,1,0,1
+profession,3,9563,other professions,Germany,die Experten,seen,seen,0.9629806,1,1,0
+profession,3,9576,legal professionals,Germany,Die Karlsruher Richter,seen,seen,0.87779945,1,1,1
+profession,3,9616,doctors,Germany,beim Arzt,seen,seen,0.8528442,1,0,1
+real_estate_ownership,3,3019,homeless,France,"de Français sans abri, victimes du chômage, de la pauvreté, de l'exclusion",partial,partial,0.75972897,1,0,1
+real_estate_ownership,3,4170,real-estate owners,France,les propriétaires privés,seen,seen,0.977995,1,1,1
+real_estate_ownership,3,4270,tenants,France,L'amicale des locataires du mail des Corses,partial,partial,0.97367483,1,1,1
+real_estate_ownership,3,7074,real-estate owners,Germany,Manche Vermieter,seen,seen,0.9784399,1,1,1
+real_estate_ownership,3,7074,tenants,Germany,Mietern,seen,seen,0.97457075,1,1,1
+real_estate_ownership,3,7432,real-estate owners,Germany,ausländische Grundeigentümer,partial,partial,0.9778596,1,0,1
+real_estate_ownership,3,9301,tenants,France,des locataires,seen,seen,0.9758814,1,1,1
+real_estate_ownership,3,9427,homeless,France,les sans-abri,seen,seen,0.9754778,1,0,1
+real_estate_ownership,3,9428,homeless,France,les SDF,seen,seen,0.9767219,1,1,1
+real_estate_ownership,3,9431,real-estate owners,France,aux nouveaux accédants à la propriété,seen,seen,0.43292925,0,0,1
+real_estate_ownership,3,9433,real-estate owners,France,les bailleurs sans perspectives de revalorisation des loyers,partial,partial,0.9778165,1,1,1
+real_estate_ownership,3,9434,tenants,France,tous les locataires dépassant d'au moins 20 % les plafonds de ressources,partial,partial,0.977027,1,1,1
+real_estate_ownership,3,9479,real-estate owners,France,les propriétaires bailleurs,seen,seen,0.9783927,1,1,1
+real_estate_ownership,3,9482,real-estate owners,France,tous les propriétaires bailleurs,seen,seen,0.97899365,1,1,1
+real_estate_ownership,3,9491,real-estate owners,France,d'une centaine de propriétaires terriens établis à Collioure (Pyrénées-Orientales) au XIIIe siècle,partial,partial,0.9785715,1,1,1
+real_estate_ownership,3,9492,real-estate owners,France,des propriétaires privés,seen,seen,0.9776334,1,1,1
+real_estate_ownership,3,9493,real-estate owners,France,les plus gros propriétaires fonciers de Marseille,partial,partial,0.9757395,1,1,1
+real_estate_ownership,3,9497,tenants,France,des locataires | des locataires souvent exigeants,seen | partial,seen,0.96004343,1,1,1
+real_estate_ownership,3,9532,homeless,Germany,der Menschen ohne festen Wohnsitz,seen,seen,0.8581869,1,0,1
+real_estate_ownership,3,9533,homeless,Germany,Obdachlose,seen,seen,0.9759169,1,1,1
+real_estate_ownership,3,9535,homeless,Germany,15 000 wohnungslose Menschen,partial,partial,0.9748,1,0,1
+real_estate_ownership,3,9537,homeless,Germany,Wohnungslose,partial,partial,0.97699475,1,0,1
+real_estate_ownership,3,9544,real-estate owners,Germany,Eigenheimbesitzer,partial,partial,0.64452535,1,0,1
+real_estate_ownership,3,9546,real-estate owners,Germany,vom Hauseigentümer,seen,seen,0.9104143,1,0,1
+real_estate_ownership,3,9549,real-estate owners,Germany,der Hausbesitzer,seen,seen,0.9723255,1,0,1
+real_estate_ownership,3,9552,real-estate owners,Germany,Eigentümer von Grundstücken,seen,seen,0.9775578,1,0,1
+real_estate_ownership,3,9556,real-estate owners,Germany,Grundbesitzer | Hauseigentümer,seen | seen,seen,0.97905916,1,0,1
+real_estate_ownership,3,9556,tenants,Germany,Mieter,seen,seen,0.97841454,1,1,1
+real_estate_ownership,3,9558,real-estate owners,Germany,Die Grundbesitzer,seen,seen,0.9771105,1,0,1
+real_estate_ownership,3,9563,real-estate owners,Germany,Der Vermieter,seen,seen,0.97712827,1,1,1
+real_estate_ownership,3,9565,real-estate owners,Germany,die Lagervermieter | mancher Wohnungsvermieter,partial | seen,seen,0.9741097,1,0,1
+real_estate_ownership,3,9577,real-estate owners,Germany,Immobilieneigentümer,seen,seen,0.97835493,1,0,1
+real_estate_ownership,3,9577,tenants,Germany,mietende Nutzer,partial,partial,0.9763217,1,0,1
+real_estate_ownership,3,9581,tenants,Germany,zahlende Mieter,partial,partial,0.975706,1,1,1
+social_deviance,3,45,extremists,Germany,mutmaßlichen Neonazis,partial,partial,0.95589453,1,0,1
+social_deviance,3,564,"offenders, criminals, prisoners and/or accused people",Germany,Briefkastenfirmen,no_overlap,no_overlap,0.000368839,0,0,1
+social_deviance,3,756,"offenders, criminals, prisoners and/or accused people",Germany,Täter,seen,seen,0.9590113,1,1,0
+social_deviance,3,985,"terrorists, rebels, revolutionaries and/or movements of armed resistance",Germany,die Saboteure,seen,seen,0.95417863,1,1,0
+social_deviance,3,1089,"terrorists, rebels, revolutionaries and/or movements of armed resistance",Germany,die RAF | der »Nationalsozialistische Untergrund« | russische Cyberkrieger | militante Reichsbürger,seen | partial | no_overlap | partial,seen,0.011823774,0,0,1
+social_deviance,3,1239,"terrorists, rebels, revolutionaries and/or movements of armed resistance",Germany,des IS,seen,seen,0.9575989,1,0,1
+social_deviance,3,1239,"offenders, criminals, prisoners and/or accused people",Germany,Kriegsverbrecher,partial,partial,0.307348,0,0,1
+social_deviance,3,1381,extremists,Germany,die Glaubenskrieger,no_overlap,no_overlap,0.0009214366,0,0,0
+social_deviance,3,1381,drug addicts,Germany,Süchtige,no_overlap,no_overlap,0.9576867,1,0,1
+social_deviance,3,1434,"terrorists, rebels, revolutionaries and/or movements of armed resistance",Germany,IS,seen,seen,0.9585678,1,0,1
+social_deviance,3,1518,"offenders, criminals, prisoners and/or accused people",Germany,von Unbekannten,no_overlap,no_overlap,0.00028347765,0,0,0
+social_deviance,3,1545,"offenders, criminals, prisoners and/or accused people",Germany,"eine ""Handvoll Journalisten"", die ""seit Jahrzehnten aus  unterschiedlichen, meistens kriminellen Motiven"" Desinformationen über ihn verbreiteten",partial,partial,0.038461555,0,0,0
+social_deviance,3,1664,extremists,Germany,Nazi,seen,seen,0.94547427,1,0,0
+social_deviance,3,1815,"offenders, criminals, prisoners and/or accused people",Germany,"berechnende Taugenichtse skizziert, die alleinstehenden Männern Notlagen vor­spielen, um an Geld zu kommen",partial,partial,0.010758065,0,0,1
+social_deviance,3,2254,"offenders, criminals, prisoners and/or accused people",Germany,den Tätern,seen,seen,0.9586664,1,0,1
+social_deviance,3,2346,"offenders, criminals, prisoners and/or accused people",Germany,Fälscher,partial,partial,0.0005852621,0,0,1
+social_deviance,3,2537,extremists,Germany,Rechtsextreme,seen,seen,0.95771843,1,0,1
+social_deviance,3,2756,"offenders, criminals, prisoners and/or accused people",Germany,krimineller Ausländer,partial,partial,0.95823276,1,0,1
+social_deviance,3,2866,extremists,Germany,der Nazis | Neonazis,seen | partial,seen,0.95815086,1,0,1
+social_deviance,3,3094,"offenders, criminals, prisoners and/or accused people",France,les casseurs,seen,seen,0.95777816,1,0,1
+social_deviance,3,3219,"offenders, criminals, prisoners and/or accused people",France,Le milieu | les dealers,partial | seen,seen,0.95984197,1,0,1
+social_deviance,3,3332,"offenders, criminals, prisoners and/or accused people",France,des prévenus | des détenus travestis,seen | seen,seen,0.95902646,1,1,1
+social_deviance,3,3334,"offenders, criminals, prisoners and/or accused people",France,les instigateurs des actes de violence et de dégradation dont elle a été la victime,partial,partial,0.39257902,0,0,0
+social_deviance,3,3345,"offenders, criminals, prisoners and/or accused people",France,du mineur violent | la violence juvénile,no_overlap | no_overlap,no_overlap,0.0011775835,0,0,1
+social_deviance,3,3364,"offenders, criminals, prisoners and/or accused people",France,des casseurs en manque de cachette,partial,partial,0.9594314,1,0,1
+social_deviance,3,3599,"terrorists, rebels, revolutionaries and/or movements of armed resistance",France,Les assaillants,no_overlap,no_overlap,0.00020957773,0,0,1
+social_deviance,3,3626,"terrorists, rebels, revolutionaries and/or movements of armed resistance",France,du FLNC-Canal historique,seen,seen,0.0001702486,0,0,1
+social_deviance,3,3699,"offenders, criminals, prisoners and/or accused people",France,de « petits voyous »,partial,partial,0.9593255,1,0,1
+social_deviance,3,3830,extremists,France,les extrémistes,seen,seen,0.95826304,1,1,1
+social_deviance,3,3977,"offenders, criminals, prisoners and/or accused people",France,des gangsters,partial,partial,0.9586925,1,0,1
+social_deviance,3,4001,"offenders, criminals, prisoners and/or accused people",France,"Tous les prévenus | Quiconque, par maladresse, imprudence, inattention, négligence ou inobservation des règlements, aura commis involontairement un homicide ou en aura été involontairement la cause",seen | partial,seen,0.88979685,1,0,1
+social_deviance,3,4265,"offenders, criminals, prisoners and/or accused people",France,des prisonniers,seen,seen,0.9580083,1,0,1
+social_deviance,3,4316,"offenders, criminals, prisoners and/or accused people",France,des clandestins,partial,partial,0.00021797544,0,0,0
+social_deviance,3,4374,extremists,France,les militants anarchistes de la Confédération nationale du travail (CNT) | ce groupuscule,partial | partial,partial,0.0061549083,0,0,1
+social_deviance,3,4675,"offenders, criminals, prisoners and/or accused people",France,les voleurs,seen,seen,0.9600911,1,0,1
+social_deviance,3,4859,extremists,France,les nationalistes,partial,partial,0.035845544,0,0,0
+social_deviance,3,4891,drug addicts,France,Les toxicomanes,seen,seen,0.9583594,1,1,1
+social_deviance,3,4972,"terrorists, rebels, revolutionaries and/or movements of armed resistance",France,le FLNC,partial,partial,0.00014632744,0,0,1
+social_deviance,3,5033,"terrorists, rebels, revolutionaries and/or movements of armed resistance",France,au Hamas,seen,seen,0.95795614,1,1,1
+social_deviance,3,5062,extremists,France,les nationalistes,partial,partial,0.024095703,0,0,0
+social_deviance,3,5375,"offenders, criminals, prisoners and/or accused people",France,les casseurs ou ceux qui sont venus piller se mettent à l'oeuvre,partial,partial,0.9597038,1,0,1
+social_deviance,3,5450,"offenders, criminals, prisoners and/or accused people",France,de bandes d'individus | les petits dealers,partial | partial,partial,0.9568645,1,1,1
+social_deviance,3,5460,"offenders, criminals, prisoners and/or accused people",France,ces gardiens accusés par plusieurs détenus transsexuels,partial,partial,0.958876,1,1,1
+social_deviance,3,5601,"offenders, criminals, prisoners and/or accused people",Germany,alle Wettbetrüger,partial,partial,0.9601166,1,0,1
+social_deviance,3,5734,"terrorists, rebels, revolutionaries and/or movements of armed resistance",Germany,NSU,seen,seen,0.00035189788,0,0,1
+social_deviance,3,6263,"terrorists, rebels, revolutionaries and/or movements of armed resistance",Germany,die Terroristen | Die überlebenden Mörder | Die Geiselnehmer | Palästinenser,seen | partial | partial | partial,seen,0.9499361,1,1,1
+social_deviance,3,6380,"offenders, criminals, prisoners and/or accused people",Germany,keine Camorra,no_overlap,no_overlap,0.0016808343,0,0,1
+social_deviance,3,6478,"offenders, criminals, prisoners and/or accused people",Germany,über 1000 Personen,partial,partial,0.68054616,1,0,1
+social_deviance,3,6960,"offenders, criminals, prisoners and/or accused people",Germany,jugendliche Gewalttäter,partial,partial,0.95991755,1,0,1
+social_deviance,3,6964,extremists,Germany," besonders radikale Gruppe innerhalb der AfD, die sich,,Der Flügel""nennt.",partial,partial,0.027889483,0,0,1
+social_deviance,3,7116,"terrorists, rebels, revolutionaries and/or movements of armed resistance",Germany,Hamas,seen,seen,0.9582705,1,1,1
+social_deviance,3,7224,"terrorists, rebels, revolutionaries and/or movements of armed resistance",Germany,NSU,seen,seen,0.00012899446,0,0,1
+social_deviance,3,7231,"terrorists, rebels, revolutionaries and/or movements of armed resistance",Germany,die Terroristen,seen,seen,0.94734424,1,1,1
+social_deviance,3,7357,"offenders, criminals, prisoners and/or accused people",Germany,die Betrüger als angebliche Bankmitarbeiter | Die Beschuldigten,partial | partial,partial,0.95864064,1,0,1
+social_deviance,3,7555,"offenders, criminals, prisoners and/or accused people",Germany,Übeltätern,no_overlap,no_overlap,0.95180005,1,0,1
+social_deviance,3,7901,"terrorists, rebels, revolutionaries and/or movements of armed resistance",Germany, Saboteuren dr,partial,partial,0.9568478,1,0,0
+social_deviance,3,8016,"terrorists, rebels, revolutionaries and/or movements of armed resistance",Germany,der fundamentalistischen Hamas-Organisation,partial,partial,0.95828277,1,1,1
+social_deviance,3,8119,"offenders, criminals, prisoners and/or accused people",Germany,die Täter,seen,seen,0.9602042,1,1,1
+social_deviance,3,8278,"offenders, criminals, prisoners and/or accused people",France,les trafiquants,partial,partial,0.95944566,1,0,1
+social_deviance,3,8351,"offenders, criminals, prisoners and/or accused people",France,de personnes en détention provisoire ou pour de courtes peines,no_overlap,no_overlap,0.9600851,1,1,1
+social_deviance,3,8470,extremists,France,Les nationalistes extrémistes,partial,partial,0.9559688,1,1,1
+social_deviance,3,8629,extremists,France,les islamistes,seen,seen,0.0008232452,0,0,1
+social_deviance,3,8770,"offenders, criminals, prisoners and/or accused people",France,aux brigands | des brigands,no_overlap | no_overlap,no_overlap,0.33255896,0,0,0
+social_deviance,3,8781,"offenders, criminals, prisoners and/or accused people",France,un criminel,seen,seen,0.958621,1,0,1
+social_deviance,3,8910,"offenders, criminals, prisoners and/or accused people",France,des criminels,seen,seen,0.95504844,1,0,1
+social_deviance,3,9423,drug addicts,France,de jeunes drogués,partial,partial,0.9564987,1,0,1
+social_deviance,3,9627,drug addicts,France,des toxicomanes | alcooliques,seen | no_overlap,seen,0.95668936,1,1,1
+social_roles_and_behavior,1,78,consumers and clients,Germany,ihre Kunden,seen,seen,0.9836764,1,1,1
+social_roles_and_behavior,1,266,patients,Germany,der Patienten,seen,seen,0.98211104,1,1,1
+social_roles_and_behavior,1,277,patients,Germany,zum Patienten,seen,seen,0.98358595,1,1,1
+social_roles_and_behavior,1,283,patients,Germany,"Die Frauen, die jeden Tag aufstehen müssen, um gegen Brustkrebs zu kämpfen",partial,partial,0.027074553,0,0,1
+social_roles_and_behavior,1,385,consumers and clients,Germany,Die Gewinner,seen,seen,0.9780593,1,0,0
+social_roles_and_behavior,1,490,consumers and clients,Germany,deutscher Touristen,partial,partial,0.0014545199,0,1,0
+social_roles_and_behavior,1,494,patients,Germany,die Patienten,seen,seen,0.983439,1,1,1
+social_roles_and_behavior,1,599,consumers and clients,Germany,alle Kunden,seen,seen,0.9829593,1,1,1
+social_roles_and_behavior,1,654,patients,Germany,Kranke,seen,seen,8.51881e-05,0,0,1
+social_roles_and_behavior,1,787,consumers and clients,Germany,Nutzer,seen,seen,0.9824467,1,1,0
+social_roles_and_behavior,1,853,patients,Germany,Patienten mit Schizophrenie,seen,seen,0.98343974,1,1,1
+social_roles_and_behavior,1,932,consumers and clients,Germany,dem Publikum,seen,seen,0.8029238,1,0,1
+social_roles_and_behavior,1,983,consumers and clients,Germany,die Kunden | jedem Kunden,seen | seen,seen,0.9824684,1,1,1
+social_roles_and_behavior,1,1084,consumers and clients,Germany,der Sender | Empfänger,partial | seen,seen,0.00095430436,0,0,0
+social_roles_and_behavior,1,1133,patients,Germany,Patienten,seen,seen,0.9823673,1,1,1
+social_roles_and_behavior,1,1196,consumers and clients,Germany,Windows-Nutzer,partial,partial,0.98276824,1,1,0
+social_roles_and_behavior,1,1542,consumers and clients,Germany,der Kunden,seen,seen,0.982312,1,1,1
+social_roles_and_behavior,1,1631,consumers and clients,Germany,Privatkundenvorstand,partial,partial,0.98285335,1,0,0
+social_roles_and_behavior,1,1791,consumers and clients,Germany,Hotelgäste,partial,partial,0.9660564,1,0,1
+social_roles_and_behavior,1,1794,consumers and clients,Germany,Erwerber,no_overlap,no_overlap,0.0001935052,0,0,0
+social_roles_and_behavior,1,1856,consumers and clients,Germany,Kunden,seen,seen,0.98301077,1,0,1
+social_roles_and_behavior,1,1976,consumers and clients,Germany,registrierte BILDplus-Kunden mit einem aktiven Abonnement,partial,partial,0.97994506,1,1,1
+social_roles_and_behavior,1,2106,consumers and clients,Germany,viele Kunden,seen,seen,0.98348135,1,1,1
+social_roles_and_behavior,1,2478,patients,Germany,Der Patient | der Betroffene,seen | seen,seen,0.9827176,1,0,1
+social_roles_and_behavior,1,2579,consumers and clients,Germany,der Nutzer,seen,seen,0.98119193,1,1,0
+social_roles_and_behavior,1,2776,consumers and clients,Germany,Kunden,seen,seen,0.98117507,1,1,1
+social_roles_and_behavior,1,2954,patients,France,mes patientes,seen,seen,0.96791714,1,0,1
+social_roles_and_behavior,1,3000,consumers and clients,France,les abonnés,seen,seen,0.9786033,1,1,1
+social_roles_and_behavior,1,3237,consumers and clients,France,aux visiteurs,seen,seen,0.97692823,1,1,1
+social_roles_and_behavior,1,3280,consumers and clients,France,nos usagers,seen,seen,0.00038682568,0,1,1
+social_roles_and_behavior,1,3385,consumers and clients,France,Les associations de consommateurs,partial,partial,0.97911227,1,1,1
+social_roles_and_behavior,1,3432,consumers and clients,France,du client,seen,seen,0.9768002,1,0,1
+social_roles_and_behavior,1,3481,consumers and clients,France,aux utilisateurs,seen,seen,0.97904336,1,0,1
+social_roles_and_behavior,1,3545,consumers and clients,France,plus de deux millions de visiteurs,seen,seen,0.97730166,1,1,1
+social_roles_and_behavior,1,3650,consumers and clients,France,le visiteur,seen,seen,0.9759049,1,0,1
+social_roles_and_behavior,1,4076,consumers and clients,France,de clients futurs,seen,seen,0.98259,1,1,1
+social_roles_and_behavior,1,4091,consumers and clients,France,au visiteur,seen,seen,0.9755796,1,0,1
+social_roles_and_behavior,1,4126,consumers and clients,France,aux adhérents,no_overlap,no_overlap,0.00041956388,0,0,0
+social_roles_and_behavior,1,4157,consumers and clients,France,"450 000 visiteurs | 2,3 millions | 12,5 millions de visiteurs",seen | seen | seen,seen,0.97455704,1,1,1
+social_roles_and_behavior,1,4239,consumers and clients,France,de nouveaux touristes,seen,seen,0.9729392,1,0,1
+social_roles_and_behavior,1,4384,consumers and clients,France,les clients,seen,seen,0.9820579,1,1,1
+social_roles_and_behavior,1,4450,car drivers,France,les usagers,no_overlap,no_overlap,0.0014058447,0,0,1
+social_roles_and_behavior,1,4537,consumers and clients,France,les visiteurs,seen,seen,0.96768737,1,1,1
+social_roles_and_behavior,1,4729,consumers and clients,France,de spectateurs,seen,seen,0.52882946,1,1,0
+social_roles_and_behavior,1,4799,consumers and clients,France, dans à peine ,no_overlap,no_overlap,0.98217463,1,0,1
+social_roles_and_behavior,1,4936,consumers and clients,France,des usagers,seen,seen,0.00013269656,0,1,1
+social_roles_and_behavior,1,4966,consumers and clients,France,ces usagers,seen,seen,0.00021300715,0,1,1
+social_roles_and_behavior,1,5028,consumers and clients,France,de consommateurs des prod,partial,partial,0.9820171,1,1,1
+social_roles_and_behavior,1,5075,patients,France,l'Association des malades du dos | de 172 anciens patients,seen | partial,seen,0.9822389,1,1,1
+social_roles_and_behavior,1,5081,consumers and clients,France,aux clientes,seen,seen,0.98096585,1,0,1
+social_roles_and_behavior,1,5515,consumers and clients,France,aux particuliers,seen,seen,0.18222864,0,0,0
+social_roles_and_behavior,1,5534,consumers and clients,France,plus de visiteurs,seen,seen,0.96644306,1,1,1
+social_roles_and_behavior,1,5596,consumers and clients,Germany,junge und sehr junge Kunden,partial,partial,0.98196846,1,1,1
+social_roles_and_behavior,1,5941,consumers and clients,Germany,Verbraucher,seen,seen,0.83865374,1,1,1
+social_roles_and_behavior,1,5971,consumers and clients,Germany,die Kunden,seen,seen,0.9831176,1,1,1
+social_roles_and_behavior,1,6124,consumers and clients,Germany,"der ""Verbraucher""",seen,seen,0.9819067,1,1,1
+social_roles_and_behavior,1,6221,consumers and clients,Germany,die Nutzer,seen,seen,0.98153543,1,1,1
+social_roles_and_behavior,1,6278,consumers and clients,Germany,Über 280 000 Abonnenten,seen,seen,0.9776073,1,0,0
+social_roles_and_behavior,1,6315,consumers and clients,Germany,potenzielle Käufer,partial,partial,0.98054355,1,0,1
+social_roles_and_behavior,1,6394,patients,Germany,Patienten mit Schizophrenie,seen,seen,0.98216784,1,1,1
+social_roles_and_behavior,1,6465,consumers and clients,Germany,der Kunden,seen,seen,0.98307794,1,1,1
+social_roles_and_behavior,1,6508,consumers and clients,Germany,der Kunden,seen,seen,0.9829352,1,1,1
+social_roles_and_behavior,1,6605,consumers and clients,Germany,Käufer,seen,seen,0.97985977,1,0,1
+social_roles_and_behavior,1,6657,patients,Germany,die Patienten,seen,seen,0.9826585,1,1,1
+social_roles_and_behavior,1,6713,consumers and clients,Germany,Kunden dieser E-Mail-Dienste,partial,partial,0.9830088,1,1,1
+social_roles_and_behavior,1,6744,patients,Germany,der Patient,seen,seen,0.98217,1,0,1
+social_roles_and_behavior,1,6783,consumers and clients,Germany,die Kunden,seen,seen,0.98081595,1,1,1
+social_roles_and_behavior,1,6808,patients,Germany,der Patienten | Krebs- | Aids-Patienten,seen | no_overlap | partial,seen,0.98351777,1,1,1
+social_roles_and_behavior,1,6874,consumers and clients,Germany,den Reisenden,seen,seen,0.962609,1,0,0
+social_roles_and_behavior,1,6889,consumers and clients,Germany,Kunden,seen,seen,0.95617104,1,1,0
+social_roles_and_behavior,1,7192,consumers and clients,Germany,die Kunden,seen,seen,0.98269147,1,1,1
+social_roles_and_behavior,1,7237,consumers and clients,Germany,Kunden,seen,seen,0.98299843,1,0,1
+social_roles_and_behavior,1,7278,patients,Germany,Patienten,seen,seen,0.98327315,1,1,1
+social_roles_and_behavior,1,7314,consumers and clients,Germany,die Verbraucher,seen,seen,0.98322713,1,1,1
+social_roles_and_behavior,1,7348,patients,Germany,die Patienten,seen,seen,0.9834447,1,1,1
+social_roles_and_behavior,1,7671,consumers and clients,Germany,der Versicherten,seen,seen,0.0017339885,0,0,1
+social_roles_and_behavior,1,7899,consumers and clients,Germany,Gäste,seen,seen,0.98117536,1,1,1
+social_roles_and_behavior,1,7902,consumers and clients,Germany,Anleger,no_overlap,no_overlap,9.189174e-05,0,0,0
+social_roles_and_behavior,1,7906,consumers and clients,Germany,Der Kunde,seen,seen,0.9827765,1,0,1
+social_roles_and_behavior,1,7926,consumers and clients,Germany,die Halter von Bonus-Zertifikaten,partial,partial,0.0003977,0,0,0
+social_roles_and_behavior,1,7946,patients,Germany,rund 35.000 Patienten,seen,seen,0.98328614,1,1,1
+social_roles_and_behavior,1,7977,patients,Germany,"Etwa 2,9 Millionen Pflegebedürftige",no_overlap,no_overlap,0.97048616,1,0,1
+social_roles_and_behavior,1,8479,consumers and clients,France,ses clients,seen,seen,0.9822563,1,1,1
+social_roles_and_behavior,1,8836,consumers and clients,France,aux consommateurs du Monde entier,partial,partial,0.98056406,1,1,1
+social_roles_and_behavior,1,8889,consumers and clients,France,les loueurs,no_overlap,no_overlap,0.00091568276,0,0,0
+social_roles_and_behavior,1,9107,consumers and clients,France,des visiteurs,seen,seen,0.21453008,0,1,1
+social_roles_and_behavior,1,9174,patients,France,des malades qui ont une maladie chronique,partial,partial,0.98085475,1,1,1
+social_roles_and_behavior,1,9424,car drivers,France,des conducteurs de VTC,partial,partial,0.9582554,1,0,1
+social_roles_and_behavior,1,9464,car drivers,France,des automobilistes,seen,seen,0.9792828,1,1,1
+social_roles_and_behavior,1,9502,car drivers,Germany,deutscher Autofahrer,partial,partial,0.973475,1,0,1
+socio_economic_position,1,670,skilled or qualified,Germany,Malern mit Diplom,no_overlap,no_overlap,9.669136e-05,0,0,1
+socio_economic_position,1,1096,"capital owners, investors and shareholders",Germany,institutionelle Investoren | Käufer | Verkäufer,partial | seen | seen,seen,0.99452716,1,1,1
+socio_economic_position,1,1168,"capital owners, investors and shareholders",Germany,seinen Aktionären,seen,seen,0.9946242,1,1,1
+socio_economic_position,1,1383,"capital owners, investors and shareholders",Germany,Die restlichen Uniper-Aktionäre,partial,partial,0.99350667,1,1,1
+socio_economic_position,1,1718,skilled or qualified,Germany,Akademiker mit Landeserfahrungen,partial,partial,0.9933873,1,0,1
+socio_economic_position,1,1911,skilled or qualified,Germany,sechzig Absolventen pro Dozent,partial,partial,0.9935029,1,1,0
+socio_economic_position,1,3258,"capital owners, investors and shareholders",France,des actionnaires minoritaires,seen,seen,0.9945182,1,1,1
+socio_economic_position,1,3351,"capital owners, investors and shareholders",France,Les investisseurs non japonais,partial,partial,0.99469817,1,1,1
+socio_economic_position,1,3848,lower class,France,pauvres,seen,seen,3.3804597e-05,0,0,1
+socio_economic_position,1,3848,upper class,France,un privilégié | les ' élites ',no_overlap | partial,partial,0.14099875,0,0,1
+socio_economic_position,1,4207,"capital owners, investors and shareholders",France,d'actionnaires,seen,seen,0.99423075,1,1,1
+socio_economic_position,1,4470,"capital owners, investors and shareholders",France,les investisseurs,seen,seen,0.9944496,1,1,1
+socio_economic_position,1,4627,"capital owners, investors and shareholders",France,des investisseurs,seen,seen,0.9943481,1,1,1
+socio_economic_position,1,4667,lower class,France,des boursiers,seen,seen,0.013189216,0,0,0
+socio_economic_position,1,4722,"capital owners, investors and shareholders",France,certains de ses grands actionnaires,partial,partial,0.9945754,1,1,1
+socio_economic_position,1,4842,"capital owners, investors and shareholders",France,les boursiers,no_overlap,no_overlap,0.0003121605,0,0,0
+socio_economic_position,1,5104,"capital owners, investors and shareholders",France,"Granada et Carlton, les actionnaires fondateurs de ITV Digital",partial,partial,0.99458545,1,1,1
+socio_economic_position,1,5319,lower class,France,les prolétaires juifs,no_overlap,no_overlap,2.1002557e-05,0,0,1
+socio_economic_position,1,5421,"capital owners, investors and shareholders",France,d'actionnaires,seen,seen,0.9946051,1,1,1
+socio_economic_position,1,5591,"capital owners, investors and shareholders",Germany,Sponsoren,seen,seen,0.9329178,1,1,0
+socio_economic_position,1,5644,"capital owners, investors and shareholders",Germany,die Aktionäre der Deutschen Börse,seen,seen,0.99464154,1,1,1
+socio_economic_position,1,5925,"capital owners, investors and shareholders",Germany,seiner christlichen Finanziers,partial,partial,0.038816128,0,0,1
+socio_economic_position,1,5956,"capital owners, investors and shareholders",Germany,Investorengruppen,partial,partial,0.99466234,1,0,1
+socio_economic_position,1,6295,"capital owners, investors and shareholders",Germany,Investoren,seen,seen,0.9942983,1,0,1
+socio_economic_position,1,6423,unskilled or unqualified,Germany,größtenteils analphabetischen Menschen aus der Provinz,partial,partial,0.0022366596,0,0,1
+socio_economic_position,1,6423,skilled or qualified,Germany,eloquenten Intellektuellen,no_overlap,no_overlap,0.14408436,0,0,1
+socio_economic_position,1,6577,"capital owners, investors and shareholders",Germany,seinen Anteilseignern,partial,partial,0.99393255,1,0,1
+socio_economic_position,1,6630,lower class,Germany,Menschen in schwierigen Lebenslagen,no_overlap,no_overlap,0.19684286,0,0,0
+socio_economic_position,1,6689,"capital owners, investors and shareholders",Germany,Sponsoren,seen,seen,0.9938885,1,1,0
+socio_economic_position,1,6871,skilled or qualified,Germany,Absolventen,seen,seen,0.99366575,1,1,0
+socio_economic_position,1,7002,middle class,Germany,die Bezieher mittlerer Einkommen,no_overlap,no_overlap,0.0015739602,0,0,1
+socio_economic_position,1,7036,"capital owners, investors and shareholders",Germany,alle Fonds,partial,partial,0.9700941,1,0,1
+socio_economic_position,1,7047,"capital owners, investors and shareholders",Germany,Sponsoren,seen,seen,0.99304456,1,1,0
+socio_economic_position,1,7064,upper class,Germany,der höheren Gesellschaft,partial,partial,0.07181321,0,0,1
+socio_economic_position,1,7085,"capital owners, investors and shareholders",Germany,ein CFD-Anleger,partial,partial,0.9944469,1,1,1
+socio_economic_position,1,7585,"capital owners, investors and shareholders",Germany,jedem Aktionär,seen,seen,0.99452305,1,0,1
+socio_economic_position,1,7668,"capital owners, investors and shareholders",Germany,Anleger,seen,seen,0.9938571,1,1,1
+socio_economic_position,1,7737,skilled or qualified,Germany,frische Absolventen,partial,partial,0.99398994,1,1,0
+socio_economic_position,1,7756,lower class,Germany,die Schwachen,seen,seen,0.99395,1,0,0
+socio_economic_position,1,7927,"capital owners, investors and shareholders",Germany,Investoren wie Elliott oder Knight Vinke,partial,partial,0.99450207,1,1,1
+socio_economic_position,1,7942,"capital owners, investors and shareholders",Germany,Anleger,seen,seen,0.9946273,1,1,1
+socio_economic_position,1,8120,"capital owners, investors and shareholders",Germany,ausländischer Investoren,partial,partial,0.994269,1,1,1
+socio_economic_position,1,8141,upper class,France,les plus grandes fortunes,seen,seen,0.9938672,1,0,1
+socio_economic_position,1,8161,lower class,France,des allocataires des minima sociaux qui n’étaient pris en charge par aucune structure,partial,partial,0.9932586,1,0,1
+socio_economic_position,1,8450,lower class,France,"les personnes en difficulté, forcément précaire",partial,partial,0.992935,1,0,1
+socio_economic_position,1,8480,"capital owners, investors and shareholders",France,les actionnaires,seen,seen,0.9940672,1,1,1
+socio_economic_position,1,8527,"capital owners, investors and shareholders",France,des investisseurs,seen,seen,0.9945257,1,1,1
+socio_economic_position,1,8598,upper class,France,les femmes plus aisées,partial,partial,0.9939095,1,0,1
+socio_economic_position,1,8730,middle class,France,cette classe moyenne indigène chola,partial,partial,0.994005,1,0,1
+socio_economic_position,1,9017,"capital owners, investors and shareholders",France,des actionnaires,seen,seen,0.9929965,1,1,1
+socio_economic_position,1,9272,lower class,France,les étudiants de milieux modestes,partial,partial,0.99424064,1,1,1
+socio_economic_position,1,9382,unskilled or unqualified,France,"analphabètes | illettrés | ceux qui n'ont jamais été scolarisés, ignorent ce qu'est un texte | personnes ayant été scolarisées mais maîtrisant peu ou plus lecture et écriture",seen | partial | no_overlap | partial,seen,0.9930616,1,0,0
+socio_economic_position,1,9383,unskilled or unqualified,France,"
+Les salariés non qualifi",partial,partial,0.9944595,1,0,1
+socio_economic_position,1,9401,"capital owners, investors and shareholders",France,les hommes d'affaires,no_overlap,no_overlap,1.935355e-05,0,0,0
+socio_economic_position,1,9413,lower class,France,les habitants les plus précaires,no_overlap,no_overlap,0.018659087,0,0,1
+socio_economic_position,1,9425,unskilled or unqualified,France,des ouvriers non qualifiés,partial,partial,0.9943974,1,0,1
+socio_economic_position,1,9428,lower class,France,des jeunes étudiants qui n'arrivent pas à boucler un budget | des personnes âgées aux retraites insuffisantes | des ruraux en difficulté,partial | no_overlap | partial,partial,0.5656637,1,0,0
+socio_economic_position,1,9429,upper class,France,des riches,seen,seen,0.0024733033,0,0,1
+socio_economic_position,1,9495,middle class,France,les classes moyennes,seen,seen,0.993954,1,1,1
+socio_economic_position,1,9507,skilled or qualified,Germany,selbständige Akademiker,partial,partial,0.96348125,1,0,0
+socio_economic_position,1,9515,lower class,Germany,Arm,seen,seen,0.9925505,1,0,1
+socio_economic_position,1,9515,middle class,Germany,die viel gepriesene Mittelschicht,partial,partial,0.9936811,1,0,1
+socio_economic_position,1,9515,upper class,Germany,Reich,seen,seen,0.02253953,0,0,1
+socio_economic_position,1,9516,middle class,Germany,die Mitte der Gesellschaft,partial,partial,2.2866692e-05,0,0,1
+socio_economic_position,1,9521,unskilled or unqualified,Germany,ungelernte Arbeiter,seen,seen,0.99463946,1,0,1
+socio_economic_position,1,9540,lower class,Germany,137 benachteiligte Jugendliche,no_overlap,no_overlap,0.09228437,0,0,0
+socio_economic_position,1,9569,"capital owners, investors and shareholders",Germany,Börsenspekulanten,partial,partial,0.9903746,1,0,1
+socio_economic_position,1,9576,"capital owners, investors and shareholders",Germany,Investoren,seen,seen,0.99415475,1,0,1

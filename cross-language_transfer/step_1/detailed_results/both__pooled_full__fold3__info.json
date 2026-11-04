@@ -1,0 +1,31 @@
+{
+  "run": "both__pooled_full__fold3",
+  "direction": "both",
+  "condition": "pooled_full",
+  "fold": 3,
+  "seed": 301,
+  "n_train": 5041,
+  "n_train_pos": 1400,
+  "n_train_fr": 3600,
+  "n_train_de": 1441,
+  "n_test": 1259,
+  "base_model": "MoritzLaurer/mDeBERTa-v3-base-mnli-xnli",
+  "epochs": 4,
+  "lr": 2e-05,
+  "batch_train": 8,
+  "max_length": 256,
+  "mixed_precision": false,
+  "final_training_loss": 0.15619783719380698,
+  "test": {
+    "n": 1259.0,
+    "n_pos": 349.0,
+    "precision": 0.7922437673130194,
+    "recall": 0.8194842406876791,
+    "f1": 0.8056338028169014,
+    "f1_weighted": 0.8909517335832635,
+    "accuracy": 0.8903891977760127,
+    "kappa": 0.7293367315146002,
+    "pr_auc": 0.8470988847444895
+  },
+  "hf_repo": null
+}

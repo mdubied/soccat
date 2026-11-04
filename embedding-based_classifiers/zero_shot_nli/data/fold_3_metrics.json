@@ -1,0 +1,17 @@
+{
+  "accuracy": 0.8491858533687363,
+  "precision_binary": 0.06202977429166,
+  "recall_binary": 0.5183946488294314,
+  "f1_binary": 0.11080134391307456,
+  "precision_micro": 0.8491858533687363,
+  "recall_micro": 0.8491858533687363,
+  "f1_micro": 0.8491858533687363,
+  "f1_macro": 0.5142034725314898,
+  "cohen_kappa": 0.0810480227945557,
+  "prevalence": 0.018125825967822112,
+  "roc_auc": 0.7523994582356084,
+  "pr_auc": 0.10156695303787783,
+  "fold": 3,
+  "model": "MoritzLaurer/mDeBERTa-v3-base-mnli-xnli",
+  "formulation": "zero-shot NLI"
+}

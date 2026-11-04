@@ -1,0 +1,18 @@
+{
+  "accuracy": 0.9914159967991852,
+  "precision_binary": 0.7890235210263721,
+  "recall_binary": 0.7287689269256089,
+  "f1_binary": 0.757700205338809,
+  "precision_micro": 0.9914159967991852,
+  "recall_micro": 0.9914159967991852,
+  "f1_micro": 0.9914159967991852,
+  "f1_macro": 0.8766654029730407,
+  "cohen_kappa": 0.7533378160882466,
+  "prevalence": 0.018416809127171765,
+  "roc_auc": 0.9593507152159603,
+  "pr_auc": 0.7624971427281773,
+  "fold": 1,
+  "best_epoch": 22.0,
+  "model": "MoritzLaurer/mDeBERTa-v3-base-mnli-xnli",
+  "formulation": "multi-label classifier"
+}

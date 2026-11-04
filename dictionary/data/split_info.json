@@ -1,0 +1,8 @@
+{
+  "n_sentences": 7234,
+  "n_train_before_step1_filter": 5787,
+  "n_removed_step1_test": 181,
+  "n_train": 5606,
+  "n_test": 1447,
+  "step1_test_path": "data\\model_performance\\step_1\\test_with_all_outlets.json"
+}

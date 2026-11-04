@@ -1,0 +1,24 @@
+Label                                                         Bin.F1 med  Bin.F1 mean  Bin.F1 best   Macro F1 best   Fold
+-------------------------------------------------------------------------------------------------------------------------
+singles                                                          0.85714      0.87325      1.00000         1.00000      2
+couples                                                          0.85714      0.84841      0.87500         0.93715      2
+youth, including students and apprentices                        0.84127      0.83528      0.81538         0.90335      2
+parents and families                                             0.82500      0.81741      0.80000         0.89752      2
+minors, including children and pupils                            0.81538      0.81663      0.84564         0.91863      2
+elderly                                                          0.60000      0.59692      0.60000         0.79931      2
+middle-aged and pre-retirement age groups                        0.00000      0.20000      0.66667         0.83299      2
+-------------------------------------------------------------------------------------------------------------------------
+Whole-class pooled metrics at fold 2 (from fold_2_metrics.json): f1_binary=0.82353, f1_macro=0.91003
+-------------------------------------------------------------------------------------------------------------------------
+Count of individual categories with binary F1 > threshold (out of 7 total):
+ Threshold  Median>thr  Mean>thr  Best>thr
+------------------------------------------
+      0.90           0         0         1
+      0.85           2         1         2
+      0.80           5         5         4
+      0.75           5         5         5
+      0.70           5         5         5
+      0.65           5         5         6
+      0.60           5         5         6
+      0.55           6         6         7
+      0.50           6         6         7

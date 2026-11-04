@@ -1,0 +1,58 @@
+category,label,support,tp,fp,fn,tn,precision,recall,f1
+socio_economic_position,lower class,12,2,98,10,1818,0.02,0.167,0.036
+socio_economic_position,middle class,6,1,6,5,1916,0.143,0.167,0.154
+socio_economic_position,upper class,8,0,24,8,1896,0.0,0.0,0.0
+socio_economic_position,"capital owners, investors and shareholders",48,16,43,32,1837,0.271,0.333,0.299
+socio_economic_position,unskilled or unqualified,8,2,0,6,1920,1.0,0.25,0.4
+socio_economic_position,skilled or qualified,10,2,4,8,1914,0.333,0.2,0.25
+labor_market_position,wage and salary earners,91,46,36,45,1801,0.561,0.505,0.532
+labor_market_position,civil servants,15,6,10,9,1903,0.375,0.4,0.387
+labor_market_position,CEOs and corporate leaders,49,18,64,31,1815,0.22,0.367,0.275
+labor_market_position,employers,12,8,90,4,1826,0.082,0.667,0.145
+labor_market_position,entrepreneurs,86,26,61,60,1781,0.299,0.302,0.301
+labor_market_position,self-employed and freelancers,7,3,3,4,1918,0.5,0.429,0.462
+labor_market_position,unemployed,10,3,105,7,1813,0.028,0.3,0.051
+labor_market_position,retirees,7,3,0,4,1921,1.0,0.429,0.6
+labor_market_position,housewives and househusbands,4,3,30,1,1894,0.091,0.75,0.162
+age_and_family_status,parents and families,42,24,54,18,1832,0.308,0.571,0.4
+age_and_family_status,"minors, including children and pupils",69,46,76,23,1783,0.377,0.667,0.482
+age_and_family_status,"youth, including students and apprentices",66,49,85,17,1777,0.366,0.742,0.49
+age_and_family_status,middle-aged and pre-retirement age groups,2,0,75,2,1851,0.0,0.0,0.0
+age_and_family_status,elderly,10,1,81,9,1837,0.012,0.1,0.022
+age_and_family_status,couples,6,2,51,4,1871,0.038,0.333,0.068
+age_and_family_status,singles,6,2,19,4,1903,0.095,0.333,0.148
+identities,men,30,23,105,7,1793,0.18,0.767,0.291
+identities,women,86,62,61,24,1781,0.504,0.721,0.593
+identities,cisgender and heterosexuals,6,5,57,1,1865,0.081,0.833,0.147
+identities,LGBTQIA+,19,12,110,7,1799,0.098,0.632,0.17
+identities,disabled people,8,4,55,4,1865,0.068,0.5,0.119
+identities,"people with an immigration background, including immigrants",47,20,53,27,1828,0.274,0.426,0.333
+identities,Ethnic and racial minorities,14,6,19,8,1895,0.24,0.429,0.308
+identities,Christians,10,3,11,7,1907,0.214,0.3,0.25
+identities,Jews,10,8,9,2,1909,0.471,0.8,0.593
+identities,Muslims,13,4,98,9,1817,0.039,0.308,0.07
+identities,multiple (or other) religious or minority groups,4,0,3,4,1921,0.0,0.0,0.0
+profession,athletes,66,24,34,42,1828,0.414,0.364,0.387
+profession,authors and artists,38,16,21,22,1869,0.432,0.421,0.427
+profession,doctors,21,9,18,12,1889,0.333,0.429,0.375
+profession,farmers and fishermen,16,7,94,9,1818,0.069,0.438,0.12
+profession,health and care professionals,6,1,36,5,1886,0.027,0.167,0.047
+profession,journalists,8,4,16,4,1904,0.2,0.5,0.286
+profession,legal professionals,12,5,39,7,1877,0.114,0.417,0.179
+profession,politicians and high-ranking officials,318,141,65,177,1545,0.684,0.443,0.538
+profession,sex workers,4,2,0,2,1924,1.0,0.5,0.667
+profession,scientists and professors,18,9,96,9,1814,0.086,0.5,0.146
+profession,security forces,61,40,48,21,1819,0.455,0.656,0.537
+profession,soldiers,30,16,39,14,1859,0.291,0.533,0.376
+profession,teachers and educators,11,7,124,4,1793,0.053,0.636,0.099
+profession,other professions,82,21,37,61,1809,0.362,0.256,0.3
+social_roles_and_behavior,consumers and clients,70,36,48,34,1810,0.429,0.514,0.468
+social_roles_and_behavior,car drivers,4,3,2,1,1922,0.6,0.75,0.667
+social_roles_and_behavior,patients,24,14,143,10,1761,0.089,0.583,0.155
+social_deviance,extremists,22,9,38,13,1868,0.191,0.409,0.261
+social_deviance,"terrorists, rebels, revolutionaries and/or movements of armed resistance",38,19,34,19,1856,0.358,0.5,0.418
+social_deviance,"offenders, criminals, prisoners and/or accused people",46,8,20,38,1862,0.286,0.174,0.216
+social_deviance,drug addicts,3,0,1,3,1924,0.0,0.0,0.0
+real_estate_ownership,real-estate owners,29,19,36,10,1863,0.345,0.655,0.452
+real_estate_ownership,tenants,8,7,32,1,1888,0.179,0.875,0.298
+real_estate_ownership,homeless,4,2,16,2,1908,0.111,0.5,0.182

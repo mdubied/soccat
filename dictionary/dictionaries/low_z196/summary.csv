@@ -1,0 +1,58 @@
+category,label,n_pos_train,n_words,top_words
+socio_economic_position,lower class,39,9,"revenus, ménages, armen, schwachen, mesures, part, chômage, familles, année"
+socio_economic_position,middle class,18,4,"classes, moyenne, classe, victimes"
+socio_economic_position,upper class,27,2,"euros, pen"
+socio_economic_position,"capital owners, investors and shareholders",136,20,"zahlen, yens, aktien, aktie, capital, euro, groupe, saatchi, private, milliards"
+socio_economic_position,unskilled or unqualified,23,1,gering
+socio_economic_position,skilled or qualified,29,1,wohnen
+labor_market_position,wage and salary earners,351,20,"mitarbeiter, grève, syndicats, syndicat, travail, nokia, travailleurs, personal, personnel, gewerkschaft"
+labor_market_position,civil servants,38,3,"beamten, fonctionnaires, funktionäre"
+labor_market_position,CEOs and corporate leaders,60,16,"dirigeants, entreprise, beschäftigten, patrons, saatchi, viande, compagnie, cadres, club, avenir"
+labor_market_position,employers,48,9,"patrons, arbeitgeber, employeurs, arbeitnehmer, employés, emploi, arbeit, lundi, heures"
+labor_market_position,entrepreneurs,555,20,"unternehmen, entreprises, industrie, bank, marché, banques, firmen, markt, produits, milliards"
+labor_market_position,self-employed and freelancers,15,1,entrepreneurs
+labor_market_position,unemployed,41,20,"résultats, février, mars, million, emploi, attendus, nombre, mois, trimestre, chiffre"
+labor_market_position,retirees,16,2,"retraités, rentner"
+labor_market_position,housewives and househusbands,19,3,"femmes, foyer, travail"
+age_and_family_status,parents and families,149,20,"familles, famille, familie, parents, familien, eltern, salle, angehörige, kindern, célibataires"
+age_and_family_status,"minors, including children and pupils",272,20,"enfants, ans, avril, mädchen, kinder, élèves, kindern, filles, petits, stage"
+age_and_family_status,"youth, including students and apprentices",253,20,"jeunes, jungen, junge, jeunesse, étudiants, jugendlichen, sports, université, leuten, vacances"
+age_and_family_status,middle-aged and pre-retirement age groups,11,3,"ans, nombre, femmes"
+age_and_family_status,elderly,27,13,"salle, âgées, ouverture, portes, leuten, heures, vieux, école, kampf, action"
+age_and_family_status,couples,21,2,"couples, femmes"
+age_and_family_status,singles,22,2,"alleinstehende, femmes"
+identities,men,112,20,"frauen, männer, hommes, trans, mädchen, jungen, schwarzer, frau, jungs, garçons"
+identities,women,262,20,"frauen, femmes, trans, frau, mädchen, männer, filles, foyer, cis, gewalt"
+identities,cisgender and heterosexuals,16,4,"trans, frau, frauen, hétérosexuels"
+identities,LGBTQIA+,65,15,"trans, personen, frauen, frau, schwarzer, cis, mädchen, rose, hamam, geschlecht"
+identities,disabled people,24,7,"handicapés, institution, sociale, député, famille, leben, kinder"
+identities,"people with an immigration background, including immigrants",171,20,"réfugiés, ausländer, bayern, münchen, étrangers, geschieht, ausländischen, klassen, überall, aufnahme"
+identities,Ethnic and racial minorities,12,1,schwarze
+identities,Christians,27,5,"chrétiens, rassemblement, membres, mai, mouvement"
+identities,Jews,30,6,"juifs, antisémitisme, juive, cas, étudiants, guerre"
+identities,Muslims,26,3,"islamistes, islamique, français"
+identities,multiple (or other) religious or minority groups,13,0,
+profession,athletes,283,20,"joueurs, spieler, spiel, mannschaft, bayern, leader, trainer, team, sportifs, spielen"
+profession,authors and artists,141,20,"künstler, public, festival, spectacle, arts, musiciens, auteur, acteurs, danse, autoren"
+profession,doctors,47,3,"patienten, grève, part"
+profession,farmers and fishermen,59,11,"agriculteurs, agricoles, preisen, paysans, producteurs, publics, ernten, schlechten, tarn, locaux"
+profession,health and care professionals,23,3,"grève, santé, trauma"
+profession,journalists,35,1,sagen
+profession,legal professionals,37,7,"richter, magistrats, karlsruher, anwälte, juges, paris, jeunes"
+profession,politicians and high-ranking officials,984,20,"gauche, parti, ps, politiker, grünen, président, politiques, majorité, extrême, opposition"
+profession,sex workers,21,1,sexe
+profession,scientists and professors,68,10,"économistes, chercheurs, forscher, wissenschaftler, dr, scientifiques, universität, region, verfahren, patienten"
+profession,security forces,180,20,"police, policiers, ermittler, beamten, polizei, polizisten, gendarmes, agents, bundespolizei, enquêteurs"
+profession,soldiers,62,13,"militaires, troupes, soldats, soldaten, bundeswehr, officiers, gendarmerie, légion, opérations, aufgabe"
+profession,teachers and educators,46,11,"lehrer, enseignants, eltern, école, schulen, professeurs, parents, semaine, directeur, jeunes"
+profession,other professions,246,20,"experten, hôtesses, professionnels, postes, niveau, agents, experts, sportives, makler, berater"
+social_roles_and_behavior,consumers and clients,254,20,"visiteurs, clients, résultats, bank, mars, février, besucher, millions, gäste, usagers"
+social_roles_and_behavior,car drivers,17,1,voiture
+social_roles_and_behavior,patients,73,16,"behandlung, studie, betroffenen, schizophrenie, vermutlich, patients, neuer, stiftung, hälfte, farbe"
+social_deviance,extremists,50,10,"extrémistes, violence, waffen, nationalistes, nazis, corelli, corse, trotz, république, afd"
+social_deviance,"terrorists, rebels, revolutionaries and/or movements of armed resistance",62,20,"cuncolta, flnc, terroristen, saboteure, islamique, canal, arabes, historique, spuren, generation"
+social_deviance,"offenders, criminals, prisoners and/or accused people",152,20,"kriminelle, opfer, täter, prévenus, détenus, polizei, angeklagten, kampf, commis, crime"
+social_deviance,drug addicts,18,0,
+real_estate_ownership,real-estate owners,71,20,"propriétaires, privés, travaux, logement, occupants, bailleurs, propriété, locataires, amélioration, déclaration"
+real_estate_ownership,tenants,33,6,"bailleurs, logements, logement, propriétaires, wohnungsmieter, cdu"
+real_estate_ownership,homeless,26,4,"abri, festen, logements, enfants"

@@ -1,0 +1,21 @@
+\begin{table}[htb]
+\centering
+\scriptsize
+\begin{threeparttable}
+\caption{Step 2 performance of the initial and the current specification.}
+\label{tab:step-2-initial-vs-current}
+\begin{tabular}{l l r r r r}
+\toprule
+Model & Test set & Test sentences & Precision & Recall & F1 \\
+\midrule
+Initial & Sentences of the broad class only & 6,767 & 0.94 & 0.78 & 0.85 \\
+Current & Sentences of the broad class only & 6,977 & 0.95 & 0.78 & 0.86 \\
+Current & All sentences & 57,872 & 0.82 & 0.78 & 0.80 \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item \textit{Note:} Positive-class scores pooled over all (sentence, group label) pairs of the five cross-validation test folds and all eight broad classes. Test sentences: summed over the eight broad classes. In the initial specification, the training and test sets of a broad class contained only the sentences annotated with a label of that class; in the current specification, they contain all annotated sentences. The second row scores the current model on test sets restricted in the initial way.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}

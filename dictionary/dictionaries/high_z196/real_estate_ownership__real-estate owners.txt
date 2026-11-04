@@ -1,0 +1,7 @@
+propriétaires
+bailleurs
+vermieter
+privés
+wohnungsvermieter
+occupants
+hauseigentümer
