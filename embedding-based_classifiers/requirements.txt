@@ -1,6 +1,7 @@
 # Python packages for the GPU jobs: fine_tuned_classifier/train_cv.py and zero_shot_nli/predict_cv.py.
-# Versions as in the repo's main requirements.txt (the full local environment); only what these
-# scripts need, so that the cluster environment stays small.
+# Versions the cluster jobs ran with; only what these scripts need, so that the cluster environment
+# stays small. The repo's main requirements.txt (the full local environment) has transformers 5.x
+# instead, because sentence-transformers (unseen_generalization/03_semantic_proximity.py) requires it.
 #
 # On the cluster (once, on a login node). The venv lives on /scratch, not in $HOME:
 #     python -m venv /scratch/md6382/venvs/soccat-gpu
