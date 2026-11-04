@@ -1,8 +1,8 @@
-# SOCCAT: Detecting Social Categories in Multilingual Newspaper Corpora
+# SOCCAT -- Detecting and Classifying Social Group References: A Scalable Pipeline Validated on French and German Newspapers
 
 ## Description
 
-This repository accompanies the paper "**Detecting Social Categories in Multilingual Newspaper Corpora**" (2026) by S. Šarenkapa, I. Guinaudeau, E. Deiss-Helbig, M. Dubied, R. Heiberger, and T. Matthieß. [Preprint on OSF/SocArXiv](https://osf.io/preprints/socarxiv/bmqxt_v1)
+This repository accompanies the paper "**Detecting and Classifying Social Group References: A Scalable Pipeline Validated on French and German Newspapers**" (2026) by S. Šarenkapa, I. Guinaudeau, E. Deiss-Helbig, M. Dubied, R. Heiberger, and T. Matthieß. [Preprint on OSF/SocArXiv](https://osf.io/preprints/socarxiv/bmqxt_v1)
 
 It provides the codebase required to reproduce the results reported in the paper. The pipeline detects mentions of social groups in French and German sentences using transformer-based NLP models. It has been trained and validated using representative French and German newspaper articles. It has two stages:
 
